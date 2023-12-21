@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { language } from '@/lib/dictionary';
@@ -5,9 +6,14 @@ import { usePathname } from 'next/navigation'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
+  const [isDark, setIsDark] = useState(true);
+  useEffect(() => {
+    setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+
   return <>
     <Head>
-      <link rel="icon" href="/favicon.svg"></link>
+      <link rel="icon" href={isDark ? "/favicon-white.svg" : "/favicon.svg"}></link>
     </Head>
 
     <header>
@@ -22,9 +28,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           ['意味', '/semantiks'],
           ['辭彙', '/leksikon'],
           ['變換', '/konvert'],
+          ['用例', '/sample'],
           ['開發', '/tool'],
         ].map(([name, path]) =>
-          <Link data-opened={pathname == path} href={path}>{name}</Link>
+          <Link className={name == '開發' ? 'faint' : ''} data-opened={pathname == path} href={path}>{name}</Link>
         )
       }</div>
     </header>

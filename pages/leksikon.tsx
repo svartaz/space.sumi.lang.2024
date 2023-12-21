@@ -1,11 +1,12 @@
 import Layout from '@/components/layout';
-import { dictionary, ipa, orthography } from '@/lib/dictionary'
+import { dictionary } from '@/lib/dictionary'
+import { compare, ipa, orthography } from '@/lib/orthography';
 import style from '@/styles/leksikon.module.sass'
 import { useState } from 'react';
 
-const Replace = ({ children, pattern, replacer }: { children: string, pattern: string | RegExp, replacer: Function }) =>
+export const Replace = ({ children, replaced, replacer }: { children: string, replaced: string | RegExp, replacer: Function }) =>
   children
-    .replace(pattern, (it: string) => `\<\<\<REPLACE:${it}>>>`)
+    .replace(replaced, (it: string) => `\<\<\<REPLACE:${it}>>>`)
     .split(new RegExp(`(?=<<<REPLACE:.*?>>>)|(?<=<<<REPLACE:.*?>>>)`))
     .map((chunk: string) =>
       /^<<<REPLACE:.*?>>>$/.test(chunk)
@@ -14,7 +15,7 @@ const Replace = ({ children, pattern, replacer }: { children: string, pattern: s
     );
 
 export const Signified = ({ datum }: { datum: string }) => <Replace
-  pattern={/\$[012]( \(.+?\))?/g}
+  replaced={/\$[012]( \(.+?\))?/g}
   replacer={(it: string) =>
     <span className={style.variable}>{it.replace(/^\$/, '')}</span>}
 >
@@ -27,9 +28,9 @@ export const Entry = ({ k }: { k: string }) => {
     const { signifier, signified, klass, etymology } = v;
     return <div className={style.entry}>
       <div>
-        <span className='language' style={{ fontWeight: 'bold' }}>{orthography(signifier)}</span>
+        <span className='language' style={{ fontWeight: 'bolder' }}>{orthography(signifier)}</span>
         {' '}[{ipa(signifier)}]
-        {' '}<span style={{ opacity: .25 }} className='code'>{k}:{klass}</span>
+        {' '}<span className='faint code' style={{ fontSize: 'small' }} >{k}:{klass}</span>
       </div>
       <div style={{ marginLeft: '1em' }}>
         <Signified datum={signified} />
@@ -51,9 +52,11 @@ export default () => {
     <input style={{ width: '100%', outline: 'none' }} onChange={event => setQuery(event.target.value)} />
 
     <div className={style.list}>{
-      Array.from(dictionary.entries()).map(([k, { signifier, klass, etymology, signified }]) =>
-        [k, signifier, signified, etymology, klass].some(it => it && it.includes(query)) && <Entry k={k} />
-      )
+      Array.from(dictionary.entries())
+        .sort(([_k1, v0], [_k0, v1]) => compare(v0.signifier, v1.signifier))
+        .map(([k, { signifier, klass, etymology, signified }]) =>
+          [k, signifier, signified, etymology, klass].some(it => it && it.includes(query)) && <Entry k={k} />
+        )
     }</div>
   </Layout >
 };

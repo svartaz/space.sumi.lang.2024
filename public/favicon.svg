@@ -3,6 +3,6 @@
 <svg viewBox="-.51 -.41 3.02 2.65" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path stroke="black" stroke-width="0.25" stroke-linecap="round" fill="none" d="M0 1.732 L1 0 L2 1.732" />
   <circle cx="0" cy="1.732" r="0.4" stroke="black" stroke-width="0.2" fill="none" />
-  <circle cx="1" cy="0" r="0.4" stroke="none" />
+  <circle cx="1" cy="0" r="0.4" stroke="none"  fill="black"/>
   <circle cx="2" cy="1.732" r="0.4" stroke="black" stroke-width="0.2" fill="none" />
 </svg>

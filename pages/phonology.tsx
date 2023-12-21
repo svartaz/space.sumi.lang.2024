@@ -1,5 +1,6 @@
 import Layout from '@/components/layout';
-import { ipa, language, orthography } from '@/lib/dictionary'
+import { language } from '@/lib/dictionary'
+import { orthography } from '@/lib/orthography';
 import style from '@/styles/index.module.sass'
 import { ReactNode } from 'react';
 
@@ -11,8 +12,10 @@ const Rb = (props: { children: ReactNode, rt: string }) =>
 
 export default () => {
   return <Layout>
-    <h3>音と字</h3>
-    基本的に音素と字素は一對一對應す.
+    <h3>字と音</h3>
+    そもそもこの言語は大人數が音聲上に使用するを想定せざるから嚴密に音韻を定める動機を持たず.
+    また音素の概念が有意義かをも知らず.
+    これを前提して曖昧に表記と音韻を紹介する.
 
     <h3>傳統的分類</h3>
     <table className={style.phonemes}>
@@ -29,71 +32,77 @@ export default () => {
         <tr>
           <th>流</th>
           <td></td>
-          <td>r</td>
-          <td>l</td>
+          <td></td>
+          <td>r {orthography('r')}</td>
           <td></td>
         </tr>
         <tr>
           <th>鼻</th>
-          <td>g</td>
+          <td>g {orthography('g')}</td>
           <td></td>
-          <td>n</td>
-          <td>m</td>
+          <td>n {orthography('n')}</td>
+          <td>m {orthography('m')}</td>
         </tr>
         <tr>
           <th>弱破</th>
-          <td>c</td>
+          <td>c {orthography('c')}</td>
           <td></td>
-          <td>d</td>
-          <td>b</td>
+          <td>d {orthography('d')}</td>
+          <td>b {orthography('b')}</td>
         </tr>
         <tr>
           <th>強破</th>
-          <td>q</td>
+          <td>q {orthography('q')}</td>
           <td></td>
-          <td>t</td>
-          <td>p</td>
+          <td>t {orthography('t')}</td>
+          <td>p {orthography('p')}</td>
         </tr>
         <tr>
           <th>強擦</th>
-          <td>x</td>
-          <td>k</td>
-          <td>s</td>
-          <td>f</td>
+          <td>x {orthography('x')}</td>
+          <td>k {orthography('k')}</td>
+          <td>s {orthography('s')}</td>
+          <td>f {orthography('f')}</td>
         </tr>
         <tr>
           <th>弱擦</th>
-          <td style={{ color: 'lightgray' }}>h</td>
-          <td>j</td>
-          <td>z</td>
-          <td>v</td>
+          <td className='faint'>h {orthography('h')}</td>
+          <td>j {orthography('j')}</td>
+          <td>z {orthography('z')}</td>
+          <td>v {orthography('v')}</td>
         </tr>
         <tr>
           <th>強母</th>
-          <td>a</td>
-          <td>i</td>
-          <td style={{ visibility: 'hidden' }}>y</td>
-          <td>u</td>
+          <td>a {orthography('a')}</td>
+          <td>i {orthography('i')}</td>
+          <td style={{ visibility: 'hidden' }}>y {orthography('y')}</td>
+          <td>u {orthography('u')}</td>
         </tr>
         <tr>
           <th>弱母</th>
-          <td style={{ color: 'lightgray' }}>w</td>
-          <td>e</td>
-          <td style={{ visibility: 'hidden' }}>ø</td>
-          <td>o</td>
+          <td className='faint'>w {orthography('w')}</td>
+          <td>e {orthography('e')}</td>
+          <td style={{ visibility: 'hidden' }}>œ {orthography('œ')}</td>
+          <td>o {orthography('o')}</td>
         </tr>
       </tbody>
     </table>
 
     <p>
-      この表は音聲學的ならず, 文化的なり.
-      即ち{language}人は{language}語の字と音 (これらを區別せず) にこの樣な認識を持つ (例へば ‹k› と ‹i› が同じ列に有ると).
-      <br /><span style={{ color: 'lightgray' }}>薄き字</span>は緩衝音として發生すれば明に表記せず.
-      <br />śikṣāの影響この表を作りける.
+      いづれの字母を使ふも良いがここにはLatnとGrekを示しぬ.
+      {' '}<span style={{ color: 'lightgray' }}>薄き字</span>は現在は存在せず.
+    </p>
+    <p>
+      この表は科學的ならず, 文化的慣習なる.
+      即ち{language}話者は{language}の字と音 (これらの區別は曖昧) にこの如き認識を持つ (例へば ‹k› と ‹i› が同じ列に有ると).
     </p>
 
+    <div className='faint' style={{ fontSize: 'small' }}>
+      San (śikṣā) の影響この表を作りける.
+    </div>
+
     <h3>異音</h3>
-    l, n, d, t, s, z, m, b, pは國際音聲記號と等し.
+    n, d, t, s, z, m, b, p, a, e, oは國際音聲記號と等しい.
     <table>
       <tbody>
         <tr>
@@ -114,7 +123,7 @@ export default () => {
         </tr>
         <tr>
           <td>r</td>
-          <td>[ɾ, r]</td>
+          <td>[ɾ, r, l]</td>
         </tr>
         <tr>
           <td>k</td>
@@ -123,14 +132,6 @@ export default () => {
         <tr>
           <td>j</td>
           <td>[ʒ, ʐ, ʑ, ʝ, j]</td>
-        </tr>
-        <tr>
-          <td>l, n, d, t, s, z</td>
-          <td>特記事項 無し</td>
-        </tr>
-        <tr>
-          <td>m, b, p</td>
-          <td>特記事項 無し</td>
         </tr>
         <tr>
           <td>f</td>
@@ -142,20 +143,8 @@ export default () => {
         </tr>
 
         <tr>
-          <td>a</td>
-          <td>[a], (k, j)[æ]</td>
-        </tr>
-        <tr>
           <td>i</td>
-          <td>[i], (l, n, s, z)[ɪ, ɨ]</td>
-        </tr>
-        <tr>
-          <td>e</td>
-          <td>[e]</td>
-        </tr>
-        <tr>
-          <td>o</td>
-          <td>[o], (k, j)[œ]</td>
+          <td>[i], (k, j, l, n, s, z)[ɪ, ɨ]</td>
         </tr>
         <tr>
           <td>u</td>
@@ -165,29 +154,44 @@ export default () => {
     </table>
 
     <h3>韻律</h3>
-    詞は最初の音節が低く殘りは高し. Jpnの平板型に似る.
+    詞は最初の音節が低く殘りは高い. Jpnの平板型に似る.
     音節は等時性を持つ.
 
     <h3>字の由來</h3>
-    幾つかの字 標準的なにあらざる音に對應する理由を述べる.
-
+    幾つかの字が標準的にあらざる音に對應する理由を述べる.
     <table className={style.table}>
       <tbody>
         <tr>
-          <th>c [g]</th>
-          <td>‹C› は Grek ‹Γ› と同樣に Phnx ‹𐤂› に由來し, その元來の音は [g].</td>
+          <th>Latn c</th>
+          <td>Grek ‹<Rb rt='[g]'>Γ</Rb>›, Phnx ‹<Rb rt='[g]'>𐤂</Rb>› に由來するから.</td>
         </tr>
         <tr>
-          <th>g [ŋ]</th>
-          <td>‹C› が [g] を指せば ‹G› は餘る. 近き音の [ŋ] に與へる.</td>
+          <th>Latn g</th>
+          <td>餘るから鼻音に轉用する.</td>
         </tr>
         <tr>
-          <th>q [k]</th>
+          <th>Latn q</th>
           <td>Lat ‹<Rb rt='[kʷattuor]'>quattuor</Rb>› {'>'} Fra ‹<Rb rt='[katʁ]'>quatre</Rb>› と比較せよ.</td>
         </tr>
         <tr>
-          <th>k [ɕ]</th>
+          <th>Latn k</th>
           <td>Lat ‹<Rb rt='[kantaːre]'>cantāre</Rb>›  {'>'} Fra ‹<Rb rt='[ʃɑ̃te]'>chanter</Rb>›, また Nor ‹<Rb rt='[çæːr]'>kjær</Rb>› と比較せよ.</td>
+        </tr>
+        <tr>
+          <th>Grek ϲ</th>
+          <td>Phnx ‹<Rb rt='[ʃ]'>𐤔</Rb>› に由來するから. ‹σ› にせざりけるは ‹ς› との區別を嫌ふから.</td>
+        </tr>
+        <tr>
+          <th>Grek ξ</th>
+          <td>Phnx ‹<Rb rt='[s]'>𐡎</Rb>› に由來するから.</td>
+        </tr>
+        <tr>
+          <th>Grek ϸ</th>
+          <td>有聲音に轉用する.</td>
+        </tr>
+        <tr>
+          <th>Grek ϙ</th>
+          <td>鼻音に轉用する.</td>
         </tr>
       </tbody>
     </table>
