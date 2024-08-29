@@ -1,26 +1,42 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "page2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "next": "14.0.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "encrypt-with-password": "^1.0.0",
+    "js-yaml": "^4.1.0",
+    "react-twitter-embed": "^4.0.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-do-expressions": "^7.23.3",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.3",
-    "sass": "^1.69.5",
-    "typescript": "^5"
+    "@chakra-ui/react": "^2.8.2",
+    "@types/gtag.js": "^0.0.20",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "22.5.1",
+    "@types/react": "18.3.4",
+    "@types/webpack-env": "^1.18.4",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "eslint-config-next": "^14.2.7",
+    "js-yaml-loader": "^1.2.2",
+    "next": "^14.2.7",
+    "next-seo": "^6.5.0",
+    "npm": "^10.8.3",
+    "prettier": "^3.3.3",
+    "raw-loader": "^4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rehype-raw": "^7.0.0",
+    "sass": "^1.77.8",
+    "tocbot": "^4.29.0",
+    "ts-node": "^10.9.2",
+    "typescript": "5.5.4"
   }
 }

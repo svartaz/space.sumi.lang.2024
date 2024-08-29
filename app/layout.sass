@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Lekton:ital,wght@0,400;0,700;1,400&family=Noto+Emoji:wght@300..700&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Math&family=Noto+Sans+Symbols+2&family=Noto+Sans+Symbols:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap&family=DotGothic16&display=swap')
+
+*
+  box-sizing: border-box
+
+html
+  block-size: 100%
+  inline-size: 100%
+
+body
+  margin: 0
+  font-family: 'Zen Maru Gothic', 'Noto Sans', 'Noto Sans Math', 'Noto Sans Symbols 2', 'Noto Emoji', 'Noto Sans TC', sans-serif
+  font-weight: 300
+  block-size: 100%
+  inline-size: 100%
+
+  gap: 1em
+  padding: 1em
+
+  display: grid
+  grid-template-columns: 8em 1fr
+  align-items: top
+
+.mono
+  font-family: 'Noto Sans Mono', 'Noto Mono', monospace
+
+nav, main, section
+  display: flex
+  flex-direction: column
+  gap: 1em
+
+main, section
+  padding-inline-start: 1em
+  padding-block-start: 1em
+  border-inline-start: 1px solid
+  border-block-start: 1px solid
+
+nav
+  max-inline-size: 100%
+  gap: 1em
+  block-size: fit-content
+  max-block-size: 100%
+  overflow-y: auto
+
+ul.links, .js-toc
+  block-size: fit-content
+  display: flex
+  flex-direction: column
+
+  li
+    padding-block: .25em
+    border-inline-start: 4px solid #0002
+    list-style-type: none
+    list-style-position: outside
+    margin: 0
+    padding-inline-start: .5em
+    a
+      text-decoration: none
+      color: inherit
+
+  li.active, .is-active-li
+    border-inline-start: 4px solid black
+
+ul.links
+  display: flex
+  flex-direction: column
+
+.js-toc .toc-list
+  margin: 0
+  padding: 0
+
+  .toc-list-item
+    font-size: 80%
+
+main
+  max-block-size: 100%
+  overflow-y: auto
+
+section
+  inline-size: 100%
+
+main, section
+  display: flex
+  flex-direction: column
+  row-gap: 1em
+
+h1, h2, h3, h4, h5, h6
+  font-weight: inherit
+  font-family: inherit
+  margin: 0
+  padding: 0
+
+.v, .v-parent > *
+  writing-mode: vertical-lr
+
+table
+  border-collapse: collapse
+  margin-inline: auto
+  max-inline-size: 80%
+
+  thead, tbody
+    border-block-end: 1px solid #0004
+  tbody, tfoot
+    border-block-start: 1px solid #0004
+
+  thead:not(.h) th
+    writing-mode: vertical-lr
+    text-align: end
+
+  tfoot th
+    writing-mode: vertical-lr
+    text-align: start
+
+  tbody th
+    text-align: end
+
+  tbody tr
+    border-block-end: 1px solid #0004
+
+  th
+    font-weight: 500
+
+  td, th
+    padding: .25em .5em .25em .5em
+    word-wrap: normal
+
+    &[colspan]
+      text-align: center
+
+    &[rowspan]
+      vertical-align: middle
+
+.c td
+  text-align: center
+
+ul
+  list-style-position: inside
+  margin: 0
+  padding-inline-start: 0
+
+  ul
+    padding-inline-start: 2em
+
+  li
+    list-style-type: square
+    margin: 0
+    padding: 0
+
+textarea
+  color: inherit
+  background-color: inherit
+  outline: none
+  resize: none
+  font: inherit
+
+p
+  margin: 0
+
+a
+  color: inherit
+
+  &:visited
+    color: #0004
+
+  &:hover
+    color: #0008

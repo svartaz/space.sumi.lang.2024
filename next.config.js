@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: "raw-loader",
+    })
+    return config
+  },
   reactStrictMode: true,
+  images: { unoptimized: true },
   output: 'export',
 }
-
-module.exports = nextConfig
