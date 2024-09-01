@@ -2,18 +2,10 @@
 
 import Head from 'next/head';
 import Script from 'next/script';
-import { DefaultSeo } from 'next-seo';
 import Nav from '@/components/nav';
 import './layout.sass';
-import { usePathname, useRouter } from 'next/navigation';
-
-const twitter = 'svartaz'
-const title = 'inkwell'
 
 export default (props) => {
-  const router = useRouter();
-  const path = usePathname();
-
   return <html>
     <Head>
       {/* Google tag (gtag.js) */}

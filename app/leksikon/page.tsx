@@ -1,9 +1,7 @@
-'use client';
-
 import Day from "@/components/day";
 import Main from "@/components/main";
 import { fromDate } from "@/lib/time";
-import dict from "../dict";
+import dict from "./dict";
 import FontCustom from "../font-custom";
 import { ipa } from "@/lib/sundry";
 import { Faint } from "@/components/faint";

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import dynamic from 'next/dynamic'
 import { usePathname } from "next/navigation";
-import { name } from "@/app/dict";
+import { name } from "@/app/leksikon/dict";
 
 const Clock = dynamic(() => import('@/components/clock'), { ssr: false });
 
@@ -11,7 +11,9 @@ export default () => {
   return <nav>
     <Clock />
 
-    <h1><Link href='/' style={{ textDecoration: 'none', color: 'inherit' }}>{name}</Link></h1>
+    <h1 style={path === '/' ? {} : { color: '#0002' }}>
+      <Link href='/' style={{ textDecoration: 'none', color: 'inherit' }}>{name}</Link>
+    </h1>
 
     <ul className='links'>
       {
@@ -20,8 +22,11 @@ export default () => {
           ['/syntaks', '統語'],
           ['/leksikon', '詞彙'],
           ['/konvert', '變換'],
+          ['/usage', '用例'],
         ].map(([href, text], i) =>
-          <li key={i} className={path == href ? 'active' : ''}><Link href={href}>{text}</Link></li>
+          <li key={i} className={path == href ? 'active' : ''}>
+            <Link href={href}>{text}</Link>
+          </li>
         )
       }
     </ul>

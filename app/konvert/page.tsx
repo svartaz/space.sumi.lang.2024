@@ -1,7 +1,7 @@
 'use client';
 
 import Main from "@/components/main";
-import dict, { literal } from "../dict";
+import dict, { literal } from "../leksikon/dict";
 import FontCustom from "../font-custom";
 import { useState } from "react";
 

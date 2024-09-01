@@ -8,58 +8,53 @@ export interface Entry {
   compound?: boolean,
 };
 
-export const orth = (s: string): string => replaceAll(s, true ? [] : [
+export const orth = (s: string): string => replaceAll(s, [
   [/g/g, 'ң'],
-  [/ṅ/g, 'њ'],
-  [/n/g, 'н'],
-  [/m/g, 'м'],
+  [/n/g, 'ν'],
+  [/m/g, 'μ'],
 
-  [/c/g, 'г'],
-  [/d/g, 'д'],
-  [/b/g, 'б'],
+  [/c/g, 'γ'],
+  [/d/g, 'δ'],
+  [/b/g, 'β'],
 
-  [/q/g, 'к'],
-  [/k/g, 'ч'],
-  [/t/g, 'т'],
-  [/p/g, 'п'],
+  [/q/g, 'ϙ'],
+  [/k/g, 'к'],
+  [/t/g, 'τ'],
+  [/p/g, 'π'],
 
-  [/h/g, 'х'],
-  [/x/g, 'ш'],
-  [/s/g, 'с'],
-  [/f/g, 'ф'],
+  [/h/g, 'χ'],
+  [/x/g, 'σ'],
+  [/s/g, 'ξ'],
+  [/f/g, 'φ'],
 
   [/j/g, 'ж'],
-  [/z/g, 'з'],
+  [/z/g, 'ζ'],
   [/v/g, 'в'],
 
-  [/j/g, 'й'],
-  [/r/g, 'р'],
-  [/l/g, 'л'],
-  [/w/g, 'ў'],
+  [/r/g, 'ρ'],
+  [/l/g, 'λ'],
 
-  [/a/g, 'а'],
-  [/i/g, 'и'],
-  [/y/g, 'ѵ'],
-  [/u/g, 'у'],
-
-  [/ǝ/g, 'ъ'],
-  [/e/g, 'є'],
-  [/ø/g, 'ꙕ'],
-  [/o/g, 'о'],
+  [/a/g, 'α'],
+  [/i/g, 'ι'],
+  [/u/g, 'υ'],
+  [/e/g, 'ε'],
+  [/o/g, 'ο'],
 ]);
 
 export const literal = (s: string): string => replaceAll(s, [
-  [/[GCQHKXJNDTSRLMBPFV]/g, it => it.toLowerCase() + 'a'],
-  [/Z/g, 'su'],
+  //[/[BCDFGHJKLMNPQRSTVXZ]$/g, it => it.toLowerCase()],
 
-  [/I/g, 'zi'],
-  [/E/g, 'ze'],
-  [/A/g, 'za'],
-  [/O/g, 'zo'],
-  [/U/g, 'zu'],
-
+  [/[BCDFGHJKMNPQSTVXZ]/g, it => it.toLowerCase() + 'a'],
+  [/R/g, 're'],
+  [/L/g, 'lo'],
   [/Y/g, 'ju'],
   [/W/g, 'vi'],
+
+  [/A/g, 'ra'],
+  [/E/g, 'je'],
+  [/I/g, 'ji'],
+  [/O/g, 'vo'],
+  [/U/g, 'vu'],
 ])
 
 const dayPersonalCreate =
@@ -97,11 +92,12 @@ const from = (replacements) => (etym: string) => ({
 
 const fromGem = from([
   // remove suffix
-  [/ōr$|[iau]z$|i?janą$|[ōa]ną$|j?ą$|(ō|ô|ǭ)$|ā$/, ''],
+  [/ōr$|[iau]z$|i?janą$|[ōaā]ną$|j?ą$|(ō|ô|ǭ)$|ā$/, ''],
 
   // simplify vowel
   [/[eao]i/g, 'e'],
-  [/[eao]u/g, 'o'],
+  [/[ao]u/g, 'o'],
+  [/eu/g, 'i'],
   [/ī/g, 'i'],
   [/ē/g, 'e'],
   [/ā/g, 'a'],
@@ -123,6 +119,8 @@ const fromGem = from([
   //[/(?<=[^ieaou])v$/g, ''],
   [/ts$/g, 't'],
   [/sk$/g, 'x'],
+  [/^(?=[ie])/g, 'j'],
+  [/^(?=[ou])/g, 'v'],
   [/mn(?![ieaou])/g, 'm'],
   [/(?<=[ieaou])ndr/g, 'dr'],
 
@@ -157,7 +155,6 @@ const fromIne = from([
   [/h₁|h₂|h₃/g, 'a'],
 ]);
 
-
 const fromLat = from([
   // remove suffix
   [/((ā|ē|e|ī)re|ā|i?ō|e|ū|iē)$/, ''],
@@ -180,9 +177,38 @@ const fromLat = from([
   [/g/g, 'c'],
 
   //palatalise
-  [/q(?=[ie])/g, 'k'],
+  [/q(?=[ie])/g, 'x'],
   [/c(?=[ie])/g, 'j'],
 ]);
+
+const sandhi = (a, b) => [
+  /*
+   g n m c d b q k t p h x s f j z v r l */
+  ' , , ,g,n,m,g,n,n,m,g,n,n,m,n,n,m,n,n'.split(/,/g), // g
+  ' , , ,g,n,m,g,n,n,m,g,n,n,m,n,n,m,n,n'.split(/,/g), // n
+  ' , , ,g,n,m,g,n,n,m,g,n,n,m,n,n,m,n,n'.split(/,/g), // m
+
+  ' ,c,c, ,d,b,q,q,q,q,q,q,q,q,c,c,c,c,c'.split(/,/g), // c
+  'd, ,d,d, ,b,t, , ,t,t, , ,t, , ,d,d,d'.split(/,/g), // d
+  'b,b, ,b,b, ,p,p,p, ,p,p,p,p,b,b, ,b,b'.split(/,/g), // b
+
+  'q,q,q, ,c,c, ,q,q,q,q,q,q,q,c,c,c,q,q'.split(/,/g), // q
+  'k,k,k,j,j,j,k, ,k,k,k, ,k,k, , ,j,k,k'.split(/,/g), // k
+  't,t,t,d, ,d,t, , ,t,t, , ,t, , ,d,t,t'.split(/,/g), // t
+  'p,p,p,b,b, ,p,p,p, ,p,p,p,p,b,b, ,p,p'.split(/,/g), // p
+
+  'h,h,h, ,c,c,h,h,h,h, ,h,h,h,c,c,c,h,h'.split(/,/g), // h
+  'x,x,x,j,j,j,j,x,x,x,x, , ,x, , ,j,x,x'.split(/,/g), // x
+  's,s,s,z,z,z,s,s,s,s,s, , ,s, , ,z,s,s'.split(/,/g), // s
+  'f,f,f,v,v, ,f,f,f,f,f,f,f, ,v,v, ,f,f'.split(/,/g), // f
+
+  'j,j,j,j,j,j,x,x,x,x,x, , ,x, , ,j,j,j'.split(/,/g), // j
+  'z,z,z,z,z,z,s,s,s,s,s, , ,s, , ,z,z,z'.split(/,/g), // z
+  'v,v,v,v,v, ,f,f,f,f,f,f,f, ,v,v, ,v,v'.split(/,/g), // v
+
+  'r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r, ,r'.split(/,/g), // r
+  'l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l, '.split(/,/g), // l
+]['gnmcdbqktphxsfjzvrl'.indexOf(a)]['gnmcdbqktphxsfjzvrl'.indexOf(b)].replace(' ', '') + b;
 
 const dict = new Map<string, any>(Object.entries({
   Autonym: { date: '2024-02-17', signified: 'verb/the-language', signifier: componentsAutonym, etym: '' },
@@ -190,49 +216,50 @@ const dict = new Map<string, any>(Object.entries({
   Period: { date: '2024-02-13', signified: 'other/(period)', signifier: 'lo', etym: 'https://en.wiktionary.org/wiki/%E5%9B%89#Etymology_2' },
 
   not: { date: '2024-02-13', signified: 'logic/not', signifier: 'ne', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ne' },
-  and: { date: '2024-02-13', signified: 'logic/and', signifier: 'e', etym: 'https://en.wiktionary.org/wiki/et#Latin' },
-  or: { date: '2024-02-13', signified: 'logic/or', signifier: 'o', etym: 'https://en.wiktionary.org/wiki/aut#Latin' },
-  iff: { date: '2024-02-13', signified: 'logic/iff', signifier: 'a', etym: '' },
+  and: { date: '2024-02-13', signified: 'logic/and', signifier: 'ze', etym: 'https://en.wiktionary.org/wiki/et#Latin' },
+  or: { date: '2024-02-13', signified: 'logic/or', signifier: 'zo', etym: 'https://en.wiktionary.org/wiki/aut#Latin' },
+  iff: { date: '2024-02-13', signified: 'logic/iff', signifier: 'za', etym: '' },
 
-  begin: { date: '2024-02-13', signified: 'preverb/aspect/inchoative', signifier: 'ci', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnan%C4%85' },
-  keep: { date: '2024-02-13', signified: 'preverb/aspect/progressive', signifier: 'li', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABban%C4%85' },
-  end: { date: '2024-02-13', signified: 'preverb/aspect/perfective', signifier: 'ha', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-' },
+  Nom: { date: '2024-02-13', signified: 'postverb/nominative', signifier: '-a', etym: '' },
+  Acc: { date: '2024-02-13', signified: 'postverb/accusative', signifier: '-e', etym: '' },
+  Dat: { date: '2024-02-13', signified: 'postverb/dative', signifier: '-o', etym: '' },
+  Adv: { date: '2024-02-13', signified: 'postverb/adverb', signifier: '-u', etym: '' },
+
+  //begin: { date: '2024-02-13', signified: 'preverb/aspect/inchoative', signifier: 'ci', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnan%C4%85' },
+  //keep: { date: '2024-02-13', signified: 'preverb/aspect/progressive', signifier: 'li', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABban%C4%85' },
+  //end: { date: '2024-02-13', signified: 'preverb/aspect/perfective', signifier: 'fu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz' },
 
   did: { date: '2024-02-13', signified: 'preverb/tense/past', signifier: 'fu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furai' },
-  now: { date: '2024-02-13', signified: 'preverb/tense/present', signifier: 'nu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/d%C5%8Dn%C4%85' },
+  now: { date: '2024-02-13', signified: 'preverb/tense/present', signifier: 'nu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nu' },
   shall: { date: '2024-02-13', signified: 'preverb/tense/future', signifier: 'xu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skulan%C4%85' },
 
-  would: { date: '2024-02-13', signified: 'preverb/mood/irrealis', signifier: 'me', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/magan%C4%85' },
+  were: { date: '2024-02-13', signified: 'preverb/mood/irrealis', signifier: 'me', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/magan%C4%85' },
 
-  done: { date: '2024-02-13', signified: 'preverb/accusative', signifier: 'ra', etym: '' },
-  doneTo: { date: '2024-02-13', signified: 'preverb/dative', signifier: 're', etym: '' },
+  so: { date: '2024-02-13', signified: 'preverb/non-restrictive', signifier: 'du', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEus' },
 
-  so: { date: '2024-02-13', signified: 'preverb/non-restrictive', signifier: 're', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEus' },
+  done: { date: '2024-02-13', signified: 'preverb/passive/accusative', signifier: 'ce', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-' },
+  doneTo: { date: '2024-02-13', signified: 'preverb/passive/dative', signifier: 'co', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-' },
 
-  Acc: { date: '2024-02-13', signified: 'postverb/accusative', signifier: '-a', etym: '' },
-  Dat: { date: '2024-02-13', signified: 'postverb/to', signifier: '-o', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8D' },
-  Adv: { date: '2024-02-13', signified: 'postverb/adverb', signifier: '-i', etym: '' },
-
-  Name: { date: '2024-02-13', signified: 'nameToVerb/is-called-$', signifier: 'na', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4' },
+  Name: { date: '2024-02-13', signified: 'foreign-to-verb/is-called', signifier: 'na', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4' },
 
   // clause
-  what: { date: '2024-02-13', signified: 'other/clause/relative', signifier: 've', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwat' },
-  that: { date: '2024-02-13', signified: 'other/clause/statement', signifier: 'de', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEat' },
-  whether: { date: '2024-07-28', signified: 'other/clause/truth', signifier: 'je', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ja' },
+  what: { date: '2024-02-13', signified: 'clause/relative', signifier: 've', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwat' },
+  that: { date: '2024-02-13', signified: 'clause/statement', signifier: 'de', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEat' },
+  whether: { date: '2024-07-28', signified: 'clause/truth', signifier: 'je', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ja' },
 
   // pronoun
-  i: { date: '2024-02-13', signified: 'verb/pronoun/i', signifier: 'ma', etym: 'https://en.wiktionary.org/wiki/me#Latin' },
-  thou: { date: '2024-02-13', signified: 'verb/pronoun/thou', signifier: 'ta', etym: 'https://en.wiktionary.org/wiki/te#Latin' },
-  he: { date: '2024-02-13', signified: 'verb/pronoun/he', signifier: 'la', etym: 'https://en.wiktionary.org/wiki/le#Old_French' },
-  self: { date: '2024-02-13', signified: 'verb/pronoun/self', signifier: 'sa', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/se-' },
+  i: { date: '2024-02-13', signified: 'verb/pronoun/i', signifier: 'ma', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mek' },
+  thou: { date: '2024-02-13', signified: 'verb/pronoun/thou', signifier: 'da', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEek' },
+  he: { date: '2024-02-13', signified: 'verb/pronoun/he, it', signifier: 'ha', etym: 'https://en.wiktionary.org/wiki/hann#Old_Norse' },
+  self: { date: '2024-02-13', signified: 'verb/pronoun/self', signifier: 'sa', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sek' },
   who: { date: '2024-02-13', signified: 'verb/pronoun/who', signifier: 'va', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwaz' },
 
   // base numeral
-  zero: { date: '2024-02-13', signified: 'numeral/0', signifier: 'zif', etym: 'https://en.wiktionary.org/wiki/%D8%B5%D9%81%D8%B1#Arabic' },
-  one: { date: '2024-02-13', signified: 'numeral/1', signifier: 'ven', etym: 'https://en.wiktionary.org/wiki/vienas#Lithuanian' },
+  zero: { date: '2024-02-13', signified: 'numeral/0', signifier: 'zi', etym: 'https://en.wiktionary.org/wiki/%D8%B5%D9%81%D8%B1#Arabic' },
+  one: { date: '2024-02-13', signified: 'numeral/1', signifier: 'qa', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Aryan/H%C3%A1ykas' },
   two: { date: '2024-02-13', signified: 'numeral/2', signifier: 'dov', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Hellenic/d%C3%BAw%C5%8D' },
   three: { date: '2024-02-13', signified: 'numeral/3', signifier: 'ter', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/tr%C3%A9yes' },
-  four: { date: '2024-02-13', signified: 'numeral/4', signifier: 'qet', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/k%CA%B7etw%C3%B3res' },
+  four: { date: '2024-02-13', signified: 'numeral/4', signifier: 'fed', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fedw%C5%8Dr' },
   five: { date: '2024-02-13', signified: 'numeral/5', signifier: 'pen', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/p%C3%A9nk%CA%B7e' },
   six: { date: '2024-02-13', signified: 'numeral/6', signifier: 'xax', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/%C5%A1w%C3%A1%C4%87%C5%A1' },
   seven: { date: '2024-02-13', signified: 'numeral/7', signifier: 'sep', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/sept%E1%B8%BF%CC%A5' },
@@ -243,11 +270,13 @@ const dict = new Map<string, any>(Object.entries({
 
   howMany: { date: '2024-02-13', signified: 'numeral/how-many', signifier: 'vo', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C5%8D' },
 
-  atLeast: { date: '2024-02-13', signified: 'numeral/less-than', signifier: 'mer', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/maiz%C3%B4' },
-  each: { date: '2024-02-13', signified: 'numeral/each, every, all, max', signifier: 'pan', etym: 'https://en.wiktionary.org/wiki/%CF%80%E1%BE%B6%CF%82#Ancient_Greek' },
+  atLeast: { date: '2024-02-13', signified: 'numeral/at-least', signifier: 'mes', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/maiz%C3%B4' },
+  lessThan: { date: '2024-08-31', signified: 'numeral/less-than', signifier: 'les', etym: 'laisiz' },
+  each: { date: '2024-02-13', signified: 'numeral/each, every, all, maximum', signifier: 'pan', etym: 'https://en.wiktionary.org/wiki/%CF%80%E1%BE%B6%CF%82#Ancient_Greek' },
 
-  many: { date: '2024-02-13', signified: 'numeral/subjective/many', signifier: 'miq', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mikilaz' },
-  few: { date: '2024-02-13', signified: 'numeral/subjective/few', signifier: 'fav', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fawaz' },
+  many: { date: '2024-02-13', signified: 'numeral/subjective/many, more than norm', signifier: 'miq', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mikilaz' },
+  norm: { date: '2024-02-13', signified: 'numeral/subjective/norm', signifier: 'nor', etym: 'https://en.wiktionary.org/wiki/norma#Latin' },
+  few: { date: '2024-02-13', signified: 'numeral/subjective/few, less than norm', signifier: 'fav', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fawaz' },
 
   // arithmetic
   // 2 + 3 - 3 = 2
@@ -255,66 +284,88 @@ const dict = new Map<string, any>(Object.entries({
   // 2 _ (2 ^ 3) = 3 -- log 2 (2 ^ 3) = 3
   // (2 ^ 3) √ 3 = 2 -- root 3 (2 ^ 3) = 2
   Add: { date: '2024-02-13', signified: 'numeral/arithmetic/plus', signifier: 'pul', etym: 'https://en.wiktionary.org/wiki/plus#Latin' },
-  Mul: { date: '2024-02-13', signified: 'numeral/arithmetic/times', signifier: 'mul', etym: 'https://en.wiktionary.org/wiki/multiplicare#Latin' },
   Sub: { date: '2024-02-13', signified: 'numeral/arithmetic/minus', signifier: 'min', etym: 'https://en.wiktionary.org/wiki/minor#Latin' },
+  Mul: { date: '2024-02-13', signified: 'numeral/arithmetic/times', signifier: 'mul', etym: 'https://en.wiktionary.org/wiki/multiplicare#Latin' },
   Div: { date: '2024-02-13', signified: 'numeral/arithmetic/divide', signifier: 'div', etym: 'https://en.wiktionary.org/wiki/dividere#Latin' },
   Mod: { date: '2024-08-24', signified: 'numeral/arithmetic/modulo', signifier: 'mod', etym: 'https://en.wiktionary.org/wiki/modulo#Latin' },
-  Exp: { date: '2024-08-24', signified: 'numeral/arithmetic/exponential', signifier: 'pot', etym: 'https://en.wiktionary.org/wiki/potere#Latin' },
-  Log: { date: '2024-08-24', signified: 'numeral/arithmetic/log', signifier: 'loc', etym: 'https://en.wiktionary.org/wiki/logarithmo#Latin' },
-  Root: { date: '2024-08-24', signified: 'numeral/arithmetic/root', signifier: 'rad', etym: 'https://en.wiktionary.org/wiki/radice#Latin' },
+  Exp: { date: '2024-08-24', signified: 'numeral/arithmetic/exponential', signifier: 'poter', etym: 'https://en.wiktionary.org/wiki/potere#Latin' },
+  Log: { date: '2024-08-24', signified: 'numeral/arithmetic/log', signifier: 'locar', etym: 'https://en.wiktionary.org/wiki/logarithmo#Latin' },
+  //Root: { date: '2024-08-24', signified: 'numeral/arithmetic/root', signifier: 'radiq', etym: 'https://en.wiktionary.org/wiki/radice#Latin' },
 
   Card: { date: '2024-08-02', signified: 'number-to-verb/cardinal', signifier: 'fe', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/felu' },
-  th: { date: '2024-08-02', signified: 'number-to-verb/ordinal', signifier: 'do', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D' },
+  Ord: { date: '2024-08-02', signified: 'number-to-verb/ordinal', signifier: 'do', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D' },
 
-  back: { date: '2024-06-14', signified: 'verb/reverse-of A', signifier: 'baq', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bak%C4%85' },
-  counter: { date: '2024-06-14', signified: 'verb/dual-of A', signifier: 'qom', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/%E1%B8%B1%C3%B3m' },
+  // basic
+  //non: { date: '2024-08-31', signified: 'verb/is-not A', signifier: 'un', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/un-' },
+  false: { date: '2024-08-30', signified: 'verb/contradict A, negate, false', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leugan%C4%85') },
+  back: { date: '2024-06-14', signified: 'verb/reverse-of A', signifier: 'dis', etym: 'https://en.wiktionary.org/wiki/dis-#Latin' },
+  counter: { date: '2024-06-14', signified: 'verb/dual-of A, form-whole-with A', signifier: 'qom', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/%E1%B8%B1%C3%B3m' },
 
-  // basic verb
-  exist: { date: '2024-02-13', signified: 'verb/exist', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/beun%C4%85') },
-  happen: { date: '2024-08-23', signified: 'verb/happen, occur', signifier: ['begin', 'exist'] },
+  begin: { date: '2024-02-13', signified: 'verb/aspect/begin', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnan%C4%85') },
+  end: { date: '2024-02-13', signified: 'verb/aspect/end', ...fromLat('fīnīre'), etym: 'https://en.wiktionary.org/wiki/finire#Latin' },
+
+  exist: { date: '2024-02-13', signified: 'verb/exist, be, thing, object', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/beun%C4%85') },
   let: { date: '2024-02-13', signified: 'verb/cause A(result, effect), let', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%93tan%C4%85') },
-  make: { date: '2024-08-02', signified: 'verb/make A', signifier: ['let', 'exist'] }, // https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skapjan%C4%85
+  happen: { date: '2024-08-23', signified: 'verb/happen, occur, event, realise, actual', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hamp%C4%85') },
+
+  make: { date: '2024-08-02', signified: 'verb/make A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skapjan%C4%85') },
   break: { date: '2024-06-14', signified: 'verb/break A', signifier: ['back', 'make'] },
-  have: { date: '2024-08-19', signified: 'verb/have A, own, include', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/habjan%C4%85') },
-  get: { date: '2024-08-23', signified: 'verb/get A, take, acquire', signifier: ['begin', 'have'] },
+
+  have: { date: '2024-08-19', signified: 'verb/have A, own', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/habjan%C4%85') },
+  get: { date: '2024-08-23', signified: 'verb/get A', signifier: ['begin', 'have'] },
   lose: { date: '2024-08-23', signified: 'verb/lose A', signifier: ['end', 'have'] },
-  remove: { date: '2024-08-24', signified: 'verb/remove D from A', signifier: ['let', 'end', 'have'] },
-  give: { date: '2024-02-13', signified: 'verb/give A(gift) D(receiver)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/geban%C4%85') },
+  give: { date: '2024-02-13', signified: 'verb/give A to D', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/geban%C4%85') },
+  take: { date: '2024-08-24', signified: 'verb/take A from D', signifier: ['back', 'give'] }, // https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neman%C4%85
 
-  from: { date: '2024-08-26', signified: 'verb/is-from A(source, origin)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/kwallj%C4%81') },
-  to: { date: '2024-08-26', signified: 'verb/is-to A(sink, destination)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/til%C4%85') },
-  at: { date: '2024-08-26', signified: 'verb/is-at (position, location, place)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stadiz') },
-  in: { date: '2024-08-19', signified: 'verb/is-in A(range, area)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sleutan%C4%85') },
-  on: { date: '2024-08-26', signified: 'verb/is-on A(surface, border)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ligjan%C4%85') },
+  // abstract
+  from: { date: '2024-08-26', signified: 'verb/abstract/from A(source, origin)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fan%C4%93') },
+  to: { date: '2024-08-26', signified: 'verb/abstract/to A(sink, destination)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gangan%C4%85') },
+  at: { date: '2024-08-26', signified: 'verb/abstract/at A(position, location, place)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/at') },
+  in: { date: '2024-08-19', signified: 'verb/abstract/in A(range, area)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/in') },
+  on: { date: '2024-08-26', signified: 'verb/abstract/on A(surface, border)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/an') },
 
-  member: { date: '2024-08-06', signified: 'verb/is-member-of A(group, collection, set)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kruppaz') },
-  part: { date: '2024-08-06', signified: 'verb/is-part-of A(whole)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz') },
-  complex: { date: '2024-08-25', signified: 'verb/is-complex', signifier: ['done', 'part', 'many'] },
-  simple: { date: '2024-08-25', signified: 'verb/is-simple, just', signifier: ['done', 'part', 'few'] },
+  member: { date: '2024-08-06', signified: 'verb/belong-to A(set, group, collection, list)', ...fromGem('gadaz'), etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/gad' },
+  part: { date: '2024-08-06', signified: 'verb/part-of A(whole)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz') },
+  kind: { date: '2024-07-15', signified: 'verb/class-of, kind, type', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kin%C3%BEiz') },
+  complex: { date: '2024-08-25', signified: 'verb/complex', signifier: ['many', 'done', 'part'] },
+  simple: { date: '2024-08-25', signified: 'verb/simple, just, meres', signifier: ['few', 'done', 'part'] },
+
+  move: { date: '2024-08-31', signified: 'verb/move, dynamic', ...fromLat('movēre'), etym: 'https://en.wiktionary.org/wiki/movere#Latin' },
+  stop: { date: '2024-08-31', signified: 'verb/stop, static', signifier: ['zero', 'move'] },
 
   // physics
-  world: { date: '2024-02-13', signified: 'verb/world, universe', signifier: 'velt', etym: 'https://en.wiktionary.org/wiki/Welt' },
+  world: { date: '2024-02-13', signified: 'verb/world, universe', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haimaz') },
   space: { date: '2024-02-13', signified: 'verb/space', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABm%C4%85') },
-  time: { date: '2024-02-13', signified: 'verb/time', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABdiz') },
+  time: { date: '2024-02-13', signified: 'verb/time', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABm%C3%B4') },
   thing: { date: '2024-02-13', signified: 'verb/thing', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEing%C4%85') },
+  mass: { date: '2024-08-31', signified: 'verb/mass-of A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wihtiz') },
+  energy: { date: '2024-08-31', signified: 'verb/energy-of A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kunnan%C4%85') },
   wave: { date: '2024-08-19', signified: 'verb/wave', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%93gaz') },
-  light: { date: '2024-02-13', signified: 'verb/light', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85') },
+
+  light: { date: '2024-02-13', signified: 'verb/light, electromagnetic wave', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85') },
+  electricity: { date: '2024-08-31', signified: 'verb/electric', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sparkaz') },
   sound: { date: '2024-08-19', signified: 'verb/sound', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/klingan%C4%85') },
   turn: { date: '2024-08-19', signified: 'verb/turn around A(pivot, center), rotate', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/spinnan%C4%85') },
   spin: { date: '2024-08-19', signified: 'verb/spin', signifier: ['self', 'turn'] },
 
+  // https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABdiz
+
   // physical attribute
   big: { date: '2024-02-13', signified: 'verb/big, great', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/grautaz') },
-  long: { date: '2024-02-13', signified: 'verb/long, big in 1 dimension', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/langaz') },
+  long: { date: '2024-02-13', signified: 'verb/long, <big, small, ...>', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/langaz') },
   thick: { date: '2024-02-13', signified: 'verb/thick', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEekuz') },
   sharp: { date: '2024-07-28', signified: 'verb/sharp', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skarpaz') },
   heavy: { date: '2024-07-14', signified: 'verb/heavy', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%93raz') },
   dense: { date: '2024-07-15', signified: 'verb/dense, heavy-per-volume', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEinhtaz') },
   swift: { date: '2024-06-18', signified: 'verb/swift, fast, quick', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snellaz') },
   rough: { date: '2024-08-24', signified: 'verb/rough', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABhaz') },
+
   far: { date: '2024-08-08', signified: 'verb/far from A, remote', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ferrai') },
   near: { date: '2024-08-08', signified: 'verb/near A, close', signifier: ['few', 'far'] },
   touch: { date: '2024-08-08', signified: 'verb/touch A, contact', signifier: ['zero', 'far'] },
+
+  hot: { date: '2024-08-30', signified: 'verb/hot', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haitaz') },
+  cold: { date: '2024-08-30', signified: 'verb/cold', signifier: ['few', 'hot'] },
 
   // position
   below: { date: '2024-02-13', signified: 'verb/position/below A(above)', signifier: 'nid', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ni%C3%BEan%C4%93' },
@@ -359,10 +410,13 @@ const dict = new Map<string, any>(Object.entries({
   moon: { date: '2024-02-13', signified: 'verb/celestial/moon', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/m%C4%93n%C3%B4') },
 
   // time in planet
-  //day: { date: '2024-08-19', signified: 'verb/celestial/day', signifier: ['earth', 'spin', 'time'] },
-  day: { date: '2024-08-19', signified: 'verb/celestial/day', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dagaz') },
-  night: { date: '2024-08-19', signified: 'verb/celestial/night', signifier: ['zero', 'sun', 'time'] }, //etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sunn%C7%AD'
-  daytime: { date: '2024-08-19', signified: 'verb/celestial/daytime', signifier: ['sun', 'time'] }, // etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sunn%C7%AD'
+  year: { date: '2024-08-30', signified: 'verb/celestial/year', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/j%C4%93r%C4%85') },
+  summer: { date: '2024-08-30', signified: 'verb/celestial/summer', signifier: ['hot', 'year', 'part'] },
+  winter: { date: '2024-08-30', signified: 'verb/celestial/winter', signifier: ['cold', 'year', 'part'] },
+
+  day: { date: '2024-08-19', signified: 'verb/celestial/day', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABnaz') },
+  daytime: { date: '2024-08-19', signified: 'verb/celestial/daytime', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dagaz') },
+  night: { date: '2024-08-19', signified: 'verb/celestial/night', signifier: ['counter', 'daytime'] },
 
   // terrain
   land: { date: '2024-02-13', signified: 'verb/terrain/land', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/land%C4%85') },
@@ -372,7 +426,7 @@ const dict = new Map<string, any>(Object.entries({
   sky: { date: '2024-08-19', signified: 'verb/terrain/sky', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/himinaz') },
 
   // weather
-  cloud: { date: '2024-08-19', signified: 'verb/weather/cloud', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiwj%C4%85') },
+  cloud: { date: '2024-08-19', signified: 'verb/weather/cloud', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiw%C3%B4') },
   fog: { date: '2024-08-19', signified: 'verb/weather/fog', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mihstaz') },
   rain: { date: '2024-08-19', signified: 'verb/weather/rain', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/regn%C4%85') },
   snow: { date: '2024-08-19', signified: 'verb/weather/snow', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snaiwaz') },
@@ -382,17 +436,15 @@ const dict = new Map<string, any>(Object.entries({
   // feel
   feel: { date: '2024-02-13', signified: 'verb/feel A(stimulus)', signifier: 'fol', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/f%C5%8Dlijan' },
   hear: { date: '2024-02-13', signified: 'verb/feel/hear A(sound)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hauzijan%C4%85') },
-  //hear_: { date: '2024-02-13', signified: 'verb/feel/hear A(sound)', signifier: ['sound', 'feel'] },
   see: { date: '2024-02-13', signified: 'verb/feel/see A(sight)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sehwan%C4%85') },
-  //see_: { date: '2024-02-13', signified: 'verb/feel/see A(sight)', signifier: ['light', 'feel'] },
   smell: { date: '2024-02-13', signified: 'verb/feel/smell A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reukan%C4%85') },
   taste: { date: '2024-02-13', signified: 'verb/feel/taste A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smakkuz') },
   tactile: { date: '2024-02-13', signified: 'verb/feel/feel-touch-of A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tukk%C5%8Dn%C4%85') },
 
-  differ: { date: '2024-02-13', signified: 'verb/differ A', ...fromLat('vārō'), etym: 'https://en.wiktionary.org/wiki/varus#Latin' },
+  differ: { date: '2024-02-13', signified: 'verb/differ-from A', ...fromLat('vārō'), etym: 'https://en.wiktionary.org/wiki/varus#Latin' },
   similar: { date: '2024-08-27', signified: 'verb/is-similar-to A, resemble', signifier: ['few', 'differ'] },
   same: { date: '2024-08-27', signified: 'verb/is-same-as A, equal, identical', signifier: ['zero', 'differ'] },
-  simulate: { date: '2024-08-27', signified: 'verb/simulate A, imitate, fake', signifier: ['let', 'similar'] },
+  //simulate: { date: '2024-08-27', signified: 'verb/simulate A, imitate, fake', signifier: ['non', 'similar'] },
   examine: { date: '2024-07-26', signified: 'verb/check A, examine, inspect', ...fromLat('specere'), etym: 'https://en.wiktionary.org/wiki/specio#Latin' },
   compare: { date: '2024-07-26', signified: 'verb/compare A', signifier: ['differ', 'examine'] },
 
@@ -405,18 +457,20 @@ const dict = new Map<string, any>(Object.entries({
   die: { date: '2024-08-24', signified: 'verb/die', signifier: ['end', 'live'] },
   kill: { date: '2024-08-24', signified: 'verb/kill A(alive)', signifier: ['let', 'die'] },
   wake: { date: '2024-02-13', signified: 'verb/wake', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wakan%C4%85') },
-  sleep: { date: '2024-04-26', signified: 'verb/sleep', signifier: ['begin', 'zero', 'wake'] },
+  sleep: { date: '2024-04-26', signified: 'verb/sleep', signifier: ['zero', 'wake'] },
 
-  // go
-  go: { date: '2024-02-13', signified: 'verb/go to A(destination), come to, move to', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kweman%C4%85') },
-  walk: { date: '2024-06-18', signified: 'verb/go/walk on A(ground)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/walkan%C4%85') },
-  run: { date: '2024-06-18', signified: 'verb/go/run on A(ground)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rinnan%C4%85') },
-  leap: { date: '2024-07-28', signified: 'verb/go/jump over A, leap, skip, hop', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlaupan%C4%85') },
-  fly: { date: '2024-07-28', signified: 'verb/go/fly in A(air)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleugan%C4%85') },
-  swim: { date: '2024-08-19', signified: 'verb/go/swim in A(water)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85') },
+  // motion
+  lie: { date: '2024-08-30', signified: 'verb/behavior/lie on A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ligjan%C4%85') },
+  sit: { date: '2024-08-30', signified: 'verb/behavior/sit on A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sitjan%C4%85') },
+  stand: { date: '2024-08-30', signified: 'verb/behavior/stand on A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%81n%C4%85') },
+  walk: { date: '2024-06-18', signified: 'verb/behavior/walk on A(ground)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/walkan%C4%85') },
+  run: { date: '2024-06-18', signified: 'verb/behavior/run on A(ground)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rinnan%C4%85') },
+  leap: { date: '2024-07-28', signified: 'verb/behavior/jump over A, leap, skip, hop', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlaupan%C4%85') },
+  swim: { date: '2024-08-19', signified: 'verb/behavior/swim in A(fluid), fly', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85') },
+  //fly: { date: '2024-07-28', signified: 'verb/behavior/fly in A(air)', signifier: ['swim', 'sky'] },
 
   // physiological
-  eat: { date: '2024-02-13', signified: 'verb/physiological/eat A(food)', signifier: 'iat', etym: 'https://en.wiktionary.org/wiki/mando#Latin:_chew' },
+  eat: { date: '2024-02-13', signified: 'verb/physiological/eat A(food)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/etan%C4%85') },
   bite: { date: '2024-08-24', signified: 'verb/physiological/eat/bite A(food)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C4%ABtan%C4%85') },
   chew: { date: '2024-08-24', signified: 'verb/physiological/eat/chew A(food)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kewwan%C4%85') },
   swallow: { date: '2024-08-24', signified: 'verb/physiological/eat/swallow A(food)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swelgan%C4%85') },
@@ -425,7 +479,7 @@ const dict = new Map<string, any>(Object.entries({
   digest: { date: '2024-02-13', signified: 'verb/physiological/digest A(food)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meltan%C4%85') },
   fuck: { date: '2024-02-13', signified: 'verb/physiological/fuck A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fukk%C5%8Dn%C4%85#Etymology_2') },
   sick: { date: '2024-02-13', signified: 'verb/physiological/sick', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/seukaz') },
-  healthy: { date: '2024-08-24', signified: 'verb/physiological/sick', signifier: ['zero', 'sick'] },
+  healthy: { date: '2024-08-24', signified: 'verb/physiological/healthy', signifier: ['zero', 'sick'] }, //https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz
 
   // emotion
   happy: { date: '2024-08-02', signified: 'verb/be-happy-with A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/frawaz') },
@@ -445,13 +499,16 @@ const dict = new Map<string, any>(Object.entries({
   // mental
   know: { date: '2024-02-13', signified: 'verb/mental/know A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lizan%C4%85') },
   learn: { date: '2024-08-01', signified: 'verb/mental/learn A', signifier: ['begin', 'know'] },
-  forget: { date: '2024-08-01', signified: 'verb/mental/forget A', signifier: ['end', 'know'] },
+  forget: { date: '2024-08-01', signified: 'verb/mental/forget A', signifier: ['begin', 'zero', 'know'] },
   think: { date: '2024-02-13', signified: 'verb/mental/think A(idea)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEankijan%C4%85') },
   will: { date: '2024-02-13', signified: 'verb/want A(event)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wiljan%C4%85') },
 
+  reason: { date: '2024-08-31', signified: 'verb/mental/have-reason A(reason)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ra%C3%BEj%C7%AD') },
+
   // communicate
   name: { date: '2024-07-28', signified: 'verb/communicate/mean A, signify, name', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4') },
-  speak: { date: '2024-06-14', signified: 'verb/communicate/speak A(language, protocol)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sprekan%C4%85') },
+  speak: { date: '2024-06-14', signified: 'verb/communicate/speak A(language, protocol)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tal%C5%8Dn%C4%85') },
+  language: { date: '2024-06-14', signified: 'verb/communicate/language', signifier: ['done', 'speak'] },
   say: { date: '2024-06-14', signified: 'verb/communicate/say A(idea) D(expression)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sagjan%C4%85') },
   understand: { date: '2024-06-14', signified: 'verb/communicate/understand A(idea) D(expression)', signifier: ['counter', 'say'] },
   write: { date: '2024-06-14', signified: 'verb/communicate/write A(idea) D(expression)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C4%ABtan%C4%85') },
@@ -500,7 +557,7 @@ const dict = new Map<string, any>(Object.entries({
   bird: { date: '2024-02-13', signified: 'verb/life/animal/bird', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuglaz') },
   crow: { date: '2024-07-15', signified: 'verb/life/animal/bird/crow, raven', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrabnaz') },
   fish: { date: '2024-02-13', signified: 'verb/life/animal/fish', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fiskaz') },
-  amphibia: { date: '2024-02-13', signified: 'verb/life/animal/amphibia', signifier: 'amfib', etym: 'https://en.wiktionary.org/wiki/%E1%BC%80%CE%BC%CF%86%CE%AF%CE%B2%CE%B9%CE%BF%CF%82#Ancient_Greek' },
+  amphibia: { date: '2024-02-13', signified: 'verb/life/animal/amphibia', etym: 'https://en.wiktionary.org/wiki/Lork#German_Low_German', signifier: 'lorq', },
   frog: { date: '2024-07-15', signified: 'verb/life/animal/amphibia/frog', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fruskaz') },
 
   // plant
@@ -509,12 +566,11 @@ const dict = new Map<string, any>(Object.entries({
 
   // body
   body: { date: '2024-02-13', signified: 'verb/body', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrefaz') },
-  blood: { date: '2024-07-29', signified: 'verb/body/blood', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8D%C3%BE%C4%85') },
   bone: { date: '2024-02-13', signified: 'verb/body/bone', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bain%C4%85') },
   flesh: { date: '2024-02-13', signified: 'verb/body/flesh, meat, muscle', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flaiski') },
   viscera: { date: '2024-02-13', signified: 'verb/body/viscera', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEarmaz') },
   skin: { date: '2024-02-13', signified: 'verb/body/skin, peel', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skin%C3%BE%C4%85') },
-  head: { date: '2024-02-13', signified: 'verb/body/head', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haubud%C4%85') },
+  head: { date: '2024-02-13', signified: 'verb/body/head', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haubud%C4%85'), signifier: 'hobd' },
   neck: { date: '2024-02-13', signified: 'verb/body/throat, neck', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnakk%C3%B4') },
   shoulder: { date: '2024-02-13', signified: 'verb/body/shoulder, buttock', signifier: 'squld', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/skuldru' },
   arm: { date: '2024-02-13', signified: 'verb/body/limb, leg, arm', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/limuz') },
@@ -530,7 +586,11 @@ const dict = new Map<string, any>(Object.entries({
   nose: { date: '2024-02-13', signified: 'verb/body/face/nose', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nas%C5%8D') },
   mouth: { date: '2024-02-13', signified: 'verb/body/face/mouth', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mun%C3%BEaz') },
   lip: { date: '2024-02-13', signified: 'verb/body/face/lip', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lep%C3%B4') },
-  tung: { date: '2024-02-13', signified: 'verb/body/face/tong', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tung%C7%AD') },
+  tung: { date: '2024-02-13', signified: 'verb/body/face/tongue', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tung%C7%AD') },
+
+  blood: { date: '2024-07-29', signified: 'verb/body/liquid/blood', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8D%C3%BE%C4%85') },
+  milk: { date: '2024-08-31', signified: 'verb/body/liquid/milk', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meluks'), signifier: 'melq' },
+  //lymph: { date: '2024-08-31', signified: 'verb/body/liquid/lymph', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meluks'), signifier: 'meluq' },
 
   // tool
   knife: { date: '2024-07-28', signified: 'verb/tool/sword, knife, blade', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sahs%C4%85') },
@@ -546,24 +606,34 @@ const dict = new Map<string, any>(Object.entries({
 
   // other
   full: { date: '2024-08-02', signified: 'verb/full-of A, perfect, complete', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz') },
-  kind: { date: '2024-07-15', signified: 'verb/kind-of', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kin%C3%BEiz') },
   work: { date: '2024-02-13', signified: 'verb/work A(operation)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/werk%C4%85') },
   use: { date: '2024-06-14', signified: 'verb/use A(tool) D(purpose)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nut%C5%8Dn%C4%85') },
   help: { date: '2024-06-18', signified: 'verb/help A(event)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/helpan%C4%85') },
   //lick: { date: '2024-08-08', signified: 'verb/lick A', signifier: ['tongue', 'touch'] },
   harm: { date: '2024-08-19', signified: 'verb/harm A, hurt, damage', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/harmaz') },
-  heal: { date: '2024-08-19', signified: 'verb/help A', signifier: ['back', 'harm'] },
-  //fake: { date: '2024-08-26', signified: 'verb/simulate A(genuine, authentic), imitate, fake', signifier: ['back', 'harm'] },
+  heal: { date: '2024-08-19', signified: 'verb/heal A', signifier: ['back', 'harm'] },
+  wont: { date: '2024-09-01', signified: 'verb/accustomed-to, habit, usual, custom, routine, regular', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wun%C4%81n%C4%85') }, // https://en.wiktionary.org/wiki/suescere#Latin
 
   // country
-  japan: { date: '2024-08-25', signified: 'verb/country/japan', signifier: 'nitpon', etym: 'https://en.wiktionary.org/wiki/%E3%81%AB%E3%81%A3%E3%81%BD%E3%82%93' },
-  taiwan: { date: '2024-08-25', signified: 'verb/country/taiwan', signifier: 'devan', etym: 'https://en.wiktionary.org/wiki/%E8%87%BA%E7%81%A3' },
-  unitedStates: { date: '2024-08-25', signified: 'verb/country/united-states', signifier: 'ameriq', etym: 'https://en.wiktionary.org/wiki/America#Latin' },
-  unitedKingdom: { date: '2024-08-25', signified: 'verb/country/united-kingdom', signifier: 'britan', etym: 'https://en.wiktionary.org/wiki/Britannia#Latin' },
-  germany: { date: '2024-08-25', signified: 'verb/country/germany', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEiudiskaz') },
-  france: { date: '2024-08-25', signified: 'verb/country/france', ...fromLat('https://en.wiktionary.org/wiki/franco#Latin') },
-  china: { date: '2024-08-25', signified: 'verb/country/china', signifier: 'jugcvoq', etym: 'https://en.wiktionary.org/wiki/%E4%B8%AD%E5%9C%8B' },
-  russia: { date: '2024-08-25', signified: 'verb/country/russia', signifier: 'ros', etym: '' },
+  japan: { date: '2024-08-25', signified: 'verb/country/jp', signifier: ['country', literal('JP').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:JP' },
+  taiwan: { date: '2024-08-25', signified: 'verb/country/tw', signifier: ['country', literal('TW').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:TW' },
+  unitedStates: { date: '2024-08-25', signified: 'verb/country/us', signifier: ['country', literal('US').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:US' },
+  unitedKingdom: { date: '2024-08-25', signified: 'verb/country/uk', signifier: ['country', literal('GB').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:GB' },
+  germany: { date: '2024-08-25', signified: 'verb/country/de', signifier: ['country', literal('DE').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:DE' },
+  france: { date: '2024-08-25', signified: 'verb/country/fr', signifier: ['country', literal('FR').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:FR' },
+  china: { date: '2024-08-25', signified: 'verb/country/cn', signifier: ['country', literal('CN').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:CN' },
+  russia: { date: '2024-08-25', signified: 'verb/country/ru', signifier: ['country', literal('RU').toUpperCase()], etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:RU' },
+
+  // country
+  english: { date: '2024-08-31', signified: 'verb/language/en', signifier: ['language', literal('EN').toUpperCase()], etym: 'https://iso639-3.sil.org/code/eng' },
+  mandarin: { date: '2024-08-31', signified: 'verb/language/cmn', signifier: ['language', literal('CMN').toUpperCase()], etym: 'https://iso639-3.sil.org/code/cmn' },
+  hindustani: { date: '2024-08-31', signified: 'verb/language/hi, ur', signifier: ['language', literal('HI').toUpperCase()], etym: 'https://iso639-3.sil.org/code/hin' },
+  spanish: { date: '2024-08-31', signified: 'verb/language/es', signifier: ['language', literal('ES').toUpperCase()], etym: 'https://iso639-3.sil.org/code/spa' },
+  arabic: { date: '2024-08-31', signified: 'verb/language/ar', signifier: ['language', literal('AR').toUpperCase()], etym: 'https://iso639-3.sil.org/code/ara' },
+  french: { date: '2024-08-31', signified: 'verb/language/fr', signifier: ['language', literal('FR').toUpperCase()], etym: 'https://iso639-3.sil.org/code/fra' },
+  russian: { date: '2024-08-31', signified: 'verb/language/ru', signifier: ['language', literal('RU').toUpperCase()], etym: 'https://iso639-3.sil.org/code/rus' },
+  german: { date: '2024-08-31', signified: 'verb/language/de', signifier: ['language', literal('DE').toUpperCase()], etym: 'https://iso639-3.sil.org/code/deu' },
+  japanese: { date: '2024-08-31', signified: 'verb/language/ja', signifier: ['language', literal('JA').toUpperCase()], etym: 'https://iso639-3.sil.org/code/jpn' },
 }));
 
 console.log()
@@ -579,9 +649,11 @@ for (let i = 0; i < 1000; i++)
       if (components.every(component => typeof component === 'string')) {
         v.compound = true;
         v.etym = v.etym || v.signifier.join('+');
-        v.signifier = components.join('-')
-          .replace(/[^ieaou]-(?![ieaou])/g, '')
-          .replace(/-/g, '');
+        if (v.idiom)
+          v.signifier = components.join(' ');
+        else
+          v.signifier = components.join('\'')
+        //.replace(/([^ieaou])-([^ieaou])/g, (m, a, b) => sandhi(a, b));
         dict.set(k, v);
       }
       else if (i === 1000 - 1)
@@ -603,8 +675,6 @@ const consonants = 'gnmcdbqtpxksfhjzvrl';
 const vowels = 'aiueo';
 
 for (const [k, { signifier, compound }] of dict.entries()) {
-  const s = signifier.replace(/\-/g, '');
-
   if (!compound) {
     for (const [message, re] of [
       ['geminate', `([${consonants + vowels}])\\1+`],
@@ -616,7 +686,7 @@ for (const [k, { signifier, compound }] of dict.entries()) {
       //['^VoUnvo', `[cdbhjzv][qtpxksf]`],
       //['Vo^', `[gmcdbhjzv]$`],
     ])
-      if (new RegExp(re).test(s))
+      if (new RegExp(re).test(signifier))
         console.warn('phonotactics:', message, k, signifier)
   }
 }

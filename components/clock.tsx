@@ -13,7 +13,7 @@ export default (props) => {
   const day = ('000' + time.day.toString() + '000000').replace(/^.*(.{3}\..{6}).*$/, '$1');
   const zone = (0 <= time.zoneOver ? '+' : '') + time.zoneOver.toString() + '/' + time.zoneUnder.toString();
 
-  return <div className='clock-text' style={{ inlineSize: 'fit-content', blockSize: 'fit-content', marginInlineEnd: 'auto', fontSize: 'smaller' }}>
-    Y{time.year}<br />D{day}{zone}
+  return <div className='clock-text' style={{ inlineSize: 'fit-content', blockSize: 'fit-content', marginInlineEnd: 'auto', fontSize: 'smaller', whiteSpace: 'pre-wrap' }}>
+    {`Y${time.year}D${day}${zone}`.replace('D', '\nD')}
   </div>;
 }
