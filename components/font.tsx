@@ -1,6 +1,11 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
-export default function Font(props: any) {
+type Props = {
+  children: string,
+  style: CSSProperties,
+}
+
+export default function Font(props: Props) {
   const strokeWidth = 1 / 3;
   const widthPerHeight = 3 / 4;
   const spacePerNormal = 1;
@@ -17,7 +22,6 @@ export default function Font(props: any) {
     strokeLinejoin: 'round' as const,
     fill: 'none',
   };
-
 
   const f = s => s.replace(/\d+(?= \d+)/g, x => `${parseInt(x) * widthPerHeight}`)
 
@@ -78,7 +82,7 @@ export default function Font(props: any) {
           {shapes.get(s[i])}
         </svg>
       )
-      i += 1;
+      i++;
     } else if (i + 1 < props.children.length && /[gNnmrlkTtpcDdbxSsfhZzvjw][aiyuEeOo]/.test(s[i] + s[i + 1])) {
       svgs.push(
         <svg key={i} {...svgProps}>
@@ -111,7 +115,7 @@ export default function Font(props: any) {
     }
   }
 
-  return <span style={{ inlineSize: 'fit-content', display: 'inline' }}>
+  return <span style={{ inlineSize: 'fit-content', display: 'inline', ...props.style }}>
     {svgs}
   </span>
 };

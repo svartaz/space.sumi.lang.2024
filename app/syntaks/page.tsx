@@ -2,10 +2,9 @@ import { ReactNode } from "react";
 import Section from "@/components/section";
 import Main from "@/components/main";
 import dict, { literal } from "../leksikon/dict";
-import FontCustom from "../font-custom";
-import { ipa } from "@/lib/sundry";
+import { getIpa, getOrth } from "../phonology/page";
 
-const Term = props =>
+export const Term = props =>
   <span style={{
     opacity: .5,
     border: '1px solid',
@@ -30,7 +29,7 @@ const Translate = (props: { children: string }) => <span style={{ display: 'flex
     .map((code: string, i: number) =>
       dict.has(code)
         ? <span key={i} style={{ lineHeight: .8 }}>
-          {dict.get(code).signifier}
+          {getOrth(dict.get(code).signifier)}
           <br /><span style={{ fontFamily: '"Noto Sans Mono", "Noto Mono", monospaced', fontSize: '20%', opacity: .8, paddingInlineEnd: '.5em' }}>{code}</span>
         </span>
         : <span key={i} style={{ lineHeight: .8, opacity: /^[⟨⟩\[\]\(\) ]+$/.test(code) ? .25 : 1 }}>{code}</span>
@@ -44,7 +43,7 @@ const Examples = (props: { data: [ReactNode, string][] }) => <>
       <tbody>
         <tr><td>{eng}</td></tr>
         <tr><td><Translate>{code}</Translate></td></tr>
-        <tr><td style={{ opacity: .5, }}>[{ipa(t)}]</td></tr>
+        <tr><td style={{ opacity: .5, }}>[{getIpa(t)}]</td></tr>
         {/*<tr><td><FontCustom>{t}</FontCustom></td></tr>*/}
       </tbody>
     </table>

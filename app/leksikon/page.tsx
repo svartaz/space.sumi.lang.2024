@@ -3,8 +3,9 @@ import Main from "@/components/main";
 import { fromDate } from "@/lib/time";
 import dict from "./dict";
 import FontCustom from "../font-custom";
-import { ipa } from "@/lib/sundry";
 import { Faint } from "@/components/faint";
+import { getIpa, getOrth } from "../phonology/page";
+import { Term } from "../syntaks/page";
 
 export default function Leksikon() {
   return <Main title='詞彙'>
@@ -64,12 +65,22 @@ export default function Leksikon() {
       <tbody>
         {
           Array.from(dict.entries()).map(([k, { signifier, signified, etym, date }], i) => {
+            const ipa = getIpa(signifier);
+            const orth = getOrth(signifier);
+
             const path = signified.split('/');
             const category = path.slice(0, -1).join('/');
-            signified = path.slice(-1)[0];
+            signified = path
+              .slice(-1)[0]
+              .split(/(?<=@{.+?})|(?=@{.+?})/g)
+              .map(it => /@{.+?}/.test(it)
+                ? <Term>{it.replace(/^@{/, '').replace(/}$/, '')}</Term>
+                : it
+              );
+
             return <tr key={i}>
-              <th><FontCustom>{signifier}</FontCustom></th>
-              <td>{signifier}{signifier === ipa(signifier) ? '' : <> <Faint>[{ipa(signifier)}]</Faint></>}</td>
+              <th><FontCustom style={{ wordBreak: 'keep-all' }}>{signifier}</FontCustom></th>
+              <td>{orth}{orth === ipa ? '' : <> <Faint>[{ipa}]</Faint></>}</td>
               <td><Faint>{category}/</Faint>{signified}</td>
               <td>{
                 /^https?:\/\//.test(etym)

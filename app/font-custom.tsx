@@ -3,7 +3,7 @@ import { replaceAll } from "@/lib/sundry";
 import { CSSProperties } from "react";
 
 export default (props: { children: string, style?: CSSProperties }) =>
-  <Font style={{ ...props.style }}>{replaceAll(props.children, [
+  <Font style={props.style}>{replaceAll(props.children, [
     [/-/g, ''],
     [/ǝ/g, 'E'],
     [/ø/g, 'O'],

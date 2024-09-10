@@ -2,6 +2,7 @@ import Link from "next/link";
 import dynamic from 'next/dynamic'
 import { usePathname } from "next/navigation";
 import { name } from "@/app/leksikon/dict";
+import Logo from '@/components/logo';
 
 const Clock = dynamic(() => import('@/components/clock'), { ssr: false });
 
@@ -9,6 +10,8 @@ export default () => {
   const path = usePathname();
 
   return <nav>
+    <Logo style={{ inlineSize: '50%', marginInline: 'auto' }} />
+
     <Clock />
 
     <h1 style={path === '/' ? {} : { color: '#0002' }}>

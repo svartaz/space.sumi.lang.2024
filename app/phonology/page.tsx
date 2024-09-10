@@ -1,17 +1,107 @@
 import Main from "@/components/main";
 import Font from "../../components/font";
 import FontCustom from "../font-custom";
-import { ipa } from "@/lib/sundry";
 import { Faint } from "@/components/faint";
+import { replaceAll } from "@/lib/sundry";
 
+export const getIpa = (w: string): string => replaceAll(w.toUpperCase(), [
+  [/[^A-Z- ]/g, ''],
+  [/(?<=[IEAOU])-(?=[IEAOU])/g, 'z'],
+  [/-/g, ''],
+
+  [/(?<=[IEAOU])[GNM](?=[JXZS])/g, '\u0303'],
+
+  [/G/g, 'ŋ'],
+  [/C/g, 'g'],
+  [/Q/g, 'k'],
+  [/X/g, 'ɕ'],
+  [/J/g, 'ʑ'],
+
+  [/H(?=[IE])/g, 'ç'],
+  [/(?<=[IE])H(?![IEAOU])/g, 'ç'],
+
+  [/(.)\1/g, '$1ː'],
+
+  [/.+/, (it: string) => it.toLowerCase()],
+]).normalize('NFKC');
+
+
+export const getOrth = (s: string): string => replaceAll(s, [
+  [],
+
+  // runic
+  [
+    [/g/g, 'ᛜ'],
+    [/n/g, 'ᚾ'],
+    [/m/g, 'ᛗ'],
+
+    [/c/g, 'ᚷ'],
+    [/d/g, 'ᛞ'],
+    [/b/g, 'ᛒ'],
+
+    [/q/g, 'ᚲ'],
+    [/t/g, 'ᛏ'],
+    [/p/g, 'ᛈ'],
+
+    [/h/g, 'ᚺ'],
+    [/x/g, 'ᛊ'],
+    [/s/g, 'ᚦ'],
+    [/f/g, 'ᚠ'],
+
+    [/j/g, 'ᛃ'],
+    [/z/g, 'ᛉ'],
+    [/v/g, 'ᚹ'],
+
+    [/r/g, 'ᚱ'],
+    [/l/g, 'ᛚ'],
+
+    [/a/g, 'ᚨ'],
+    [/i/g, 'ᛁ'],
+    [/u/g, 'ᚢ'],
+    [/e/g, 'ᛖ'],
+    [/o/g, 'ᛟ'],
+  ],
+
+  // hebrew
+  [
+    [/g/g, 'ᛜ'],
+    [/n/g, 'ᚾ'],
+    [/m/g, 'ᛗ'],
+
+    [/c/g, 'ג'],
+    [/d/g, 'ד'],
+    [/b/g, 'ב'],
+
+    [/q/g, 'כ'],
+    [/t/g, 'ᛏ'],
+    [/p/g, 'ᛈ'],
+
+    [/h/g, 'ח'],
+    [/x/g, 'ᛊ'],
+    [/s/g, 'ᚦ'],
+    [/f/g, 'ᚠ'],
+
+    [/j/g, 'ᛃ'],
+    [/z/g, 'ז'],
+    [/v/g, 'ו'],
+
+    [/r/g, 'ᚱ'],
+    [/l/g, 'ᛚ'],
+
+    [/a/g, 'א'],
+    [/i/g, 'ᛁ'],
+    [/u/g, 'ᚢ'],
+    [/e/g, 'ᛖ'],
+    [/o/g, 'ᛟ'],
+  ],
+][0] as [RegExp, string][]);
 
 export default function Phonology() {
   const triple = (a: string, unused?: boolean) =>
-    <>{a} {a === ipa(a) ? '' : <> <Faint>[{ipa(a)}]</Faint></>} <br /><FontCustom>{a}</FontCustom></>
+    <>{a} {a === getIpa(a) ? '' : <> <Faint>[{getIpa(a)}]</Faint></>} <br /><FontCustom>{a}</FontCustom></>
 
   return <Main title='音素と字素'>
     <ul>
-      <li>音素と字素は一致する (eqPhGr)</li>
       <li>字素を下の表に示す</li>
       <li>字素に一致する國際音聲記號を省略する</li>
     </ul>
@@ -48,7 +138,7 @@ export default function Phonology() {
         <tr>
           <th rowSpan={2}>無聲</th>
           <td>{triple('q')}</td>
-          <td>{triple('k')}</td>
+          <td style={{ opacity: .2 }}><br /><Font>T</Font></td>
           <td colSpan={2}>{triple('t')}</td>
           <td>{triple('p')}</td>
         </tr>
