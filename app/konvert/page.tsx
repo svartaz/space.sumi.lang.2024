@@ -1,18 +1,9 @@
 'use client';
 
 import Main from "@/components/main";
-import dict, { literal } from "../leksikon/dict";
 import FontCustom from "../font-custom";
 import { useState } from "react";
-
-const translate = (s: string): string =>
-  [...dict.keys()]
-    .sort((k, k1) => k.length - k1.length)
-    .reduce((acc, k) => acc.replace(new RegExp('(?<![A-Za-z])' + k + '(?![A-Za-z])', 'g'), dict.get(k)!.signifier), s)
-    .replace(/ '/g, `'`)
-    .replace(/ -/g, `-`)
-    .replace(/\*[A-Z]+/g, literal)
-  ;
+import translate from "./translate";
 
 export default function Konvert() {
   const [translated, setTranslated] = useState('');

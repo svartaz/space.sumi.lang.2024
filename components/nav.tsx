@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import dynamic from 'next/dynamic'
 import { usePathname } from "next/navigation";
@@ -10,8 +12,6 @@ export default () => {
   const path = usePathname();
 
   return <nav>
-    <Logo style={{ inlineSize: '50%', marginInline: 'auto' }} />
-
     <Clock />
 
     <h1 style={path === '/' ? {} : { color: '#0002' }}>

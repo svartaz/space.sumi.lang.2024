@@ -1,13 +1,14 @@
 import Main from "@/components/main";
 import { name } from "./leksikon/dict";
 import Day from "@/components/day";
+import { getIpa } from "./phonology/page";
 
 export default () => <Main title={name}>
   <table>
     <tbody>
       <tr>
         <th>名稱</th>
-        <td>{name}</td>
+        <td>{name} [{getIpa(name)}]</td>
       </tr>
       <tr>
         <th>識別子</th>
@@ -36,6 +37,7 @@ export default () => <Main title={name}>
             <li>Jbo (述語論理的な統語)</li>
             <li>La (押韻的な曲用)</li>
             <li><a href='https://en.wikipedia.org/wiki/Proto-Germanic_language'>Gem</a>, De, En, Is (詞彙)</li>
+            <li>Zh (動詞の前置詞化)</li>
             <li>Ru, Ja (音韻)</li>
           </ul>
         </td>

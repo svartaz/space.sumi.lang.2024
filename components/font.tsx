@@ -2,7 +2,7 @@ import { CSSProperties, ReactNode } from "react";
 
 type Props = {
   children: string,
-  style: CSSProperties,
+  style?: CSSProperties,
 }
 
 export default function Font(props: Props) {
@@ -115,7 +115,7 @@ export default function Font(props: Props) {
     }
   }
 
-  return <span style={{ inlineSize: 'fit-content', display: 'inline', ...props.style }}>
+  return <span className='font' style={{ inlineSize: 'fit-content', display: 'inline', ...props.style }}>
     {svgs}
   </span>
 };

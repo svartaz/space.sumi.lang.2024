@@ -9,21 +9,31 @@ export const getIpa = (w: string): string => replaceAll(w.toUpperCase(), [
   [/(?<=[IEAOU])-(?=[IEAOU])/g, 'z'],
   [/-/g, ''],
 
-  [/(?<=[IEAOU])[GNM](?=[JXZS])/g, '\u0303'],
+  [/(?<=[IEAOU])[GNM](?=[HJXZS])/g, '\u0303'],
+  [/.+/, it => it.normalize('NFKC')],
+
+  [/(?<!^)C$/g, 'k'],
+  [/(?<!^)D$/g, 't'],
+  [/(?<!^)B$/g, 'p'],
+  [/(?<!^)K$/g, 'kʰ'],
+  [/(?<!^)T$/g, 'tʰ'],
+  [/(?<!^)P$/g, 'pʰ'],
 
   [/G/g, 'ŋ'],
   [/C/g, 'g'],
-  [/Q/g, 'k'],
+  [/K/g, 'k'],
   [/X/g, 'ɕ'],
   [/J/g, 'ʑ'],
 
   [/H(?=[IE])/g, 'ç'],
   [/(?<=[IE])H(?![IEAOU])/g, 'ç'],
+  [/(?<=[IEAOU])H(?=[IEAOU])/g, 'h'],
+  [/H/g, 'x'],
 
   [/(.)\1/g, '$1ː'],
 
   [/.+/, (it: string) => it.toLowerCase()],
-]).normalize('NFKC');
+]);
 
 
 export const getOrth = (s: string): string => replaceAll(s, [
@@ -39,7 +49,7 @@ export const getOrth = (s: string): string => replaceAll(s, [
     [/d/g, 'ᛞ'],
     [/b/g, 'ᛒ'],
 
-    [/q/g, 'ᚲ'],
+    [/k/g, 'ᚲ'],
     [/t/g, 'ᛏ'],
     [/p/g, 'ᛈ'],
 
@@ -62,37 +72,37 @@ export const getOrth = (s: string): string => replaceAll(s, [
     [/o/g, 'ᛟ'],
   ],
 
-  // hebrew
+  // greek
   [
-    [/g/g, 'ᛜ'],
-    [/n/g, 'ᚾ'],
-    [/m/g, 'ᛗ'],
+    [/g/g, 'ϙ'],
+    [/n/g, 'ν'],
+    [/m/g, 'μ'],
 
-    [/c/g, 'ג'],
-    [/d/g, 'ד'],
-    [/b/g, 'ב'],
+    [/c/g, 'γ'],
+    [/d/g, 'δ'],
+    [/b/g, 'β'],
 
-    [/q/g, 'כ'],
-    [/t/g, 'ᛏ'],
-    [/p/g, 'ᛈ'],
+    [/k/g, 'κ'],
+    [/t/g, 'τ'],
+    [/p/g, 'π'],
 
-    [/h/g, 'ח'],
-    [/x/g, 'ᛊ'],
-    [/s/g, 'ᚦ'],
-    [/f/g, 'ᚠ'],
+    [/h/g, 'η'],
+    [/x/g, 'χ'],
+    [/s/g, 'ϲ'],
+    [/f/g, 'φ'],
 
-    [/j/g, 'ᛃ'],
-    [/z/g, 'ז'],
-    [/v/g, 'ו'],
+    [/j/g, ''],
+    [/z/g, 'ζ'],
+    [/v/g, 'ϝ'],
 
-    [/r/g, 'ᚱ'],
-    [/l/g, 'ᛚ'],
+    [/r/g, 'ρ'],
+    [/l/g, 'λ'],
 
-    [/a/g, 'א'],
-    [/i/g, 'ᛁ'],
-    [/u/g, 'ᚢ'],
-    [/e/g, 'ᛖ'],
-    [/o/g, 'ᛟ'],
+    [/a/g, 'α'],
+    [/i/g, 'ι'],
+    [/u/g, 'υ'],
+    [/e/g, 'ε'],
+    [/o/g, 'ο'],
   ],
 ][0] as [RegExp, string][]);
 
@@ -137,7 +147,7 @@ export default function Phonology() {
         </tr>
         <tr>
           <th rowSpan={2}>無聲</th>
-          <td>{triple('q')}</td>
+          <td>{triple('k')}</td>
           <td style={{ opacity: .2 }}><br /><Font>T</Font></td>
           <td colSpan={2}>{triple('t')}</td>
           <td>{triple('p')}</td>
