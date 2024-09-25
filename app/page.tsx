@@ -11,35 +11,48 @@ export default () => <Main title={name}>
         <td>{name} [{getIpa(name)}]</td>
       </tr>
       <tr>
-        <th>識別子</th>
-        <td>space.sumi.6004</td>
+        <th>ISO 639-3互換</th>
+        <td>tvg</td>
       </tr>
       <tr>
-        <th>作者</th>
-        <td><a href='sumi.space'>sumi.space</a></td>
+        <th>作成者</th>
+        <td><a href='https://2.sumi.space'>sumi.space</a></td>
       </tr>
       <tr>
-        <th>作成時</th>
+        <th>作成開始時</th>
         <td><Day>2023-12-17</Day></td>
       </tr>
       <tr>
         <th>分類</th>
-        <td>計劃言語</td>
-      </tr>
-      <tr>
-        <th>語族</th>
-        <td><a href='https://iso639-3.sil.org/code/gem'>Gem</a></td>
+        <td>計劃言語, 後驗的詞彙, SVO, NA</td>
       </tr>
       <tr>
         <th>參考言語</th>
-        <td>
-          <ul>
-            <li>Jbo (述語論理的な統語)</li>
-            <li>La (押韻的な曲用)</li>
-            <li><a href='https://en.wikipedia.org/wiki/Proto-Germanic_language'>Gem</a>, De, En, Is (詞彙)</li>
-            <li>Zh (動詞の前置詞化)</li>
-            <li>Ru, Ja (音韻)</li>
-          </ul>
+        <td style={{ padding: '1ex' }}>
+          <table style={{ margin: 0, inlineSize: '100%' }}>
+            <tbody>
+              <tr>
+                <th>Jbo</th>
+                <td>述語論理的な句法</td>
+              </tr>
+              <tr>
+                <th>Lat</th>
+                <td>格の一致が押韻を形成する</td>
+              </tr>
+              <tr>
+                <th><a href='https://en.wikipedia.org/wiki/Proto-Germanic_language'>Gem</a> (Deu, Eng, Icl)</th>
+                <td>詞彙</td>
+              </tr>
+              <tr>
+                <th>Zho</th>
+                <td>動詞の前置詞化</td>
+              </tr>
+              <tr>
+                <th>Fra, Rus</th>
+                <td>音韻</td>
+              </tr>
+            </tbody>
+          </table>
         </td>
       </tr>
     </tbody>

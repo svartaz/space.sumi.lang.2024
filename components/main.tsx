@@ -1,21 +1,18 @@
 'use client';
 
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
-import tocbot from "tocbot";
+import { ReactNode, useEffect } from "react";
 import { Tags } from "./section";
+import { destroy, init } from "tocbot";
 
-export default (props) => {
-  const path = usePathname();
-
+export default (props: { children: ReactNode, title: string, tags?: string[] }) => {
   useEffect(() => {
-    tocbot.init({
+    init({
       contentSelector: 'main',
       headingSelector: 'h3',
       hasInnerContainers: true,
       scrollContainer: 'main',
     })
-    return () => tocbot.destroy()
+    return () => destroy()
   }, []);
 
   return <main {...props}>

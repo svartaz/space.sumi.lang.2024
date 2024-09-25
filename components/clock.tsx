@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fromDate } from '@/lib/time';
 
-export default (props) => {
+export default () => {
   const [time, setTime] = useState(fromDate(null));
   useEffect(() => {
     const id = setInterval(() => setTime(fromDate(null)), 24 * 60 * 60 / 1_000);
@@ -14,6 +14,6 @@ export default (props) => {
   const zone = (0 <= time.zoneOver ? '+' : '') + time.zoneOver.toString() + '/' + time.zoneUnder.toString();
 
   return <div className='clock-text' style={{ inlineSize: 'fit-content', blockSize: 'fit-content', marginInlineEnd: 'auto', fontSize: 'smaller', whiteSpace: 'pre-wrap' }}>
-    {`Y${time.year}D${day}${zone}`.replace('D', '\nD')}
+    {`${time.year}D${day}${zone}`.replace('D', '\nD')}
   </div>;
 }

@@ -3,9 +3,9 @@ import Main from "@/components/main";
 import { fromDate } from "@/lib/time";
 import dict from "./dict";
 import FontCustom from "../font-custom";
-import { Faint } from "@/components/faint";
 import { getIpa, getOrth } from "../phonology/page";
 import { Term } from "../syntaks/page";
+import { Formation } from "./common";
 
 export default function Leksikon() {
   return <Main title='詞彙'>
@@ -64,30 +64,27 @@ export default function Leksikon() {
       </thead>
       <tbody>
         {
-          Array.from(dict.entries()).map(([k, { signifier, signified, etym, date }], i) => {
+          Array.from(dict.entries()).map(([k, { signifier, signified, etym, date, formation }], i) => {
             const ipa = getIpa(signifier);
             const orth = getOrth(signifier);
 
-            const path = signified.split('/');
-            const category = path.slice(0, -1).join('/');
-            signified = path
-              .slice(-1)[0]
+            const signifiedMain = signified.slice(-1)[0]
               .split(/(?<=@{.+?})|(?=@{.+?})/g)
-              .map(it => /@{.+?}/.test(it)
-                ? <Term>{it.replace(/^@{/, '').replace(/}$/, '')}</Term>
+              .map((it, i) => /@{.+?}/.test(it)
+                ? <Term key={i}>{it.replace(/^@{/, '').replace(/}$/, '')}</Term>
                 : it
               );
 
             return <tr key={i}>
               <th><FontCustom style={{ wordBreak: 'keep-all' }}>{signifier}</FontCustom></th>
-              <td>{orth}{orth === ipa ? '' : <> <Faint>[{ipa}]</Faint></>}</td>
-              <td><Faint>{category}/</Faint>{signified}</td>
-              <td>{
+              <td>{orth}{orth === ipa ? '' : <> <span style={{ opacity: 1 / 3 }}>[{ipa}]</span></>}</td>
+              <td><span style={{ opacity: 1 / 4, fontSize: 'smaller' }}>{[...signified.slice(0, -1), k].join('/')}</span> {signifiedMain}</td>
+              <td className={formation === Formation.Root ? '' : 'mono'}>{
                 /^https?:\/\//.test(etym)
                   ? <a href={etym} style={{ whiteSpace: 'pre' }}>{decodeURIComponent(etym).replace(/^.+\/(.+)/, '$1').replace(/#.+$/, '')}</a>
                   : etym
               }</td>
-              <td style={{ fontSize: 'smaller' }}><Day style={{ whiteSpace: 'pre' }}>{date}</Day></td>
+              <td style={{ fontSize: 'smaller' }}><Day>{date}</Day></td>
             </tr>
           })
         }

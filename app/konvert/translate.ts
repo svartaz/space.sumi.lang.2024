@@ -1,4 +1,5 @@
-import dict, { literal } from "../leksikon/dict";
+import { literal } from "../leksikon/common";
+import dict from "../leksikon/dict";
 
 export default (s: string): string =>
   [...dict.keys()]

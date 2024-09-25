@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
 import Section from "@/components/section";
 import Main from "@/components/main";
-import dict, { literal } from "../leksikon/dict";
+import dict from "../leksikon/dict";
 import { getIpa, getOrth } from "../phonology/page";
+import { literal } from "../leksikon/common";
 
-export const Term = props =>
+export const Term = (props: { children: ReactNode }) =>
   <span style={{
     opacity: .5,
     border: '1px solid',
@@ -29,17 +30,17 @@ const Translate = (props: { children: string }) => <span style={{ display: 'flex
     .map((code: string, i: number) =>
       dict.has(code)
         ? <span key={i} style={{ lineHeight: .8 }}>
-          {getOrth(dict.get(code).signifier)}
-          <br /><span style={{ fontFamily: '"Noto Sans Mono", "Noto Mono", monospaced', fontSize: '20%', opacity: .8, paddingInlineEnd: '.5em' }}>{code}</span>
+          {getOrth(dict.get(code)?.signifier || '')}
+          <br /><span style={{ fontFamily: '"Noto Sans Mono", "Noto Mono", monospaced', fontSize: '20%', opacity: .8, paddingInlineEnd: '.5ex' }}>{code}</span>
         </span>
-        : <span key={i} style={{ lineHeight: .8, opacity: /^[⟨⟩\[\]\(\) ]+$/.test(code) ? .25 : 1 }}>{code}</span>
+        : <span key={i} style={{ lineHeight: .8, opacity: /^[⟨⟩[\]() ]+$/.test(code) ? .25 : 1 }}>{code}</span>
     )
 }</span>
 
 const Examples = (props: { data: [ReactNode, string][] }) => <>
   {props.data.map(([eng, code], i: number) => {
     const t = translate(code);
-    return <table key={i} style={{ blockSize: '100%', marginInlineStart: '4em' }}>
+    return <table key={i} style={{ blockSize: '100%', marginInlineStart: '4ex' }}>
       <tbody>
         <tr><td>{eng}</td></tr>
         <tr><td><Translate>{code}</Translate></td></tr>
@@ -51,7 +52,7 @@ const Examples = (props: { data: [ReactNode, string][] }) => <>
 </>;
 
 export default function Tung() {
-  return <Main title='統語'>
+  return <Main title='句法'>
     <Section title='動詞'>
       <ul>
         <li><em>動詞 verb</em>は詞彙の大半を占め, <a href='https://ja.wikipedia.org/wiki/%E9%96%8B%E3%81%84%E3%81%9F%E3%82%AF%E3%83%A9%E3%82%B9'>開いた類</a>な.</li>
@@ -66,7 +67,7 @@ export default function Tung() {
 
       <Examples data={[
         [<span><Term>0</Term>が貓</span>, 'cat'],
-        [<span><Term>0</Term>が<Term>1</Term>を好む</span>, 'cat'],
+        [<span><Term>0</Term>が<Term>1</Term>を好む</span>, 'like'],
         [<span><Term>0</Term>が<Term>1</Term>を<Term>2</Term>へ與ふ</span>, 'give'],
       ]} />
     </Section>
@@ -85,7 +86,7 @@ export default function Tung() {
       <Examples data={[
         ['(格詞1)', 'Acc'],
         ['(格詞2)', 'Dat'],
-        [<><Term>0</Term>が<Term>1</Term>を好む, <Term>1</Term>が貓<br />→<Term>0</Term>が貓を好む</>, '⟨love cat Acc⟩'],
+        [<><Term>0</Term>が<Term>1</Term>を好む, <Term>1</Term>が貓<br />→<Term>0</Term>が貓を好む</>, '⟨like cat Acc⟩'],
         [<><Term>0</Term>が<Term>1</Term>を<Term>2</Term>へ與ふ, <Term>1</Term>が水, <Term>2</Term>が貓<br />→<Term>0</Term>が水を貓へ與ふ</>, '⟨give water Acc cat Dat⟩'],
       ]} />
     </Section>
@@ -100,10 +101,10 @@ export default function Tung() {
 
       <Examples data={[
         [<><Term>0</Term>が我</>, 'i'],
-        [<><Term>0</Term>が我, <Term>0</Term>が貓を好む<br />→我が貓を好む</>, '[i ⟨love cat Acc⟩]'],
+        [<><Term>0</Term>が我, <Term>0</Term>が貓を好む<br />→我が貓を好む</>, '[i ⟨like cat Acc⟩]'],
         [<><Term>0</Term>が黑い</>, 'black'],
         [<><Term>0</Term>が貓, <Term>0</Term>が黑い<br />→<Term>0</Term>が黑貓</>, '[cat black]'],
-        [<><Term>0</Term>が黑貓を好む</>, '⟨love [cat Acc black Acc]⟩'],
+        [<><Term>0</Term>が黑貓を好む</>, '⟨like [cat Acc black Acc]⟩'],
       ]} />
     </Section>
 
@@ -115,18 +116,18 @@ export default function Tung() {
         [<><Term>0</Term>が<Term>1</Term>を見る</>, 'see'],
         [<><Term>0</Term>が犬</>, 'dog'],
         [<><Term>0</Term>が犬を見る</>, '⟨see dog Acc⟩'],
-        [<>犬が貓を好む</>, '[dog ⟨love cat Acc⟩]'],
-        [<>貓を好む犬を見る</>, '⟨see [dog Acc ⟨love Acc cat Acc Acc⟩]⟩'],
-        [<>貓を好む犬へ與ふ</>, '⟨give [dog Dat ⟨love Dat cat Acc Dat⟩]⟩'],
+        [<>犬が貓を好む</>, '[dog ⟨like cat Acc⟩]'],
+        [<>貓を好む犬を見る</>, '⟨see [dog Acc ⟨like Acc cat Acc Acc⟩]⟩'],
+        [<>貓を好む犬へ與ふ</>, '⟨give [dog Dat ⟨like Dat cat Acc Dat⟩]⟩'],
       ]} />
 
       <ul>
         <li>補充や同格の規則は分配則に似る.</li>
       </ul>
-      {translate('⟨give [dog Dat ⟨love Dat cat Acc Dat⟩]⟩')}<br />
-      {translate('⟨give [dog Dat ⟨love cat Acc⟩Dat]⟩')}<br />
-      {translate('⟨give [dog ⟨love cat Acc⟩]Dat⟩')}<br />
-    </Section >
+      {translate('⟨give [dog Dat ⟨like Dat cat Acc Dat⟩]⟩')}<br />
+      {translate('⟨give [dog Dat ⟨like cat Acc⟩Dat]⟩')}<br />
+      {translate('⟨give [dog ⟨like cat Acc⟩]Dat⟩')}<br />
+    </Section>
 
     <Section title='關係節'>
       <ul>
@@ -135,15 +136,15 @@ export default function Tung() {
         <li>その格が主格のとき, 代動詞を省略せらる.</li>
       </ul>
       <Examples data={[
-        [<><Term>0</Term>が貓を好むものへ與ふ</>, '⟨give what Dat [(who) ⟨love cat Acc⟩] (Period)⟩'],
-        [<><Term>0</Term>が貓を好む犬へ與ふ</>, '⟨give [dog Dat what Dat [(who) ⟨love cat Acc⟩] (Period)]⟩'],
+        [<><Term>0</Term>が貓を好むものへ與ふ</>, '⟨give what Dat [(who) ⟨like cat Acc⟩] (Period)⟩'],
+        [<><Term>0</Term>が貓を好む犬へ與ふ</>, '⟨give [dog Dat what Dat [(who) ⟨like cat Acc⟩] (Period)]⟩'],
         [<><Term>0</Term>が犬を見る</>, '⟨see dog Acc⟩'],
-        [<>貓が犬を好む</>, '[dog ⟨love cat Acc⟩]'],
-        [<>貓が好む犬を見る</>, '⟨see [dog Acc what [cat ⟨love who Acc⟩] (Period)]⟩'],
+        [<>貓が犬を好む</>, '[dog ⟨like cat Acc⟩]'],
+        [<>貓が好む犬を見る</>, '⟨see [dog Acc what [cat ⟨like who Acc⟩] (Period)]⟩'],
       ]} />
 
-      {translate('⟨give [dog Dat what [(who) ⟨love cat Acc⟩] (Period)]⟩')} =<br />
-      {translate('⟨give [dog Dat ⟨love Dat cat Acc Dat⟩]⟩')} =<br />
+      {translate('⟨give [dog Dat what [(who) ⟨like cat Acc⟩] (Period)]⟩')} =<br />
+      {translate('⟨give [dog Dat ⟨like Dat cat Acc Dat⟩]⟩')} =<br />
     </Section>
 
     <Section title='制と相と法'>
@@ -167,10 +168,10 @@ export default function Tung() {
       </ul>
 
       <Examples data={[
-        [`我は2個の貓を好む`, 'i love two cat Acc'],
-        [`我は各貓を好む`, 'i love each cat Acc'],
-        [`各貓を好む人が存在する`, 'atLeast one person love each cat Acc'],
-        [`人らが各貓を好む`, 'atLeast two person love each cat Acc'],
+        [`我は2個の貓を好む`, 'i like two cat Acc'],
+        [`我は各貓を好む`, 'i like each cat Acc'],
+        [`各貓を好む人が存在する`, 'atLeast one person like each cat Acc'],
+        [`人らが各貓を好む`, 'atLeast two person like each cat Acc'],
       ]} />
     </Section>
 
@@ -189,8 +190,8 @@ export default function Tung() {
       </ul>}
 
       <Examples data={[
-        [<>我がsumiな.</>, 'i Name sumi'],
-        [<>汝がsumiを見る.</>, 'thou see Name Acc sumi'],
+        [<>我がsumiな.</>, 'i isCalled sumi'],
+        [<>汝がsumiを見る.</>, 'thou see isCalled Acc sumi'],
       ]} />
     </Section>
 

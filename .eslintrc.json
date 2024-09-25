@@ -10,5 +10,11 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "react/jsx-key": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off"
+  }
 }

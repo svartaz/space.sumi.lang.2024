@@ -20,16 +20,16 @@
     "@chakra-ui/react": "^2.8.2",
     "@types/gtag.js": "^0.0.20",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "22.5.1",
-    "@types/react": "18.3.4",
+    "@types/node": "22.5.5",
+    "@types/react": "18.3.5",
     "@types/webpack-env": "^1.18.4",
-    "@typescript-eslint/eslint-plugin": "^8.3.0",
-    "eslint-config-next": "^14.2.7",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "eslint-config-next": "^14.2.11",
+    "eslint-config-prettier": "^9.1.0",
     "js-yaml-loader": "^1.2.2",
     "next": "^14.2.7",
     "next-seo": "^6.5.0",
     "npm": "^10.8.3",
-    "prettier": "^3.3.3",
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -37,6 +37,6 @@
     "sass": "^1.77.8",
     "tocbot": "^4.29.0",
     "ts-node": "^10.9.2",
-    "typescript": "5.5.4"
+    "typescript": "5.6.2"
   }
 }

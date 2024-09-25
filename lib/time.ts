@@ -59,7 +59,7 @@ export const fromDate = (d: Date | null) => {
     year,
     day,
     unix: (d.getTime() - new Date('1970-01-01T00:00Z').getTime()) / (24 * 60 * 60 * 1000),
-    text: `Y${year}D${Math.floor(day)}`
+    text: `${year}D${Math.floor(day)}`
   };
 };
 

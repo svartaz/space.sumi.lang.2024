@@ -14,11 +14,11 @@ body
   block-size: 100%
   inline-size: 100%
 
-  gap: 1em
-  padding: 1em
+  column-gap: 1ex
+  padding: 1ex
 
   display: grid
-  grid-template-columns: 10em 1fr
+  grid-template-columns: 16ex 1fr
   align-items: top
 
 .font
@@ -26,21 +26,23 @@ body
 
 .mono
   font-family: 'Noto Sans Mono', 'Noto Mono', monospace
+  font-weight: normal
+  font-size: 1 / 4
 
 nav, main, section
   display: flex
   flex-direction: column
-  gap: 1em
+  gap: 1xm
 
 main, section
-  padding-inline-start: 1em
-  padding-block-start: 1em
+  padding-inline-start: 2ex
+  padding-block-start: 2ex
   border-inline-start: 1px solid
   border-block-start: 1px solid
 
 nav
   max-inline-size: 100%
-  gap: 1em
+  gap: 2ex
   block-size: fit-content
   max-block-size: 100%
   overflow-y: auto
@@ -51,12 +53,12 @@ ul.links, .js-toc
   flex-direction: column
 
   li
-    padding-block: .25em
+    padding-block: .5ex
     border-inline-start: 4px solid #0002
     list-style-type: none
     list-style-position: outside
     margin: 0
-    padding-inline-start: .5em
+    padding-inline-start: 1ex
     a
       text-decoration: none
       color: inherit
@@ -76,6 +78,7 @@ ul.links
     font-size: 80%
 
 main
+  block-size: fit-content
   max-block-size: 100%
   overflow-y: auto
 
@@ -85,7 +88,7 @@ section
 main, section
   display: flex
   flex-direction: column
-  row-gap: 1em
+  row-gap: 2ex
 
 h1, h2, h3, h4, h5, h6
   font-weight: inherit
@@ -124,7 +127,8 @@ table
     font-weight: 500
 
   td, th
-    padding: .25em .5em .25em .5em
+    padding-inline: 1ex
+    padding-block: .25ex
     word-wrap: normal
 
     &[colspan]
@@ -142,7 +146,7 @@ ul
   padding-inline-start: 0
 
   ul
-    padding-inline-start: 2em
+    padding-inline-start: 2ex
 
   li
     list-style-type: square

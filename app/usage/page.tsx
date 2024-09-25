@@ -13,6 +13,10 @@ export default function Usage() {
           <td>遠い遠い音樂</td>
           <td>{translate('done sing Acc far Acc far Acc')}</td>
         </tr>
+        <tr>
+          <td>君の乾いた胸に届くはず</td>
+          <td>{translate('i expect that Acc he shall to at what Acc dry chest thou Acc')}</td>
+        </tr>
       </tbody>
     </table>
   </Main>
