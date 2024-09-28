@@ -12,7 +12,6 @@ const from = (replacements) => (etym: string) => ({
     ...replacements,
 
     [/(?<!^)z/g, 's'],
-    [/(?<=[ieaou].*)[ieaou]$/g, ''],
   ]),
   formation: Formation.Root,
   etym,
@@ -20,30 +19,26 @@ const from = (replacements) => (etym: string) => ({
 
 export const fromGem = from([
   // remove suffix
-  [/(?<=[ieaouīēāōūîêâôû].*)(ōr$|[aiu]z$|i?janą$|[ōaā]ną$|j?ą$|(ō|ô|ǭ)|ā)$|(?<![ieaouīēāōūîêâôû])s$|ai$/, ''],
+  [/(?<=[ieaouīēāōūîêâôû][^ieaouīēāōūîêâôû]+)(ijaną|janą|ōną|āną|aną|[aiu]z|[ēō]r|ai|ą|ô|ǭ|ō|i|u|s)$/, ''],
 
   // simplify vowel
-  [/ī/g, 'i'],
-  [/ē/g, 'e'],
-  [/ā/g, 'a'],
-  [/ō/g, 'o'],
-  [/ū/g, 'u'],
+  [/ī|î/g, 'i'],
+  [/ē|ê/g, 'e'],
+  [/ā|â/g, 'a'],
+  [/ō|ô/g, 'o'],
+  [/ū|û/g, 'u'],
+
+  [/(?<![ieaou])[jw]$/g, ''],
 
   // simple substitution
-  [/(.)\1/, '$1'],
-  [/sk/g, 'x'],
+  [/w/g, 'v'],
   [/þ/g, 'd'],
   [/g/g, 'c'],
   [/nc/g, 'g'],
-  [/w/g, 'v'],
 
   // sound change
-  //[/(?<=[ieaou])h(?=[^ieaou])/g, ''],
-  [/^h(?=[gnmrlv])/g, ''],
-  //[/(?<=[^ieaou])v$/g, ''],
+  [/^h(?=[gnmrl])/g, ''],
   [/ts$/g, 't'],
-  [/mn(?![ieaou])/g, 'm'],
-  [/(?<=[ieaou])ndr/g, 'dr'],
 
   // specific
   [/berht/g, 'breht'],
@@ -51,11 +46,7 @@ export const fromGem = from([
   [/nurdr/g, 'nurd'],
   [/vulkn/g, 'vulkan'],
   [/meluk/g, 'melk'],
-
-  [/^sv(?=[ieaou])/g, 'sf'],
-  [/(?<=[ieaou][hg])v$/g, ''],
-  [/(?<=[ieaou][hg])v$/g, ''],
-  [/nr$/g, 'n'],
+  [/vundr/g, 'vond'],
 ]);
 
 export const fromLat = from([
@@ -63,12 +54,13 @@ export const fromLat = from([
   [/((ā|ē|e|ī)re|ā|i?ō|e|ū|iē)$/, ''],
 
   // simplify vowel
-  [/ī/g, 'i'],
+  [/ī|y/g, 'i'],
   [/ē/g, 'e'],
   [/ā/g, 'a'],
   [/ō/g, 'o'],
   [/ū/g, 'u'],
-  [/y/g, 'i'],
+
+  [/(?<=[ieaou][^ieaou]+)[ieaou]+$/, ''],
 
   // greek
   [/kh/g, 'k'],
@@ -78,10 +70,6 @@ export const fromLat = from([
   // simple substitution
   [/c|q/g, 'k'],
   [/g/g, 'c'],
-
-  //palatalise
-  [/k(?=[ie])/g, 'x'],
-  [/c(?=[ie])/g, 'j'],
 ]);
 
 export const fromSla = from([

@@ -5,28 +5,42 @@ import { replaceAll } from "@/lib/sundry";
 import Section from "@/components/section";
 import style from './style.module.sass';
 
-export const consonants = 'gnmcdbktphxsfjzvrl';
+export const consonants = 'gnmcdbktphxsfzjrlv';
 export const vowels = 'ieaou';
 export const phonemes = consonants + vowels;
 
 export const phonotactics = (w: string) => {
   const fixed = replaceAll(w, [
+    [/^i(?=.*[ieaou])/g, 'j'],
+    [/^u(?=.*[ieaou])/g, 'v'],
+    [/(?<=[eaou])i$/g, 'j'],
+    [/(?<=[ieao])u$/g, 'v'],
+    [/(?<=[eaou])i(?=[eaou])/g, 'j'],
+    [/(?<=[ieao])u(?=[ieao])/g, 'v'],
+    [/(?<![ieaou])i(?=[eaou])/g, 'j'],
+    [/(?<![ieaou])u(?=[ieao])/g, 'v'],
+    [/(?<=[eaou])i(?![ieaou])/g, 'j'],
+    [/(?<=[ieao])u(?![ieaou])/g, 'v'],
+
+    // diphthong
+    [/(?<=[ieaou])e(?=[ieaou])/g, 'j'],
+    [/(?<=[ieaou])o(?=[ieaou])/g, 'v'],
+    [/ea/g, 'ja'],
+    [/eo/g, 'jo'],
+    [/ae/g, 'e'],
+    [/ao/g, 'o'],
+    [/oe/g, 've'],
+    [/oa/g, 'va'],
+
     // geminate consonant
     [/(.)\1+/g, it => it.slice(-1)],
 
     // adjacent sibilants
-    [/[xsjz]{2,}/g, it => it.slice(-1)],
+    [/[xsz]{2,}/g, it => it.slice(-1)],
 
     // adjacent nasal
-    [/[gnm]{2,}/g, it => it.slice(-1)],
-
-    // diphthong
-    [/ea/g, 'ia'],
-    [/eo/g, 'io'],
-    [/ae/g, 'e'],
-    [/ao/g, 'o'],
-    [/oe/g, 'ue'],
-    [/oa/g, 'ua'],
+    [/[gnm]{2,}(?=[ieaou])/g, it => it.slice(-1)],
+    [/[gnm]{2,}/g, it => it.slice(0, 1)],
 
     // final voiced
     /*[/[cjdzbv]$/g, it => replaceAll(it, [
@@ -43,21 +57,21 @@ export const phonotactics = (w: string) => {
     [/nr/g, 'ndr'],
     [/mr/g, 'mbr'],
     [/[nm](?=[ck])/g, 'g'],
-    [/[gm](?=[xjdtl])/g, 'n'],
+    [/[gm](?=[xdtl])/g, 'n'],
     [/[gn](?=[bp])/g, 'm'],
 
     // nasal + fricative
-    [/[gnm](?=[hxjszfv])/g, 'n'],
+    [/[gnm](?=[hxszf])/g, 'n'],
 
     // L
     [/ld/g, 'd'],
     [/lr/g, 'r'],
     [/tl/g, 't'],
     [/dl/g, 'd'],
-    [/l(?=[xjdtsz])/g, ''],
+    [/l(?=[xdtsz])/g, ''],
 
     // unvoiced + voiced
-    [/[ckhxjdtszbpfv]{2,}/g, it => /[cjdzbv]$/.test(it)
+    [/[ckhxdtszbpf]{2,}/g, it => /[cjdzb]$/.test(it)
       ? replaceAll(it, [
         [/k/g, 'c'],
         [/h/g, 'c'],
@@ -82,11 +96,12 @@ export const phonotactics = (w: string) => {
     [/[dt]n/g, 'n'],
     [/[bp]m/g, 'm'],
 
-    // similar voiced
-    [/[bv]+/g, it => it.slice(-1)],
+    // similar
+    [/(?<=x)j/g, ''],
+    [/(?<=[mbpf])v/g, ''],
 
     // sibilant + R
-    [/(?<=[xjsz])r/g, ''],
+    [/(?<=[xsz])r/g, ''],
 
     // final H
     [/(?<=[rl])h$/g, ''],
@@ -95,17 +110,12 @@ export const phonotactics = (w: string) => {
     [/gi/g, 'ni'],
     [/fu/g, 'fo'],
     [/vu/g, 'vo'],
-
-    // initial vowel
-    [/^(?=[ie])/g, 'j'],
-    [/^(?=[ieaou])/g, 'h'],
   ]);
 
   return w === fixed
     ? fixed
     : phonotactics(fixed);
 };
-
 
 export const getIpa = (w: string): string => replaceAll(w.toUpperCase(), [
   [/[^A-Z- ]/g, ''],
@@ -130,14 +140,17 @@ export const getIpa = (w: string): string => replaceAll(w.toUpperCase(), [
   [/(?<=[IEAOU])H(?=[IEAOU])/g, 'h'],
   [/H/g, 'x'],
 
-  [/G(?=I)/g, 'ɲ'],
-  [/G/g, 'ŋ'],
-  [/C(?=I)/g, 'ɟ'],
-  [/C/g, 'g'],
-  [/K(?=I)/g, 'c'],
-  [/K/g, 'k'],
-  [/X/g, 'ɕ'],
+  [/(?<=[^IEAOU])J(?=[IEAOU])/g, 'j'],
+  [/(?<=[IEAOU])J(?=[^IEAOU])/g, 'j'],
   [/J/g, 'ʑ'],
+
+  [/(?<=[^IEAOU])V(?=[IEAOU])/g, 'w'],
+  [/(?<=[IEAOU])V(?=[^IEAOU])/g, 'w'],
+  [/V/g, 'v'],
+
+  [/G/g, 'ŋ'],
+  [/C/g, 'g'],
+  [/X/g, 'ɕ'],
   [/R/g, 'ɾ'],
 
   [/(?<=[ɕʑ])U/g, 'y'],
@@ -280,17 +293,15 @@ export default function Phonology() {
           <tr>
             <th rowSpan={4}>有聲</th>
             <td style={{ opacity: .2 }}><br /><Font>h</Font></td>
-            <td>{triple('j', 'ʑ - ʐ - ʒ')}</td>
+            <td rowSpan={2}>{triple('j', 'ʑ, j')}</td>
             <td colSpan={2}>{triple('z')}</td>
-            <td>{triple('v')}</td>
+            <td rowSpan={2}>{triple('v', 'v, w')}</td>
           </tr>
           <tr>
             <th>接近</th>
             <td style={{ opacity: .2 }}><br /><FontCustom>◌</FontCustom></td>
-            <td style={{ opacity: .2 }}><br /><Font>j</Font></td>
             <td>{triple('r', 'ɾ - r')}</td>
             <td>{triple('l')}</td>
-            <td style={{ opacity: .2 }}><br /><FontCustom>w</FontCustom></td>
           </tr>
           <tr>
             <th rowSpan={2}>母</th>

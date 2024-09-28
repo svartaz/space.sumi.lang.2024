@@ -8,7 +8,8 @@ export enum Formation {
 
 export interface EntryCore {
   date: string;
-  signified: string[];
+  klass: string[]
+  signified: string;
   etym?: string;
 }
 

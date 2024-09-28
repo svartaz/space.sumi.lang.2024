@@ -169,9 +169,9 @@ export default function Tung() {
 
       <Examples data={[
         [`我は2個の貓を好む`, 'i like two cat Acc'],
-        [`我は各貓を好む`, 'i like each cat Acc'],
-        [`各貓を好む人が存在する`, 'atLeast one person like each cat Acc'],
-        [`人らが各貓を好む`, 'atLeast two person like each cat Acc'],
+        [`我は各貓を好む`, 'i like max cat Acc'],
+        [`各貓を好む人が存在する`, 'atLeast one person like max cat Acc'],
+        [`人らが各貓を好む`, 'atLeast two person like max cat Acc'],
       ]} />
     </Section>
 
@@ -180,7 +180,7 @@ export default function Tung() {
         <li>文の意味する事象を<Term>0</Term>として文の中から制限する格を<em>己格 recursive case</em>と呼ぶ.</li>
       </ul>
       <Examples data={[
-        [<>我は貓, そのことは驚かす<br />→驚くことに我は貓</>, 'i cat amaze Adv'],
+        [<>我は貓, そのことは驚かす<br />→驚くことに我は貓</>, 'i cat done amaze Adv'],
       ]} />
     </Section>
 
@@ -198,7 +198,7 @@ export default function Tung() {
     <Section title='疑問'>
       <Examples data={[
         ['我は何か', 'i who'],
-        ['汝がいづこに有る', 'thou in who Acc'],
+        ['汝がいづこに有る', 'thou at who Acc'],
       ]} />
     </Section>
   </Main >

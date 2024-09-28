@@ -60,15 +60,7 @@ for (let i = 0; i < dictPre.size; i++)
               .replace(/ -/g, '-');
             break;
           case Formation.Compound:
-            v.signifier = components.join('_')
-              // VC
-              .replace(/(?<=[ieaou])_(?![ieaou])/g, '')
-              // VV
-              .replace(/(?<=[ieaou])_(?=[ieaou])/g, 'g')
-              // CV
-              .replace(/(?<![ieaou])_(?=[ieaou])/g, '')
-              // CC
-              .replace(/(?<![ieaou])_(?![ieaou])/g, '')
+            v.signifier = components.join('');
         }
         dictPre.set(k, v);
       }
