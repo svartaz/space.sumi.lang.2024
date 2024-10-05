@@ -4,6 +4,7 @@ import Main from "@/components/main";
 import dict from "../leksikon/dict";
 import { getIpa, getOrth } from "../phonology/page";
 import { literal } from "../leksikon/common";
+import React from "react";
 
 export const Term = (props: { children: ReactNode }) =>
   <span style={{

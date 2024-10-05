@@ -97,8 +97,7 @@ export default {
 
   howMany: { date: '2024-02-13', klass: ['numeral'], signified: 'how many', signifier: 'vo', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C5%8D' },
 
-  max: { date: '2024-02-13', klass: ['numeral'], signified: 'each, every, all, maximum', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hauhaz'), signifier: 'ho' },
-  min: { date: '2024-02-13', klass: ['numeral'], signified: 'minimum', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/deupaz'), signifier: 'di' },
+  each: { date: '2024-02-13', klass: ['numeral'], signified: 'each, every, all', etym: 'https://en.wiktionary.org/wiki/%CF%80%E1%BE%B6%CF%82#Ancient_Greek', signifier: 'pa' },
 
   atLeast: { date: '2024-02-13', klass: ['numeral', 'comparative'], signified: 'at least', signifier: 'mes', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/maiz%C3%B4' },
   atMost: { date: '2024-09-17', klass: ['numeral', 'comparative'], signified: 'at most', ...toIdiom(['done', 'atLeast']) },
@@ -107,14 +106,9 @@ export default {
 
   plural: { date: '2024-09-17', klass: ['numeral'], signified: 'plural, more than one', signifier: 'mag', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/managaz' },
 
-  // subjective
-  norm: { date: '2024-02-13', klass: ['numeral', 'subjective'], signified: 'norm', signifier: 'nor', etym: 'https://en.wiktionary.org/wiki/norma#Latin' },
-  many: { date: '2024-02-13', klass: ['numeral', 'subjective'], signified: 'many, more than norm', signifier: 'mi', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mikilaz' },
-  few: { date: '2024-02-13', klass: ['numeral', 'subjective'], signified: 'few, less than norm', signifier: 'li', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABtilaz' },
-
   // arithmetic
   Add: { date: '2024-02-13', klass: ['numeral', 'arithmetic'], signified: 'addition, $+$', signifier: 'pul', etym: 'https://en.wiktionary.org/wiki/plus#Latin' },
-  Sub: { date: '2024-02-13', klass: ['numeral', 'arithmetic'], signified: 'opposite, $-$', signifier: 'min', etym: 'https://en.wiktionary.org/wiki/minor#Latin' },
+  Sub: { date: '2024-02-13', klass: ['numeral', 'arithmetic'], signified: 'subtraction, $-$', signifier: 'min', etym: 'https://en.wiktionary.org/wiki/minor#Latin' },
   Mul: { date: '2024-02-13', klass: ['numeral', 'arithmetic'], signified: 'multiplication, $*$', signifier: 'mul', etym: 'https://en.wiktionary.org/wiki/multiplicare#Latin' },
   Div: { date: '2024-02-13', klass: ['numeral', 'arithmetic'], signified: 'reciprocal, $/$', signifier: 'div', etym: 'https://en.wiktionary.org/wiki/dividere#Latin' },
   Mod: { date: '2024-08-24', klass: ['numeral', 'arithmetic'], signified: 'modulo, $%$', signifier: 'mod', etym: 'https://en.wiktionary.org/wiki/modulo#Latin' },
@@ -127,15 +121,15 @@ export default {
 
   first: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (0th, first, primary)', ...toIdiom(['th', 'zero']) },
   second: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (1st, second, other)', ...toIdiom(['th', 'one']) },
-  last: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (last, final)', ...toIdiom(['th', 'max']) },
+  last: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (last, final)', ...toIdiom(['th', 'each']) },
 
   // pronoun
-  who: { date: '2024-02-13', klass: ['v', 'interogative'], signified: '@{0} is who', signifier: 'va', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwaz' },
+  who: { date: '2024-02-13', klass: ['v', 'interogative'], signified: '@{0} is who', signifier: 'vaz', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwaz' },
 
-  he: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is (him, it, the definite entity)', signifier: 'ha', etym: 'https://en.wiktionary.org/wiki/hann#Old_Norse' },
-  i: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is me', signifier: 'ma', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mek' },
-  thou: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is thee', signifier: 'da', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEek' },
-  self: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is oneself', signifier: 'sa', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sek' },
+  he: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is (him, it, the definite entity)', signifier: 'haz', etym: 'https://en.wiktionary.org/wiki/hann#Old_Norse' },
+  i: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is me', signifier: 'maz', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mek' },
+  thou: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is thee', signifier: 'daz', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEek' },
+  self: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is oneself', signifier: 'saz', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sek' },
 
   we: { date: '2024-09-17', klass: ['v', 'definite'], signified: '@{0} are us', ...toIdiom(['atLeast', 'two', 'i']) },
   ye: { date: '2024-09-17', klass: ['v', 'definite'], signified: '@{0} are you', ...toIdiom(['atLeast', 'two', 'thou']) },
@@ -144,7 +138,18 @@ export default {
   thisOne: { date: '2024-09-16', klass: ['v', 'definite'], signified: '@{0} is this', ...toIdiom(['he', 'near']) },
   thatOne: { date: '2024-09-16', klass: ['v', 'definite'], signified: '@{0} is that', ...toIdiom(['he', 'far']) },
 
-  now: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is (now, the present point in time)', signifier: 'nu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nu' },
+  now: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is (now, the present point in time)', signifier: 'nuz', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nu' },
+
+  // extent
+  normal: { date: '2024-09-29', klass: ['v', 'extent', 'subjective'], signified: '@{0} is of (normal, default, usual, ordinary, at subjective norm) extent', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wanjan%C4%85') },
+  high: { date: '2024-09-29', klass: ['v', 'extent', 'subjective'], signified: '@{0} is (high, of great extent, above subjective norm)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hauhaz'), signifier: 'hoh' },
+  low: { date: '2024-09-29', klass: ['v', 'extent', 'subjective'], signified: '@{0} is (low, of small extent, below subjective norm)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%93gaz') },
+  positive: { date: '2024-09-29', klass: ['v', 'extent', 'polarity'], signified: '@{0} is (positive, above objective norm)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wela') },
+  negative: { date: '2024-09-29', klass: ['v', 'extent', 'polarity'], signified: '@{0} is (negative, below objective norm)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/missa-') },
+  up: { date: '2024-09-29', klass: ['v', 'extent', 'dynamic'], signified: '@{0} is (rises, goes up, ascends) along with @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABsan%C4%85') },
+  down: { date: '2024-09-29', klass: ['v', 'extent', 'dynamic'], signified: '@{0} is (falls, goes down, descends) along with @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fallan%C4%85') },
+  max: { date: '2024-02-13', klass: ['v', 'extent', 'extremum'], signified: '@{0} is (maximal, possibly highest)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz') },
+  min: { date: '2024-02-13', klass: ['v', 'extent', 'extremum'], signified: '@{0} is (minimal, possibly lowest)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz') },
 
   // basic
   deny: { date: '2024-08-30', klass: ['v'], signified: '@{0} (contradicts, negates, denies) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gagin'), signifier: 'cac' },
@@ -168,9 +173,9 @@ export default {
   // abstract
   from: { date: '2024-08-26', klass: ['v'], signified: '@{0} is from @{1:source, origin}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fan%C4%93') },
   to: { date: '2024-08-26', klass: ['v'], signified: '@{0} is to @{1:sink, destination}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gangan%C4%85') },
-  at: { date: '2024-08-26', klass: ['v'], signified: '@{0} is at @{1:position, location, place}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/at') },
-  in: { date: '2024-08-19', klass: ['v'], signified: '@{0} is in @{1:range, area}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/in') },
-  on: { date: '2024-08-26', klass: ['v'], signified: '@{0} is on @{1:surface, border}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/an') },
+  at: { date: '2024-08-26', klass: ['v'], signified: '@{0} is at @{1:position, location, place}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wi%C3%BEr%C4%85') },
+  in: { date: '2024-08-19', klass: ['v'], signified: '@{0} is in @{1:range, area}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/felhan%C4%85') },
+  on: { date: '2024-08-26', klass: ['v'], signified: '@{0} is on @{1:surface, border}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABdan%C4%85') },
 
   member: { date: '2024-08-06', klass: ['v'], signified: '@{0} (belongs to, is a member of) @{1:collection, set, group, list}', ...fromGem('gadaz'), etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/gad' },
   part: { date: '2024-08-06', klass: ['v'], signified: '@{0} is a (part, component) of @{1:whole}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz') },
@@ -180,21 +185,27 @@ export default {
   atom: { date: '2024-08-25', klass: ['v'], signified: '@{0} is an atom', ...toCompound(['one', 'done', 'part']) },
 
   contain: { date: '2024-08-02', klass: ['v'], signified: '@{0} is contains @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haldan%C4%85') },
-  ...dual('full', '2024-08-02', ['v'], '@{0} is (perfect, complete, full of @{1})', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz'), toCompound(['max', 'contain'])),
-  ...dual('empty', '2024-09-26', ['v'], '@{0} is (empty, blank) of @{1} ', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz'), toCompound(['min', 'contain'])),
+  //...dual('full', '2024-08-02', ['v'], '@{0} is (perfect, complete, full of @{1})', fromGem(''), toCompound(['max', 'contain'])),
+  //...dual('empty', '2024-09-26', ['v'], '@{0} is (empty, blank) of @{1} ', fromGem(''), toCompound(['min', 'contain'])),
 
   move: { date: '2024-08-31', klass: ['v'], signified: '@{0} (moves, is dynamic)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wegan%C4%85') },
   ...dual('stop', '2024-08-31', ['v'], '@{0} (stops, halts, is static)', { signifier: 'stop', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/stopp%C5%8Dn' }, toCompound(['min', 'move'])),
 
+  point: { date: '2024-10-01', klass: ['v'], signified: '@{0} is a (point, position, dot)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stallaz') },
+  interval: { date: '2024-10-01', klass: ['v'], signified: '@{0} is (an interval, an area, a volume, a domain)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/twiskaz') },
+
   // physics
   world: { date: '2024-02-13', klass: ['v'], signified: '@{0} is a (world, universe)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haimaz') },
-  space: { date: '2024-02-13', klass: ['v'], signified: '@{0} is 3-dimensional physical space', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABm%C4%85') },
-  time: { date: '2024-02-13', klass: ['v'], signified: '@{0} is 1-dimensional physical time', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABm%C3%B4') }, // https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABdiz
+  space: { date: '2024-02-13', klass: ['v'], signified: '@{0} is the 3-dimensional physical spacial continuum', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABm%C4%85') },
+  time: { date: '2024-02-13', klass: ['v'], signified: '@{0} is the 1-dimensional physical temporal continuum', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABm%C3%B4') }, // https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABdiz
   thing: { date: '2024-02-13', klass: ['v'], signified: '@{0} is a (thing, matter) located in a spacetime', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEing%C4%85') },
   mass: { date: '2024-08-31', klass: ['v'], signified: '@{0} is a mass of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wihtiz') },
+
   energy: { date: '2024-08-31', klass: ['v'], signified: '@{0} is energy of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kunnan%C4%85') },
   heat: { date: '2024-09-06', klass: ['v'], signified: '@{0} is heat in @{1}', ...toCompound(['hot', 'energy']) },
   electric: { date: '2024-08-31', klass: ['v'], signified: '@{0} is (electricity, electric charge) in @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sparkaz') },
+  force: { date: '2024-10-01', klass: ['v'], signified: '@{0} is force', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wald%C4%85') },
+  timeLength: { date: '2024-10-01', klass: ['v'], signified: '@{0} is a time length', ...toCompound(['time', 'interval']) },
 
   wave: { date: '2024-08-19', klass: ['v'], signified: '@{0} is a wave of @{1:medium}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrazn%C5%8D') },
   light: { date: '2024-02-13', klass: ['v', 'wave'], signified: '@{0} is (a light, an electromagnetic wave)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85') },
@@ -203,9 +214,9 @@ export default {
 
   // physical attribute
   big: { date: '2024-02-13', klass: ['v'], signified: '@{0} is (big, great)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/grautaz') },
-  ...dual('small', '2024-09-26', ['v'], '@{0} is small', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smalaz'), toCompound(['few', 'big'])),
+  ...dual('small', '2024-09-26', ['v'], '@{0} is small', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smalaz'), toCompound(['low', 'big'])),
   long: { date: '2024-02-13', klass: ['v'], signified: '@{0} is (long, big in 1 dimension and small in others)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/langaz') },
-  ...dual('short', '2024-09-26', ['v'], '@{0} is (short, small in 1 dimension and small in others)', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz'), toCompound(['few', 'long'])),
+  ...dual('short', '2024-09-26', ['v'], '@{0} is (short, small in 1 dimension and small in others)', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz'), toCompound(['low', 'long'])),
 
   thick: { date: '2024-02-13', klass: ['v'], signified: '@{0} is thick', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEekuz') },
   sharp: { date: '2024-07-28', klass: ['v'], signified: '@{0:angle} is sharp', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skarpaz') },
@@ -213,15 +224,15 @@ export default {
   dense: { date: '2024-07-15', klass: ['v'], signified: '@{0} is (dense, heavy per volume)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEinhtaz') },
 
   swift: { date: '2024-06-18', klass: ['v'], signified: '@{0} is (swift, quick)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snellaz') },
-  ...dual('slow', '2024-09-06', ['v'], '@{0} is slow', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slaiwaz'), toCompound(['few', 'swift'])),
+  ...dual('slow', '2024-09-06', ['v'], '@{0} is slow', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slaiwaz'), toCompound(['low', 'swift'])),
   rough: { date: '2024-08-24', klass: ['v'], signified: '@{0} (is rough, is coarse, has friction) against @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABhaz') },
-  ...dual('smooth', '2024-09-26', ['v'], '@{0} (is smooth, is sleek, has low friction)', fromGem('slīkaz'), toCompound(['few', 'rough'])),
+  ...dual('smooth', '2024-09-26', ['v'], '@{0} (is smooth, is sleek, has low friction)', fromGem('slīkaz'), toCompound(['low', 'rough'])),
   soft: { date: '2024-09-26', klass: ['v'], signified: '@{0} is soft against @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABkwan%C4%85') },
-  ...dual('hard', '2024-09-26', ['v'], '@{0} is (hard, firm) against @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dr%C5%ABgiz'), toCompound(['few', 'soft'])),
+  ...dual('hard', '2024-09-26', ['v'], '@{0} is (hard, firm) against @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dr%C5%ABgiz'), toCompound(['low', 'soft'])),
   hot: { date: '2024-08-30', klass: ['v'], signified: '@{0} is (hot, warm)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/warmaz') },
-  ...dual('cold', '2024-08-30', ['v'], '@{0} (cold, cool)', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kalan%C4%85'), toCompound(['few', 'hot'])),
+  ...dual('cold', '2024-08-30', ['v'], '@{0} (cold, cool)', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kalan%C4%85'), toCompound(['low', 'hot'])),
   far: { date: '2024-08-08', klass: ['v'], signified: '@{0} is (far, distant, remote) from @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ferrai') },
-  ...dual('near', '2024-08-08', ['v'], '@{0} is (near, close to) @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz'), toCompound(['few', 'far'])),
+  ...dual('near', '2024-08-08', ['v'], '@{0} is (near, close to) @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz'), toCompound(['low', 'far'])),
   contact: { date: '2024-08-08', klass: ['v'], signified: '@{0} (touches, is adjacent, is in contact with) @{1}', ...toCompound(['min', 'far']) },
 
   // local position
@@ -236,7 +247,7 @@ export default {
 
   // state of matters
   solid: { date: '2024-02-13', klass: ['v', 'state-of-matter'], signified: '@{0} is solid', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%ABfaz') },
-  liquid: { date: '2024-02-13', klass: ['v', 'state-of-matter'], signified: '@{0} is liquid', ...fromLat('līquēre'), etym: 'https://en.wiktionary.org/wiki/liquere#Latin' },
+  liquid: { date: '2024-02-13', klass: ['v', 'state-of-matter'], signified: '@{0} is liquid', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleutan%C4%85') },
   gas: { date: '2024-02-13', klass: ['v', 'state-of-matter'], signified: '@{0} is gas', signifier: 'cas', etym: 'https://en.wiktionary.org/wiki/gas#Dutch' },
   plasm: { date: '2024-07-15', klass: ['v', 'state-of-matter'], signified: '@{0} is plasm', signifier: 'plasm', etym: 'https://en.wiktionary.org/wiki/%CF%80%CE%BB%CE%AC%CF%83%CE%BC%CE%B1#Ancient_Greek' },
 
@@ -248,25 +259,25 @@ export default {
   ash: { date: '2024-09-16', klass: ['v', 'matter'], signified: '@{0} is ash', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ask%C7%AD') },
 
   ...dual('wet', '2024-09-16', ['v',], '@{0} is (wet, moist)', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nataz'), toCompound(['contain', 'water'])),
-  ...dual('dry', '2024-09-16', ['v'], '@{0} is dry', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/druknaz'), toCompound(['contain', 'few', 'water'])),
+  ...dual('dry', '2024-09-16', ['v'], '@{0} is dry', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/druknaz'), toCompound(['low', 'contain', 'water'])),
 
   // colour
   colour: { date: '2024-02-13', klass: ['v', 'colour'], signified: '@{0} is the colour of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/farwaz') },
   red: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is red', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reudan%C4%85') },
-  orange: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is orange', signifier: 'narag', etym: 'https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B1%D9%86%DA%AF#Persian' },
-  yellow: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is yellow', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gelwaz') },
+  orange: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is orange', signifier: 'nar', etym: 'https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B1%D9%86%DA%AF#Persian' },
+  yellow: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is yellow', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gulaz') },
   green: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is green', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C5%8Dniz') },
   blue: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is blue', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C4%93waz') },
-  purple: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is purple', signifier: 'porfur', etym: 'https://en.wiktionary.org/wiki/%CF%80%CE%BF%CF%81%CF%86%CF%8D%CF%81%CE%B1#Ancient_Greek' },
+  purple: { date: '2024-02-13', klass: ['v', 'colour', 'hue'], signified: '@{0} is purple', signifier: 'por', etym: 'https://en.wiktionary.org/wiki/%CF%80%CE%BF%CF%81%CF%86%CF%8D%CF%81%CE%B1#Ancient_Greek' },
   vivid: { date: '2024-08-19', klass: ['v', 'colour', 'saturation'], signified: '@{0} is vivid-coloured', ...fromGem('blīwą') },
-  dull: { date: '2024-08-19', klass: ['v', 'colour', 'saturation'], signified: '@{0} is dull-coloured', ...toCompound(['few', 'vivid']) },
-  gray: { date: '2024-08-19', klass: ['v', 'colour', 'saturation'], signified: '@{0} is gray', ...toCompound(['min', 'vivid']) },
+  dull: { date: '2024-08-19', klass: ['v', 'colour', 'saturation'], signified: '@{0} is dull-coloured', ...toCompound(['low', 'vivid']) },
+  ...dual('gray', '2024-08-19', ['v', 'colour', 'saturation'], '@{0} is gray', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C4%93waz'), toCompound(['min', 'vivid'])),
   white: { date: '2024-02-13', klass: ['v', 'colour', 'brightness'], signified: '@{0} is white', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%ABtaz') },
   ...dual('black', '2024-04-26', ['v', 'colour', 'brightness'], '@{0} is black', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swartaz'), toCompound(['min', 'white'])),
 
   // light
   bright: { date: '2024-08-19', klass: ['v'], signified: '@{0} is bright', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/berhtaz') },
-  ...dual('dark', '2024-08-19', ['v'], '@{0} is dark', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dimmaz'), toCompound(['few', 'bright'])),
+  ...dual('dark', '2024-08-19', ['v'], '@{0} is dark', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dimmaz'), toCompound(['low', 'bright'])),
 
   // celestial
   sun: { date: '2024-02-13', klass: ['v', 'celestial'], signified: '@{0} is sun', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sunn%C7%AD') },
@@ -288,8 +299,8 @@ export default {
   land: { date: '2024-02-13', klass: ['v', 'terrain'], signified: '@{0} is land', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/land%C4%85') },
   sea: { date: '2024-02-13', klass: ['v', 'terrain'], signified: '@{0} sea', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mari') },
   mountain: { date: '2024-02-13', klass: ['v', 'terrain'], signified: '@{0} mountain', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bergaz') },
-  river: { date: '2024-02-13', klass: ['v', 'terrain'], signified: '@{0} river', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleutan%C4%85') },
-  sky: { date: '2024-08-19', klass: ['v', 'terrain'], signified: '@{0} sky', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/himinaz') },
+  river: { date: '2024-02-13', klass: ['v', 'terrain'], signified: '@{0} river', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/straumaz') },
+  sky: { date: '2024-08-19', klass: ['v', 'terrain'], signified: '@{0} sky', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/himinaz', true) },
 
   // weather
   cloud: { date: '2024-08-19', klass: ['v', 'weather'], signified: '@{0} is cloud', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulkn%C4%85') },
@@ -305,11 +316,14 @@ export default {
   see: { date: '2024-02-13', klass: ['v', 'feel'], signified: '@{0} sees @{1:sight}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sehwan%C4%85') },
   smell: { date: '2024-02-13', klass: ['v', 'feel'], signified: '@{0} smells @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reukan%C4%85') },
   taste: { date: '2024-02-13', klass: ['v', 'feel'], signified: '@{0} tastes @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smakkuz') },
-  touch: { date: '2024-02-13', klass: ['v', 'feel'], signified: '@{0} palps(touches) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tukk%C5%8Dn%C4%85') },
+  touch: { date: '2024-02-13', klass: ['v', 'feel'], signified: '@{0} (palps, touches) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tukk%C5%8Dn%C4%85') },
 
-  differ: { date: '2024-02-13', klass: ['v'], signified: '@{0} (differs, varies) from @{1}', ...fromLat('vārō'), etym: 'https://en.wiktionary.org/wiki/varus#Latin' },
-  similar: { date: '2024-08-27', klass: ['v'], signified: '@{0} (resemmbles, is similar to) @{1}', ...toCompound(['few', 'differ']) },
-  same: { date: '2024-08-27', klass: ['v'], signified: '@{0} is (the same as, identical to, equal to) @{1}', ...toCompound(['min', 'differ']) },
+  differ: { date: '2024-02-13', klass: ['v'], signified: '@{0} (differs, varies) from @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiljan%C4%85') },
+  ...dual('similar', '2024-08-27', ['v'], '@{0} (resemmbles, is similar to) @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABk%C4%81n%C4%85'), toCompound(['low', 'differ'])),
+  ...dual('same', '2024-08-27', ['v'], '@{0} is (the same as, identical to, equal to) @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/samaz'), toCompound(['min', 'differ'])),
+
+  become: { date: '2024-09-28', klass: ['v'], signified: '@{0} (becomes something else, transforms, changes)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wer%C3%BEan%C4%85') },
+
   //simulate: { date: '2024-08-27', klass: ['v'], signified: 'simulate A, imitate, fake', ...toCompound(['non', 'similar']) },
   test: { date: '2024-07-26', klass: ['v'], signified: '@{0} (checks, examines, inspects) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/keusan%C4%85') },
   compare: { date: '2024-07-26', klass: ['v'], signified: '@{0} compares @{1:individuals}', ...toCompound(['differ', 'test']) },
@@ -329,7 +343,7 @@ export default {
   run: { date: '2024-06-18', klass: ['v', 'behavior'], signified: '@{0} run on @{1:ground}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rinnan%C4%85') },
   leap: { date: '2024-07-28', klass: ['v', 'behavior'], signified: '@{0} (jump, leap, skip, hop) over @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlaupan%C4%85') },
   swim: { date: '2024-08-19', klass: ['v', 'behavior'], signified: '@{0} (swims, flies) in @{1:fluid}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85') },
-  //fly: { date: '2024-07-28', klass: ['v', 'behavior'], signified: 'fly in @{1:air}', signifier: ['swim', 'sky'] },
+  fly: { date: '2024-07-28', klass: ['v', 'behavior'], signified: '@{0} flies in @{1:air}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleugan%C4%85') },
 
   // physiological
   eat: { date: '2024-02-13', klass: ['v', 'physiological'], signified: '@{0} eats @{1:food}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/etan%C4%85') },
@@ -342,22 +356,22 @@ export default {
   digest: { date: '2024-02-13', klass: ['v', 'physiological'], signified: '@{0} digests @{1:food}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meltan%C4%85') },
   fuck: { date: '2024-02-13', klass: ['v', 'physiological'], signified: '@{0} fucks A', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fukk%C5%8Dn%C4%85#Etymology_2') },
   sick: { date: '2024-02-13', klass: ['v', 'physiological'], signified: '@{0} is sick', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/seukaz') },
-  ...dual('healthy', '2024-08-24', ['v', 'physiological'], '@{0} is healthy', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz'), toCompound(['few', 'sick'])),
+  ...dual('healthy', '2024-08-24', ['v', 'physiological'], '@{0} is healthy', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz'), toCompound(['low', 'sick'])),
 
   // emotion
   emotion: { date: '2024-08-02', klass: ['v'], signified: '@{0} is (emotion, feeling) of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hugiz') },
 
   like: { date: '2024-08-02', klass: ['v', 'emotion'], signified: '@{0} (likes, feels (good, positive) about) @{1:good}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lub%C5%8D') },
-  ...dual('dislike', '2024-08-02', ['v', 'emotion'], '@{0} (dislikes, feels (bad, negative) about) @{1:bad}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lai%C3%BEaz'), toCompound(['Sub', 'like'])),
+  ...dual('dislike', '2024-08-02', ['v', 'emotion'], '@{0} (dislikes, feels (bad, negative) about) @{1:bad}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lai%C3%BEaz'), toCompound(['low', 'like'])),
 
   happy: { date: '2024-08-02', klass: ['v', 'emotion'], signified: '@{0} is (happy, glad, merry) about @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/frawaz') },
-  ...dual('sad', '2024-09-10', ['v', 'emotion'], '@{0} is (sad, depressed) about @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/surg%C5%8D'), toCompound(['Sub', 'happy'])),
+  ...dual('sad', '2024-09-10', ['v', 'emotion'], '@{0} is (sad, depressed) about @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/surg%C5%8D'), toCompound(['low', 'happy'])),
 
   care: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} (regards, cares about) @{1:important}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kar%C5%8Dn%C4%85') },
-  respect: { date: '2024-09-10', klass: ['v', 'emotion'], signified: 'care/@{0} (respects, honors, positively cares about) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wer%C3%BEaz') },
+  respect: { date: '2024-09-10', klass: ['v', 'emotion'], signified: 'care/@{0} (respects, honors, positively cares about) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wir%C3%BEijan%C4%85') },
   fear: { date: '2024-09-10', klass: ['v', 'emotion'], signified: 'care/@{0} (fears, is afraid of, negatively cares about) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furhtaz') },
 
-  neglect: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} (neglects, is indifferent to, cares less about) @{1}', ...toCompound(['few', 'care']) },
+  neglect: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} (neglects, is indifferent to, cares less about) @{1}', ...toCompound(['low', 'care']) },
   serene: { date: '2024-09-10', klass: ['v', 'emotion', 'neglect'], signified: '@{0} is (calm about, serene about, positively neglects) @{1}', ...toCompound(['good', 'neglect']) }, //signifier: 'rov', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%8D%C5%8D'
   scorn: { date: '2024-09-10', klass: ['v', 'emotion', 'neglect'], signified: '@{0} (scorns, disdains, disrespects, negatively neglects) @{1}', ...toCompound(['bad', 'neglect']) },
 
@@ -371,18 +385,18 @@ export default {
   enjoy: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} enjoys @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neutan%C4%85') },
 
   trust: { date: '2024-08-02', klass: ['v', 'emotion'], signified: '@{0} trusts @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tr%C5%ABw%C4%81n%C4%85') },
-  doubt: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} doubts @{1}', ...toCompound(['few', 'trust']) }, //...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tw%C4%ABflaz')
+  doubt: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} doubts @{1}', ...toCompound(['low', 'trust']) }, //...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tw%C4%ABflaz')
 
   pride: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} is proud of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stultaz') },
-  ...dual('shame', '2024-09-10', ['v', 'emotion'], '@{0} is ashamed of @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skam%C5%8D'), toCompound(['few', 'pride'])),
+  ...dual('shame', '2024-09-10', ['v', 'emotion'], '@{0} is ashamed of @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skam%C5%8D'), toCompound(['low', 'pride'])),
 
   shun: { date: '2024-09-27', klass: ['v', 'emotion'], signified: '@{0} is (shuns, avoids) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skeuhaz') },
-  ...dual('want', '2024-02-13', ['v', 'emotion'], '@{0} wants @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wiljan%C4%85'), toCompound(['Sub', 'shun'])),
+  ...dual('want', '2024-02-13', ['v', 'emotion'], '@{0} wants @{1}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wiljan%C4%85'), toCompound(['low', 'shun'])),
 
   love: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} (loves, is romantically attracted to) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gernaz') },
   randy: { date: '2024-09-12', klass: ['v', 'emotion'], signified: '@{0} is (randy, aroused, lustful, horny) for @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gailaz') },
 
-  envy: { date: '2024-09-12', klass: ['v', 'emotion', 'hate'], signified: '@{0} envies @{1}', ...fromLat('https://en.wiktionary.org/wiki/zeloso#Latin') },
+  envy: { date: '2024-09-12', klass: ['v', 'emotion', 'hate'], signified: '@{0} envies @{1}', ...fromLat('https://en.wiktionary.org/wiki/zelo#Latin') },
   pity: { date: '2024-09-10', klass: ['v', 'emotion'], signified: '@{0} (pities, feel sympathy) @{1}', ...fromLat('https://en.wiktionary.org/wiki/misero#Latin') },
 
   // facial
@@ -405,17 +419,20 @@ export default {
   speak: { date: '2024-06-14', klass: ['v', 'communicate'], signified: '@{0} speaks in @{1:language, protocol}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tal%C5%8Dn%C4%85') },
   language: { date: '2024-06-14', klass: ['v', 'communicate'], signified: '@{0} language', ...toCompound(['done', 'speak']) },
   say: { date: '2024-06-14', klass: ['v', 'communicate'], signified: '@{0} says @{1:idea} @{2:expression}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sagjan%C4%85') },
-  understand: { date: '2024-06-14', klass: ['v', 'communicate'], signified: '@{0} understands @{1:idea} from @{2:expression}', ...toCompound(['counter', 'say']) },
+  ...dual('understand', '2024-06-14', ['v', 'communicate'], '@{0} understands @{1:idea} from @{2:expression}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlustiz'), toCompound(['counter', 'say'])),
   write: { date: '2024-06-14', klass: ['v', 'communicate'], signified: '@{0} writes @{1:idea} to @{2:expression}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C4%ABtan%C4%85') },
-  read: { date: '2024-06-14', klass: ['v', 'communicate'], signified: '@{0} reads @{1:idea} from @{2:expression}', ...toCompound(['counter', 'write']) },
+  ...dual('read', '2024-06-14', ['v', 'communicate'], '@{0} reads @{1:idea} from @{2:expression}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%93dan%C4%85'), toCompound(['counter', 'write'])),
   ask: { date: '2024-07-28', klass: ['v', 'communicate'], signified: '@{0} asks @{1:question} to @{2:questionee}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fr%C4%93g%C5%8D') },
-  answer: { date: '2024-07-28', klass: ['v', 'communicate'], signified: '@{0} answers @{1:answer} to @{2:questioner}', ...toCompound(['counter', 'ask']) },
+  ...dual('answer', '2024-07-28', ['v', 'communicate'], '@{0} answers @{1:answer} to @{2:questioner}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swar%C5%8Dn%C4%85'), toCompound(['counter', 'ask'])),
 
   // performative
   greet: { date: '2024-02-13', klass: ['v', 'performative'], signified: '@{0} greets @{1:person}', ...fromLat('salūte'), etym: 'https://en.wiktionary.org/wiki/salute#Latin' },
   forgive: { date: '2024-02-13', klass: ['v', 'performative'], signified: '@{0} forgives @{1:event}', ...fromLat('dōnāre'), etym: 'https://en.wiktionary.org/wiki/donare#Latin' },
   thank: { date: '2024-02-13', klass: ['v', 'performative'], signified: '@{0} thanks @{1:event}', ...fromLat('grātō'), etym: 'https://en.wiktionary.org/wiki/grato#Latin' },
-  promise: { date: '2024-08-19', klass: ['v', 'performative'], signified: '@{0} promises @{1:event}, guarantee, vow', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haitan%C4%85') },
+  promise: { date: '2024-08-19', klass: ['v', 'performative'], signified: '@{0} (promises, guarantee, vow) @{1:event}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haitan%C4%85') },
+
+  command: { date: '2024-09-29', klass: ['v'], signified: '@{0} command @{1:must}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stiurijan%C4%85') },
+  request: { date: '2024-09-29', klass: ['v'], signified: '@{0} recommend @{1:may}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stiurijan%C4%85') },
 
   // culture
   sing: { date: '2024-02-13', klass: ['v', 'culture'], signified: 'sing @{1:music, song}, play', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/singwan%C4%85') },
@@ -423,7 +440,7 @@ export default {
 
   // biochemistry
   rot: { date: '2024-02-13', klass: ['v'], signified: '@{0} is rotten', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rut%C4%81n%C4%85') },
-  ...dual('fresh', '2024-07-24', ['v'], '@{0} is fresh', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/friskaz'), toCompound(['few', 'rot'])),
+  ...dual('fresh', '2024-07-24', ['v'], '@{0} is fresh', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/friskaz'), toCompound(['low', 'rot'])),
 
   // reproduction
   beget: { date: '2024-08-19', klass: ['v'], signified: '@{0} (bears, reproducts) @{1:child}, parent', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fad%C4%93r') },
@@ -446,10 +463,10 @@ export default {
   horse: { date: '2024-02-13', klass: ['v', 'life', 'animal', 'mammal'], signified: '@{0} is a horse', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hruss%C4%85') },
   cow: { date: '2024-02-13', klass: ['v', 'life', 'animal', 'mammal'], signified: '@{0} is a cow', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/k%C5%ABz') },
   pig: { date: '2024-02-13', klass: ['v', 'life', 'animal', 'mammal'], signified: '@{0} is a pig', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%ABn%C4%85') },
-  reptile: { date: '2024-02-13', klass: ['v', 'life', 'animal'], signified: '@{0} is a reptile', ...fromLat('https://en.wiktionary.org/wiki/reptile#Latin') },
+  reptile: { date: '2024-02-13', klass: ['v', 'life', 'animal'], signified: '@{0} is a reptile', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skr%C4%AB%C3%BEan%C4%85') },
   snake: { date: '2024-07-15', klass: ['v', 'life', 'animal', 'reptile'], signified: '@{0} is a snake', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/snak%C5%8D') },
   bird: { date: '2024-02-13', klass: ['v', 'life', 'animal'], signified: '@{0} is a bird', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuglaz') },
-  crow: { date: '2024-07-15', klass: ['v', 'life', 'animal', 'bird'], signified: '@{0} is a crow(raven)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrabnaz') },
+  crow: { date: '2024-07-15', klass: ['v', 'life', 'animal', 'bird'], signified: '@{0} is a (crow, raven)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrabnaz') },
   fish: { date: '2024-02-13', klass: ['v', 'life', 'animal'], signified: '@{0} is a fish', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fiskaz') },
   amphibia: { date: '2024-02-13', klass: ['v', 'life', 'animal'], signified: '@{0} is a amphibia', etym: 'https://en.wiktionary.org/wiki/Lork#German_Low_German', signifier: 'lork', },
   frog: { date: '2024-07-15', klass: ['v', 'life', 'animal', 'amphibia'], signified: '@{0} is a frog', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fruskaz') },
@@ -504,17 +521,13 @@ export default {
   leaf: { date: '2024-09-02', klass: ['v', 'body', 'plant'], signified: '@{0} is a leaf of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/laub%C4%85') },
   root: { date: '2024-09-02', klass: ['v', 'body', 'plant'], signified: '@{0} is a root of @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C5%8Dts') },
 
-  // tool
-  knife: { date: '2024-07-28', klass: ['v', 'tool'], signified: '@{0} is a (sword, knife, blade)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sahs%C4%85') },
-  scissor: { date: '2024-07-28', klass: ['v', 'tool'], signified: '@{0} is a pair of scissors', ...toCompound(['two', 'knife']) },
-  spear: { date: '2024-07-28', klass: ['v', 'tool'], signified: '@{0} is a (spear, pin)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/speru') },
-  rod: { date: '2024-07-28', klass: ['v', 'tool'], signified: '@{0} is a (rod, stuff, wand, club)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stikk%C3%B4') },
-  money: { date: '2024-08-25', klass: ['v', 'tool'], signified: '@{0} is (money, coin, bill)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fehu') },
-
   // civilization
-  person: { date: '2024-02-13', klass: ['v', 'civilisation'], signified: '@{0} is (a person, an individual, a citizen)', ...fromLat('cīvī'), etym: 'https://en.wiktionary.org/wiki/civi#Latin' },
+  person: { date: '2024-02-13', klass: ['v', 'civilisation'], signified: '@{0} is (a person, an individual, a citizen)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/liudiz') },
   country: { date: '2024-08-24', klass: ['v', 'civilisation'], signified: '@{0} is a country', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mark%C5%8D') },
   rule: { date: '2024-07-28', klass: ['v', 'civilisation'], signified: '@{0} (rules, orders, dictates) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stiurijan%C4%85') },
+
+  noble: { date: '2024-10-01', klass: ['v'], signified: '@{0} is noble', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABkijaz') },
+  ...dual('humble', '2024-10-01', ['v'], '@{0} is humble', fromGem('meukaz'), toCompound(['few', 'rich'])),
 
   work: { date: '2024-02-13', klass: ['v'], signified: '@{0} works @{1:operation}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/werk%C4%85') },
   use: { date: '2024-06-14', klass: ['v'], signified: '@{0} uses @{1:tool} for @{2:purpose}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nut%C5%8Dn%C4%85') },
@@ -526,6 +539,23 @@ export default {
   wont: { date: '2024-09-01', klass: ['v'], signified: '@{0} is (a custom, a habit, usual, routine, regular) to @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wun%C4%81n%C4%85') }, // https://en.wiktionary.org/wiki/suescere#Latin
   lead: { date: '2024-09-01', klass: ['v'], signified: '@{0} (leads, guides) @{1:follower}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dragan%C4%85') },
   pick: { date: '2024-09-09', klass: ['v'], signified: '@{0} (picks, hunts, gathers, collects) @{1:harvest, prey}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/jakk%C5%8Dn%C4%85') },
+
+  // artifact
+  knife: { date: '2024-07-28', klass: ['v', 'artifact'], signified: '@{0} is a (sword, knife, blade)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sahs%C4%85') },
+  scissor: { date: '2024-07-28', klass: ['v', 'artifact'], signified: '@{0} is a pair of scissors', ...toCompound(['two', 'knife']) },
+  spear: { date: '2024-07-28', klass: ['v', 'artifact'], signified: '@{0} is a (spear, pin)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/speru') },
+  rod: { date: '2024-07-28', klass: ['v', 'artifact'], signified: '@{0} is a (rod, stuff, wand, club)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stikk%C3%B4') },
+  money: { date: '2024-08-25', klass: ['v', 'artifact'], signified: '@{0} is (money, coin, bill)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fehu') },
+  ship: { date: '2024-10-05', klass: ['v', 'artifact'], signified: '@{0} is a (ship, boat)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/baitaz') },
+
+  // grammar
+  sentence: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is a sentence', ...fromLat('https://en.wiktionary.org/wiki/sententia#Latin') },
+  clause: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is a clause', ...fromLat('https://en.wiktionary.org/wiki/clauso#Latin') },
+  word: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is a word', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wurd%C4%85') },
+  verb: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is a verb', ...fromLat('https://en.wiktionary.org/wiki/verbo#Latin') },
+  subject: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is a subject of @{1}', ...fromLat('https://en.wiktionary.org/wiki/subiecto#Latin') },
+  object: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is an object of @{1}', ...fromLat('https://en.wiktionary.org/wiki/obiecto#Latin') },
+  case: { date: '2024-10-05', klass: ['v', 'grammar'], signified: '@{0} is an case of @{1}', ...fromLat('https://en.wiktionary.org/wiki/casu#Latin') },
 
   // country
   japan: { date: '2024-08-25', klass: ['v', 'country'], signified: '@{0} is japan (JP)', ...toIdiom(['country', 'isCalled', '$' + literal('JP')]), etym: 'https://en.wikipedia.org/wiki/ISO_3166-2:JP' },

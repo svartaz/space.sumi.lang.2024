@@ -1,17 +1,19 @@
 import { replaceAll } from "@/lib/sundry";
 import { Formation } from "./common";
 
-const from = (replacements) => (etym: string) => ({
+const from = (replacements) => (etym: string, mono = false) => ({
   signifier: replaceAll(decodeURIComponent(etym), [
     // extract from URL
     [/^.+\//, ''],
     [/#.+$/, ''],
 
     [/^-|-$/, ''],
+    [/(.)\1+/g, it => it.slice(-1)],
 
     ...replacements,
 
     [/(?<!^)z/g, 's'],
+    [/(?<=[ieaou][^ieaou]+)[ieaou].+$/, mono ? '' : it => it],
   ]),
   formation: Formation.Root,
   etym,
@@ -19,7 +21,17 @@ const from = (replacements) => (etym: string) => ({
 
 export const fromGem = from([
   // remove suffix
-  [/(?<=[ieaouīēāōūîêâôû][^ieaouīēāōūîêâôû]+)(ijaną|janą|ōną|āną|aną|[aiu]z|[ēō]r|ai|ą|ô|ǭ|ō|i|u|s)$/, ''],
+  [/(?<=[ieaouīēāōūîêâôû][^ieaouīēāōūîêâôû]+)(i?janą|i?jaz|j?an|[aāō]ną|[aiu]z|[ēō]r|ai|s|[ieaouąīēāōūǭîêâôû])$/, ''],
+
+  // diphthong
+  //[/ai/g, 'e'],
+  //[/au/g, 'o'],
+  //[/eu/g, 'o'],
+  //[/iu/g, 'ju'],
+  //[/ōi/g, 'e'],
+  //[/ōu/g, 'u'],
+  //[/ēi/g, 'i'],
+  //[/ēu/g, 'ju'],
 
   // simplify vowel
   [/ī|î/g, 'i'],
@@ -28,13 +40,12 @@ export const fromGem = from([
   [/ō|ô/g, 'o'],
   [/ū|û/g, 'u'],
 
-  [/(?<![ieaou])[jw]$/g, ''],
 
   // simple substitution
-  [/w/g, 'v'],
   [/þ/g, 'd'],
   [/g/g, 'c'],
   [/nc/g, 'g'],
+  [/w/g, 'v'],
 
   // sound change
   [/^h(?=[gnmrl])/g, ''],
@@ -42,16 +53,21 @@ export const fromGem = from([
 
   // specific
   [/berht/g, 'breht'],
-  [/vintr/g, 'vintur'],
-  [/nurdr/g, 'nurd'],
   [/vulkn/g, 'vulkan'],
   [/meluk/g, 'melk'],
-  [/vundr/g, 'vond'],
 ]);
 
 export const fromLat = from([
   // remove suffix
   [/((ā|ē|e|ī)re|ā|i?ō|e|ū|iē)$/, ''],
+
+  // diphthong
+  [/ei/g, 'i'],
+  [/eu/g, 'o'],
+  [/ae/g, 'e'],
+  [/au/g, 'o'],
+  [/oe/g, 'e'],
+  [/ui/g, 'i'],
 
   // simplify vowel
   [/ī|y/g, 'i'],

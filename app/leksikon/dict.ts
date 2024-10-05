@@ -2,9 +2,6 @@ import dictObj from "./dictObj";
 import { EntryCore, EntryPre, Formation } from "./common";
 import { phonemes, phonotactics } from "../phonology/page";
 
-const choose = <A>(array: A[]): A =>
-  array[Math.floor(array.length * Math.random())];
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const compare = (a: string, b: string): number => {
   for (let i = 0; i < Math.min(a.length, b.length); i++) {
@@ -15,13 +12,6 @@ const compare = (a: string, b: string): number => {
   }
 
   return a.length - b.length;
-};
-
-for (let i = 0; i < 8; i++) {
-  const w = Array.from({ length: 8 }, () => choose(phonemes.split(''))).join('');
-  const fixed = phonotactics(w);
-
-  console.debug('phonotactics test', w, fixed, w === fixed ? '' : '!');
 };
 
 const entries: [string, EntryPre][] = Object.entries(dictObj)
@@ -75,6 +65,8 @@ for (const [k, v] of dictPre)
 
 // phonotactics
 for (const [k, v] of dictPre) {
+  if (v.formation === Formation.Idiom) continue;
+
   const fixed = phonotactics(v.signifier as string);
   if (fixed !== v.signifier) {
     console.log('phonotactic conversion:', v?.signifier, fixed);
@@ -82,6 +74,11 @@ for (const [k, v] of dictPre) {
     dictPre.set(k, v);
   }
 };
+
+// phonotactics of roots
+for (const [k, v] of dictPre)
+  if (v.formation === Formation.Root && v.klass[0] === 'v' && !/^[^ieaou]{1,2}[ieaou]{1,2}[^ieaou]{1,2}$/.test(v?.signifier as string))
+    console.error('root non-CCVVCC', k, v?.signifier);
 
 // homograph
 const entriesP = [...dictPre.entries()];
