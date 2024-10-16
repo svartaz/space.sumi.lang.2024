@@ -45,16 +45,23 @@ export const fromGem = from([
   [/þ/g, 'd'],
   [/g/g, 'c'],
   [/nc/g, 'g'],
+
+  // W
+  [/(?<=[^ieaou])w$/g, ''],
   [/w/g, 'v'],
 
   // sound change
-  [/^h(?=[gnmrl])/g, ''],
+  //[/^h(?=[gnmrl])/g, ''],
   [/ts$/g, 't'],
+  [/z$/g, 'r'],
 
   // specific
   [/berht/g, 'breht'],
-  [/vulkn/g, 'vulkan'],
+  [/vulkn/g, 'vlukn'],
   [/meluk/g, 'melk'],
+  [/sumar/g, 'smar'],
+  [/strom/g, 'srom'],
+  [/haubud/g, 'houd'],
 ]);
 
 export const fromLat = from([

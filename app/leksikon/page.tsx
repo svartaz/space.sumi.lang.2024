@@ -31,10 +31,11 @@ export default function Leksikon() {
           fill='currentColor'
           transform='scale(2,1)'
           d={
+            'M1 1 L0 1 L0 0' +
             (Object.entries(acc) as [string, number][]).map(([d, current], i, self) =>
-              `${i === 0 ? 'M' : 'L'} ${current / n} ${(parseInt(d) - start) / interval}`
+              `L${current / n} ${(parseInt(d) - start) / interval}`
               + (i < self.length - 1 ? `L${current / n} ${(parseInt(self[i + 1][0]) - start) / interval}` : '')
-            ).join('') + 'L0 1L0 0Z'
+            ).join('') + 'Z'
           } />
 
         <rect

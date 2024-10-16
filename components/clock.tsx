@@ -10,10 +10,10 @@ export default () => {
     return () => clearInterval(id);
   });
 
-  const day = ('000' + time.day.toString() + '000000').replace(/^.*(.{3}\..{6}).*$/, '$1');
+  const day = ('000' + time.day.toString() + '00000').replace(/^.*(.{3}\..{5}).*$/, '$1');
   const zone = (0 <= time.zoneOver ? '+' : '') + time.zoneOver.toString() + '/' + time.zoneUnder.toString();
 
   return <div className='clock-text' style={{ inlineSize: 'fit-content', blockSize: 'fit-content', marginInlineEnd: 'auto', fontSize: 'smaller', whiteSpace: 'pre-wrap' }}>
-    {`${time.year}D${day}${zone}`.replace('D', '\nD')}
+    {`${time.year}\nD${day}${zone}`}
   </div>;
 }

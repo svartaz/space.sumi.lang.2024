@@ -1,7 +1,7 @@
 const gcd = (a, b) =>
-  b === 0
-    ? a
-    : gcd(b, a % b);
+  a < b ? gcd(a, b - a)
+    : b < a ? gcd(a - b, b)
+      : a;
 
 export const getIsLeap = (year: number) =>
   (0 === year % 4) && (0 !== year % 100) || (0 === year % 400);
@@ -47,7 +47,7 @@ export const fromDate = (d: Date | null) => {
   const zone = d.getTimezoneOffset() + (isDst ? 60 : 0);
   const day = (d.getTime() - new Date(year, 0, 1).getTime()) / 1000 / 60 / 60 / 24;
 
-  const commonFactor = Math.abs(gcd(zone, 24 * 60));
+  const commonFactor = gcd(Math.abs(zone), 24 * 60);
 
   return {
     isLeap,

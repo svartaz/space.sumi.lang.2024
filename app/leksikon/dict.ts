@@ -77,8 +77,8 @@ for (const [k, v] of dictPre) {
 
 // phonotactics of roots
 for (const [k, v] of dictPre)
-  if (v.formation === Formation.Root && v.klass[0] === 'v' && !/^[^ieaou]{1,2}[ieaou]{1,2}[^ieaou]{1,2}$/.test(v?.signifier as string))
-    console.error('root non-CCVVCC', k, v?.signifier);
+  if (v.formation === Formation.Root && v.klass[0] === 'v' && !/^[^ieaou]{1,2}[jv]?[ieaou]{1,2}[jv]??[^ieaou]{1,2}$/.test(v?.signifier as string))
+    console.error('root non-CCGVGCC', k, v?.signifier);
 
 // homograph
 const entriesP = [...dictPre.entries()];

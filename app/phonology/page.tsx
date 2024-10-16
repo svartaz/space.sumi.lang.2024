@@ -12,6 +12,12 @@ export const phonemes = consonants + vowels;
 
 export const phonotactics = (w: string) => {
   const fixed = replaceAll(w, [
+    // preprocess
+    [/(?<=[^ieaou])j(?=[ieaou])/g, 'y'],
+    [/(?<=[^ieaou])v(?=[ieaou])/g, 'w'],
+    [/(?<=[ieaou])j(?=[^ieaou])/g, 'y'],
+    [/(?<=[ieaou])v(?=[^ieaou])/g, 'w'],
+
     // geminate
     [/(.)\1+/g, it => it.slice(-1)],
 
@@ -19,26 +25,69 @@ export const phonotactics = (w: string) => {
     [/[gnm]{2,}(?=[ieaou])/g, it => it.slice(-1)],
     [/[gnm]{2,}/g, it => it.slice(0, 1)],
 
-    // Nr
+    // nasal + r
     [/gr/g, 'cr'],
     [/nr/g, 'dr'],
     [/mr/g, 'br'],
 
-    // unmatched nasal
+    // nasal + unmatched consonant
     [/[nm](?=[ck])/g, 'g'],
     [/[gm](?=[xdtl])/g, 'n'],
     [/[gn](?=[bp])/g, 'm'],
 
     // plosive + matched nasal
-    [/[ck]g/g, 'h'],
-    [/[dt]n/g, 's'],
-    [/[bp]m/g, 'f'],
+    [/[ck](?=g)/g, 'h'],
+    [/[dt](?=n)/g, 's'],
+    [/[bp](?=m)/g, 'f'],
 
     // nasal + fricative
-    [/[gnm](?=[hxsfjzv])/g, 'n'],
+    [/[gm](?=[hxsfjzv])/g, 'n'],
 
-    // adjacent sibilants
+    // sibilant*
     [/[xsjz]{2,}/g, it => it.slice(-1)],
+
+    // sibilant + r
+    [/[xs]r/g, 'x'],
+    [/[jz]r/g, 'j'],
+
+    // specific
+    [/gi/g, 'ni'],
+    [/bv/g, 'v'],
+
+    // l + d
+    [/(?<=[ieaou])ld/g, 'd'],
+
+    // vowels
+    [/^i(?=[eaou])/, 'j'],
+    [/^u(?=[ieao])/, 'v'],
+    [/(?<=[eaou])i$/, 'j'],
+    [/(?<=[ieao])u$/, 'v'],
+
+    [/(?<=[^ieaou])i(?=[eaou])/, 'y'],
+    [/(?<=[^ieaou])u(?=[ieao])/, 'w'],
+
+    [/(?<![ieaou])ei(?![ieaou])/, 'ay'],
+    [/(?<![ieaou])ea(?![ieaou])/, 'ya'],
+    [/(?<![ieaou])eo(?![ieaou])/, 'yo'],
+    [/(?<![ieaou])eu(?![ieaou])/, 'yu'],
+
+    [/(?<![ieaou])ai(?![ieaou])/, 'ay'],
+    [/(?<![ieaou])ae(?![ieaou])/, 'e'],
+    [/(?<![ieaou])ao(?![ieaou])/, 'o'],
+    [/(?<![ieaou])au(?![ieaou])/, 'aw'],
+
+    [/(?<![ieaou])oi(?![ieaou])/, 'wi'],
+    [/(?<![ieaou])oe(?![ieaou])/, 'we'],
+    [/(?<![ieaou])oa(?![ieaou])/, 'wa'],
+    [/(?<![ieaou])ou(?![ieaou])/, 'aw'],
+
+    // vowel + high + vowel
+    [/(?<=[^ieaou][eaou])i(?=[eaou][^ieaou])/, 'j'],
+    [/(?<=[^ieaou][ieao])u(?=[ieao][^ieaou])/, 'v'],
+
+    // matched high
+    [/(?<=[xj])i(?=[eaou])/g, ''],
+    [/(?<=[mbpfv])u(?=[ieao])/g, ''],
 
     // unvoiced + voiced
     [/[cdbktphxsfjzv]{2,}/g, it => /[cdbjzv]$/.test(it)
@@ -61,57 +110,8 @@ export const phonotactics = (w: string) => {
       ])
     ],
 
-    // sibilant + R
-    [/sr/g, 'x'],
-    [/zr/g, 'j'],
-
-    // {c}{v}
-    [/gi/g, 'ni'],
-
-    // LD
-    [/(?<=[ieaou])ld/g, 'd'],
-
-    // vowels
-    [/^i(?=[eaou])/, 'j'],
-    [/^u(?=[ieao])/, 'v'],
-    [/(?<=[eaou])i$/, 'j'],
-    [/(?<=[ieao])u$/, 'v'],
-
-    //[/(?<![ieaou])ia(?![ieaou])/, 'ja'],
-    //[/(?<![ieaou])ie(?![ieaou])/, 'je'],
-    //[/(?<![ieaou])io(?![ieaou])/, 'jo'],
-    //[/(?<![ieaou])iu(?![ieaou])/, 'ju'],
-
-    [/(?<![ieaou])ei(?![ieaou])/, 'i'],
-    [/(?<![ieaou])ea(?![ieaou])/, 'ia'],
-    [/(?<![ieaou])eo(?![ieaou])/, 'io'],
-    [/(?<![ieaou])eu(?![ieaou])/, 'iu'],
-
-    [/(?<![ieaou])ai(?![ieaou])/, 'e'],
-    [/(?<![ieaou])ae(?![ieaou])/, 'e'],
-    [/(?<![ieaou])ao(?![ieaou])/, 'o'],
-    [/(?<![ieaou])au(?![ieaou])/, 'o'],
-
-    [/(?<![ieaou])oi(?![ieaou])/, 'ui'],
-    [/(?<![ieaou])oe(?![ieaou])/, 'ue'],
-    [/(?<![ieaou])oa(?![ieaou])/, 'ua'],
-    [/(?<![ieaou])ou(?![ieaou])/, 'u'],
-
-    //[/(?<![ieaou])ui(?![ieaou])/, 'vi'],
-    //[/(?<![ieaou])ue(?![ieaou])/, 've'],
-    //[/(?<![ieaou])ua(?![ieaou])/, 'va'],
-    //[/(?<![ieaou])uo(?![ieaou])/, 'o'],
-
-    //VGV
-    [/(?<=[^ieaou][eaou])i(?=[eaou][^ieaou])/, 'j'],
-    [/(?<=[^ieaou][ieao])u(?=[ieao][^ieaou])/, 'v'],
-
-    // glide
-    [/(?<=[xj])i(?=[eaou])/g, ''],
-    [/(?<=[mbpfv])u(?=[ieao])/g, ''],
-
     // CCC
-    [/undr$/g, 'udr'],
+    [/undr$/g, 'und'],
     [/intr$/g, 'itr'],
     [/inht$/g, 'iht'],
     [/ihst$/g, 'ist'],
@@ -119,15 +119,9 @@ export const phonotactics = (w: string) => {
     [/urdr$/g, 'urd'],
     [/urht$/g, 'urh'],
 
-    // initial
-    [/^(?=[ie])/, 'j'],
-    [/^(?=a)/, 'h'],
-    [/^(?=[ou])/, 'v'],
-
-    // final
-    //[/(?<![ieaou])h$/, ''],
-    //[/(?<![ieaoi])j$/, ''],
-    //[/(?<![ieaou])v$/, ''],
+    // postprocess
+    [/y/g, 'j'],
+    [/w/g, 'v'],
   ]);
 
   return w === fixed
@@ -143,6 +137,11 @@ export const getIpa = (w: string): string => replaceAll(w.toUpperCase(), [
 
   [/(?<=[IEAOU])N(?=[HXSFJZV])/g, '\u0303'],
   [/.+/, it => it.normalize('NFKC')],
+
+  [/(?<=[^IEAOU])J(?=[EAOU])/g, 'j'],
+  [/(?<=[^IEAOU])V(?=[IEAO])/g, 'w'],
+  [/(?<=[EAOU])J(?=[^IEAOU])/g, 'j'],
+  [/(?<=[IEAO])V(?=[^IEAOU])/g, 'w'],
 
   [/(?<=[IEAOU])C(?=[IEAOU])/g, 'ɣ'],
 
@@ -162,9 +161,6 @@ export const getIpa = (w: string): string => replaceAll(w.toUpperCase(), [
 
   [/IO/g, 'øː'],
   [/IU/g, 'yː'],
-
-  [/(?<![IEAOU])I(?=[EAOU])/g, 'j'],
-  [/(?<![IEAOU])U(?=[IEAO])/g, 'w'],
 
   [/(.)\1/g, '$1ː'],
 
@@ -221,12 +217,12 @@ export const getOrth = (s: string): string => replaceAll(s, [
     [/t/g, 'τ'],
     [/p/g, 'π'],
 
-    [/h/g, 'η'],
-    [/x/g, 'χ'],
-    [/s/g, 'ϲ'],
+    [/h/g, 'χ'],
+    [/x/g, 'ϲ'],
+    [/s/g, 'ξ'],
     [/f/g, 'φ'],
 
-    [/j/g, ''],
+    [/j/g, 'η'],
     [/z/g, 'ζ'],
     [/v/g, 'ϝ'],
 
@@ -239,12 +235,45 @@ export const getOrth = (s: string): string => replaceAll(s, [
     [/e/g, 'ε'],
     [/o/g, 'ο'],
   ],
+
+  // cyrillic
+  [
+    [/g/g, 'ӈ'],
+    [/n/g, 'н'],
+    [/m/g, 'м'],
+
+    [/c/g, 'г'],
+    [/d/g, 'д'],
+    [/b/g, 'б'],
+
+    [/k/g, 'к'],
+    [/t/g, 'т'],
+    [/p/g, 'п'],
+
+    [/h/g, 'х'],
+    [/x/g, 'ш'],
+    [/s/g, 'с'],
+    [/f/g, 'ф'],
+
+    [/j/g, 'ж'],
+    [/z/g, 'з'],
+    [/v/g, 'в'],
+
+    [/r/g, 'р'],
+    [/l/g, 'л'],
+
+    [/a/g, 'а'],
+    [/i/g, 'і'],
+    [/u/g, 'у'],
+    [/e/g, 'є'],
+    [/o/g, 'о'],
+  ],
 ][0] as [RegExp, string][]);
 
 export default function Phonology() {
   const triple = function (a: string, ipa: string | null = null) {
-    ipa = ipa || getIpa(a);
-    return <>{a} {a === ipa ? '' : <> <span style={{ opacity: 1 / 3 }}>[{ipa}]</span></>} <br /><FontCustom>{a}</FontCustom></>
+    ipa ||= getIpa(a);
+    return <>{a} {a === ipa ? '' : <> <span style={{ opacity: 1 / 3, whiteSpace: 'pre' }}>[{ipa}]</span></>} <br /><FontCustom>{a}</FontCustom></>
   }
 
   return <Main title='字素'>
@@ -303,16 +332,17 @@ export default function Phonology() {
           <tr>
             <th rowSpan={4}>有聲</th>
             <td></td>
-            <td>{triple('j', 'ʑ')}</td>
+            <td>{triple('j', 'ʑ - ʐ - ʒ')}</td>
             <td colSpan={2}>{triple('z')}</td>
             <td>{triple('v')}</td>
           </tr>
           <tr>
             <th>接近</th>
             <td style={{ opacity: .2 }}><br /><FontCustom>◌</FontCustom></td>
-            <td></td>
+            <td>{triple('j', 'j')}</td>
             <td>{triple('r', 'ɾ - r')}</td>
             <td>{triple('l')}</td>
+            <td>{triple('v', 'w')}</td>
           </tr>
           <tr>
             <th rowSpan={2}>母</th>

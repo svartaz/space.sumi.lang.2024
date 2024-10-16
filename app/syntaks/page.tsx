@@ -62,8 +62,11 @@ export default function Tung() {
           <li>動詞により空欄の數nは決まり, {'1 ≤ 𝑛 < 4'}</li>
           <li>{'0 ≤ 𝑘 < 𝑛'}</li>
         </ul>
-        <li>動詞の穴を滿たして眞の文をなす存在を<em>項 term</em>と呼ぶ.</li>
+        <li>動詞の穴を滿たして文をなす存在を<em>項 term</em>と呼ぶ.</li>
         <li>穴の種類𝑘を<em>格 case</em>と呼ぶ.</li>
+        <ul>
+          <li>格0, 1, 2のをそれぞれ主格, 對格, 與格と呼ぶ.</li>
+        </ul>
       </ul>
 
       <Examples data={[
@@ -75,7 +78,7 @@ export default function Tung() {
 
     <Section title='補充'>
       <ul>
-        <li>動詞𝑉₀の<Term>𝑘≠0</Term>と動詞𝑉₁の<Term>0</Term>を同じい項が滿たすことを {'𝑉₀ 𝑉₁-格詞(𝑘)'} が表す. これを<em>補充 complementation</em>と呼ぶ.</li>
+        <li>動詞𝑉₀の<Term>𝑘 (≠0)</Term>と動詞𝑉₁の<Term>0</Term>を同じい項が滿たすことを {'𝑉₀ 𝑉₁-格詞(𝑘)'} が表す. これを<em>補充 complementation</em>と呼ぶ.</li>
         <li>𝑉₀, 𝑉₁をそれぞれ<em>述部 predicate</em>, <em>補部 complement</em>と呼ぶ.</li>
         <li>述部と補部は<em>動句 verb phrase</em>を為し, 1個の動詞の如く働く.</li>
         <ul>
@@ -85,8 +88,8 @@ export default function Tung() {
       </ul>
 
       <Examples data={[
-        ['(格詞1)', 'Acc'],
-        ['(格詞2)', 'Dat'],
+        ['(對格)', 'Acc'],
+        ['(與格)', 'Dat'],
         [<><Term>0</Term>が<Term>1</Term>を好む, <Term>1</Term>が貓<br />→<Term>0</Term>が貓を好む</>, '⟨like cat Acc⟩'],
         [<><Term>0</Term>が<Term>1</Term>を<Term>2</Term>へ與ふ, <Term>1</Term>が水, <Term>2</Term>が貓<br />→<Term>0</Term>が水を貓へ與ふ</>, '⟨give water Acc cat Dat⟩'],
       ]} />
