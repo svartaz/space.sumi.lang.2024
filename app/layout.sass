@@ -3,22 +3,24 @@
 *
   box-sizing: border-box
 
-html
+html, body
   block-size: 100%
   inline-size: 100%
-
-body
   margin: 0
-  font-family: 'Zen Maru Gothic', 'Noto Sans', 'Noto Sans Math', 'Noto Sans Symbols 2', 'Noto Emoji', 'Noto Sans TC', 'Noto Sans Runic', sans-serif
+  padding: 0
+
+body > div
+  font-family: 'Times New Roman', 'Noto Serif', 'Noto Sans Math', 'Noto Sans Symbols 2', 'Noto Emoji', 'Noto Serif TC', 'Noto Serif JP', sans-serif
   font-weight: 300
   block-size: 100%
-  inline-size: 100%
+  inline-size: fit-content
+  margin: 0 auto
 
-  column-gap: 1ex
-  padding: 1ex
+  column-gap: 2ex
+  padding: 2ex
 
   display: grid
-  grid-template-columns: 16ex 1fr
+  grid-template-columns: 16ex 128ex
   align-items: top
 
 .font

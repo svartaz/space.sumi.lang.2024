@@ -21,7 +21,7 @@ export default () => {
       {
         [
           ['/phonology', '音韻'],
-          ['/syntaks', '句法'],
+          ['/grammar', '句法'],
           ['/leksikon', '詞彙'],
           ['/konvert', '變換'],
           ['/usage', '用例'],

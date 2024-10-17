@@ -3,7 +3,7 @@ import Main from "@/components/main";
 import { fromDate } from "@/lib/time";
 import dict from "./dict";
 import { getIpa, getOrth } from "../phonology/page";
-import { Term } from "../syntaks/page";
+import { Term } from "../grammar/page";
 import { Formation } from "./common";
 
 export default function Leksikon() {

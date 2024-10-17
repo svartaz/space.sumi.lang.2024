@@ -19,16 +19,14 @@ export interface EntryPre extends EntryCore {
 }
 
 export const literal = (s: string): string => replaceAll(s, [
-  [/[BCDFHJKLMNPRSTVXZ]/g, it => it.toLowerCase() + 'a'],
-  [/G/g, 'ni'],
-  [/Q/g, 'ku'],
-
+  [/[BCDFGJKLMNPRSTVXZ]/g, it => it.toLowerCase() + 'a'],
+  [/Q/g, 'kva'],
   [/Y/g, 'ju'],
   [/W/g, 'vi'],
 
-  [/I/g, 'ji'],
-  [/E/g, 'je'],
-  [/A/g, 'ga'],
-  [/O/g, 'go'],
-  [/U/g, 'gu'],
+  [/I/g, 'hvi'],
+  [/E/g, 'hve'],
+  [/A/g, 'hva'],
+  [/O/g, 'hvo'],
+  [/U/g, 'hu'],
 ]);

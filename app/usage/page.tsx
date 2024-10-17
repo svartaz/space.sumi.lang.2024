@@ -15,7 +15,7 @@ export default function Usage() {
         </tr>
         <tr>
           <td>君の乾いた胸に届くはず</td>
-          <td>{translate('i expect that Acc he shall at what Acc dry chest thou Acc')}</td>
+          <td>{translate('expect caseThat Acc he shall end to at who Acc breast thou Acc dry')}</td>
         </tr>
       </tbody>
     </table>

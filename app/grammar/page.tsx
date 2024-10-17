@@ -57,15 +57,14 @@ export default function Tung() {
     <Section title='動詞'>
       <ul>
         <li><em>動詞 verb</em>は詞彙の大半を占め, <a href='https://ja.wikipedia.org/wiki/%E9%96%8B%E3%81%84%E3%81%9F%E3%82%AF%E3%83%A9%E3%82%B9'>開いた類</a>な.</li>
-        <li>動詞は ‹<Term>0</Term>が<Term>1</Term>を<Term>2</Term>へ…する› の如き, 穴<Term>𝑘</Term>を持つ文を意味する.</li>
+        <li>動詞は ‹<Term>0</Term>が<Term>1</Term>を<Term>2</Term>へ…する› の如き, 1個以上の穴<Term>𝑘</Term>を持つ文を意味する.</li>
         <ul>
-          <li>動詞により空欄の數nは決まり, {'1 ≤ 𝑛 < 4'}</li>
-          <li>{'0 ≤ 𝑘 < 𝑛'}</li>
+          <li>動詞により空欄の數{'1 ≤ 𝑛 < 4'}は異なる</li>
         </ul>
         <li>動詞の穴を滿たして文をなす存在を<em>項 term</em>と呼ぶ.</li>
-        <li>穴の種類𝑘を<em>格 case</em>と呼ぶ.</li>
+        <li>穴の種類{'0 ≤ 𝑘 < 𝑛'}を<em>格 case</em>と呼ぶ.</li>
         <ul>
-          <li>格0, 1, 2のをそれぞれ主格, 對格, 與格と呼ぶ.</li>
+          <li>格0, 1, 2をそれぞれ主格, 對格, 與格と呼ぶ.</li>
         </ul>
       </ul>
 
@@ -76,9 +75,20 @@ export default function Tung() {
       ]} />
     </Section>
 
+    <Section title='暗黙の項'>
+      <ul>
+        <li>穴を持つ動詞は, その穴を何か (something) が滿たす文として讀める.</li>
+      </ul>
+
+      <Examples data={[
+        [<span>何かが貓 (貓が存在する)</span>, 'cat'],
+        [<span>何かが何かを好む</span>, 'like'],
+      ]} />
+    </Section>
+
     <Section title='補充'>
       <ul>
-        <li>動詞𝑉₀の<Term>𝑘 (≠0)</Term>と動詞𝑉₁の<Term>0</Term>を同じい項が滿たすことを {'𝑉₀ 𝑉₁-格詞(𝑘)'} が表す. これを<em>補充 complementation</em>と呼ぶ.</li>
+        <li>動詞𝑉₀の<Term>𝑘</Term>と動詞𝑉₁の<Term>0</Term>を同じい項が滿たすことを {'𝑉₀ 𝑉₁-格詞(𝑘)'} が表す. これを<em>補充 complementation</em>と呼ぶ.</li>
         <li>𝑉₀, 𝑉₁をそれぞれ<em>述部 predicate</em>, <em>補部 complement</em>と呼ぶ.</li>
         <li>述部と補部は<em>動句 verb phrase</em>を為し, 1個の動詞の如く働く.</li>
         <ul>
@@ -138,13 +148,14 @@ export default function Tung() {
         <li><em>關係節 relative clause</em>はその前の動詞が示す項が滿たす文を表す.</li>
         <li>項が滿たす格を代動詞が示す.</li>
         <li>その格が主格のとき, 代動詞を省略せらる.</li>
+        <li>關係節が爲す動詞句の格がその直前の動句の格と一致するとき, 代動詞を省略せらる (つまり, 主格としない).</li>
       </ul>
       <Examples data={[
         [<><Term>0</Term>が貓を好むものへ與ふ</>, '⟨give what Dat [(who) ⟨like cat Acc⟩] (Period)⟩'],
-        [<><Term>0</Term>が貓を好む犬へ與ふ</>, '⟨give [dog Dat what Dat [(who) ⟨like cat Acc⟩] (Period)]⟩'],
+        [<><Term>0</Term>が貓を好む犬へ與ふ</>, '⟨give [dog Dat what (Dat) [(who) ⟨like cat Acc⟩] (Period)]⟩'],
         [<><Term>0</Term>が犬を見る</>, '⟨see dog Acc⟩'],
         [<>貓が犬を好む</>, '[dog ⟨like cat Acc⟩]'],
-        [<>貓が好む犬を見る</>, '⟨see [dog Acc what [cat ⟨like who Acc⟩] (Period)]⟩'],
+        [<>貓が好む犬を見る</>, '⟨see [dog Acc what (Acc) [cat ⟨like who Acc⟩] (Period)]⟩'],
       ]} />
 
       {translate('⟨give [dog Dat what [(who) ⟨like cat Acc⟩] (Period)]⟩')} =<br />
@@ -158,11 +169,12 @@ export default function Tung() {
       </ul>
 
       <Examples data={[
-        [`學ぶ`, 'learn'],
-        [`學びける (起動相-過去制)`, 'did learn'],
-        [`學ばれける (受動態-起動相-過去制)`, 'did done learn'],
-        [`學ばれけらむ (受動態-起動相-過去制-叙想法)`, 'were did done learn'],
-        [`學ばれけらむものを (受動態-起動相-過去制-叙想法-對格)`, 'were did done learn Acc'],
+        [`知る`, 'know'],
+        [`學ぶ`, 'begin know'],
+        [`學びける (起動相-過去制)`, 'did begin know'],
+        [`學ばれける (受動態-起動相-過去制)`, 'did begin done know'],
+        [`學ばれけらむ (受動態-起動相-過去制-叙想法)`, 'were did begin done know'],
+        [`學ばれけらむものを (受動態-起動相-過去制-叙想法-對格)`, 'were did begin done know Acc'],
       ]} />
     </Section>
 
@@ -203,6 +215,13 @@ export default function Tung() {
       <Examples data={[
         ['我は何か', 'i who'],
         ['汝がいづこに有る', 'thou at who Acc'],
+      ]} />
+    </Section>
+
+    <Section title='本質性'>
+      <Examples data={[
+        ['食物', 'essentially done eat'],
+        ['食べられる', 'accidentally done eat'],
       ]} />
     </Section>
   </Main >

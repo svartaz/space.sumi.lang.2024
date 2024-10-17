@@ -14,7 +14,9 @@ export default (props: { children: ReactNode }) => <html>
   </Head>
 
   <body>
-    <Nav />
-    {props.children}
+    <div>
+      <Nav />
+      {props.children}
+    </div>
   </body>
 </html>;
