@@ -12,7 +12,7 @@ export default () => <Main title={name}>
       </tr>
       <tr>
         <th>ISO 639-3互換</th>
-        <td>tvg</td>
+        <td>xfm</td>
       </tr>
       <tr>
         <th>作成者</th>

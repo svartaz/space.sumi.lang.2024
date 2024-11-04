@@ -1,25 +1,6 @@
 import { fromGem, fromLat } from "./from";
 import { Formation, literal } from "./common";
 
-const componentsSelf: string[] =
-  ((new Date('2023-12-17').getTime() - new Date('1995-07-25').getTime()) / 1000 / 60 / 60 / 24 / 365.25)
-    .toFixed(0)
-    .toString()
-    .split('')
-    .map(it => ({
-      0: 'zero',
-      1: 'one',
-      2: 'two',
-      3: 'three',
-      4: 'four',
-      5: 'five',
-      6: 'six',
-      7: 'seven',
-      8: 'eight',
-      9: 'nine',
-      '.': 'Decimal',
-    })[it] || '');
-
 const toCompound = (components: string[]) => ({
   signifier: components,
   etym: components.join('+'),
@@ -37,16 +18,18 @@ const dual = (k: string, date: string, klass: string[], signified: string, entry
   [k + '*']: { date, signified, klass, ...entryCompound },
 });
 
+const endonym = 'xfirm';
+
 /* eslint key-spacing: "error" */
 export default {
-  Self: { date: '2024-02-17', klass: ['v'], signified: '@{0} is the language', signifier: componentsSelf },
+  Endonym: { date: '2024-02-17', klass: ['v'], signified: `@{0} is the language ${endonym}`, signifier: endonym },
 
-  not: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'not, negation', signifier: 'ne', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ne' },
-  and: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'and, both, conjunction', signifier: 'ge', etym: 'https://en.wiktionary.org/wiki/et#Latin' },
-  or: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'or, either, disjunction', signifier: 'go', etym: 'https://en.wiktionary.org/wiki/aut#Latin' },
-  iff: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'if and only iff, biimplication', signifier: 'ga' },
+  not: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'not, negation', signifier: 'ni', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ne' },
+  and: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'and, both, conjunction', signifier: 'e', etym: 'https://en.wiktionary.org/wiki/et#Latin' },
+  or: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'or, either, disjunction', signifier: 'o', etym: 'https://en.wiktionary.org/wiki/aut#Latin' },
+  iff: { date: '2024-02-13', klass: ['connective', 'logic'], signified: 'if and only iff, biimplication', signifier: 'a' },
 
-  with: { date: '2024-09-17', klass: ['connective'], signified: 'and, together with, union', signifier: 'mid', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/midi' },
+  with: { date: '2024-09-17', klass: ['connective'], signified: 'and, together with, union', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/midi', signifier: 'mi' },
 
   Nom: { date: '2024-02-13', klass: ['case'], signified: 'nominative', signifier: '-e' },
   Acc: { date: '2024-02-13', klass: ['case'], signified: 'accusative', signifier: '-a' },
@@ -56,7 +39,7 @@ export default {
   did: { date: '2024-02-13', klass: ['preverb', 'tense'], signified: 'did, in the past', signifier: 'fu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furai' },
   shall: { date: '2024-02-13', klass: ['preverb', 'tense'], signified: 'shall, in the future', signifier: 'xu', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skulan%C4%85' },
 
-  were: { date: '2024-02-13', klass: ['preverb', 'mood'], signified: 'were, may (irrealis, subjunctive)', signifier: 'bi', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Slavic/by' },
+  would: { date: '2024-02-13', klass: ['preverb', 'mood'], signified: 'were, may (irrealis, subjunctive)', signifier: 'bi', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Slavic/by' },
   so: { date: '2024-02-13', klass: ['preverb', 'restrictiveness'], signified: 'which is, so (non-restrictive)', signifier: 'du', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEus' },
 
   begin: { date: '2024-02-13', klass: ['preverb', 'aspect'], signified: 'begin', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnan%C4%85'), signifier: 'ci' },
@@ -68,13 +51,14 @@ export default {
   done: { date: '2024-02-13', klass: ['preverb', 'voice'], signified: 'accusative, is done by', signifier: 'ce', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-' },
   doneTo: { date: '2024-02-13', klass: ['preverb', 'voice'], signified: 'dative, is done to by', signifier: 'co', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-' },
 
-  essentially: { date: '2024-10-20', klass: ['preverb', 'essentiality'], signified: 'essentially', etym: 'https://en.wiktionary.org/wiki/esse#Latin', signifier: 'se' },
-  accidentally: { date: '2024-10-19', klass: ['preverb', 'essentiality'], signified: 'accidentally', etym: 'https://en.wiktionary.org/wiki/stare#Latin', signifier: 'ta' },
+  inEssence: { date: '2024-10-19', klass: ['preverb', 'essentiality'], signified: 'in essence, in a nominal sense', etym: 'https://en.wiktionary.org/wiki/esse#Latin', signifier: 'se' },
+  byAccident: { date: '2024-10-19', klass: ['preverb', 'essentiality'], signified: 'by accident, in a verbal sense', etym: 'https://en.wiktionary.org/wiki/stare#Latin', signifier: 'ta' },
 
   // clause
-  what: { date: '2024-02-13', klass: ['clause'], signified: '@{0} is that which @{sentence}', signifier: 've', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwat' },
+  which: { date: '2024-02-13', klass: ['clause'], signified: '@{0} is that which @{sentence}', signifier: 've', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwat' },
   caseThat: { date: '2024-02-13', klass: ['clause'], signified: '@{0} is the (event, statement) that @{sentence}', signifier: 'de', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEat' },
   whether: { date: '2024-07-28', klass: ['clause'], signified: '@{0} is whether @{sentence}', signifier: 'je', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ja' },
+  ness: { date: '2024-10-20', klass: ['clause'], signified: '@{0} is the extent where @{sentence}', signifier: 'su', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-assuz' },
 
   Period: { date: '2024-02-13', klass: ['other'], signified: 'end of clause', signifier: 'lo', etym: 'https://en.wiktionary.org/wiki/%E5%9B%89#Etymology_2' },
   isCalled: { date: '2024-02-13', klass: ['name-to-verb'], signified: '@{0} is called @{name}', signifier: 'na', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4' },
@@ -119,12 +103,13 @@ export default {
   Log: { date: '2024-08-24', klass: ['numeral', 'arithmetic'], signified: 'logarithm', signifier: 'locar', etym: 'https://en.wiktionary.org/wiki/logarithmo#Latin' },
   Root: { date: '2024-08-24', klass: ['numeral', 'arithmetic'], signified: 'root', signifier: 'radik', etym: 'https://en.wiktionary.org/wiki/radice#Latin' },
 
-  //ofSize: { date: '2024-08-02', klass: ['number-to-verb'], signified: '@{0} contains @{number} elements', signifier: 'fe', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/felu' },
-  th: { date: '2024-08-02', klass: ['number-to-verb'], signified: '@{0} is @{number}-th', signifier: 'do', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D' },
+  //ofSize: { date: '2024-08-02', klass: ['num-to-v'], signified: '@{0} contains @{number} elements', signifier: 'fe', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/felu' },
+  Ordinal: { date: '2024-08-02', klass: ['num-to-v'], signified: '@{0} is @{number}-th', signifier: 'do', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D' },
+  Cardinal: { date: '2024-08-02', klass: ['num-to-v'], signified: '@{0} is of @{number} members', signifier: 'do', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D' },
 
-  first: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (0th, first, primary)', ...toIdiom(['th', 'zero']) },
-  second: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (1st, second, other)', ...toIdiom(['th', 'one']) },
-  last: { date: '2024-09-14', klass: ['number-to-verb'], signified: '@{0} is (last, final)', ...toIdiom(['th', 'each']) },
+  first: { date: '2024-09-14', klass: ['num-to-v'], signified: '@{0} is (0th, first, primary)', ...toIdiom(['th', 'zero']) },
+  second: { date: '2024-09-14', klass: ['num-to-v'], signified: '@{0} is (1st, second, other)', ...toIdiom(['th', 'one']) },
+  last: { date: '2024-09-14', klass: ['num-to-v'], signified: '@{0} is (last, final)', ...toIdiom(['th', 'each']) },
 
   // pronoun
   who: { date: '2024-02-13', klass: ['v', 'interogative'], signified: '@{0} is who', signifier: 'va', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwaz' },
@@ -132,11 +117,11 @@ export default {
 
   i: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is me', signifier: 'ma', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mek' },
   thou: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is thee', signifier: 'da', etym: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEek' },
-  he: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is (him, it, the definite entity)', signifier: 'ha', etym: 'https://en.wiktionary.org/wiki/hann#Old_Norse' },
+  he: { date: '2024-02-13', klass: ['v', 'definite'], signified: '@{0} is (him, it, this,  that, the definite entity)', signifier: 'ha', etym: 'https://en.wiktionary.org/wiki/hann#Old_Norse' },
 
   we: { date: '2024-09-17', klass: ['v', 'definite'], signified: '@{0} are us', ...toIdiom(['plural', 'i']) },
   ye: { date: '2024-09-17', klass: ['v', 'definite'], signified: '@{0} are you', ...toIdiom(['plural', 'thou']) },
-  they: { date: '2024-09-17', klass: ['v', 'definite'], signified: '@{0} are them', ...toIdiom(['plural', 'he']) },
+  they: { date: '2024-09-17', klass: ['v', 'definite'], signified: '@{0} are (them, these, those)', ...toIdiom(['plural', 'he']) },
 
   this: { date: '2024-09-16', klass: ['v', 'definite'], signified: '@{0} is this', ...toIdiom(['he', 'near']) },
   that: { date: '2024-09-16', klass: ['v', 'definite'], signified: '@{0} is that', ...toIdiom(['he', 'far']) },
@@ -151,8 +136,8 @@ export default {
   negative: { date: '2024-09-29', klass: ['v', 'extent', 'polarity'], signified: '@{0} is (negative, below objective norm)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/missa-') },
   up: { date: '2024-09-29', klass: ['v', 'extent', 'dynamic'], signified: '@{0} is (rises, goes up, ascends) along with @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABsan%C4%85') },
   down: { date: '2024-09-29', klass: ['v', 'extent', 'dynamic'], signified: '@{0} is (falls, goes down, descends) along with @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fallan%C4%85') },
-  max: { date: '2024-02-13', klass: ['v', 'extent', 'extremum'], signified: '@{0} is (maximal, possibly highest)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz') },
-  min: { date: '2024-02-13', klass: ['v', 'extent', 'extremum'], signified: '@{0} is (minimal, possibly lowest)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz') },
+  maximal: { date: '2024-02-13', klass: ['v', 'extent', 'extremum'], signified: '@{0} is (maximal, possibly highest)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz') },
+  minimal: { date: '2024-02-13', klass: ['v', 'extent', 'extremum'], signified: '@{0} is (minimal, possibly lowest)', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz') },
 
   // basic
   deny: { date: '2024-08-30', klass: ['v'], signified: '@{0} (contradicts, negates, denies) @{1}', ...fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gagin'), signifier: 'cac' },

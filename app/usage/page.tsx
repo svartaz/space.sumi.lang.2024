@@ -7,7 +7,7 @@ export default function Usage() {
       <tbody>
         <tr>
           <td>そっと耳を澄まして</td>
-          <td>{translate('thou were care hear')}</td>
+          <td>{translate('thou would care hear')}</td>
         </tr>
         <tr>
           <td>遠い遠い音樂</td>

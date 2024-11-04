@@ -40,18 +40,23 @@ export const fromGem = from([
   [/ō|ô/g, 'o'],
   [/ū|û/g, 'u'],
 
-
-  // simple substitution
+  // substitution
   [/þ/g, 'd'],
   [/g/g, 'c'],
   [/nc/g, 'g'],
 
-  // W
-  [/(?<=[^ieaou])w$/g, ''],
-  [/w/g, 'v'],
+  // glide
+  [/(?<![ieaou])[jw]$/g, ''],
+
+  [/(?<=[^ieaou])j(?=[eaou])/g, 'i'],
+  [/(?<=[eaou])j(?=[^ieaou])/g, 'i'],
+
+  [/^w|w$/g, 'v'],
+  [/(?<=[ieaou])w(?=[ieaou])/g, 'v'],
+  [/(?<=[^ieaou])w(?=[ieao])/g, 'u'],
+  [/(?<=[ieao])w(?=[^ieaou])/g, 'u'],
 
   // sound change
-  //[/^h(?=[gnmrl])/g, ''],
   [/ts$/g, 't'],
   [/z$/g, 'r'],
 

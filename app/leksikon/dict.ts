@@ -1,6 +1,7 @@
 import dictObj from "./dictObj";
 import { EntryCore, EntryPre, Formation } from "./common";
-import { phonemes, phonotactics } from "../phonology/page";
+import { phonemes, nativise } from "../phonology/page";
+import { testRoot } from "@/lib/phonotactics";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const compare = (a: string, b: string): number => {
@@ -67,7 +68,7 @@ for (const [k, v] of dictPre)
 for (const [k, v] of dictPre) {
   if (v.formation === Formation.Idiom) continue;
 
-  const fixed = phonotactics(v.signifier as string);
+  const fixed = nativise(v.signifier as string);
   if (fixed !== v.signifier) {
     console.log('phonotactic conversion:', v?.signifier, fixed);
     v.signifier = fixed;
@@ -77,8 +78,8 @@ for (const [k, v] of dictPre) {
 
 // phonotactics of roots
 for (const [k, v] of dictPre)
-  if (v.formation === Formation.Root && v.klass[0] === 'v' && !/^[^ieaou]{0,2}[jv]?[ieaou]{1,2}[jv]??[^ieaou]{1,2}$/.test(v?.signifier as string))
-    console.error('root non-CCGVGCC', k, v?.signifier);
+  if (v.formation === Formation.Root && !testRoot(v?.signifier as string))
+    console.error('root phonotactics', k, v?.signifier);
 
 // homograph
 const entriesP = [...dictPre.entries()];
@@ -107,5 +108,5 @@ const dict: Map<string, Entry> =
       ])
   );
 
-export const name: string = dict.get('Self')?.signifier || 'THIS NEVER OCCURS';
+export const name: string = dict.get('Endonym')?.signifier || 'THIS NEVER OCCURS';
 export default dict;

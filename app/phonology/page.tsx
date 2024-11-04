@@ -10,38 +10,67 @@ export const consonants = 'gnmcdbktphxsfjzvrl';
 export const vowels = 'ieaou';
 export const phonemes = consonants + vowels;
 
-export const phonotactics = (w: string) => {
+export const nativise = (w: string) => {
   const fixed = replaceAll(w, [
-    // preprocess
-    [/(?<=[^ieaou])j(?=[ieaou])/g, 'y'],
-    [/(?<=[^ieaou])v(?=[ieaou])/g, 'w'],
-    [/(?<=[ieaou])j(?=[^ieaou])/g, 'y'],
-    [/(?<=[ieaou])v(?=[^ieaou])/g, 'w'],
-
     // geminate
     [/(.)\1+/g, it => it.slice(-1)],
 
+    // vowel + high + vowel
+    [/(?<=^|[eaou])i(?=[eaou]|$)/g, 'j'],
+    [/(?<=^|[eaou])u(?=[eaou]|$)/g, 'v'],
+
+    // vowel + vowel
+    [/(?<![ieaou])ei(?![ieaou])/, 'ay'],
+    [/(?<![ieaou])ea(?![ieaou])/, 'ya'],
+    [/(?<![ieaou])eo(?![ieaou])/, 'yo'],
+    [/(?<![ieaou])eu(?![ieaou])/, 'yu'],
+
+    [/(?<![ieaou])ai(?![^ieaou])/, 'ay'],
+    [/(?<![ieaou])ae(?![^ieaou])/, 'ay'],
+    [/(?<![ieaou])ao(?![^ieaou])/, 'aw'],
+    [/(?<![ieaou])au(?![^ieaou])/, 'aw'],
+
+    [/(?<![ieaou])oi(?![^ieaou])/, 'wi'],
+    [/(?<![ieaou])oe(?![^ieaou])/, 'we'],
+    [/(?<![ieaou])oa(?![^ieaou])/, 'wa'],
+    [/(?<![ieaou])ou(?![^ieaou])/, 'aw'],
+
+    [/(?<=^|[eaou])y(?=[eaou]|$)/g, 'j'],
+    [/(?<=^|[eaou])w(?=[eaou]|$)/g, 'v'],
+
     // adjacent nasal
-    [/[gnm]{2,}(?=[ieaou])/g, it => it.slice(-1)],
-    [/[gnm]{2,}/g, it => it.slice(0, 1)],
+    [/[gnm]{2,}/g, it => it.slice(-1)],
+
+    // initial nasal
+    [/^[gnm](?=[^ieaou])/g, ''],
 
     // nasal + r
     [/gr/g, 'cr'],
     [/nr/g, 'dr'],
     [/mr/g, 'br'],
 
-    // nasal + unmatched consonant
+    // unmatched nasal + consonant
     [/[nm](?=[ck])/g, 'g'],
-    [/[gm](?=[xdtl])/g, 'n'],
+    [/[gm](?=[dtrl])/g, 'n'],
     [/[gn](?=[bp])/g, 'm'],
-
-    // plosive + matched nasal
-    [/[ck](?=g)/g, 'h'],
-    [/[dt](?=n)/g, 's'],
-    [/[bp](?=m)/g, 'f'],
 
     // nasal + fricative
     [/[gm](?=[hxsfjzv])/g, 'n'],
+
+    // plosive + fricative
+    [/pf/g, 'p'],
+    [/bv/g, 'b'],
+
+    // + h
+    [/(?<=[cdbktphxsfjzvlr])h/g, ''],
+
+    // plosive + matched nasal
+    [/c(?=[gnm])/g, 'j'],
+    [/k(?=[gnm])/g, 'x'],
+    [/d(?=[gnm])/g, 'z'],
+    [/t(?=[gnm])/g, 's'],
+    [/b(?=[gnm])/g, 'v'],
+    [/p(?=[gnm])/g, 'f'],
 
     // sibilant*
     [/[xsjz]{2,}/g, it => it.slice(-1)],
@@ -50,51 +79,27 @@ export const phonotactics = (w: string) => {
     [/[xs]r/g, 'x'],
     [/[jz]r/g, 'j'],
 
-    // specific
+    // palatalise
     [/gi/g, 'ni'],
-    [/bv/g, 'v'],
 
     // l + d
-    [/(?<=[ieaou])ld/g, 'd'],
-
-    // vowels
-    [/^i(?=[eaou])/, 'j'],
-    [/^u(?=[ieao])/, 'v'],
-    [/(?<=[eaou])i$/, 'j'],
-    [/(?<=[ieao])u$/, 'v'],
-
-    [/(?<=[^ieaou])i(?=[eaou])/, 'y'],
-    [/(?<=[^ieaou])u(?=[ieao])/, 'w'],
-
-    [/(?<![ieaou])ei(?![ieaou])/, 'ay'],
-    [/(?<![ieaou])ea(?![ieaou])/, 'ya'],
-    [/(?<![ieaou])eo(?![ieaou])/, 'yo'],
-    [/(?<![ieaou])eu(?![ieaou])/, 'yu'],
-
-    [/(?<![ieaou])ai(?![ieaou])/, 'ay'],
-    [/(?<![ieaou])ae(?![ieaou])/, 'e'],
-    [/(?<![ieaou])ao(?![ieaou])/, 'o'],
-    [/(?<![ieaou])au(?![ieaou])/, 'aw'],
-
-    [/(?<![ieaou])oi(?![ieaou])/, 'wi'],
-    [/(?<![ieaou])oe(?![ieaou])/, 'we'],
-    [/(?<![ieaou])oa(?![ieaou])/, 'wa'],
-    [/(?<![ieaou])ou(?![ieaou])/, 'aw'],
-
-    [/ye/, 'e'],
-    [/wo/, 'o'],
-
-    // vowel + high + vowel
-    [/(?<=[^ieaou][eaou])i(?=[eaou][^ieaou])/, 'j'],
-    [/(?<=[^ieaou][ieao])u(?=[ieao][^ieaou])/, 'v'],
+    [/(?<=[ieaou])l(?=[dt])/g, ''],
 
     // matched high
-    [/(?<=[xj])i(?=[eaou])/g, ''],
-    [/(?<=[mbpfv])u(?=[ieao])/g, ''],
+    [/(?<=[xj])y(?=[eaou])/g, ''],
+    [/(?<=[mbpfv])w(?=[ieao])/g, ''],
 
     // unvoiced + voiced
-    [/[cdbktphxsfjzv]{2,}/g, it => /[cdbjzv]$/.test(it)
+    [/[cdbktphxsfjzv]{2,}/g, it => /[ktphxsf]$/.test(it)
       ? replaceAll(it, [
+        [/c/g, 'k'],
+        [/d/g, 't'],
+        [/b/g, 'p'],
+        [/j/g, 'x'],
+        [/z/g, 's'],
+        [/v/g, 'f'],
+      ])
+      : replaceAll(it, [
         [/k/g, 'c'],
         [/t/g, 'd'],
         [/p/g, 'b'],
@@ -102,14 +107,6 @@ export const phonotactics = (w: string) => {
         [/x/g, 'j'],
         [/s/g, 'z'],
         [/f/g, 'v'],
-      ])
-      : replaceAll(it, [
-        [/c/g, 'k'],
-        [/d/g, 't'],
-        [/b/g, 'p'],
-        [/j/g, 'x'],
-        [/z/g, 's'],
-        [/v/g, 'f'],
       ])
     ],
 
@@ -123,13 +120,13 @@ export const phonotactics = (w: string) => {
     [/urht$/g, 'urh'],
 
     // postprocess
-    [/y/g, 'j'],
-    [/w/g, 'v'],
+    [/y/g, 'i'],
+    [/w/g, 'u'],
   ]);
 
   return w === fixed
     ? fixed
-    : phonotactics(fixed);
+    : nativise(fixed);
 };
 
 export const getIpa = (w: string): string =>
@@ -306,7 +303,7 @@ export default function Phonology() {
         </thead>
         <tbody className='c'>
           <tr>
-            <th rowSpan={6}>子</th>
+            <th rowSpan={7}>子</th>
             <th rowSpan={2}>有聲</th>
             <th>鼻</th>
             <td>{triple('g')}</td>
@@ -392,34 +389,19 @@ export default function Phonology() {
         <li>合成詞中の詞素尾と詞素頭は次の表に從って變形する.</li>
       </ul>
 
-      <table className={style.phonemes}>
+      <table className={style.phonemes} style={{ fontSize: 'smaller' }}>
         <thead className='h'>
           <tr>
             <th></th>
-            <th>#</th>
             {phonemes.split('').map(p => <th>{p}</th>)}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>#</th>
-            <td></td>
-            {
-              phonemes.split('').map(p => {
-                const s = phonotactics(p + '-').replace(/-/g, '');
-                return <td style={{ opacity: p === s ? 1 / 8 : 1 }}>{s}</td>
-              })
-            }
-          </tr>
           {phonemes.split('').map(p => <tr>
             <th>{p}</th>
-            {(() => {
-              const s = phonotactics('-' + p).replace(/-/g, '');
-              return <td style={{ opacity: p === s ? 1 / 8 : 1 }}>{s}</td>
-            })()}
             {
               phonemes.split('').map(p1 => {
-                const s = phonotactics('-' + p + p1 + '-').replace(/-/g, '');
+                const s = nativise(p + p1);
                 return <td style={{ opacity: p + p1 === s ? 1 / 8 : 1 }}>{s}</td>
               })
             }

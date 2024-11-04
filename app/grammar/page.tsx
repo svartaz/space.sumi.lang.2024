@@ -151,14 +151,14 @@ export default function Tung() {
         <li>關係節が爲す動詞句の格がその直前の動句の格と一致するとき, 代動詞を省略せらる (つまり, 主格としない).</li>
       </ul>
       <Examples data={[
-        [<><Term>0</Term>が貓を好むものへ與ふ</>, '⟨give what Dat [(who) ⟨like cat Acc⟩] (Period)⟩'],
-        [<><Term>0</Term>が貓を好む犬へ與ふ</>, '⟨give [dog Dat what (Dat) [(who) ⟨like cat Acc⟩] (Period)]⟩'],
+        [<><Term>0</Term>が貓を好むものへ與ふ</>, '⟨give which Dat [(who) ⟨like cat Acc⟩] (Period)⟩'],
+        [<><Term>0</Term>が貓を好む犬へ與ふ</>, '⟨give [dog Dat which (Dat) [(who) ⟨like cat Acc⟩] (Period)]⟩'],
         [<><Term>0</Term>が犬を見る</>, '⟨see dog Acc⟩'],
         [<>貓が犬を好む</>, '[dog ⟨like cat Acc⟩]'],
-        [<>貓が好む犬を見る</>, '⟨see [dog Acc what (Acc) [cat ⟨like who Acc⟩] (Period)]⟩'],
+        [<>貓が好む犬を見る</>, '⟨see [dog Acc which (Acc) [cat ⟨like who Acc⟩] (Period)]⟩'],
       ]} />
 
-      {translate('⟨give [dog Dat what [(who) ⟨like cat Acc⟩] (Period)]⟩')} =<br />
+      {translate('⟨give [dog Dat which [(who) ⟨like cat Acc⟩] (Period)]⟩')} =<br />
       {translate('⟨give [dog Dat ⟨like Dat cat Acc Dat⟩]⟩')} =<br />
     </Section>
 
@@ -185,9 +185,9 @@ export default function Tung() {
 
       <Examples data={[
         [`我は2個の貓を好む`, 'i like two cat Acc'],
-        [`我は各貓を好む`, 'i like max cat Acc'],
-        [`各貓を好む人が存在する`, 'atLeast one person like max cat Acc'],
-        [`人らが各貓を好む`, 'atLeast two person like max cat Acc'],
+        [`我は各貓を好む`, 'i like maximal cat Acc'],
+        [`各貓を好む人が存在する`, 'atLeast one person like maximal cat Acc'],
+        [`人らが各貓を好む`, 'atLeast two person like maximal cat Acc'],
       ]} />
     </Section>
 
@@ -196,6 +196,7 @@ export default function Tung() {
         <li>文の意味する事象を<Term>0</Term>として文の中から制限する格を<em>己格 recursive case</em>と呼ぶ.</li>
       </ul>
       <Examples data={[
+        [<>我は貓を好む, そのことは甚だしい<br />→我は貓をかなり好む</>, 'i love cat Acc high Adv'],
         [<>我は貓, そのことは驚かす<br />→驚くことに我は貓</>, 'i cat done amaze Adv'],
       ]} />
     </Section>
@@ -220,8 +221,8 @@ export default function Tung() {
 
     <Section title='本質性'>
       <Examples data={[
-        ['食物', 'essentially done eat'],
-        ['食べられる', 'accidentally done eat'],
+        ['食物', 'inEssence done eat'],
+        ['食べられる', 'byAccident done eat'],
       ]} />
     </Section>
   </Main >
