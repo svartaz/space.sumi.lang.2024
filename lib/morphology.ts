@@ -22,3 +22,7 @@ export enum Case {
   Accusative,
   Dative,
 }
+
+export enum Klass {
+
+}

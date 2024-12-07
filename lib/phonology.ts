@@ -9,7 +9,7 @@ enum Place {
 
 enum Manner {
   Nasal,
-  Plossive,
+  Plosive,
   Fricative,
   Approximant,
 }
@@ -19,13 +19,13 @@ const phonemes = {
   n: ['consonant', 'sonorant', Manner.Nasal, 'voiced', Place.Dental],
   m: ['consonant', 'sonorant', Manner.Nasal, 'voiced', Place.Labial],
 
-  c: ['consonant', 'obstruent', Manner.Plossive, 'voiced', Place.Velar],
-  d: ['consonant', 'obstruent', Manner.Plossive, 'voiced', Place.Dental],
-  b: ['consonant', 'obstruent', Manner.Plossive, 'voiced', Place.Labial],
+  c: ['consonant', 'obstruent', Manner.Plosive, 'voiced', Place.Velar],
+  d: ['consonant', 'obstruent', Manner.Plosive, 'voiced', Place.Dental],
+  b: ['consonant', 'obstruent', Manner.Plosive, 'voiced', Place.Labial],
 
-  k: ['consonant', 'obstruent', Manner.Plossive, Place.Velar],
-  t: ['consonant', 'obstruent', Manner.Plossive, Place.Dental],
-  p: ['consonant', 'obstruent', Manner.Plossive, Place.Labial],
+  k: ['consonant', 'obstruent', Manner.Plosive, Place.Velar],
+  t: ['consonant', 'obstruent', Manner.Plosive, Place.Dental],
+  p: ['consonant', 'obstruent', Manner.Plosive, Place.Labial],
 
   h: ['consonant', 'obstruent', Manner.Fricative, Place.Velar],
   x: ['consonant', 'obstruent', Manner.Fricative, Place.Palatal],
@@ -46,7 +46,19 @@ const phonemes = {
   u: ['vowel'],
 };
 
-export const toIpa = (s: string): string => replaceEach(s.toUpperCase(), [
+const phoneticise = (word: string) => replaceEach(word, [
+  [/(?<=[^iueoa])j(?=[iueoa])/, 'y'],
+  [/(?<=[iueoa])j(?=[^iueoa])/, 'y'],
+  [/(?<=[^iueoa])v(?=[iueoa])/, 'w'],
+  [/(?<=[iueoa])v(?=[^iueoa])/, 'w'],
+]);
+
+export const toIpa = (s: string): string => replaceEach(phoneticise(s).toUpperCase(), [
+  [/^(?=[IUEOA])/g, 'ʔ'],
+  [/(?<=[IUEOA])N(?![IUEOAYW])/g, '\u0303'],
+
+  [/(?<=[KTP])$/g, 'ʰ'],
+
   [/-/g, ''],
   [/C/g, 'g'],
   [/H/g, 'x'],
@@ -54,49 +66,43 @@ export const toIpa = (s: string): string => replaceEach(s.toUpperCase(), [
   [/J/g, 'ʒ'],
   [/G/g, 'ŋ'],
   [/R/g, 'ɾ'],
-]).toLowerCase();
+
+  [/Y/g, 'j'],
+]).toLowerCase().normalize("NFC");
 
 export const invalid = (word: string): string | null => {
+  const wordPhonetic = phoneticise(word);
+
   for (const [item, patterns] of [
     ['empty', [
       /^$/,
     ]],
     ['non-alphabet', [
-      /[^ktpcdbhxsfjzvgnmrliyueoa-]/,
+      /[^ktpcdbhxsfjzvgnmrliueoayw-]/,
     ]],
     ['geminate', [
       /(.)\1/,
     ]],
-    [`3 consonants`, [
-      /[^iyueoa]{4,}/,
+    [`4 consonants`, [
+      /[^iueoa]{4,}/,
     ]],
     [`3 outer consonants`, [
-      /^[^iyueoa]{3,}|[^iyueoa]{3,}$/,
+      /^[^iueoayw]{3,}|[^iueoayw]{3,}$/,
     ]],
-    ['2 consonants', [
-      /kh|pf|bv/g,
-    ]],
-    ['3 vowels', [
-      /[iyueoa]{3,}/,
+    ['plosive + fricative', [
+      /kh|pf/g,
     ]],
     ['2 vowels', [
-      // allow: ia, oi, ai, au
-      /i[iyueo]/,
-      /[yue][iyueoa]/,
-      /o[yueoa]/,
-      /a[yeoa]/,
+      /[iueoa]{2,}/,
     ]],
     ['nasals', [
       /[gnm]{2,}/,
     ]],
     ['sibilants', [
-      /[xsjz]{2,}/g,
+      /[xsjz][xsz]/g,
     ]],
-    [`initial vowel`, [
-      /^[iyueoa]/,
-    ]],
-    [`initial nasal`, [
-      /^[gnm](?![iyueoa])/,
+    [`initial nasal + consonant`, [
+      /^[gnm](?![iueoayw])/,
     ]],
     [`final 'h'`, [
       /h$/,
@@ -111,28 +117,32 @@ export const invalid = (word: string): string | null => {
       /[gm](?=[hxsfjzv])/g,
     ]],
     ['plosive + matched nasal', [
-      /[ktpcdb][gnm]/g,
+      /[kc]g/g,
+      /[td]n/g,
+      /[pb]m/g,
     ]],
     [`matched high`, [
-      /[xj]i[iyueoa]/g,
       /[xj]y/g,
-      /[pbfvm]v/g,
+      /[pbfvm]w/g,
     ]],
-    [`unvoiced + voiced, except 'v'`, [
-      /[ktphxsf][cdbjz]/g,
-      /[cdbjz][ktphxsf]/g,
+    [`unvoiced + voiced`, [
+      /[ktphxsf][cdbjzv]/g,
+      /[cdbjzv][ktphxsf]/g,
+    ]],
+    [`matching glide + vowel`, [
+      /yi|wu/,
     ]],
   ] as [string, RegExp[]][])
     for (const pattern of patterns)
-      if (pattern.test(word))
+      if (pattern.test(wordPhonetic))
         return item;
 
   return null;
 };
 
 export const checkSonority = (word: string) =>
-  word
-    .split(/[iyueoa]+/g)
+  phoneticise(word)
+    .split(/[iueoa]+/g)
     .every(consonants => {
       if (consonants.length < 3)
         return true;
@@ -142,11 +152,14 @@ export const checkSonority = (word: string) =>
             ['a'],
             ['e', 'o'],
             ['i', 'u'],
+            ['y', 'w'],
             ['r'],
             ['l'],
             ['g', 'n', 'm'],
-            ['j', 'z', 'v', 'h', 'x', 's', 'f'],
-            ['c', 'd', 'b', 'k', 't', 'p'],
+            ['j', 'z', 'v'],
+            ['h', 'x', 's', 'f'],
+            ['c', 'd', 'b'],
+            ['k', 't', 'p'],
           ].findIndex(cs => cs.includes(c))
         );
 

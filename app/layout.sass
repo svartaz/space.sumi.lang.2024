@@ -3,8 +3,29 @@
 
 table
   margin: auto
-  border-spacing: 2rex 2px
+  border-collapse: collapse
 
   td, th
-    &[colspan], &[rowspan]
-      border: 1px solid #0002
+    padding: 0 1rex
+
+  thead
+    td, th
+      &[colspan]
+        border: 1px solid #0004
+        border-block-start: none
+
+      &[rowspan]
+        border: 1px solid #0004
+        border-block-start: none
+
+  tbody
+    th
+      text-align: end
+
+      &[colspan]
+        border: 1px solid #0004
+        border-inline-start: none
+
+      &[rowspan]
+        border: 1px solid #0004
+        border-inline-start: none

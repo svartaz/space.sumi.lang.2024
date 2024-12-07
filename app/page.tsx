@@ -2,14 +2,14 @@ import { CSSProperties } from "react";
 import dic, { name, translate } from "../lib/lexicology";
 import { toIpa } from "../lib/phonology";
 import { replaceEach } from "../lib/common";
+import { orthography } from "../lib/orthography";
 
 const code = {
   style: { fontFamily: 'monospace' } as CSSProperties,
 };
 
-const target = {
-  style: { fontStyle: 'italic' } as CSSProperties,
-};
+const Target = ({ children }: { children: string }) =>
+  <span style={{ fontStyle: 'italic' }}>{orthography(children)}</span >
 
 const term = {
   style: {
@@ -29,6 +29,7 @@ export default () => <>
         <tr>
           <th></th>
           <th></th>
+          <th>glottal</th>
           <th>velar</th>
           <th>palatal</th>
           <th>dental</th>
@@ -37,141 +38,90 @@ export default () => <>
       </thead>
       <tbody>
         <tr>
-          <th>unvoiced</th>
           <th rowSpan={2}>plosive</th>
-          <td {...target}>k</td>
-          <td></td>
-          <td {...target}>t</td>
-          <td {...target}>p</td>
-        </tr>
-        <tr>
-          <th>voiced</th>
-          <td {...target}>c</td>
-          <td></td>
-          <td {...target}>d</td>
-          <td {...target}>b</td>
-        </tr>
-        <tr>
           <th>unvoiced</th>
-          <th rowSpan={2}>fricative</th>
-          <td {...target}>h</td>
-          <td {...target}>x</td>
-          <td {...target}>s</td>
-          <td {...target}>f</td>
+          <td>∅</td>
+          <td><Target>k</Target></td>
+          <td></td>
+          <td><Target>t</Target></td>
+          <td><Target>p</Target></td>
         </tr>
         <tr>
           <th>voiced</th>
           <td></td>
-          <td {...target}>j</td>
-          <td {...target}>z</td>
-          <td {...target}>v</td>
+          <td><Target>c</Target></td>
+          <td></td>
+          <td><Target>d</Target></td>
+          <td><Target>b</Target></td>
         </tr>
         <tr>
-          <th></th>
+          <th rowSpan={2}>fricative</th>
+          <th>unvoiced</th>
+          <td></td>
+          <td><Target>h</Target></td>
+          <td><Target>x</Target></td>
+          <td><Target>s</Target></td>
+          <td><Target>f</Target></td>
+        </tr>
+        <tr>
+          <th>voiced</th>
+          <td></td>
+          <td></td>
+          <td><Target>j</Target></td>
+          <td><Target>z</Target></td>
+          <td><Target>v</Target></td>
+        </tr>
+        <tr>
           <th>nasal</th>
-          <td {...target}>g</td>
+          <th></th>
           <td></td>
-          <td {...target}>n</td>
-          <td {...target}>m</td>
+          <td><Target>g</Target></td>
+          <td></td>
+          <td><Target>n</Target></td>
+          <td><Target>m</Target></td>
         </tr>
         <tr>
-          <th></th>
           <th>lateral</th>
-          <td></td>
-          <td></td>
-          <td {...target}>l</td>
-          <td></td>
-        </tr>
-        <tr>
           <th></th>
-          <th>approximant</th>
           <td></td>
           <td></td>
-          <td {...target}>r</td>
+          <td></td>
+          <td><Target>l</Target></td>
           <td></td>
         </tr>
         <tr>
-          <th>high</th>
-          <th rowSpan={3}>vowel</th>
+          <th>approximant</th>
+          <th></th>
           <td></td>
-          <td {...target}>i</td>
-          <td {...target}>y</td>
-          <td {...target}>u</td>
+          <td></td>
+          <td><Target>j</Target></td>
+          <td><Target>r</Target></td>
+          <td><Target>v</Target></td>
+        </tr>
+        <tr>
+          <th rowSpan={3}>vowel</th>
+          <th>high</th>
+          <td></td>
+          <td></td>
+          <td><Target>i</Target></td>
+          <td></td>
+          <td><Target>u</Target></td>
         </tr>
         <tr>
           <th>mid</th>
           <td></td>
-          <td {...target}>e</td>
           <td></td>
-          <td {...target}>o</td>
+          <td><Target>e</Target></td>
+          <td></td>
+          <td><Target>o</Target></td>
         </tr>
         <tr>
           <th>low</th>
-          <td {...target}>a</td>
+          <td></td>
+          <td><Target>a</Target></td>
           <td></td>
           <td></td>
           <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2>inflection</h2>
-    <table style={{ margin: 'auto', borderSpacing: '2rex 0' }}>
-      <thead>
-        <tr>
-          <th>root</th>
-          <th></th>
-          <th>aspect</th>
-          <th>tense</th>
-          <th>mood</th>
-          <th></th>
-          <th>case</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>…</td>
-          <td>(')</td>
-          <td>
-            <table>
-              <tbody>
-                <tr><td {...target}>{translate('begin')}</td><td>inchoative</td></tr>
-                <tr><td>-∅-</td><td>progressive</td></tr>
-                <tr><td {...target}>{translate('end')}</td><td>completive</td></tr>
-              </tbody>
-            </table>
-          </td>
-          <td>
-            <table>
-              <tbody>
-                <tr><td>-∅-</td><td>unspecified</td></tr>
-                <tr><td {...target}>{translate('did')}</td><td>past</td></tr>
-                <tr><td {...target}>{translate('do')}</td><td>present</td></tr>
-                <tr><td {...target}>{translate('shall')}</td><td>future</td></tr>
-              </tbody>
-            </table>
-          </td>
-          <td>
-            <table>
-              <tbody>
-                <tr><td>-∅-</td><td>realis</td></tr>
-                <tr><td {...target}>{translate('would')}</td><td>irrealis</td></tr>
-              </tbody>
-            </table>
-          </td>
-          <td>(')</td>
-          <td>
-            <table>
-              <tbody>
-                <tr><td>-∅</td><td>nominative</td></tr>
-                <tr><td {...target}>{translate('_acc')}</td><td>accusative</td></tr>
-                <tr><td {...target}>{translate('_dat')}</td><td>dative</td></tr>
-                <tr><td {...target}>{translate('_adv')}</td><td>adverbial</td></tr>
-              </tbody>
-            </table>
-          </td>
         </tr>
       </tbody>
     </table>
@@ -194,7 +144,7 @@ export default () => <>
         {
           [...dic.entries()].map(([key, { betokener, betokened, klass, origin }]) => <tr style={betokener ? {} : { backgroundColor: '#F002' }}>
             <td {...code}>{key}</td>
-            <td {...target}>{betokener}</td>
+            <td><Target>{betokener}</Target></td>
             <td>[{toIpa(betokener)}]</td>
             <td>{klass}</td>
             <td>
@@ -208,7 +158,7 @@ export default () => <>
                   )
               }
             </td>
-            <td>{
+            <td style={{ fontSize: 'smaller' }}>{
               /^https?:\/\//.test(origin)
                 ? <a href={origin}>{decodeURI(origin).replace(/^https?:\/\//, '')}</a>
                 : origin
@@ -224,23 +174,18 @@ export default () => <>
     <table>
       <tbody>
         <tr>
-          <td>i have-a-name <i>sumi</i></td>
-          <td>{translate('i called sumi')}</td>
+          <td>i am (my name is) suzuri</td>
+          <td>{translate('i name suzuri _period')}</td>
         </tr>
         <tr>
-          <td>i like a cat</td>
-          <td>{translate('i like cat _acc')}</td>
+          <td>i am 21 years old</td>
+          <td>{translate('i age two one year _abl _period')}</td>
         </tr>
         <tr>
-          <td>may thou be proud</td>
-          <td>{translate('thou pride would')}</td>
-        </tr>
-        <tr>
-          <td>i wish that thou would have come to love a cat</td>
-          <td>{translate('i want that _acc thou like begin did would cat _acc')}</td>
+          <td>i live in japan</td>
+          <td>{translate('i in nitpon _acc _period')}</td>
         </tr>
       </tbody>
     </table>
   </section>
 </>
-
