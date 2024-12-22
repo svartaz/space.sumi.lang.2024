@@ -1,7 +1,7 @@
 export const log = (it: any) => {
   console.log(it);
-  return it
-}
+  return it;
+};
 
 export const replaceEach = (
   s: string,
@@ -10,5 +10,7 @@ export const replaceEach = (
     string | ((substring: string, ...args: any[]) => string)
   ][]
 ): string =>
-  replacements.reduce((acc, [replaced, replacer]) =>
-    acc.replace(replaced, replacer as any), s);
+  replacements.reduce(
+    (acc, [replaced, replacer]) => acc.replace(replaced, replacer as any),
+    s
+  );

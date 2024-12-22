@@ -1,31 +1,49 @@
 *
   broder: 1px solid red
 
+body
+  font-family: 'Futura', 'Helvetica', sans-serif
+
+h1, h2, h3, h4, h5, h6
+  inline-size: fit-content
+  margin-inline: auto
+
 table
-  margin: auto
   border-collapse: collapse
+  margin-inline: auto
 
   td, th
-    padding: 0 1rex
+    padding: .25rex 1rex
 
-  thead
-    td, th
-      &[colspan]
-        border: 1px solid #0004
-        border-block-start: none
-
-      &[rowspan]
-        border: 1px solid #0004
-        border-block-start: none
+  thead:not(.h)
+    th
+      writing-mode: vertical-lr
+      text-align: end
 
   tbody
+    tr
+      border-block: 1px solid #0002
     th
       text-align: end
 
-      &[colspan]
-        border: 1px solid #0004
-        border-inline-start: none
+.target, h1
+  text-transform: uppercase
+  //color: MediumVioletRed
 
-      &[rowspan]
-        border: 1px solid #0004
-        border-inline-start: none
+.code
+  font-family: Monaco, monospace
+
+.ipa
+  font-family: 'Palatino', serif
+
+.sample
+  inline-size: 36rem
+  max-inline-size: 100%
+
+table.progress
+  font-size: 50%
+  block-size: fit-content
+  inline-size: 50%
+
+  th, td
+    padding-block: 0

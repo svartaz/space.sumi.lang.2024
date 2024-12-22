@@ -1,4 +1,4 @@
-import { replaceEach } from "./common";
+import { replaceEach } from './common';
 
 enum Place {
   Velar,
@@ -46,136 +46,80 @@ const phonemes = {
   u: ['vowel'],
 };
 
-const phoneticise = (word: string) => replaceEach(word, [
-  [/(?<=[^iueoa])j(?=[iueoa])/, 'y'],
-  [/(?<=[iueoa])j(?=[^iueoa])/, 'y'],
-  [/(?<=[^iueoa])v(?=[iueoa])/, 'w'],
-  [/(?<=[iueoa])v(?=[^iueoa])/, 'w'],
-]);
+export const phoneticise = (word: string) =>
+  replaceEach(word, [
+    [/(?<=[^IUEOA])J(?=[IUEOA])/, 'Y'],
+    [/(?<=[IUEOA])J(?=[^IUEOA])/, 'Y'],
+    [/(?<=[^IUEOA])V(?=[IUEOA])/, 'W'],
+    [/(?<=[IUEOA])V(?=[^IUEOA])/, 'W'],
+  ]);
 
-export const toIpa = (s: string): string => replaceEach(phoneticise(s).toUpperCase(), [
-  [/^(?=[IUEOA])/g, 'ʔ'],
-  [/(?<=[IUEOA])N(?![IUEOAYW])/g, '\u0303'],
+export const toIpa = (s: string): string =>
+  s
+    .replace(/[A-Z]+/g, (it) =>
+      replaceEach(phoneticise(it), [
+        [/(?<=[YWIUEOA])N(?![YWIUEOA])/g, '\u0303'],
 
-  [/(?<=[KTP])$/g, 'ʰ'],
+        [/H(?=I)/g, 'ç'],
+        [/HY(?=[EAOU])/g, 'ç'],
+        [/(?<=[YI])H(?![WEAOU])/g, 'ç'],
 
-  [/-/g, ''],
-  [/C/g, 'g'],
-  [/H/g, 'x'],
-  [/X/g, 'ʃ'],
-  [/J/g, 'ʒ'],
-  [/G/g, 'ŋ'],
-  [/R/g, 'ɾ'],
+        [/(?<=[KTP])$/g, 'ʰ'],
 
-  [/Y/g, 'j'],
-]).toLowerCase().normalize("NFC");
+        [/C/g, 'g'],
+        [/X/g, 'ʃ'],
+        [/J/g, 'ʒ'],
+        [/R/g, 'ɾ'],
+        [/G/g, 'ŋ'],
+        [/Y/g, 'j'],
+      ]).toLowerCase()
+    )
+    .normalize('NFC');
 
 export const invalid = (word: string): string | null => {
   const wordPhonetic = phoneticise(word);
 
   for (const [item, patterns] of [
-    ['empty', [
-      /^$/,
-    ]],
-    ['non-alphabet', [
-      /[^ktpcdbhxsfjzvgnmrliueoayw-]/,
-    ]],
-    ['geminate', [
-      /(.)\1/,
-    ]],
-    [`4 consonants`, [
-      /[^iueoa]{4,}/,
-    ]],
-    [`3 outer consonants`, [
-      /^[^iueoayw]{3,}|[^iueoayw]{3,}$/,
-    ]],
-    ['plosive + fricative', [
-      /kh|pf/g,
-    ]],
-    ['2 vowels', [
-      /[iueoa]{2,}/,
-    ]],
-    ['nasals', [
-      /[gnm]{2,}/,
-    ]],
-    ['sibilants', [
-      /[xsjz][xsz]/g,
-    ]],
-    [`initial nasal + consonant`, [
-      /^[gnm](?![iueoayw])/,
-    ]],
-    [`final 'h'`, [
-      /h$/,
-    ]],
-    [`nasal + 'r'`, [
-      /[gnm]r/,
-    ]],
-    ['unmatched nasal + consonant', [
-      /[nm](?=[ck])/g,
-      /[gm](?=[dtr])/g,
-      /[gn](?=[bp])/g,
-      /[gm](?=[hxsfjzv])/g,
-    ]],
-    ['plosive + matched nasal', [
-      /[kc]g/g,
-      /[td]n/g,
-      /[pb]m/g,
-    ]],
-    [`matched high`, [
-      /[xj]y/g,
-      /[pbfvm]w/g,
-    ]],
-    [`unvoiced + voiced`, [
-      /[ktphxsf][cdbjzv]/g,
-      /[cdbjzv][ktphxsf]/g,
-    ]],
-    [`matching glide + vowel`, [
-      /yi|wu/,
-    ]],
+    ['empty', [/^$/]],
+    ['non-alphabet', [/[^KTPCDBHXSFJZVGNMRLYWIUEOA]/]],
+    ['initial H', [/^[IEAOU]/]],
+    ['geminate', [/(.)\1/]],
+    [`4 consonants`, [/[^YWIUEOA]{4,}/]],
+    [`3 outer consonants`, [/^[^YWIUEOA]{3,}|[^YWIUEOA]{3,}$/]],
+    ['plosive + fricative', [/KH|PF/g]],
+    ['2 vowels', [/[IUEOA]{2,}/]],
+    ['nasals', [/[GNM]{2,}/]],
+    ['sibilants', [/[XSZ]{2,}/g]],
+    [`initial nasal + consonant`, [/^[GNM](?![YWIUEOA])/]],
+    [`nasal + 'r'`, [/[GNM]R/]],
+    [
+      'unmatched nasal + consonant',
+      [/[NM][CK]/g, /[GM][DTR]/g, /[GN][BP]/g, /[GM][HXSFJZV]/g],
+    ],
+    ['plosive + matched nasal', [/[KC]G/g, /[TD]N/g, /[PB]M/g]],
+    [`matched high`, [/[XJ]Y/g, /[PBFVM]W/g]],
+    [`unvoiced + voiced`, [/[KTPHXSF][CDBJZV]/g, /[CDBJZV][KTPHXSF]/g]],
+    [`matching glide + vowel`, [/YI|WU/]],
   ] as [string, RegExp[]][])
-    for (const pattern of patterns)
-      if (pattern.test(wordPhonetic))
-        return item;
+    for (const pattern of patterns) if (pattern.test(wordPhonetic)) return item;
 
   return null;
 };
 
 export const checkSonority = (word: string) =>
   phoneticise(word)
-    .split(/[iueoa]+/g)
-    .every(consonants => {
-      if (consonants.length < 3)
-        return true;
-      else {
-        const sonorities = [...consonants].map(c =>
-          [
-            ['a'],
-            ['e', 'o'],
-            ['i', 'u'],
-            ['y', 'w'],
-            ['r'],
-            ['l'],
-            ['g', 'n', 'm'],
-            ['j', 'z', 'v'],
-            ['h', 'x', 's', 'f'],
-            ['c', 'd', 'b'],
-            ['k', 't', 'p'],
-          ].findIndex(cs => cs.includes(c))
+    .split(/[IUEOA]+/g)
+    .every((consonants, i, self) => {
+      if (i === 0)
+        return /^[HXSF]*[JZV]*[KTP]*[CDB]*[HXSF]*[JZV]*[GNM]?L?R?[YW]?$/.test(
+          consonants
         );
-
-        let state: null | 'down' | 'up' = null;
-        for (let i = 0; i < sonorities.length - 1; i++) {
-          if (sonorities[i] === sonorities[i + 1])
-            continue;
-          else if (sonorities[i] < sonorities[i + 1])
-            if (state === 'down')
-              return false;
-            else
-              state = 'up';
-          else
-            state = 'down';
-        }
-
-        return true;
-      }
-    })
+      else if (i === self.length - 1)
+        return /^[YW]?R?L?[GNM]?[JZV]*[HXSF]*[CDB]*[KTP]*[HXSF]*[JZV]*$/.test(
+          consonants
+        );
+      else
+        return /^[YW]?R?L?[GNM]?[JZV]*[HXSF]*[CDB]*[KTP]*[CDB]*[HXSF]*[JZV]*[GNM]?L?R?[YW]?$/.test(
+          consonants
+        );
+    });
