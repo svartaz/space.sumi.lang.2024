@@ -72,6 +72,7 @@ export const toIpa = (s: string): string =>
         [/R/g, 'ɾ'],
         [/G/g, 'ŋ'],
         [/Y/g, 'j'],
+        [/W/g, 'ʋ'],
       ]).toLowerCase()
     )
     .normalize('NFC');
@@ -82,7 +83,7 @@ export const invalid = (word: string): string | null => {
   for (const [item, patterns] of [
     ['empty', [/^$/]],
     ['non-alphabet', [/[^KTPCDBHXSFJZVGNMRLYWIUEOA]/]],
-    ['initial H', [/^[IEAOU]/]],
+    ['initial vowel', [/^[IEAOU]/]],
     ['geminate', [/(.)\1/]],
     [`4 consonants`, [/[^YWIUEOA]{4,}/]],
     [`3 outer consonants`, [/^[^YWIUEOA]{3,}|[^YWIUEOA]{3,}$/]],
@@ -91,7 +92,8 @@ export const invalid = (word: string): string | null => {
     ['nasals', [/[GNM]{2,}/]],
     ['sibilants', [/[XSZ]{2,}/g]],
     [`initial nasal + consonant`, [/^[GNM](?![YWIUEOA])/]],
-    [`nasal + 'r'`, [/[GNM]R/]],
+    [`nasal + R`, [/[GNM]R/]],
+    [`palatal + R`, [/(X|(?<![IUEOA])J)R/]],
     [
       'unmatched nasal + consonant',
       [/[NM][CK]/g, /[GM][DTR]/g, /[GN][BP]/g, /[GM][HXSFJZV]/g],

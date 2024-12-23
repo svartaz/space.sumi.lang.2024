@@ -83,14 +83,14 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Other,
       betokened: 'opens term list',
-      betokener: 'I',
+      betokener: 'E',
       origin: 'a priori',
     },
     ']': {
       date: '2024-02-13',
       klass: Klass.Other,
       betokened: 'closes term list',
-      betokener: 'U',
+      betokener: 'O',
       origin: 'a priori',
     },
 
@@ -1656,7 +1656,7 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Verb,
       betokener: 'MAR',
       origin:
-        'hhttps://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mari',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mari',
       betokened: '[terrain] @0 is sea',
     },
     HILL: {
@@ -1670,7 +1670,7 @@ const dicPre = new Map<string, ValuePre>(
     RIVER: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'STAVM',
+      betokener: 'STOM',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/straumaz',
       betokened: '[terrain] @0 is river',
@@ -1836,7 +1836,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-24',
       klass: Klass.Verb,
       betokened: '@0 (dies, is dead)',
-      complex: ['END', 'LIVE'],
+      idiom: ['END', 'LIVE'],
     },
     //KILL: { date: '2024-08-24', klass: Klass.Verb, ...toComplex(['let', 'die']), betokened: '@0 kills @1' },
     WAKE: {
@@ -1901,7 +1901,7 @@ const dicPre = new Map<string, ValuePre>(
     LEAP: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'LAVP',
+      betokener: 'LOP',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlaupan%C4%85',
       betokened: '[behavior] @0 (jump, leap, skip, hop) over @1',
@@ -1925,7 +1925,7 @@ const dicPre = new Map<string, ValuePre>(
     DREAM: {
       date: '2024-10-16',
       klass: Klass.Verb,
-      betokener: 'DRAVM',
+      betokener: 'DROM',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/draumaz',
       betokened: '[behavior] @0 dreams @{1:dream}',
@@ -2035,7 +2035,7 @@ const dicPre = new Map<string, ValuePre>(
     BAD: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'LAJD',
+      betokener: 'LED',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lai%C3%BEaz',
       betokened:
@@ -2222,7 +2222,7 @@ const dicPre = new Map<string, ValuePre>(
     RANDY: {
       date: '2024-09-12',
       klass: Klass.Verb,
-      betokener: 'CAJL',
+      betokener: 'CEL',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gailaz',
       betokened:
@@ -2345,7 +2345,8 @@ const dicPre = new Map<string, ValuePre>(
       betokener: 'SAC',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sagjan%C4%85',
-      betokened: '[communicate] @0 says @{1:idea} @{2:expression}',
+      betokened:
+        '[communicate] @0 (says, encodes) @{1:idea} as @{2:expression}',
     },
     UNDERSTAND: {
       date: '2024-06-14',
@@ -2353,7 +2354,8 @@ const dicPre = new Map<string, ValuePre>(
       betokener: 'XLUST',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlustiz',
-      betokened: '[communicate] @0 understands @{1:idea} from @{2:expression}',
+      betokened:
+        '[communicate] @0 (understands, decodes) @{1:idea} from @{2:expression}',
       complex: ['COUNTER', 'SAY'],
     },
     WRITE: {
@@ -2576,7 +2578,7 @@ const dicPre = new Map<string, ValuePre>(
     GOAT: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'CAJT',
+      betokener: 'CET',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gaits',
       betokened: '[life.animal.mammal] @0 is a goat',
@@ -2584,7 +2586,7 @@ const dicPre = new Map<string, ValuePre>(
     DEER: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'RAJK',
+      betokener: 'REK',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raih%C3%B4',
       betokened: '[life.animal.mammal] @0 is a deer',
@@ -2592,7 +2594,7 @@ const dicPre = new Map<string, ValuePre>(
     HORSE: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'XRUS',
+      betokener: 'KRUS',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hruss%C4%85',
       betokened: '[life.animal.mammal] @0 is a horse',
@@ -2701,7 +2703,7 @@ const dicPre = new Map<string, ValuePre>(
     BONE: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'BAJN',
+      betokener: 'BEN',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bain%C4%85',
       betokened: '[body] @0 is a bone of @1',
@@ -2717,7 +2719,7 @@ const dicPre = new Map<string, ValuePre>(
     FAT: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'FAJT',
+      betokener: 'FET',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/faitaz',
       betokened: '[body] @0 is a fat of @1',
@@ -3019,7 +3021,7 @@ const dicPre = new Map<string, ValuePre>(
     LEAF: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'LAVB',
+      betokener: 'LOB',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/laub%C4%85',
       betokened: '[body.plant] @0 is a leaf of @1',
@@ -3118,7 +3120,7 @@ const dicPre = new Map<string, ValuePre>(
     HEAL: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'KAJL',
+      betokener: 'KEL',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hailaz',
       betokened: '@0 heals @1',
@@ -3306,7 +3308,7 @@ const dicPre = new Map<string, ValuePre>(
     SHIP: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'BAJT',
+      betokener: 'BET',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/baitaz',
       betokened: '[artifact] @0 is a (ship, boat)',
@@ -3451,7 +3453,7 @@ const dicPre = new Map<string, ValuePre>(
       [
         ['ENG', '2024-08-31', 'english'],
         ['CMN', '2024-08-31', 'mandarin'],
-        ['HIN', '2024-08-31', 'hindustani (hindi, urudu) '],
+        ['HIN', '2024-08-31', 'hindustani (hindi, urdu) '],
         ['SPA', '2024-08-31', 'spanish'],
         ['ARA', '2024-08-31', 'arabic'],
         ['FRA', '2024-08-31', 'french'],

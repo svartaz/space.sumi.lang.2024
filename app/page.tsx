@@ -11,9 +11,13 @@ const Target = ({ children }: { children: string }) => (
   </span>
 );
 
-const TargetLetter = ({ children }: { children: string }) => (
-  <Letter title={children} className="target">
-    {replaceEach(phoneticise(children).toLowerCase(), [
+const TargetLetter = (props: {
+  children: string;
+  title?: string;
+  style?: CSSProperties;
+}) => (
+  <Letter title={props.children} className="target" {...props}>
+    {replaceEach(phoneticise(props.children).toLowerCase(), [
       [/x/g, 'S'],
       [/h/g, 'x'],
       [/j/g, 'Z'],
@@ -40,14 +44,12 @@ export default () => (
 
     <div
       style={{
-        padding: '1rem',
-        fontSize: '200%',
         inlineSize: 'fit-content',
         marginInline: 'auto',
       }}
     >
       <TargetLetter>
-        {translate('KXIM LANGUAGE DONE END CREATE [ CALLED SUMI ]')}
+        {translate('KXIM LANGUAGE__ DONE END MAKE [ CALLED SUMI ]')}
       </TargetLetter>
     </div>
 
@@ -304,20 +306,15 @@ export default () => (
                     <th style={{ textWrap: 'nowrap' }}>{date}</th>
                     <td
                       style={{
-                        background: `linear-gradient(to right, #0002 0%, #0002 ${percent}%, transparent ${percent}%, transparent 100%)`,
+                        background: `linear-gradient(to right, #0001 0%, #0001 ${percent}%, transparent ${percent}%, transparent 100%)`,
                       }}
                     >
                       {dateToKeys[date].join(' ')}
                     </td>
-                    <td>
-                      <div
-                        style={{
-                          blockSize: '100%',
-                          opacity: 0.5,
-                          backgroundColor: 'currentColor',
-                        }}
-                      ></div>
+                    <td style={{ textWrap: 'nowrap' }}>
+                      +{dateToKeys[date].length}
                     </td>
+                    <td style={{ textWrap: 'nowrap' }}>{acc}</td>
                   </tr>
                 );
               })}
@@ -325,7 +322,7 @@ export default () => (
         );
       })()}
 
-      <table style={{ margin: 'auto' }}>
+      <table className="dictionary" style={{ margin: 'auto' }}>
         <thead className="h">
           <tr>
             <th>key</th>
@@ -373,10 +370,7 @@ export default () => (
                       )}{' '}
                   </td>
                 )}
-                <td
-                  className={formation !== Formation.Simplex ? 'code' : ''}
-                  style={{ fontSize: 'smaller' }}
-                >
+                <td className={formation !== Formation.Simplex ? 'code' : ''}>
                   {/^https?:\/\//.test(origin) ? (
                     <a href={origin}>
                       {decodeURI(origin).replace(/^https?:\/\//, '')}
@@ -394,7 +388,27 @@ export default () => (
 
     <section>
       <h2>letter</h2>
-      <TargetLetter>{'k  tp\nc  db\nhxsf\n  jzv\ng  nm'}</TargetLetter>
+
+      <div
+        style={{
+          inlineSize: 'fit-content',
+          marginInline: 'auto',
+        }}
+      >
+        <Letter>
+          {[
+            'K k T t P p',
+            'C c D d B b',
+            'X x S s F f',
+            'H h Z z V v',
+            'G g N n M m',
+            '      j r    w',
+            '      i I u U',
+            '      e E o O',
+            'A a',
+          ].join('\n')}
+        </Letter>
+      </div>
     </section>
   </>
 );
