@@ -2,15 +2,26 @@
   broder: 1px solid red
 
 body
-  font-family: 'Futura', 'Helvetica', sans-serif
+  font-family: 'Helvetica Neue', Helvetica, sans-serif
+  font-weight: 400
+  max-inline-size: 64rem
+  margin-inline: auto
+
+  display: flex
+  flex-direction: column
+  gap: 2rem
 
 h1, h2, h3, h4, h5, h6
   inline-size: fit-content
   margin-inline: auto
+  font-weight: 500
 
 table
   border-collapse: collapse
   margin-inline: auto
+
+  th
+    font-weight: 500
 
   td, th
     padding: .25rex 1rex
@@ -26,28 +37,47 @@ table
     th
       text-align: end
 
-.target, h1
-  text-transform: uppercase
-  //color: MediumVioletRed
+.target
+  //font-variant-caps: small-caps
+  text-transform: lowercase
+  font-family: 'Times New Roman', serif
 
 .code
-  font-family: Monaco, monospace
+  font-family: 'Courier New', 'Courier', monospace
 
 .ipa
-  font-family: 'Palatino', serif
+  font-family: 'Courier New', serif
 
 .sample
   inline-size: 36rem
   max-inline-size: 100%
 
+  tr
+    td
+      padding-block: 1rex
+
+  tr:nth-of-type(1)
+    font-size: small
+
+  tr:nth-of-type(2)
+    ruby
+      ruby-align: start
+      ruby-position: over
+
+      ruby
+        ruby-position: under
+
+table
+  //box-shadow: 0 0 1rem #0002
+
 table.progress
-  font-size: 50%
-  block-size: fit-content
-  inline-size: 50%
+  font-size: xx-small
 
   th, td
     padding-block: 0
 
 table.dictionary
-  a
-    font-size: 75%
+  font-size: small
+
+  a[href^='http']
+    font-size: x-small

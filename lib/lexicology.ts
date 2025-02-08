@@ -1,17 +1,17 @@
 import { replaceEach } from './common';
-import { checkSonority, invalid } from './phonology';
+import { invalid } from './phonology';
 
-export const name = 'KXIM';
+export const name = 'kxala';
 
 const fromAcronym = (acronym: string) =>
   replaceEach(acronym, [
     [/K/g, 'ka'],
     [/C/g, 'ca'],
-    [/H/g, 'xa'],
     [/G/g, 'ga'],
+    [/H/g, 'xa'],
 
-    [/X/g, 'xi'],
-    [/J/g, 'ji'],
+    [/X/g, 'xe'],
+    [/J/g, 'je'],
 
     [/T/g, 'ta'],
     [/D/g, 'da'],
@@ -33,9 +33,9 @@ const fromAcronym = (acronym: string) =>
 
     [/I/g, 'hi'],
     [/E/g, 'he'],
-    [/A/g, 'ha'],
-    [/O/g, 'ho'],
     [/U/g, 'hu'],
+    [/O/g, 'ho'],
+    [/A/g, 'ha'],
   ]);
 
 enum Klass {
@@ -60,6 +60,14 @@ interface ValuePre {
   betokened: string;
   formation: Formation;
   origin: string;
+  origins?: {
+    pie?: string;
+    gmc?: string;
+    eng?: string;
+    deu?: string;
+    ice?: string;
+    lat?: string;
+  };
   betokener?: string;
   complex?: string[];
   idiom?: string[];
@@ -79,137 +87,140 @@ proto indo european
 
 const dicPre = new Map<string, ValuePre>(
   Object.entries({
-    '[': {
-      date: '2024-02-13',
+    then: {
+      date: '2025-02-06',
       klass: Klass.Other,
-      betokened: 'opens term list',
-      betokener: 'E',
+      betokened: 'separateth predicates',
       origin: 'a priori',
-    },
-    ']': {
-      date: '2024-02-13',
-      klass: Klass.Other,
-      betokened: 'closes term list',
-      betokener: 'O',
-      origin: 'a priori',
+      betokener: 'zu',
     },
 
-    DER: {
+    der: {
       zh: '將',
       date: '2024-02-13',
       klass: Klass.Case,
       betokened: 'nominative',
-      betokener: 'CO',
-      origin: 'https://en.wiktionary.org/wiki/が#Particle',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fan%C4%93',
+      betokener: 'fa',
     },
-    DEN: {
+    den: {
       zh: '將',
       date: '2024-02-13',
       klass: Klass.Case,
       betokened: 'accusative',
-      betokener: 'NO',
-      origin: 'https://en.wiktionary.org/wiki/-ν#Ancient_Greek',
+      origin: 'https://en.wiktionary.org/wiki/%D8%B1%D8%A7#Persian',
+      betokener: 'ra',
     },
-    DEM: {
+    to: {
       date: '2024-02-13',
       klass: Klass.Case,
       betokened: 'dative',
-      betokener: 'FO',
-      origin: 'https://en.wiktionary.org/wiki/へ#Particle',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8D',
+      betokener: 'ta',
     },
-    LY: {
+    along: {
+      date: '2024-12-24',
+      klass: Klass.Case,
+      betokened: 'unspecified case',
+      origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bi',
+      betokener: 'bi',
+    },
+    ish: {
       date: '2024-02-13',
       klass: Klass.Case,
       betokened: 'adverb',
-      betokener: 'LI',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-līkaz',
+      betokener: 'iska',
     },
 
-    DONE: {
+    done: {
       zh: '被',
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened:
-        '[voice] passive. precedes a case marker (default: accusative).',
-      betokener: 'CE',
+        '[voice] passive. foregoeth a case marker (default: accusative).',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-',
+      betokener: 'ce',
     },
 
-    BEGIN: {
+    begin: {
       zh: '始',
       date: '2024-02-13',
       klass: Klass.Preverb,
-      betokened: '[aspect] inchoative',
-      betokener: 'ZA',
+      betokened: '[aspect] inchoative. begineth to',
       origin: 'https://en.wiktionary.org/wiki/за-#Russian',
+      betokener: 'za',
     },
-    END: {
+    end: {
       zh: '終',
       date: '2024-02-13',
       klass: Klass.Preverb,
-      betokened: '[aspect] completive',
-      betokener: 'PO',
+      betokened: '[aspect] completive. endeth to',
       origin: 'https://en.wiktionary.org/wiki/по-#Russian',
+      betokener: 'po',
     },
-    REPEAT: {
+    repeat: {
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[aspect] frequentative',
-      betokener: 'LO',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-lōną',
+      betokener: 'lon',
     },
 
-    DID: {
+    did: {
       zh: '了',
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[tense] past',
-      betokener: 'DI',
-      origin: '*-dē',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ded%C7%AD',
+      betokener: 'do',
     },
-    DO: {
+    do: {
       zh: '今',
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[tense] present',
-      betokener: 'NU',
+      betokener: 'nu',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nu',
     },
-    SHALL: {
+    shall: {
       zh: '今',
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[tense] future',
-      betokener: 'XU',
+      betokener: 'xu',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skulan%C4%85',
     },
 
-    WOULD: {
+    would: {
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[mood] irrealis, optative, imperative',
-      betokener: 'SO',
+      betokener: 'so',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swa',
     },
 
-    MAY: {
+    may: {
       date: '2024-02-13',
       klass: Klass.Preverb,
-      betokener: 'ME',
+      betokener: 'me',
       betokened: '[mood] may, possibly',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/maganą',
     },
-    MUST: {
+    must: {
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[mood] must, necessarily',
-      betokener: 'KU',
+      betokener: 'ku',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skulaną',
     },
@@ -218,489 +229,483 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[restrictiveness] which is, so (non-restrictive)',
-      betokener: 'DU',
+      betokener: 'du',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/þus',
     },
 
-    ESSENTIALLY: {
+    essentially: {
       date: '2024-10-19',
       klass: Klass.Preverb,
       betokened: '[essentiality] in essence, in a nominal sense',
-      betokener: 'SE',
+      betokener: 'se',
       origin: 'https://en.wiktionary.org/wiki/esse#Latin',
     },
-    ACCIDENTALLY: {
-      date: '2024-10-19',
-      klass: Klass.Preverb,
-      betokened: '[essentiality] by accident, in a verbal sense',
-      betokener: 'TA',
-      origin: 'https://en.wiktionary.org/wiki/stare#Latin',
-    },
 
-    NOT: {
+    not: {
+      zh: '不',
       date: '2024-02-13',
       klass: Klass.Joiner,
       betokened: '[logic] not, negation',
-      betokener: 'NI',
+      betokener: 'na',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ne',
     },
-    AND: {
+    and: {
+      zh: '而',
       date: '2024-02-13',
       klass: Klass.Joiner,
       betokened: '[logic] and, both, conjunction',
-      betokener: 'HE',
-      origin: 'https://en.wiktionary.org/wiki/et#Latin',
+      betokener: 'be',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bai',
     },
-    OR: {
+    or: {
+      zh: '或',
       date: '2024-02-13',
       klass: Klass.Joiner,
-      betokened: '[logic] or, either, disjunction',
-      betokener: 'HO',
-      origin: 'https://en.wiktionary.org/wiki/aut#Latin',
+      betokened: '[logic] or, at least one, disjunction',
+      betokener: 'bo',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bai',
     },
-    IFF: {
+    iff: {
+      zh: '則',
       date: '2024-02-13',
       klass: Klass.Joiner,
       betokened: '[logic] if and only iff, equivalence',
-      betokener: 'HA',
+      betokener: 'a',
       origin: 'a priori',
     },
+    xor: {
+      date: '2025-01-02',
+      klass: Klass.Joiner,
+      betokened: '[logic] either',
+      idiom: ['not', 'iff'],
+    },
 
-    'WHICH{': {
+    'which{': {
       date: '2024-02-13',
       klass: Klass.Clause,
-      betokened: 'opens relative clause. @0 is that which @{sentence}',
-      betokener: 'VE',
+      betokened: 'openeth relative clause. @0 is that which @{sentence}',
+      betokener: 've',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwat',
     },
-    'THAT{': {
+    'that{': {
       date: '2024-02-13',
       klass: Klass.Clause,
       betokened:
-        'opens statement clause. @0 is the (event, statement) that @{sentence}',
-      betokener: 'DE',
+        'openeth statement clause. @0 is the (event, statement) that @{sentence}',
+      betokener: 'de',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEat',
     },
-    'WHETHER{': {
+    'whether{': {
       date: '2024-07-28',
       klass: Klass.Clause,
-      betokened: 'opens truthfulness clause. @0 is whether @{sentence}',
-      betokener: 'JE',
+      betokened: 'openeth truthfulness clause. @0 is whether @{sentence}',
+      betokener: 'je',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ja',
     },
-    'HOW_MUCH{': {
+    'how_much{': {
       date: '2024-10-20',
       klass: Klass.Clause,
-      betokened: 'opens extent clause. @0 is the extent how much @{sentence}',
-      betokener: 'KE',
+      betokened: 'openeth extent clause. @0 is the extent how much @{sentence}',
+      betokener: 'ke',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haiduz',
     },
     '}': {
       date: '2024-02-13',
       klass: Klass.Other,
-      betokened: 'closes clause',
-      betokener: 'LA',
+      betokened: 'closeth clause',
+      betokener: 'la',
       origin: 'https://en.wiktionary.org/wiki/啦#Chinese',
     },
 
-    CALLED: {
+    called: {
       date: '2024-02-13',
       klass: Klass.Other,
       betokened: '@0 is called @{name}',
-      betokener: 'NA',
+      betokener: 'no',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/namô',
     },
 
-    ZERO: {
+    zero: {
       zh: '零',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 0',
-      betokener: 'ZI',
+      betokener: 'ze',
       origin: 'https://en.wiktionary.org/wiki/%D8%B5%D9%81%D8%B1#Arabic',
     },
-    ONE: {
+    one: {
       zh: '一',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 1',
-      betokener: 'KA',
+      betokener: 'ka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/Háykas',
     },
-    TWO: {
+    two: {
       zh: '二',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 2',
-      betokener: 'TAV',
+      betokener: 'tav',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/twai',
     },
-    THREE: {
+    three: {
       zh: '三',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 3',
-      betokener: 'DIR',
+      betokener: 'der',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEr%C4%ABz',
     },
-    FOUR: {
+    four: {
       zh: '四',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 4',
-      betokener: 'FED',
+      betokener: 'fed',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fedw%C5%8Dr',
     },
-    FIVE: {
+    five: {
       zh: '五',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 5',
-      betokener: 'PAN',
+      betokener: 'pan',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/p%C3%A1n%C4%8Da',
     },
-    SIX: {
+    six: {
       zh: '六',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 6',
-      betokener: 'XAX',
+      betokener: 'xax',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/%C5%A1w%C3%A1%C4%87%C5%A1',
     },
-    SEVEN: {
+    seven: {
       zh: '七',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 7',
-      betokener: 'SEB',
+      betokener: 'seb',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sebun',
     },
-    EIGHT: {
+    eight: {
       zh: '八',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 8',
-      betokener: 'VOT',
+      betokener: 'vot',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/aht%C5%8Du',
     },
-    NINE: {
+    nine: {
       zh: '九',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[digit] 9',
-      betokener: 'NIN',
+      betokener: 'nin',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/newun',
     },
 
-    INFINITE: {
+    infinite: {
       date: '2024-09-06',
       klass: Klass.Numeral,
       betokened: 'infinite, ∞',
-      betokener: 'SIN',
+      betokener: 'sin',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sin-',
     },
-    KILO: {
+    kilo: {
       zh: '千',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[separator] 1000, `,`',
-      betokener: 'DUS',
+      betokener: 'dus',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BE%C5%ABsund%C4%AB',
     },
-    _DECIMAL: {
+    deci: {
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[separator] decimal separator, `.`',
-      betokener: 'PUG',
+      betokener: 'pu',
       origin: 'https://en.wiktionary.org/wiki/pungo#Latin',
     },
 
-    HOW_MANY: {
+    how_many: {
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[interogative] how many',
-      betokener: 'VO',
+      betokener: 'vo',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C5%8D',
     },
 
-    EACH: {
+    each: {
       zh: '全',
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: 'each, every, all',
-      betokener: 'PA',
+      betokener: 'pa',
       origin:
         'https://en.wiktionary.org/wiki/%CF%80%E1%BE%B6%CF%82#Ancient_Greek',
     },
 
-    AT_LEAST: {
+    at_most: {
       date: '2024-02-13',
       klass: Klass.Numeral,
-      betokened: '[comparative] at least',
-      betokener: 'MES',
+      betokened: '[comparative] at most. ≤',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/maiz%C3%B4',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABtilaz',
+      betokener: 'lu',
     },
-    AT_MOST: {
-      date: '2024-09-17',
-      klass: Klass.Numeral,
-      betokened: '[comparative] at most',
-      idiom: ['DONE', 'AT_LEAST'],
-    },
-    LESS_THAN: {
+    less_than: {
       date: '2024-08-31',
       klass: Klass.Numeral,
-      betokened: '[comparative] less than',
-      betokener: 'LES',
-      origin: 'laisiz',
-    },
-    MORE_THAN: {
-      date: '2024-09-17',
-      klass: Klass.Numeral,
-      betokened: '[comparative] more than',
-      idiom: ['DONE', 'LESS_THAN'],
+      betokened: '[comparative] less than. <',
+      betokener: 'mi',
+      origin: 'https://en.wiktionary.org/wiki/l%C3%A6s#Etymology_2_2',
     },
 
-    PLURAL: {
+    plural: {
       date: '2024-09-17',
       klass: Klass.Numeral,
-      betokened: 'plural, more than one',
-      betokener: 'MAG',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/managaz',
+      betokened: 'plural, at least two',
+      idiom: ['two', 'at_most'],
     },
 
-    _ADD: {
+    _add: {
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[binary] addition, +',
-      betokener: 'PUL',
+      betokener: 'pul',
       origin: 'https://en.wiktionary.org/wiki/plus#Latin',
     },
-    _SUB: {
+    _sub: {
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[binary] subtraction, -',
-      betokener: 'MIN',
+      betokener: 'min',
       origin: 'https://en.wiktionary.org/wiki/minor#Latin',
     },
-    _MUL: {
+    _mul: {
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[binary] multiplication, *',
-      betokener: 'MUL',
+      betokener: 'mul',
       origin: 'https://en.wiktionary.org/wiki/multiplicare#Latin',
     },
-    _DIV: {
+    _div: {
       date: '2024-02-13',
       klass: Klass.Numeral,
       betokened: '[binary] division, \u002F',
-      betokener: 'DIV',
+      betokener: 'div',
       origin: 'https://en.wiktionary.org/wiki/dividere#Latin',
     },
-    _MOD: {
+    _mod: {
       date: '2024-08-24',
       klass: Klass.Numeral,
       betokened: '[binary] modulo, %',
-      betokener: 'MOD',
+      betokener: 'mod',
       origin: 'https://en.wiktionary.org/wiki/modulo#Latin',
     },
-    _EXP: {
+    _exp: {
       date: '2024-08-24',
       klass: Klass.Numeral,
       betokened: '[binary] exponential, ^',
-      betokener: 'POT',
+      betokener: 'pot',
       origin: 'https://en.wiktionary.org/wiki/potere#Latin',
     },
-    _LOG: {
+    _log: {
       date: '2024-08-24',
       klass: Klass.Numeral,
       betokened: '[binary] logarithm',
-      betokener: 'LOC',
+      betokener: 'loc',
       origin: 'https://en.wiktionary.org/wiki/logarithmo#Latin',
     },
 
-    ORDINAL: {
+    _ord: {
       date: '2024-08-02',
       klass: Klass.Other,
       betokened: '@0 is @{number}-th',
-      betokener: 'DO',
+      betokener: 'te',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D',
     },
-    _CARD: {
+    _card: {
       date: '2024-08-02',
       klass: Klass.Other,
       betokened: '@0 contains @{number} elements',
-      betokener: 'FE',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/felu',
+      betokener: 'ko',
+      origin: 'https://en.wiktionary.org/wiki/%E5%80%8B',
     },
 
-    FIRST: {
+    first: {
       date: '2024-09-14',
       klass: Klass.Verb,
       betokened: '@0 is (0th, first, primary)',
-      idiom: ['ORDINAL', 'ZERO'],
+      idiom: ['_ord', 'zero'],
     },
-    SECOND: {
+    second: {
       date: '2024-09-14',
       klass: Klass.Verb,
       betokened: '@0 is (1st, second, other)',
-      idiom: ['ORDINAL', 'ONE'],
+      idiom: ['_ord', 'one'],
     },
-    LAST: {
+    last: {
       date: '2024-09-14',
       klass: Klass.Verb,
       betokened: '@0 is (last, final)',
-      idiom: ['ORDINAL', 'EACH'],
+      idiom: ['_ord', 'each'],
     },
 
-    I: {
+    i: {
+      zh: '我',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '[definite] @0 is me',
-      betokener: 'MA',
+      betokened: '@0 is me',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mek',
+      betokener: 'ma',
     },
-    THOU: {
+    thou: {
+      zh: '汝',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '[definite] @0 is thee',
-      betokener: 'DA',
+      betokened: '@0 is thee',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEek',
+      betokener: 'da',
     },
     HE: {
+      zh: '彼',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '[definite] @0 is (him, it, this,  that, the definite entity)',
-      betokener: 'XA',
+      betokened: '@0 is (him, it, this, that, the definite entity)',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hiz',
+      betokener: 'xa',
     },
-    SELF: {
+    self: {
+      zh: '己',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is oneself',
-      betokener: 'SA',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sek',
+      betokener: 'sa',
     },
-    WHO: {
+    who: {
+      zh: '誰',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[interogative] @0 is who',
-      betokener: 'VA',
+      betokener: 'va',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwaz',
     },
 
-    THIS: {
+    this: {
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '@0 is this',
-      idiom: ['HE', 'NEAR'],
+      idiom: ['HE', 'near'],
     },
-    YON: {
+    yon: {
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '@0 is that',
-      idiom: ['HE', 'FAR'],
+      idiom: ['HE', 'far'],
     },
 
-    NORMAL: {
+    normal: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened:
         '[extent.subjective] @0 is of (normal, default, usual, ordinary) extent, at subjective norm',
-      betokener: 'VAN',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wanaz',
+      betokener: 'ru',
+      origin: 'a priori',
     },
-    HIGH: {
+    high: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened:
         '[extent.subjective] @0 is of (high, great) extent, above subjective norm',
-      betokener: 'KO',
+      betokener: 'fe',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hauhaz',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/felu',
     },
-    LOW: {
+    low: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened:
         '[extent.subjective] @0 is of (low, small) extent, below subjective norm',
-      betokener: 'LE',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%93gaz',
+      betokener: 'lo',
     },
-    POSITIVE: {
+    positive: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened: '[extent.polarity] @0 is (positive, above objective norm)',
-      betokener: 'VEL',
+      betokener: 'vela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wela',
     },
-    NEGATIVE: {
+    negative: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened: '[extent.polarity] @0 is (negative, below objective norm)',
-      betokener: 'MIS',
+      betokener: 'misa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/missa-',
     },
-    UP: {
+    up: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened:
-        '[extent.dynamic] @0 is (rises, goes up, ascends) along with @1',
-      betokener: 'RIS',
+        '[extent.dynamic] @0 is (riseth, goeth up, ascends) along with @1',
+      betokener: 'risa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABsan%C4%85',
     },
-    DOWN: {
+    down: {
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened:
-        '[extent.dynamic] @0 is (falls, goes down, descends) along with @1',
-      betokener: 'FAL',
+        '[extent.dynamic] @0 is (falleth, goeth down, descends) along with @1',
+      betokener: 'fala',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fallan%C4%85',
     },
-    MOST: {
+    most: {
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[extent.extreme] @0 is (maximal, possibly highest)',
-      betokener: 'MIX',
+      betokener: 'mixa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mikilaz',
     },
-    LEAST: {
+    least: {
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[extent.extreme] @0 is (minimal, possibly lowest)',
-      betokener: 'LUT',
+      betokener: 'luta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABtilaz',
     },
@@ -714,2736 +719,2974 @@ const dicPre = new Map<string, ValuePre>(
     },
 
     // basic
-    DENY: {
+    deny: {
       zh: '否',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokened: '@0 (contradicts, negates, denies) @1',
-      betokener: 'NE',
+      betokened: '@0 (contradicteth, negateth, denieth) @1',
+      betokener: 'ne',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ne',
     },
-    BACK: {
+    let: {
+      zh: '令',
+      date: '2024-02-13',
+      klass: Klass.Verb,
+      betokened: '@0 (causeth, leteth) @{1:result, effect}',
+      betokener: 'le',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%93tan%C4%85',
+    },
+    back: {
       zh: '回',
       date: '2024-06-14',
       klass: Klass.Verb,
       betokened: '@0 is temporally (inverse, opposite) of @1',
-      betokener: 'RE',
+      betokener: 're',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Italic/wre-',
     },
-    COUNTER: {
+    counter: {
       zh: '非',
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokened: '@0 (complements, is dual of) @1',
-      betokener: 'JA',
+      betokened: '@0 (complementeth, is dual of) @1',
+      betokener: 'ja',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-',
     },
-    RELATE: {
+    relate: {
       date: '2024-09-14',
       klass: Klass.Verb,
       betokened: '@0 is (related to @1, @1-ish), ',
-      betokener: 'LIX',
+      betokener: 'li',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-l%C4%ABkaz',
     },
-    EXIST: {
+    exist: {
       zh: '在',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '@0 (exists, is a thing, is an object)',
-      betokener: 'VES',
+      betokened: '@0 (existeth, is a thing, is an object)',
+      betokener: 'vesa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wesan%C4%85',
     },
-    HAPPEN: {
+    happen: {
       zh: '發',
       date: '2024-08-23',
       klass: Klass.Verb,
-      betokened: '@0 (happens, occurs, realises, is actual, is an event)',
-      betokener: 'SKEK',
+      betokened: '@0 (happeneth, occureth, realiseth, is actual, is an event)',
+      betokener: 'skeka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skehan%C4%85',
     },
-    LET: {
-      zh: '令',
-      date: '2024-02-13',
-      klass: Klass.Verb,
-      betokened: '@0 (causes, lets) @{1:result, effect}',
-      betokener: 'LET',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%93tan%C4%85',
-    },
 
-    MAKE: {
+    make: {
       zh: '作',
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokened: '@0 (makes, builds, creates) @1 from @{2:material, component}',
-      betokener: 'SKAP',
+      betokened:
+        '@0 (maketh, buildeth, createth) @1 from @{2:material, component}',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skapjan%C4%85',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skapajan%C4%85',
+      origins: {
+        gmc: 'skapajaną',
+        ice: 'skapaa',
+        eng: 'shape',
+        deu: 'schaffen',
+      },
+      betokener: 'skapa',
     },
-    BREAK: {
+    break: {
       zh: '壞',
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'BREK',
-      betokened: '@0 (breaks, destructs) @1 into @{2:pieces, components}',
+      betokened: '@0 (breaketh, destructeth) @1 into @{2:pieces, components}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brekan%C4%85',
-      complex: ['BACK', 'MAKE'],
+      origins: {
+        gmc: 'brekaną',
+        eng: 'break',
+        deu: 'brechen',
+      },
+      betokener: 'breka',
+      complex: ['back', 'make'],
     },
 
-    HAVE: {
+    have: {
       zh: '有',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokened: '@0  (has, owns) @{1:property}',
-      betokener: 'KAB',
+      betokened: '@0 (hath, owneth) @{1:property}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/habjan%C4%85',
+      origins: {
+        pie: 'keh₂p-',
+        gmc: 'habjaną',
+        ice: 'hafa',
+        eng: 'have',
+        deu: 'haben',
+      },
+      betokener: 'kaba',
     },
-    GIVE: {
+    give: {
       zh: '與',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '@0 gives @1 to @{2:receiver}',
-      betokener: 'CEB',
+      betokened: '@0 giveth @1 to @{2:receiver}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/geban%C4%85',
+      origins: {
+        pie: 'gʰebʰ-',
+        gmc: 'gebaną',
+        ice: 'gefa',
+        eng: 'give',
+        deu: 'geben',
+      },
+      betokener: 'ceba',
     },
-    TAKE: {
+    take: {
       zh: '取',
       date: '2024-08-24',
       klass: Klass.Verb,
       betokened: '@0 takes @1 from @2',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/geban%C4%85',
-      betokener: 'NEM',
-      complex: ['BACK', 'GIVE'],
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neman%C4%85',
+      origins: {
+        pie: 'ném-e',
+        gmc: 'nemaną',
+        ice: 'nema',
+        eng: 'nim',
+        deu: 'nehmen',
+      },
+      betokener: 'nema',
+      complex: ['back', 'give'],
     },
 
-    COME: {
+    come: {
       zh: '來',
       date: '2024-08-26',
       klass: Klass.Verb,
-      betokened: '@0 (is, comes) (from, since) @{1:source, origin, start}',
-      betokener: 'FRAM',
+      betokened: '@0 (is, cometh) (from, since) @{1:source, origin, start}',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fram',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fan%C4%93',
+      origins: {
+        pie: 'pro-',
+        gmc: 'fram',
+        ice: 'frá',
+        eng: 'from',
+      },
+      betokener: 'fana',
     },
-    GO: {
+    go: {
       zh: '往',
       date: '2024-08-26',
       klass: Klass.Verb,
-      betokened: '@0 (is, goes) (to, until) @{1:sink, destination, goal}',
-      betokener: 'TIL',
+      betokened: '@0 (is, goeth) (to, until) @{1:sink, destination, goal}',
+      betokener: 'tila',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/til%C4%85',
     },
-    PASS: {
+    pass: {
       zh: '過',
       date: '2024-08-26',
       klass: Klass.Verb,
-      betokened: '@0 (is, passes) (through, via) @{1:process, route, medium}',
-      betokener: 'DURH',
+      betokened: '@0 (is, passeth) (through, via) @{1:process, route, medium}',
+      betokener: 'durka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEurhw',
     },
-    AT: {
+    at: {
       zh: '於',
       date: '2024-08-26',
       klass: Klass.Verb,
       betokened: '@0 is at @{1:position, location, place}',
-      betokener: 'HAT',
+      betokener: 'ata',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/at',
     },
-    IN: {
+    in: {
       zh: '中',
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '@0 is in @{1:range, area}',
-      betokener: 'HIN',
+      betokener: 'ina',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/in',
     },
 
-    GROUP: {
-      zh: '群',
+    element: {
+      zh: '元',
       date: '2024-08-06',
       klass: Klass.Verb,
-      betokened: '@0 is (collection, set, group, list)',
-      betokener: 'CAD',
+      betokened: '@0 is in @{1:collection, set, group, list}',
+      betokener: 'cada',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/gad',
     },
-    PART: {
+    part: {
       zh: '部',
       date: '2024-08-06',
       klass: Klass.Verb,
       betokened: '@0 is a (part, component) of @{1:whole}',
-      betokener: 'DEL',
+      betokener: 'dela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz',
     },
-    COMPLEX: {
+    complex: {
       zh: '複',
       date: '2024-08-25',
       klass: Klass.Verb,
-      betokened: '@0 (is complex, consists of many parts)',
-      complex: ['HIGH', 'DONE', 'PART'],
+      betokened: '@0 (is complex, consisteth of many parts)',
+      complex: ['high', 'done', 'part'],
     },
-    SIMPLE: {
+    simple: {
       zh: '單',
       date: '2024-08-25',
       klass: Klass.Verb,
-      betokened: '@0 (is simple, consists of few parts)',
-      complex: ['LOW', 'DONE', 'PART'],
+      betokened: '@0 (is simple, consisteth of few parts)',
+      complex: ['low', 'done', 'part'],
     },
-    ATOM: {
+    atom: {
       zh: '素',
       date: '2024-08-25',
       klass: Klass.Verb,
       betokened: '@0 is an atom',
-      complex: ['ONE', 'DONE', 'PART'],
+      complex: ['one', 'done', 'part'],
     },
 
-    CONTAIN: {
+    contain: {
       zh: '含',
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokened: '@0 is contains @1',
-      betokener: 'KALD',
+      betokened: '@0 is containeth @1',
+      betokener: 'kalta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haldan%C4%85',
     },
-    FULL: {
+    full: {
       zh: '滿',
       date: '2024-08-02',
       klass: Klass.Verb,
       betokened: '@0 is full of @1',
-      betokener: 'FOL',
+      betokener: 'fola',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz',
-      complex: ['MOST', 'CONTAIN'],
+      complex: ['most', 'contain'],
     },
-    EMPTY: {
+    empty: {
       zh: '虛',
       date: '2024-08-02',
       klass: Klass.Verb,
       betokened: '@0 is empty of @1',
-      betokener: 'TOM',
+      betokener: 'toma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz',
-      complex: ['LEAST', 'CONTAIN'],
+      complex: ['least', 'contain'],
     },
 
-    MOVE: {
+    move: {
       zh: '動',
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokened: '@0 (moves, is dynamic)',
-      betokener: 'VEC',
+      betokened: '@0 (moveth, is dynamic)',
+      betokener: 'veja',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wegan%C4%85',
     },
-    STOP: {
+    stop: {
       zh: '止',
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokened: '@0 (stops, halts, is static)',
-      betokener: 'STOP',
+      betokened: '@0 (stopeth, halteth, is static)',
+      betokener: 'stopa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/stopp%C5%8Dn',
-      complex: ['LEAST', 'MOVE'],
+      complex: ['least', 'move'],
     },
 
-    POINT: {
+    point: {
       zh: '點',
       date: '2024-10-01',
       klass: Klass.Verb,
       betokened: '@0 is a (point, position, dot)',
-      betokener: 'BRUZD',
+      betokener: 'bruda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bruzdaz',
     },
-    INTERVAL: {
+    interval: {
       zh: '間',
       date: '2024-10-01',
       klass: Klass.Verb,
       betokened: '@0 is (an interval, an area, a volume, a domain)',
-      betokener: 'TVISK',
+      betokener: 'kopa',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/twiskaz',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haupaz',
     },
 
-    WORLD: {
+    world: {
       zh: '界',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is a (world, universe)',
-      betokener: 'XEM',
+      betokener: 'xema',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haimaz',
     },
-    SPACE: {
+    space: {
       zh: '空',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is the 3-dimensional physical spacial continuum',
-      betokener: 'RUM',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABm%C4%85',
+      betokener: 'ruma',
     },
-    TIME: {
+    time: {
       zh: '時',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is the 1-dimensional physical temporal continuum',
-      betokener: 'TIM',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABm%C3%B4',
+      betokener: 'tima',
     },
-    THING: {
+    thing: {
       zh: '物',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is a (thing, matter) located in a spacetime',
-      betokener: 'DIG',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEing%C4%85',
+      betokener: 'diga',
     },
-    MASS: {
+    mass: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokened: '@0 is a mass of @1',
-      betokener: 'VIHT',
+      betokened: '@0 is mass of @1',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wihtiz',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/balk%C3%B4',
+      betokener: 'balxa',
     },
 
-    ENERGY: {
+    energy: {
       date: '2024-08-31',
       klass: Klass.Verb,
       betokened: '@0 is energy of @1',
-      betokener: 'XUN',
+      betokener: 'xuna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kunnan%C4%85',
     },
-    HEAT: {
+    heat: {
       date: '2024-09-06',
       klass: Klass.Verb,
       betokened: '@0 is heat in @1',
-      complex: ['HOT', 'ENERGY'],
+      complex: ['hot', 'energy'],
     },
-    ELECTRIC: {
+    electric: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokened: '@0 is (electricity, electric charge) in @1',
-      betokener: 'SPARK',
+      betokened: '@0 hath electric charge in @1',
+      betokener: 'spaka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sparkaz',
     },
-    FORCE: {
+    force: {
       date: '2024-10-01',
       klass: Klass.Verb,
       betokened: '@0 is force',
-      betokener: 'VALD',
+      betokener: 'valta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wald%C4%85',
     },
 
-    WAVE: {
+    wave: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokened: '@{0:medium} waves @{1:form}',
-      betokener: 'KRAZ',
+      betokened: '@{0:medium} waveth @{1:form}',
+      betokener: 'bulja',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrazn%C5%8D',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bulgij%C5%8D',
     },
-    LIGHT: {
+    light: {
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[wave] @0 is (a light, an electromagnetic wave)',
-      betokener: 'LJUT',
+      betokener: 'ljuta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85',
     },
-    SOUND: {
+    sound: {
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '[wave] @0 is a sound from @1',
-      betokener: 'KLIG',
+      betokener: 'kliga',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/klingan%C4%85',
     },
-    TURN: {
+    turn: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokened: '@0 (turns, rotates, spins) around @{1:pivot, center}',
-      betokener: 'SPIN',
+      betokened: '@0 (turneth, rotateth, spineth) around @{1:pivot, center}',
+      betokener: 'drena',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/spinnan%C4%85',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEr%C4%93an%C4%85',
     },
 
-    FIRE: {
+    fire: {
       date: '2024-12-08',
       klass: Klass.Verb,
-      betokened: '@0 burns @1',
-      betokener: 'FOR',
+      betokened: '@0 burneth @1',
+      betokener: 'branta',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/f%C5%8Dr',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brandaz',
     },
 
     // physical attribute
-    BIG: {
+    big: {
+      zh: '大',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is (big, great)',
-      betokener: 'CROT',
+      betokener: 'crota',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/grautaz',
     },
-    SMALL: {
+    small: {
+      zh: '小',
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is small',
-      betokener: 'SMAL',
+      betokener: 'smala',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smalaz',
-      complex: ['LOW', 'BIG'],
+      complex: ['low', 'big'],
     },
-    LONG: {
+    long: {
+      zh: '長',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is (long, big in 1 dimension and small in others)',
-      betokener: 'LAG',
+      betokener: 'laga',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/langaz',
     },
-    SHORT: {
+    short: {
+      zh: '短',
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is (short, small in 1 dimension and small in others)',
-      betokener: 'SKURT',
+      betokener: 'skurta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz',
-      complex: ['LOW', 'LONG'],
+      complex: ['low', 'long'],
     },
 
-    THICK: {
+    thick: {
+      zh: '厚',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is thick',
-      betokener: 'DEK',
+      betokener: 'dika',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEekuz',
     },
-    SHARP: {
+    sharp: {
+      zh: '鋭',
       date: '2024-07-28',
       klass: Klass.Verb,
       betokened: '@{0:angle} is sharp',
-      betokener: 'SKARP',
+      betokener: 'skarpa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skarpaz',
     },
-    HEAVY: {
+    heavy: {
+      zh: '重',
       date: '2024-07-14',
       klass: Klass.Verb,
       betokened: '@0 is heavy',
-      betokener: 'SVER',
+      betokener: 'svera',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%93raz',
     },
-    DENSE: {
+    dense: {
+      zh: '密',
       date: '2024-07-15',
       klass: Klass.Verb,
       betokened: '@0 is (dense, heavy per volume)',
-      betokener: 'DINT',
+      betokener: 'dinta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEinhtaz',
     },
 
-    SWIFT: {
+    swift: {
       zh: '速',
       date: '2024-06-18',
       klass: Klass.Verb,
       betokened: '@0 is (swift, quick)',
-      betokener: 'SNEL',
+      betokener: 'snela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snellaz',
     },
-    SLOW: {
+    slow: {
       zh: '遅',
       date: '2024-09-06',
       klass: Klass.Verb,
       betokened: '@0 is slow',
-      betokener: 'SLEV',
+      betokener: 'sleva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slaiwaz',
-      complex: ['LOW', 'SWIFT'],
+      complex: ['low', 'swift'],
     },
-    ROUGH: {
+    rough: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokened: '@0 (is rough, is coarse, has friction) against @1',
-      betokener: 'RUK',
+      betokened: '@0 (is rough, is coarse, hath high friction) against @1',
+      betokener: 'ruka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABhaz',
     },
-    SMOOTH: {
+    smooth: {
       zh: '滑',
       date: '2024-09-26',
       klass: Klass.Verb,
-      betokened: '@0 (is smooth, is sleek, has low friction)',
-      betokener: 'SLIK',
+      betokened: '@0 (is smooth, is sleek, hath low friction) against @1',
+      betokener: 'slika',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sl%C4%ABkan%C4%85',
-      complex: ['LOW', 'ROUGH'],
+      complex: ['low', 'rough'],
     },
-    SOFT: {
+    soft: {
       zh: '柔',
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is soft against @1',
-      betokener: 'VIK',
+      betokener: 'vika',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABkwan%C4%85',
     },
-    HARD: {
+    hard: {
       zh: '硬',
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is (hard, firm) against @1',
-      betokener: 'FAST',
+      betokener: 'fasta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fastuz',
-      complex: ['LOW', 'SOFT'],
+      complex: ['low', 'soft'],
     },
-    HOT: {
+    hot: {
       zh: '熱',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokened: '@0 is (hot, warm)',
-      betokener: 'VARM',
+      betokened: '[temparature] @0 is (hot, warm)',
+      betokener: 'varma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/warmaz',
     },
-    COLD: {
+    cold: {
       zh: '冷',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokened: '@0 (cold, cool)',
-      betokener: 'KAL',
+      betokened: '[temparature] @0 (cold, cool)',
+      betokener: 'kala',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kalan%C4%85',
-      complex: ['LOW', 'HOT'],
+      complex: ['low', 'hot'],
     },
-    FAR: {
+    far: {
       zh: '遠',
       date: '2024-08-08',
       klass: Klass.Verb,
-      betokened: '@0 is (far, distant, remote) from @1',
-      betokener: 'FER',
+      betokened: '[proximity] @0 is (far, distant, remote) from @1',
+      betokener: 'fera',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ferrai',
     },
-    NEAR: {
+    near: {
       zh: '近',
       date: '2024-08-08',
       klass: Klass.Verb,
-      betokened: '@0 is (near, close to) @1',
-      betokener: 'NEX',
+      betokened: '[proximity] @0 is (near, close to) @1',
+      betokener: 'nexa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz',
-      complex: ['LOW', 'FAR'],
+      complex: ['low', 'far'],
     },
-    CONTACT: {
+    contact: {
       zh: '接',
       date: '2024-08-08',
-      betokened: '@0 (touches, is adjacent, is in contact with) @1',
+      betokened:
+        '[proximity] @0 (toucheth, is adjacent, is in contact with) @1',
       klass: Klass.Verb,
-      complex: ['LEAST', 'FAR'],
+      complex: ['least', 'far'],
     },
 
-    BELOW: {
+    before: {
+      zh: '前',
+      date: '2024-02-13',
+      klass: Klass.Verb,
+      betokened: '[position.global] @0 is before @{1:after}',
+      betokener: 'fora',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furai',
+    },
+    below: {
       zh: '下',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[position] @0 is below @{1:above, far against gravity}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ni%C3%BEan%C4%93',
-      betokener: 'NID',
+      betokener: 'nida',
     },
-    HIND: {
+    hind: {
       zh: '後',
       date: '2024-02-13',
-      betokened: '[position.local] @0 is behind @{1:front}',
       klass: Klass.Verb,
-      betokener: 'XIN',
+      betokened: '[position.local] @0 is behind @{1:front}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hinder',
+      betokener: 'xinta',
     },
-    LEFT: {
+    front: {
+      zh: '前',
+      date: '2025-02-07',
+      klass: Klass.Verb,
+      betokened: '[position.local] @0 is in front of @{1:behind}',
+      idiom: ['done', 'hind'],
+    },
+    left: {
       zh: '左',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[position] @0 is to the left of @{1:right}',
-      origin: 'hlinkaz',
-      betokener: 'LIGK',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Old_High_German/link',
+      betokener: 'ligka',
+    },
+    right: {
+      zh: '右',
+      date: '2025-02-07',
+      klass: Klass.Verb,
+      betokened: '[position] @0 is to the right of @{1:left}',
+      idiom: ['done', 'left'],
     },
 
-    BEFORE: {
-      zh: '前',
-      date: '2024-02-13',
-      klass: Klass.Verb,
-      betokened: '[position.global] @0 is before @{1:after}',
-      betokener: 'FUR',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furai',
-    },
-    EAST: {
-      zh: '東',
+    west: {
+      zh: '西',
       date: '2024-08-24',
       klass: Klass.Verb,
       betokened:
         '[position.global] @0 is to the west of @{1:to the east, far agaisnt rotation}',
-      betokener: 'VOST',
+      betokener: 'vesta',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/austraz',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/westraz',
     },
-    NORTH: {
+    north: {
       zh: '北',
       date: '2024-08-24',
       klass: Klass.Verb,
       betokened: '[position.global] @0 is to the north of @{1:to the south}',
-      betokener: 'NURD',
+      betokener: 'nurda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nur%C3%BEraz',
     },
 
-    SOLID: {
+    solid: {
+      zh: '固',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is solid',
-      betokener: 'STIF',
+      betokener: 'stifa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%ABfaz',
     },
-    LIQUID: {
+    liquid: {
+      zh: '液',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is liquid',
-      betokener: 'FLJUT',
+      betokener: 'fluta',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleutan%C4%85',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flut%C4%85',
     },
-    GAS: {
+    gas: {
+      zh: '氣',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is gas',
-      betokener: 'CAS',
+      betokener: 'casa',
       origin: 'https://en.wiktionary.org/wiki/gas#Dutch',
     },
-    PLASM: {
+    plasm: {
+      zh: '漿',
       date: '2024-07-15',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is plasm',
-      betokener: 'PLASM',
-      origin:
-        'https://en.wiktionary.org/wiki/%CF%80%CE%BB%CE%AC%CF%83%CE%BC%CE%B1#Ancient_Greek',
+      betokener: 'flama',
+      origin: 'https://en.wiktionary.org/wiki/flamma#Latin',
     },
 
-    WATER: {
+    water: {
+      zh: '水',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[matter] @0 is water',
-      betokener: 'VAT',
+      betokener: 'vata',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wat%C5%8Dr',
     },
-    SALT: {
+    salt: {
+      zh: '鹽',
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[matter] @0 is salt',
-      betokener: 'SALT',
+      betokener: 'salta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/salt%C4%85',
     },
-    STONE: {
+    stone: {
+      zh: '石',
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '[matter] @0 is stone',
-      betokener: 'STEN',
+      betokener: 'stena',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stainaz',
     },
-    SMOKE: {
+    smoke: {
+      zh: '煙',
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '[matter] @0 is smoke',
-      betokener: 'DVERM',
+      betokener: 'dvema',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dwemr%C4%85',
     },
-    ASH: {
+    ash: {
+      zh: '灰',
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '[matter] @0 is ash',
-      betokener: 'HASK',
+      betokener: 'axa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ask%C7%AD',
     },
 
-    WET: {
+    wet: {
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '@0 is (wet, moist)',
-      betokener: 'NAT',
+      betokener: 'veta',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nataz',
-      complex: ['CONTAIN', 'WATER'],
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%93taz',
+      complex: ['contain', 'water'],
     },
-    DRY: {
+    dry: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'DRUX',
+      betokener: 'druxa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/druknaz',
       betokened: '@0 is dry',
-      complex: ['LOW', 'CONTAIN', 'WATER'],
+      complex: ['low', 'contain', 'water'],
     },
 
-    COLOUR: {
+    color: {
+      zh: '色',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '[colour] @0 is the colour of @1',
-      betokener: 'FARV',
+      betokened: '[color] @0 is the color of @1',
+      betokener: 'farva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/farwaz',
     },
-    HUE: {
+    hue: {
       date: '2024-11-20',
       klass: Klass.Verb,
-      betokened: '[colour] @0 is hue of @1',
-      betokener: 'BLIV',
+      betokened: '[color] @0 is {a hue, a frequency of a light} of @1',
+      betokener: 'xiva',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/bl%C4%ABu',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hiwj%C4%85',
     },
-    RED: {
+    red: {
+      zh: '赤',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '[colour.hue] @0 is red',
-      betokener: 'ROD',
+      betokened: '[color.hue] @0 is red',
+      betokener: 'roda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raudaz',
     },
-    ORANGE: {
+    orange: {
+      zh: '橙',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokened: '[colour.hue] @0 is orange',
-      betokener: 'NARANJ',
+      betokened: '[color.hue] @0 is orange',
+      betokener: 'raga',
       origin:
         'https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B1%D9%86%DA%AF#Persian',
     },
-    YELLOW: {
+    yellow: {
+      zh: '黃',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'CUL',
+      betokener: 'cula',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gulaz',
-      betokened: '[colour.hue] @0 is yellow',
+      betokened: '[color.hue] @0 is yellow',
     },
-    GREEN: {
+    green: {
+      zh: '綠',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'CRON',
+      betokener: 'crona',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C5%8Dniz',
-      betokened: '[colour.hue] @0 is green',
+      betokened: '[color.hue] @0 is green',
     },
-    BLUE: {
+    blue: {
+      zh: '靑',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'BLEV',
+      betokener: 'bleva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C4%93waz',
-      betokened: '[colour.hue] @0 is blue',
+      betokened: '[color.hue] @0 is blue',
     },
-    PURPLE: {
+    purple: {
+      zh: '紫',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'PORFUR',
+      betokener: 'vjona',
       origin:
-        'https://en.wiktionary.org/wiki/%CF%80%CE%BF%CF%81%CF%86%CF%8D%CF%81%CE%B1#Ancient_Greek',
-      betokened: '[colour.hue] @0 is purple',
+        'https://en.wiktionary.org/wiki/%E1%BC%B4%CE%BF%CE%BD#Ancient_Greek',
+      betokened: '[color.hue] @0 is purple',
     },
-    VIVID: {
+    vivid: {
+      zh: '鮮',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'SKIN',
+      betokener: 'xina',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%ABnan%C4%85',
-      betokened: '[colour.saturation] @0 is vivid-coloured',
+      betokened: '[color.saturation] @0 is vivid-colored',
     },
-    DULL: {
+    dull: {
+      zh: '鈍',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokened: '[colour.saturation] @0 is dull-coloured',
-      complex: ['LOW', 'VIVID'],
+      betokened: '[color.saturation] @0 is dull-colored',
+      complex: ['low', 'vivid'],
     },
-    GRAY: {
+    gray: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'CREV',
+      betokener: 'creva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C4%93waz',
-      betokened: '[colour.saturation] @0 is gray',
-      complex: ['LEAST', 'VIVID'],
+      betokened: '[color.saturation] @0 is gray',
+      complex: ['least', 'vivid'],
     },
-    WHITE: {
+    white: {
+      zh: '白',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'XVIT',
+      betokener: 'xvita',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%ABtaz',
-      betokened: '[colour.brightness] @0 is white',
+      betokened: '[color.brightness] @0 is white',
     },
-    BLACK: {
+    black: {
+      zh: '黑',
       date: '2024-04-26',
       klass: Klass.Verb,
-      betokener: 'SVART',
+      betokener: 'svarta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swartaz',
-      betokened: '[colour.brightness] @0 is black',
-      complex: ['LEAST', 'WHITE'],
+      betokened: '[color.brightness] @0 is black',
+      complex: ['least', 'white'],
     },
 
     // light
-    BRIGHT: {
+    bright: {
+      zh: '明',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'BERT',
+      betokener: 'berta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/berhtaz',
-      betokened: '@0 (is bright, reflects much light)',
+      betokened: '@0 (is bright, reflecteth much light)',
     },
-    DARK: {
+    dark: {
+      zh: '暗',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'DIM',
+      betokener: 'dima',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dimmaz',
       betokened: '@0 is dark',
-      complex: ['LOW', 'BRIGHT'],
+      complex: ['low', 'bright'],
     },
 
     // celestial
-    SUN: {
+    sun: {
+      zh: '日',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SUN',
+      betokener: 'suna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sunn%C7%AD',
       betokened: '[celestial] @0 is sun',
     },
-    EARTH: {
+    earth: {
+      zh: '地',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'HERD',
+      betokener: 'erda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/er%C3%BE%C5%8D',
       betokened: '[celestial] @0 is earth',
     },
-    MOON: {
+    moon: {
+      zh: '月',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MEN',
+      betokener: 'mena',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/m%C4%93n%C3%B4',
       betokened: '[celestial] @0 is moon',
     },
 
-    YEAR: {
+    year: {
+      zh: '年',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'JER',
+      betokener: 'jera',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/j%C4%93r%C4%85',
       betokened: '[celestial.interval] @0 is year of @{1:earth}',
     },
-    SEASON: {
+    season: {
       date: '2024-08-30',
       klass: Klass.Verb,
       betokened: '[celestial.time] @0 is season of @{1:earth}',
-      complex: ['YEAR', 'PART'],
+      complex: ['year', 'part'],
     },
-    WINTER: {
+    winter: {
+      zh: '冬',
       date: '2024-08-30',
       klass: Klass.Verb,
       betokened: '@0 is (winter, coldest interval) of @{1:earth}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wintruz',
-      betokener: 'VITUR',
-      complex: ['LOW', 'SEASON'],
+      betokener: 'vinta',
+      complex: ['low', 'season'],
     },
-    SPRING: {
+    spring: {
+      zh: '春',
       date: '2024-11-21',
       klass: Klass.Verb,
-      betokener: 'VAZAR',
+      betokener: 'vara',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wazr%C4%85',
       betokened: '@0 is (spring, second hottest interval) of @{1:earth}',
-      complex: ['UP', 'SEASON'],
+      complex: ['up', 'season'],
     },
-    SUMMER: {
+    summer: {
+      zh: '夏',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'SUMAR',
+      betokener: 'suma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sumaraz',
       betokened: '@0 is (summer, hottest interval) of @{1:earth}',
-      complex: ['HIGH', 'SEASON'],
+      complex: ['high', 'season'],
     },
-    AUTUMN: {
+    autumn: {
+      zh: '秋',
       date: '2024-11-21',
       klass: Klass.Verb,
-      betokener: 'HAZAN',
+      betokener: 'aza',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/azaniz',
       betokened: '@0 is (autumn, second coldest interval) of @{1:earth}',
-      complex: ['DOWN', 'SEASON'],
+      complex: ['down', 'season'],
     },
 
-    DAY: {
+    day: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'TIN',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABnaz',
       betokened: '[celestial.interval] @0 is day of @{1:earth}',
+      betokener: 'tina',
     },
-    MORNING: {
+    morning: {
+      zh: '晝',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'MURC',
+      betokener: 'murca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/murginaz',
-      betokened: '[celestial.interval] @0 is morning of @{1:earth}',
-      complex: ['BRIGHT', 'DAY', 'PART'],
+      betokened: '[celestial.interval] @0 is (morning, daytime) of @{1:earth}',
+      complex: ['bright', 'day', 'part'],
     },
-    NIGHT: {
+    night: {
+      zh: '夜',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'NAHT',
+      betokener: 'nata',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nahts',
       betokened: '[celestial.interval] @0 is night of @{1:earth}',
-      complex: ['DARK', 'DAY', 'PART'],
+      complex: ['dark', 'day', 'part'],
     },
 
     // terrain
-    LAND: {
+    land: {
+      zh: '陸',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'LAND',
+      betokener: 'lanta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/land%C4%85',
       betokened: '[terrain] @0 is land',
     },
-    SEA: {
+    sea: {
+      zh: '海',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MAR',
+      betokener: 'mara',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mari',
       betokened: '[terrain] @0 is sea',
     },
-    HILL: {
+    hill: {
+      zh: '山',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'BERJ',
+      betokener: 'berja',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bergaz',
       betokened: '[terrain] @0 is mountain',
     },
-    RIVER: {
+    river: {
+      zh: '川',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'STOM',
+      betokener: 'stoma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/straumaz',
       betokened: '[terrain] @0 is river',
     },
-    SKY: {
+    sky: {
+      zh: '空',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'SKIV',
+      betokener: 'skiva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiwj%C4%85',
       betokened: '[terrain] @0 is sky',
     },
 
     // weather
-    CLOUD: {
+    cloud: {
+      zh: '雲',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'MIC',
+      betokener: 'volka',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%83meyg%CA%B0-',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulkn%C4%85',
       betokened: '[weather] @0 is cloud',
     },
-    FOG: {
+    fog: {
+      zh: '霧',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'MIST',
+      betokener: 'mista',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mihstaz',
       betokened: '[weather] @0 is (fog, mist)',
     },
-    RAIN: {
+    rain: {
+      zh: '雨',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'REN',
+      betokener: 'rena',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/regn%C4%85',
       betokened: '[weather] @0 is rain',
     },
-    SNOW: {
+    snow: {
+      zh: '雪',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'SNIV',
+      betokener: 'sneva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sn%C4%ABwan%C4%85',
       betokened: '[weather] @0 is snow',
     },
-    HAIL: {
+    hail: {
+      zh: '霰',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'KEL',
+      betokener: 'kela',
       origin: 'https://en.wiktionary.org/wiki/h%C3%A6gl#Old_English',
       betokened: '[weather] @0 is hail',
     },
-    THUNDER: {
+    thunder: {
+      zh: '雷',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'DUN',
+      betokener: 'duna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEunraz',
       betokened: '[weather] @0 is thunder',
     },
 
     // feel
-    FEEL: {
+    feel: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SENT',
+      betokener: 'senta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/sent-',
-      betokened: '@0 (feels, senses) @{1:stimulus}',
+      betokened: '@0 (feeleth, senseth) @{1:stimulus}',
     },
-    HEAR: {
+    hear: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'XLJUM',
+      betokener: 'xleva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hleum%C3%B4',
-      betokened: '[feel] @0 hears @{1:sound}',
+      betokened: '[sense] @0 hears @{1:sound}',
     },
-    SEE: {
+    see: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SEK',
+      betokener: 'seka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wl%C4%ABtan%C4%85',
-      betokened: '[feel] @0 sees @{1:sight}',
+      betokened: '[sense] @0 sees @{1:sight}',
     },
-    SMELL: {
+    smell: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'RJUK',
+      betokener: 'rjuka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reukan%C4%85',
-      betokened: '[feel] @0 smells @1',
+      betokened: '[sense] @0 smells @1',
     },
-    TASTE: {
+    taste: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SMAK',
+      betokener: 'smaka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/smak%C4%93n',
-      betokened: '[feel] @0 tastes @1',
+      betokened: '[sense] @0 tastes @1',
     },
-    TOUCH: {
+    touch: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'TEK',
+      betokener: 'teka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%93kan%C4%85',
-      betokened: '[feel] @0 (palps, touches) @1',
+      betokened: '[sense] @0 (palpeth, toucheth) @1',
     },
 
-    DIFFER: {
+    differ: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SKIL',
+      betokener: 'skila',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiljan%C4%85',
-      betokened: '[comparison] @0 (differs, varies) from @1',
+      betokened: '[comparison] @0 (differeth, varieth) from @1',
     },
-    SAME: {
+    same: {
       date: '2024-08-27',
       klass: Klass.Verb,
-      betokener: 'SAM',
+      betokener: 'sama',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/samaz',
       betokened: '[comparison] @0 is (the same as, identical to, equal to) @1',
-      complex: ['LEAST', 'DIFFER'],
+      complex: ['least', 'differ'],
     },
 
-    SIMULATE: {
+    simulate: {
       date: '2024-08-27',
       klass: Klass.Verb,
       betokened: '@{0} (simulate, mimic, imitate, mock, fake)s @{1}',
       origin: 'https://en.wiktionary.org/wiki/mock#English',
-      betokener: 'MOK',
+      betokener: 'moka',
     },
-    TEST: {
+    test: {
       date: '2024-07-26',
       klass: Klass.Verb,
-      betokener: 'XUS',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/keusan%C4%85',
-      betokened: '@0 (checks, examines, inspects) @1',
+      betokened: '@0 (checketh, examineth, inspecteth) @1',
+      betokener: 'xusa',
     },
-    COMPARE: {
+    compare: {
       date: '2024-07-26',
       klass: Klass.Verb,
       betokened: '@0 compares @{1:individuals}',
-      complex: ['DIFFER', 'TEST'],
+      complex: ['differ', 'test'],
     },
 
     // life
-    LIVE: {
+    live: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'LIB',
+      betokener: 'liba',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libjan%C4%85',
-      betokened: '@0 (lives, is alive)',
+      betokened: '@0 (liveth, is alive)',
     },
-    DIE: {
+    die: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokened: '@0 (dies, is dead)',
-      idiom: ['END', 'LIVE'],
+      betokened: '@0 (dieth, is dead)',
+      idiom: ['end', 'live'],
     },
-    //KILL: { date: '2024-08-24', klass: Klass.Verb, ...toComplex(['let', 'die']), betokened: '@0 kills @1' },
-    WAKE: {
+    //kill: { date: '2024-08-24', klass: Klass.Verb, ...toComplex(['let', 'die']), betokened: '@0 kills @1' },
+    wake: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'VAX',
+      betokener: 'vaxa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wakan%C4%85',
-      betokened: '@0 (wakes, is awake)',
+      betokened: '@0 (waketh, is awake)',
     },
-    SLEEP: {
+    sleep: {
       date: '2024-04-26',
       klass: Klass.Verb,
-      betokener: 'SVEF',
+      betokener: 'svefa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swefan%C4%85',
-      betokened: '@0 (sleeps, is asleep)',
-      complex: ['LEAST', 'WAKE'],
+      betokened: '@0 (sleepeth, is asleep)',
+      complex: ['least', 'wake'],
     },
 
     // motion
-    LIE: {
+    lie: {
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'LIC',
+      betokener: 'lica',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ligjan%C4%85',
-      betokened: '[behavior] @0 (lies, horizontally stays) on @1',
+      betokened: '[behavior] @0 (lieth, horizontally stays) on @1',
     },
-    SIT: {
+    sit: {
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'SIT',
+      betokener: 'seta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sitjan%C4%85',
       betokened: '[behavior] @0 sits on @1',
     },
-    STAND: {
+    stand: {
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'STAN',
+      betokener: 'stana',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%81n%C4%85',
       betokened: '@0 stands on @1',
     },
-    WALK: {
+    walk: {
       date: '2024-06-18',
       klass: Klass.Verb,
-      betokener: 'VALK',
+      betokener: 'valka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/walkan%C4%85',
       betokened: '[behavior] @0 walk on @{1:ground}',
     },
-    RUN: {
+    run: {
       date: '2024-06-18',
       klass: Klass.Verb,
-      betokener: 'RIN',
+      betokener: 'rina',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rinnan%C4%85',
       betokened: '[behavior] @0 run on @{1:ground}',
     },
-    LEAP: {
+    leap: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'LOP',
+      betokener: 'lopa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlaupan%C4%85',
       betokened: '[behavior] @0 (jump, leap, skip, hop) over @1',
     },
-    SWIM: {
+    swim: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'SVIM',
+      betokener: 'svima',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85',
-      betokened: '[behavior] @0 (swims, flies) in @{1:fluid}',
+      betokened: '[behavior] @0 (swimeth, flieth) in @{1:fluid}',
     },
-    FLY: {
+    fly: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'FLJUC',
+      betokener: 'fljuca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleugan%C4%85',
-      betokened: '[behavior] @0 flies in @{1:air}',
+      betokened: '[behavior] @0 flieth in @{1:air}',
     },
-    DREAM: {
+    dream: {
       date: '2024-10-16',
       klass: Klass.Verb,
-      betokener: 'DROM',
+      betokener: 'droma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/draumaz',
       betokened: '[behavior] @0 dreams @{1:dream}',
     },
 
     // physiological
-    EAT: {
+    eat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MAND',
-      origin: 'https://en.wiktionary.org/wiki/mandere#Latin',
+      betokener: 'eta',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/etan',
       betokened: '[physiological] @0 eats @{1:food}',
     },
-    BITE: {
+    bite: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'BIT',
+      betokener: 'bita',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C4%ABtan%C4%85',
       betokened: '[physiological.eat] @0 bites @{1:food}',
     },
-    CHEW: {
+    chew: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'XEV',
+      betokener: 'xeva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kewwan%C4%85',
       betokened: '[physiological.eat] @0 chews @{1:food}',
     },
-    SWALLOW: {
+    swallow: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'SVEL',
+      betokener: 'svela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swelgan%C4%85',
       betokened: '[physiological.eat] @0 swallows @{1:food}',
     },
-    VOMIT: {
+    vomit: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'PUK',
-      origin: 'pukaną',
+      betokener: 'puka',
+      origin: 'https://en.wiktionary.org/wiki/puke',
       betokened: '[physiological] @0 vomits @{1:excreta}',
-      complex: ['BACK', 'EAT'],
+      complex: ['back', 'eat'],
     },
-    SHIT: {
+    shit: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'DRIT',
+      betokener: 'drita',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/drit%C4%85',
       betokened: '[physiological] @0 shits @{1:excreta}',
-      complex: ['COUNTER', 'EAT'],
+      complex: ['counter', 'eat'],
     },
 
-    DIGEST: {
+    digest: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MELT',
+      betokener: 'melta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meltan%C4%85',
       betokened: '[physiological] @0 digests @{1:food}',
     },
-    FUCK: {
+    fuck: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'FUK',
+      betokener: 'foka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fukk%C5%8Dn%C4%85',
       betokened: '[physiological] @0 fucks A',
     },
-    SICK: {
+    sick: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SJUK',
+      betokener: 'sjuka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/seukaz',
-      betokened: '[physiological] @0 is sick',
+      betokened: '[physiological] @0 (is sick, malfunctions)',
     },
-    HEALTHY: {
+    healthy: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'SUND',
+      betokener: 'sunta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz',
       betokened: '[physiological] @0 is healthy',
-      complex: ['LOW', 'SICK'],
+      complex: ['low', 'sick'],
+    },
+    recover: {
+      date: '2024-12-24',
+      klass: Klass.Verb,
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz',
+      betokened: '[physiological] @0 recovers',
+      complex: ['down', 'sick'],
     },
 
     // emotion
-    EMOTION: {
+    emotion: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'KUC',
+      betokener: 'kuca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hugiz',
       betokened: '@0 feels @{1:emotion, feeling}',
     },
-    GOOD: {
+    bad: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'LUB',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lub%C5%8D',
-      betokened: '[emotion] @0 (likes, feels (good, positive) about) @{1:good}',
-    },
-    BAD: {
-      date: '2024-08-02',
-      klass: Klass.Verb,
-      betokener: 'LED',
+      betokener: 'leda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lai%C3%BEaz',
       betokened:
-        '[emotion] @0 (dislikes, feels (bad, negative) about) @{1:bad}',
-      complex: ['LOW', 'GOOD'],
+        '[emotion] @0 (disliketh, feeleth (bad, negative) about) @{1:bad}',
     },
-    GLAD: {
+    good: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'FRAV',
+      betokener: 'coda',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/frawaz',
-      betokened: '[emotion] @0 is (happy, glad, merry) about @1',
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/g%C5%8Ddaz',
+      betokened:
+        '[emotion] @0 (liketh, feels (good, positive) about) @{1:good}',
+      complex: ['low', 'bad'],
     },
-    SAD: {
+    sad: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'SURC',
+      betokener: 'surca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/surg%C5%8D',
       betokened: '[emotion] @0 is (sad, depressed) about @1',
-      complex: ['LOW', 'GLAD'],
+    },
+    glad: {
+      date: '2024-08-02',
+      klass: Klass.Verb,
+      betokener: 'frava',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/frawaz',
+      betokened: '[emotion] @0 is (happy, glad, merry) about @1',
+      complex: ['low', 'sad'],
     },
 
-    CARE: {
+    care: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'KAR',
+      betokener: 'kara',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kar%C5%8D',
-      betokened: '[emotion] @0 (regards, cares about) @{1:important}',
+      betokened: '[emotion] @0 (regardeth, cares about) @{1:important}',
     },
-    RESPECT: {
+    respect: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'VERD',
+      betokener: 'verda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wer%C3%BEaz',
-      betokened: '[emotion] @0 (respects, honors, positively cares about) @1',
-      complex: ['GOOD', 'CARE'],
+      betokened:
+        '[emotion] @0 (respecteth, honoureth, positively cares about) @1',
+      complex: ['good', 'care'],
     },
-    FEAR: {
+    fear: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'FURT',
+      betokener: 'forta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furhtaz',
       betokened:
-        '[emotion] @0 (fears, is afraid of, negatively cares about) @1',
-      complex: ['BAD', 'CARE'],
+        '[emotion] @0 (feareth, is afraid of, negatively cares about) @1',
+      complex: ['bad', 'care'],
     },
-    NEGLECT: {
+    neglect: {
       date: '2024-09-10',
       klass: Klass.Verb,
       betokened:
-        '[emotion] @0 (neglects, is indifferent to, cares less about) @1',
-      complex: ['LOW', 'CARE'],
+        '[emotion] @0 (neglecteth, is indifferent to, cares less about) @1',
+      complex: ['low', 'care'],
     },
-    SERENE: {
+    serene: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'ROV',
+      betokener: 'rova',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%8D%C5%8D',
       betokened:
         '[emotion.neglect] @0 is (calm about, serene about, positively neglects) @1',
-      complex: ['GOOD', 'NEGLECT'],
+      complex: ['good', 'neglect'],
     },
-    SCORN: {
+    scorn: {
       date: '2024-09-10',
       klass: Klass.Verb,
       betokened:
-        '[emotion.neglect] @0 (scorns, disdains, disrespects, negatively neglects) @1',
-      complex: ['BAD', 'NEGLECT'],
+        '[emotion.neglect] @0 (scorneth, disdaineth, disrespecteth, negatively neglects) @1',
+      complex: ['bad', 'neglect'],
     },
-    HATE: {
+    hate: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'XAT',
+      betokener: 'xata',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hataz',
-      betokened: '[emotion] @0 is (hates, detests) @1',
+      betokened: '[emotion] @0 is (hateth, detests) @1',
     },
-    ANGRY: {
+    angry: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'VRED',
+      betokener: 'vreda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wrai%C3%BEaz',
       betokened: '[emotion] @0 is (angry with, mad at) @1',
     },
-    AMAZE: {
+    amaze: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'VOND',
+      betokener: 'vonta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wundr%C4%85',
       betokened: '[emotion] @0 is (surprised, amazed) at @1',
     },
-    EXPECT: {
+    expect: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'BID',
+      betokener: 'bida',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C4%ABdan%C4%85',
-      betokened: '[emotion] @0 (expects, is not surprised at) @1',
-      complex: ['LOW', 'AMAZE'],
+      betokened: '[emotion] @0 (expecteth, is not surprised at) @1',
+      complex: ['low', 'amaze'],
     },
-    BORE: {
+    bore: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'BUR',
+      betokener: 'bura',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bur%C5%8Dn%C4%85',
       betokened: '[emotion] @0 (is bored with, is far from surprised with) @1',
-      complex: ['LEAST', 'AMAZE'],
+      complex: ['least', 'amaze'],
     },
-    ENJOY: {
+    enjoy: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'NJUT',
+      betokener: 'njuta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neutan%C4%85',
       betokened: '[emotion] @0 enjoys @1',
     },
-    TRUST: {
+    trust: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'TRUV',
+      betokener: 'truva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tr%C5%ABw%C4%81n%C4%85',
       betokened: '[emotion] @0 trusts @1',
     },
-    DOUBT: {
+    doubt: {
       date: '2024-09-10',
       klass: Klass.Verb,
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tw%C4%ABflaz',
       betokened: '[emotion] @0 doubts @1',
-      complex: ['LOW', 'TRUST'],
+      complex: ['low', 'trust'],
     },
-    PRIDE: {
+    pride: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'STURT',
+      betokener: 'sturta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stultaz',
       betokened: '[emotion] @0 is proud of @1',
     },
-    SHAME: {
+    shame: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'SKAM',
+      betokener: 'skam',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skam%C5%8D',
       betokened: '[emotion] @0 is ashamed of @1',
-      complex: ['LOW', 'PRIDE'],
+      complex: ['low', 'pride'],
     },
-    SHUN: {
+    shun: {
       date: '2024-09-27',
       klass: Klass.Verb,
-      betokener: 'SKJUK',
+      betokener: 'skjuka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skeuhaz',
-      betokened: '[emotion] @0 is (shuns, avoids) @1',
+      betokened: '[emotion] @0 is (shuneth, avoideth) @1',
     },
-    WANT: {
+    want: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'VIL',
+      betokener: 'vila',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wiljan%C4%85',
       betokened: '[emotion] @0 wants @1',
-      complex: ['LOW', 'SHUN'],
+      complex: ['low', 'shun'],
     },
-    LOVE: {
+    love: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'JERN',
+      betokener: 'jerna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gernaz',
-      betokened: '[emotion] @0 (loves, is romantically attracted to) @1',
+      betokened: '[emotion] @0 (loveth, is romantically attracted to) @1',
     },
-    RANDY: {
+    randy: {
       date: '2024-09-12',
       klass: Klass.Verb,
-      betokener: 'CEL',
+      betokener: 'cela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gailaz',
       betokened:
         '[emotion] @0 is (randy, aroused, lustful, horny, sexual) for @1',
     },
-    ENVY: {
+    envy: {
       date: '2024-09-12',
       klass: Klass.Verb,
-      betokener: 'ZEL',
+      betokener: 'zela',
       origin: 'https://en.wiktionary.org/wiki/zelo#Latin',
       betokened: '[emotion.hate] @0 envies @1',
     },
-    PITY: {
+    pity: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'NAD',
+      betokener: 'nada',
       origin: 'https://en.wiktionary.org/wiki/ginatha#Old_Dutch',
-      betokened: '[emotion] @0 (pities, feel sympathy) @1',
+      betokened: '[emotion] @0 (pitieth, feel sympathy) @1',
     },
 
     // facial
-    LAUGH: {
+    laugh: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'LAK',
+      betokener: 'laka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlahjan%C4%85',
-      betokened: '[facial-expression] @0 laughs',
+      betokened: '[facial-expression] @0 laugheth',
     },
-    SMILE: {
+    smile: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SMIL',
+      betokener: 'smila',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sm%C4%ABlijan%C4%85',
-      betokened: '[facial-expression] @0 smiles',
+      betokened: '[facial-expression] @0 smileth',
     },
-    FROWN: {
+    frown: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SKEL',
+      betokener: 'skela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skelhaz',
-      betokened: '[facial-expression] @0 frowns',
+      betokened: '[facial-expression] @0 frowneth',
     },
-    WEEP: {
+    weep: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'VOP',
+      betokener: 'vopa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C5%8Dpijan%C4%85',
-      betokened: '[facial-expression] @0 weeps @{1:tear}',
+      betokened: '[facial-expression] @0 weepeth @{1:tear}',
     },
-    YELL: {
+    yell: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'STUN',
+      betokener: 'stuna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stun%C5%8Dn%C4%85',
-      betokened: '@0 (yells, cry, shout) @{1:voice}',
+      betokened: '@0 (yelleth, crieth, shouteth) @{1:voice}',
     },
 
     // mental
-    KNOW: {
+    know: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'VIT',
+      betokened: '[mental] @0 knoweth @1',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/witan%C4%85',
-      betokened: '[mental] @0 knows @1',
+      betokener: 'vita',
+    },
+    learn: {
+      date: '2024-08-01',
+      klass: Klass.Verb,
+      betokened: '[mental] @0 learneth @{1:idea}',
+      idiom: ['begin', 'know'],
+    },
+    forget: {
+      date: '2024-08-01',
+      klass: Klass.Verb,
+      betokened: '[mental] @0 forgeteth @{1:idea}',
+      idiom: ['end', 'know'],
     },
 
-    //LEARN: { date: '2024-08-01', klass: Klass.Verb, ...toIdiom(['BEGIN', 'KNOW']), betokened: '[mental] @0 learns @{1:idea}' },
-    //FORGET: { date: '2024-08-01', klass: Klass.Verb, ...toIdiom(['END', 'KNOW']), betokened: '[mental] @0 forgets @{1:idea}' },
-    //...DUAL('LEARN', '2024-08-01', 'V/MENTAL'], '@0 LEARNS @{1:idea}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lizan%C4%85'), toComplex(['begin', 'know'])),
-    //...DUAL('FORGET', '2024-08-01', 'V/MENTAL'], '@0 FORGETS @{1:idea}', fromGem('https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/marzijan%C4%85'), toComplex(['end', 'know'])),
-    THINK: {
+    think: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'DAGK',
+      betokener: 'dagka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEankijan%C4%85',
-      betokened: '[mental] @0 thinks @{1:idea}',
+      betokened: '[mental] @0 thinketh @{1:idea}',
     },
-    REASON: {
+    reason: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokener: 'RAD',
+      betokener: 'rada',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ra%C3%BEj%C7%AD',
-      betokened: '[mental] @0 have @{1:reason}',
+      betokened: '[mental] @0 hath @{1:reason}',
     },
 
     // communicate
-    NAME: {
+    name: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'NAM',
+      betokener: 'nama',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4',
-      betokened: '[communicate] @0 (means, signifies, is a name of) @1',
+      betokened: '[communicate] @0 (meaneth, signifieth, is a name of) @1',
     },
-    SPEAK: {
+    speak: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'TAL',
+      betokener: 'tala',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tal%C5%8D',
-      betokened: '[communicate] @0 speaks in @{1:language, protocol}',
+      betokened: '[communicate] @0 speaketh in @{1:language, protocol}',
     },
-    LANGUAGE: {
+    language: {
       date: '2024-06-14',
       klass: Klass.Verb,
       betokened: '[communicate] @0 language',
-      idiom: ['DONE', 'SPEAK'],
+      idiom: ['done', 'speak'],
     },
-    SAY: {
+    say: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'SAC',
+      betokener: 'saca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sagjan%C4%85',
       betokened:
-        '[communicate] @0 (says, encodes) @{1:idea} as @{2:expression}',
+        '[communicate] @0 (sayeth, encodes) @{1:idea} as @{2:expression}',
     },
-    UNDERSTAND: {
+    understand: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'XLUST',
+      betokener: 'xlusta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlustiz',
       betokened:
-        '[communicate] @0 (understands, decodes) @{1:idea} from @{2:expression}',
-      complex: ['COUNTER', 'SAY'],
+        '[communicate] @0 (understandeth, decodeth) @{1:idea} from @{2:expression}',
+      complex: ['counter', 'say'],
     },
-    WRITE: {
+    write: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'VRIT',
+      betokener: 'vrita',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C4%ABtan%C4%85',
-      betokened: '[communicate] @0 writes @{1:idea} to @{2:expression}',
+      betokened: '[communicate] @0 writeth @{1:idea} to @{2:expression}',
     },
-    READ: {
+    read: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'RED',
+      betokener: 'reda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%93dan%C4%85',
-      betokened: '[communicate] @0 reads @{1:idea} from @{2:expression}',
-      complex: ['COUNTER', 'WRITE'],
+      betokened: '[communicate] @0 readeth @{1:idea} from @{2:expression}',
+      complex: ['counter', 'write'],
     },
-    ASK: {
+    ask: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'FREJ',
+      betokener: 'freja',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fr%C4%93g%C5%8D',
-      betokened: '[communicate] @0 asks @{1:question} to @{2:questionee}',
+      betokened: '[communicate] @0 asketh @{1:question} to @{2:questionee}',
     },
-    ANSWER: {
+    answer: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'SVAR',
+      betokener: 'svara',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swar%C5%8Dn%C4%85',
-      betokened: '[communicate] @0 answers @{1:answer} to @{2:questioner}',
-      complex: ['COUNTER', 'ASK'],
+      betokened: '[communicate] @0 answereth @{1:answer} to @{2:questioner}',
+      complex: ['counter', 'ask'],
     },
 
     // performative
-    GREET: {
+    greet: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SALUT',
+      betokener: 'saluta',
       origin: 'https://en.wiktionary.org/wiki/salus#Latin',
-      betokened: '[performative] @0 greets @{1:person}',
+      betokened: '[performative] @0 greeteth @{1:person}',
     },
-    FORGIVE: {
+    forgive: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'DON',
+      betokener: 'dona',
       origin: 'https://en.wiktionary.org/wiki/donare#Latin',
-      betokened: '[performative] @0 forgives @{1:event}',
+      betokened: '[performative] @0 forgiveth @{1:event}',
     },
-    THANK: {
+    thank: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'CRAT',
+      betokener: 'crata',
       origin: 'https://en.wiktionary.org/wiki/gratus#Latin',
-      betokened: '[performative] @0 thanks @{1:event}',
+      betokened: '[performative] @0 thanketh @{1:event}',
     },
-    PROMISE: {
+    promise: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'KET',
+      betokener: 'keta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haitan%C4%85',
-      betokened: '[performative] @0 (promises, guarantee, vow) @{1:event}',
+      betokened:
+        '[performative] @0 (promiseth, guaranteeth, voweth) @{1:event}',
     },
-    COMMAND: {
+    command: {
       date: '2024-09-29',
       klass: Klass.Verb,
-      betokener: 'STJUR',
+      betokener: 'stjura',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stiurijan%C4%85',
       betokened: '[performative] @0 (command, request, recommend) @{1:must}',
     },
 
     // culture
-    SING: {
+    sing: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SIG',
+      betokener: 'sega',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/singwan%C4%85',
-      betokened: '[culture] @0 sings @{1:music, song}, play',
+      betokened: '[culture] @0 singeth @{1:music, song}, play',
     },
-    DANCE: {
+    dance: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'DANS',
+      betokener: 'dansa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEans%C5%8Dn',
-      betokened: '[culture] @0 dances @{1:choreography}',
+      betokened: '[culture] @0 danceth @{1:choreography}',
     },
 
     // biochemistry
-    ROT: {
+    rot: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'RUT',
+      betokener: 'ruta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rut%C4%81n%C4%85',
       betokened: '@0 is rotten',
     },
-    FRESH: {
+    fresh: {
       date: '2024-07-24',
       klass: Klass.Verb,
-      betokener: 'FRISK',
+      betokener: 'frixa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/friskaz',
       betokened: '@0 is fresh',
-      complex: ['LOW', 'ROT'],
+      complex: ['low', 'rot'],
     },
 
-    // reproduction
-    BEGET: {
+    // reproduce
+    beget: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'BURD',
+      betokened: '@0 (beareth, reproducteth, is a parent of) @{1:child}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/burdiz',
-      betokened: '@0 (bears, reproducts) @{1:child}, parent',
+      betokener: 'burda',
     },
-    MAN: {
+    man: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'JUM',
+      betokener: 'juma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gum%C3%B4',
       betokened: '@0 is (a man, male)',
     },
-    WOMAN: {
+    woman: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'VIB',
+      betokener: 'viba',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABb%C4%85',
       betokened: '@0 is (a woman, female)',
     },
 
+    // familly
+    sibling: {
+      date: '2025-02-08',
+      klass: Klass.Verb,
+      betokened: '@0 (beareth, reproducteth) @{1:child}, parent',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sibjaz',
+      betokener: 'siba',
+      complex: ['done', 'beget', 'same'],
+    },
+    family: {
+      date: '2025-02-08',
+      klass: Klass.Verb,
+      betokened: '@0 (beareth, reproducteth) @{1:child}, parent',
+      complex: ['done', 'bridge', 'beget'],
+    },
+
     // animal
-    MAMMAL: {
+    mammal: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MAMAL',
+      betokener: 'mamala',
       origin: 'https://en.wiktionary.org/wiki/mammalis',
       betokened: '[life.animal] @0 is a mammal',
     },
-    HUMAN: {
+    human: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MAN',
+      betokener: 'mana',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mann-',
       betokened: '[life.animal.mammal] @0 is a human',
     },
-    RAT: {
+    rat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'RAT',
+      betokener: 'rata',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rattaz',
       betokened: '[life.animal.mammal] @0 is a (rat, mouse)',
     },
-    HARE: {
+    hare: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'XAS',
+      betokener: 'xasa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/has%C3%B4',
       betokened: '[life.animal.mammal] @0 is a (hare, rabbit)',
     },
-    CAT: {
+    cat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'KAT',
+      betokener: 'kata',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kattuz',
       betokened: '[life.animal.mammal] @0 is a cat',
     },
-    FOX: {
+    fox: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'FUX',
+      betokener: 'foxa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuhsaz',
       betokened: '[life.animal.mammal] @0 is a (fox, vixen)',
     },
-    DOG: {
+    dog: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'XUND',
+      betokener: 'xunta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hundaz',
-      betokened: '[life.animal.mammal] @0 is a dog',
+      betokened: '[life.animal.mammal] @0 is a {dog, bitch}',
     },
-    WOLF: {
+    wolf: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'VOLF',
+      betokener: 'volfa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulfaz',
       betokened: '[life.animal.mammal] @0 is a wolf',
     },
-    BEAR: {
+    bear: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'BER',
+      betokener: 'bera',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ber%C3%B4',
       betokened: '[life.animal.mammal] @0 is a bear',
     },
-    SHEEP: {
+    sheep: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SKEP',
+      betokener: 'skepa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%93p%C4%85',
       betokened: '[life.animal.mammal] @0 is a sheep',
     },
-    GOAT: {
+    goat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'CET',
+      betokener: 'ceta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gaits',
       betokened: '[life.animal.mammal] @0 is a goat',
     },
-    DEER: {
+    deer: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'REK',
+      betokener: 'reka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raih%C3%B4',
       betokened: '[life.animal.mammal] @0 is a deer',
     },
-    HORSE: {
+    horse: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'KRUS',
+      betokener: 'krusa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hruss%C4%85',
-      betokened: '[life.animal.mammal] @0 is a horse',
+      betokened: '[life.animal.mammal] @0 is a {horse, stallion, mare}',
     },
-    COW: {
+    cow: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'KUV',
+      betokener: 'kuva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/k%C5%ABz',
       betokened: '[life.animal.mammal] @0 is a cow',
     },
-    PIG: {
+    pig: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SVIN',
+      betokener: 'svina',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%ABn%C4%85',
       betokened: '[life.animal.mammal] @0 is a pig',
     },
 
-    REPTILE: {
+    reptile: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'REPTIL',
-      origin: 'https://en.wiktionary.org/wiki/reptilis#Latin',
       betokened: '[life.animal] @0 is a reptile',
+      origin: 'https://en.wiktionary.org/wiki/reptilis#Latin',
+      betokener: 'reftila',
     },
-    SNAKE: {
+    snake: {
       date: '2024-07-15',
       klass: Klass.Verb,
-      betokener: 'SNEC',
+      betokener: 'sneca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snegan%C4%85',
       betokened: '[life.animal.reptile] @0 is a snake',
     },
 
-    BIRD: {
+    bird: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'FUCAL',
+      betokener: 'focla',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuglaz',
       betokened: '[life.animal] @0 is a bird',
     },
-    CROW: {
+    crow: {
       date: '2024-07-15',
       klass: Klass.Verb,
-      betokener: 'RABAN',
+      betokener: 'rabna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrabnaz',
       betokened: '[life.animal.bird] @0 is a (crow, raven)',
     },
 
-    FISH: {
+    fish: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'FISK',
+      betokener: 'fiska',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fiskaz',
       betokened: '[life.animal] @0 is a fish',
     },
 
-    AMPHIBIA: {
+    amphibia: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'HANFIB',
+      betokener: 'anfiba',
       origin: 'https://en.wiktionary.org/wiki/amphibius#Latin',
       betokened: '[life.animal] @0 is a amphibia',
     },
-    FROG: {
+    frog: {
       date: '2024-07-15',
       klass: Klass.Verb,
-      betokener: 'FRUK',
+      betokener: 'fruska',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fruskaz',
       betokened: '[life.animal.amphibia] @0 is a frog',
     },
 
     // plant
-    PLANT: {
+    plant: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'PLANT',
+      betokener: 'planta',
       origin: 'https://en.wiktionary.org/wiki/planta#Latin',
       betokened: '[life] @0 is a plant',
     },
-    TREE: {
+    tree: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'BACAM',
+      betokener: 'bacma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bagmaz',
       betokened: '[life.plant] @0 is a tree',
     },
 
     // body
-    BODY: {
+    body: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'KREF',
+      betokener: 'krefa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrefaz',
       betokened: '@0 is a body of @1',
     },
-    BONE: {
+    bone: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'BEN',
+      betokener: 'bena',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bain%C4%85',
       betokened: '[body] @0 is a bone of @1',
     },
-    FLESH: {
+    spine: {
+      date: '2025-02-06',
+      klass: Klass.Verb,
+      betokener: 'spina',
+      origin: 'https://en.wiktionary.org/wiki/spina#Latin',
+      betokened: '[body] @0 is a spine of @{1:vertebrata}',
+    },
+    flesh: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'FLEX',
+      betokener: 'flexa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flaiski',
       betokened: '[body] @0 is a (flesh, meat, muscle) of @1',
     },
-    FAT: {
+    fat: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'FET',
+      betokener: 'feta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/faitaz',
       betokened: '[body] @0 is a fat of @1',
     },
-    SKIN: {
+    skin: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SKIND',
+      betokener: 'skina',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skin%C3%BE%C4%85',
       betokened: '[body] @0 is a (skin, peel) of @1',
     },
-    HEAD: {
+    head: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'KAVD',
+      betokener: 'kavda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haubud%C4%85',
       betokened: '[body] @0 is a head of @1',
     },
-    NECK: {
+    neck: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'NAK',
+      betokener: 'naka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnakk%C3%B4',
       betokened: '[body] @0 is a neck of @1',
     },
-    SHOULDER: {
+    shoulder: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'SKULD',
+      betokener: 'skulta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/skuldru',
       betokened: '[body] @0 is a (shoulder, buttock) of @1',
     },
-    LIMB: {
+
+    limb: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'LIM',
+      zh: '肢',
+      betokener: 'lima',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/limuz',
+      origins: {
+        gem: 'limuz',
+        eng: 'limb',
+        ice: 'limur',
+      },
       betokened: '[body] @0 is a (limb, leg, arm, branch) of @1',
     },
-    LEG: {
+    arm: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'LAC',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lagjaz',
-      betokened: '[body.limb] @0 is a leg',
-    },
-    ARM: {
-      date: '2024-11-24',
-      klass: Klass.Verb,
-      betokener: 'HARM',
+      zh: '腕',
+      betokener: 'arma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/armaz',
+      origins: {
+        gem: 'armaz',
+        eng: 'arm',
+        deu: 'arm',
+      },
       betokened: '[body.limb] @0 is an arm',
     },
-    //EXTREMITY: { date: '2024-02-13', klass: Klass.Verb, betokener: 'HAND', ORIGIN: 'HTTPS://EN.WIKTIONARY.ORG/WIKI/RECONSTRUCTION:PROTO-GERMANIC/HANDUZ', betokened: '[body] @0 is a (extremity, hand, foot) of @1' },
-    FOOT: {
+    leg: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'FOT',
+      zh: '脚',
+      betokener: 'laca',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lagjaz',
+      origins: {
+        gem: 'lagjaz',
+        ice: 'leggur',
+      },
+      betokened: '[body.limb] @0 is a leg',
+    },
+
+    //extremity: { date: '2024-02-13', klass: Klass.Verb, betokener: 'and', origin: 'https://en.wiktionary.org/wiki/reconstruction:proto-germanic/handuz', betokened: '[body] @0 is a (extremity, hand, foot) of @1' },
+    foot: {
+      date: '2024-11-24',
+      klass: Klass.Verb,
+      betokener: 'fota',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/f%C5%8Dts',
+      origins: {
+        gem: 'fōts',
+        eng: 'foot',
+        deu: 'fuß',
+        ice: 'fótur',
+        lat: 'pede',
+        chu: 'пѣшь',
+      },
       betokened: '[body.extremity] @0 is a foot',
     },
-    HAND: {
+    hand: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'MUND',
+      betokener: 'munta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mund%C5%8D',
       betokened: '[body.extremity] @0 is a hand',
     },
-    TRUNK: {
+    trunk: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'STAM',
+      betokener: 'stama',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stamniz',
       betokened: '[body] @0 is a (trunk, torso, stem) of @1',
     },
-    BREAST: {
+    breast: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'BRUST',
+      betokener: 'brusta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brusts',
       betokened: '[body] @0 is a (chest, breast) of @1',
     },
-    BELLY: {
+    belly: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'KVED',
+      betokener: 'kveda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kwe%C3%BEuz',
       betokened: '[body] @0 is a (chest, breast) of @1',
     },
-    TAIL: {
+    tail: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'STERT',
+      betokener: 'sterta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stertaz',
       betokened: '[body] @0 is a tail of @1',
     },
-    HAIR: {
+    hair: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'KAZD',
+      betokener: 'kesa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hazdaz',
       betokened: '[body] @0 is a (hair, fur) of @1',
     },
-    HORN: {
+    horn: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'XURN',
+      betokener: 'xurna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hurn%C4%85',
       betokened: '[body] @0 is a horn of @1',
     },
-    TOOTH: {
+    tooth: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'TAND',
+      betokener: 'tana',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tan%C3%BEs',
       betokened: '[body] @0 is a (tooth, fang) of @1',
     },
-    NAIL: {
+    nail: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'NEL',
+      betokener: 'nela',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/naglaz',
       betokened: '[body] @0 is a (nail, claw) of @1',
     },
-    EYE: {
+    eye: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'HOC',
+      betokener: 'oca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/aug%C3%B4',
       betokened: '[body.face] @0 is an eye of @1',
     },
-    EAR: {
+    ear: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'HOS',
+      betokener: 'osa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/aus%C3%B4',
       betokened: '[body.face] @0 is an ear of @1',
     },
-    NOSE: {
+    nose: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'NAS',
+      betokener: 'nasa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nas%C5%8D',
       betokened: '[body.face] @0 is a nose of @1',
     },
-    MOUTH: {
+    mouth: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'MUN',
+      betokener: 'muna',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mun%C3%BEaz',
       betokened: '[body.face] @0 is a mouth of @1',
     },
-    LIP: {
+    lip: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'LIP',
+      betokener: 'lipa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lep%C3%B4',
       betokened: '[body.face] @0 is a lip of @1',
     },
-    TONGUE: {
+    tongue: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'TUG',
+      betokener: 'tuga',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tung%C7%AD',
       betokened: '[body.face] @0 is a tongue of @1',
     },
 
-    VISCERA: {
+    viscera: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'DARM',
+      betokener: 'darma',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEarmaz',
       betokened: '[body] @0 is a (viscera, inner organ) of @1',
     },
-    LUNG: {
+    lung: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'LUG',
+      betokener: 'luga',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lung%C3%B4',
       betokened: '[body.viscera] @0 is a lung of @1',
     },
-    HEART: {
+    heart: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'XERD',
+      betokener: 'xerda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hert%C3%B4',
       betokened: '[body.viscera] @0 is a heart of @1',
     },
-    MAW: {
+    maw: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'MAC',
+      betokener: 'maca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mag%C3%B4',
       betokened: '[body.viscera] @0 is a (maw, stomach) of @1',
     },
-    LIVER: {
+    liver: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'LIBIR',
+      betokener: 'libra',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libr%C5%8D',
       betokened: '[body.viscera] @0 is a liver of @1',
     },
 
-    WOMB: {
+    womb: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'VAMB',
+      betokener: 'vamba',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wamb%C5%8D',
       betokened: '[body.genitalia] @0 is a (prostate, womb) of @1',
     },
-    VAGINA: {
+    vagina: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'FUD',
+      betokener: 'foda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fu%C3%BEiz',
       betokened: '[body.genitalia] @0 is a vagina of @1',
     },
-    PENIS: {
+    penis: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'PINT',
+      betokener: 'pinta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/pinti',
       betokened: '[body.genitalia] @0 is a (penis, clitoris) of @1',
     },
 
-    EGG: {
+    egg: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'HAJ',
+      betokener: 'aja',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ajj%C4%85',
       betokened: '[body.egg] @0 is an egg of @1',
     },
 
-    BLOOD: {
+    blood: {
       date: '2024-07-29',
       klass: Klass.Verb,
-      betokener: 'BLOD',
+      betokener: 'bloda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8D%C3%BE%C4%85',
       betokened: '[body.liquid] @0 is blood of @1',
     },
-    MILK: {
+    milk: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokener: 'MELK',
+      betokener: 'melka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meluks',
       betokened: '[body.liquid] @0 is milk of @1',
     },
-    LYMPH: {
+    lymph: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokener: 'NINF',
+      betokener: 'nenfa',
       origin:
         'https://en.wiktionary.org/wiki/%CE%BD%CF%8D%CE%BC%CF%86%CE%B7#Ancient_Greek',
       betokened: '[body.liquid] @0 is lymph of @1',
     },
 
-    FLOWER: {
+    flower: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'BLOV',
+      betokener: 'blova',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8Dan%C4%85',
       betokened: '[body.plant] @0 is a (flower, bloom, blossom) of @1',
     },
-    LEAF: {
+    leaf: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'LOB',
+      betokener: 'loba',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/laub%C4%85',
       betokened: '[body.plant] @0 is a leaf of @1',
     },
-    ROOT: {
+    root: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'ROT',
+      betokener: 'rota',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C5%8Dts',
       betokened: '[body.plant] @0 is a root of @1',
     },
 
     // civilization
-    PERSON: {
+    person: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'LJUD',
+      betokened: '[civilisation] @0 is (a person, an individual, a citizen)',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/liudiz',
-      betokened: '[civilisation] @0 is (a person, an individual, a citizen)',
+      origins: {
+        pie: 'h₁léwdʰis',
+        gmc: 'liudiz',
+        eng: 'lede',
+        deu: 'Leute',
+        ice: 'lýður',
+      },
+      betokener: 'ljuda',
     },
-    NATION: {
+    nation: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'MARK',
+      betokened: '[civilisation] @0 is a country',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mark%C5%8D',
-      betokened: '[civilisation] @0 is a country',
+      origins: {
+        pie: 'morǵ-',
+        gmc: 'markō',
+        eng: 'mark',
+        deu: 'Mark',
+        ice: 'mörk',
+      },
+      betokener: 'marka',
     },
-    RULE: {
+    rule: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'REJ',
+      betokener: 'reja',
       origin: 'https://en.wiktionary.org/wiki/rego#Latin',
-      betokened: '[civilisation] @0 (rules, orders, dictates) @1',
+      betokened: '[civilisation] @0 (ruleth, ordereth, dictateth) @1',
     },
 
-    NOBLE: {
+    noble: {
       date: '2024-10-01',
       klass: Klass.Verb,
-      betokener: 'RIK',
+      betokener: 'rika',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABkijaz',
       betokened: '@0 is noble',
     },
-    HUMBLE: {
+    humble: {
       date: '2024-10-01',
       klass: Klass.Verb,
-      betokener: 'MJUK',
+      betokener: 'mjuka',
       origin: 'https://en.wiktionary.org/wiki/mj%C3%BAkr#Old_Norse',
       betokened: '@0 is humble',
-      complex: ['LOW', 'NOBLE'],
+      complex: ['low', 'noble'],
     },
 
-    WORK: {
+    work: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'VERX',
+      betokener: 'verxa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/werk%C4%85',
-      betokened: '@0 works @{1:operation}',
+      betokened: '@0 worketh @{1:operation}',
     },
-    DWELL: {
+    dwell: {
       date: '2024-12-20',
       klass: Klass.Verb,
-      betokener: 'BUV',
+      betokener: 'buva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C5%ABan%C4%85',
-      betokened: '@0 dwells in @{1:house}',
+      betokened: '@0 dwelleth in @{1:house}',
     },
-    USE: {
+    use: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'NUT',
+      betokener: 'nuta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nut%C5%8D',
-      betokened: '@0 uses @{1:tool} for @{2:purpose}',
+      betokened: '@0 useth @{1:tool} for @{2:purpose}',
     },
-    HELP: {
+    help: {
       date: '2024-06-18',
       klass: Klass.Verb,
-      betokener: 'XELP',
+      betokener: 'xelpa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/helpan%C4%85',
-      betokened: '@0 helps @{1:event}',
+      betokened: '@0 helpeth @{1:event}',
     },
-    HARM: {
+    harm: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'SKAD',
+      betokener: 'skada',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ska%C3%BE%C3%B4',
-      betokened: '@0 (harms, hurts, damages) @1',
-    },
-    HEAL: {
-      date: '2024-08-19',
-      klass: Klass.Verb,
-      betokener: 'KEL',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hailaz',
-      betokened: '@0 heals @1',
-      complex: ['BACK', 'HARM'],
+      betokened: '@0 (harmeth, hurteth, damageth) @1',
     },
 
-    WONT: {
+    wont: {
       date: '2024-09-01',
       klass: Klass.Verb,
-      betokener: 'VON',
+      betokener: 'vona',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wun%C4%81n%C4%85',
       betokened: '@0 is used to @{1:custom, habit, routine, usual, regular}',
     },
-    LEAD: {
+    lead: {
       date: '2024-09-01',
       klass: Klass.Verb,
-      betokener: 'DRAC',
+      betokener: 'draca',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dragan%C4%85',
-      betokened: '@0 (leads, guides) @{1:follower}',
+      betokened: '@0 (leadeth, guideth) @{1:follower}',
     },
 
-    STAB: {
+    stab: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'STAB',
+      betokener: 'staba',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hittijan%C4%85',
       betokened: '@{0:sharp} stabs',
     },
-    CUT: {
+    cut: {
       date: '2024-11-21',
       klass: Klass.Verb,
-      betokener: 'SNID',
+      betokener: 'sneda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sn%C4%AB%C3%BEan%C4%85',
-      betokened: '@{0:sharp} cuts @1',
+      betokened: '@{0:sharp} cuteth @1',
     },
 
     // human action
-    PICK: {
+    pick: {
       date: '2024-09-09',
       klass: Klass.Verb,
-      betokener: 'JAK',
+      betokener: 'jaka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/jakk%C5%8Dn%C4%85',
-      betokened: '@0 (picks, hunts, gathers, collects) @{1:harvest, prey}',
+      betokened:
+        '@0 (picketh, hunteth, gathereth, collects) @{1:harvest, prey}',
     },
 
     // human-human action
-    LICK: {
+    lick: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'LIK',
+      betokener: 'lixa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/likk%C5%8Dn%C4%85',
-      betokened: '[body-interaction] @0 licks @1',
-      complex: ['TONGUE', 'TOUCH'],
+      betokened: '[body-interaction] @0 licketh @1',
+      complex: ['tongue', 'touch'],
     },
 
-    KISS: {
+    kiss: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'KUS',
+      betokener: 'kusa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kussaz',
-      betokened: '[body-interaction] @0 kisses @1',
-      complex: ['LIP', 'TOUCH'],
+      betokened: '[body-interaction] @0 kisseth @1',
+      complex: ['lip', 'touch'],
     },
-    CARESS: {
+    caress: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'STJUK',
+      betokener: 'stjuka',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/streukan%C4%85',
-      betokened: '[body-interaction] @0 carreses @1',
+      betokened: '[body-interaction] @0 carreseth @1',
     },
-    HUG: {
+    hug: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'FADAM',
+      betokener: 'fadama',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fa%C3%BEmaz',
-      betokened: '[body-interaction] @0 hugs @1',
+      betokened: '[body-interaction] @0 hugeth @1',
     },
-    HIT: {
+    hit: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'KIT',
+      betokener: 'kita',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hittijan%C4%85',
-      betokened: '[body-interaction] @0 (hits, kicks, punches) @1',
+      betokened: '[body-interaction] @0 (hiteth, kicketh, puncheth) @1',
     },
-    KICK: {
+    kick: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      /* betokener: 'SPURN',
+      betokener: 'spurna',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/spurnan%C4%85',*/
-      betokened: '[body-interaction] @0 kicks @1',
-      complex: ['FOOT', 'HIT'],
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/spurnan%C4%85',
+      betokened: '[body-interaction] @0 kicketh @1',
+      complex: ['foot', 'hit'],
     },
-    PUNCH: {
+    punch: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      /*betokener: 'KIT',
+      betokener: 'slaka',
       origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hittijan%C4%85',*/
-      betokened: '[body-interaction] @0 punches @1',
-      complex: ['HAND', 'HIT'],
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slahan%C4%85',
+      betokened: '[body-interaction] @0 puncheth @1',
+      complex: ['hand', 'hit'],
     },
 
-    KNIFE: {
+    rope: {
+      date: '2025-02-08',
+      klass: Klass.Verb,
+      betokened: '[artifact] @0 is a {rope, cord, string}',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/taug%C5%8D',
+      betokener: 'toca',
+    },
+    knife: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokened: '[artifact] @{0:sword, knife, blade} cuts @1',
+      betokened: '[artifact] @{0:sword, knife, blade} cuteth @1',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sahs%C4%85',
-      betokener: 'saks',
-      complex: ['CUT', 'DONE', 'USE'],
+      betokener: 'saksa',
+      complex: ['cut', 'done', 'use'],
     },
-    SCISSOR: {
+    scissor: {
       date: '2024-07-28',
       klass: Klass.Verb,
       betokened: '[artifact] @0 is a pair of scissors',
-      complex: ['TWO', 'KNIFE'],
+      complex: ['two', 'knife'],
     },
-    SPEAR: {
+    spear: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'SPER',
+      betokener: 'spera',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/speru',
-      betokened: '[artifact] @{0:spear, pin} stings @1',
+      betokened: '[artifact] @{0:spear, pin} stingeth @1',
     },
-    ROD: {
+    rod: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'STIK',
+      betokener: 'stika',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stikk%C3%B4',
-      betokened: '[artifact] @{0:rod, stuff, wand, club} supports @1',
+      betokened: '[artifact] @{0:rod, stuff, wand, club} supporteth @1',
     },
-    DISH: {
+    dish: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'KNAP',
+      betokener: 'knapa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnappaz',
-      betokened: '[artifact] @{0:dish, bowl, cup, container} contains @1',
+      betokened: '[artifact] @{0:dish, bowl, cup, container} containeth @1',
     },
-    FORK: {
+    fork: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'CAVL',
+      betokener: 'cavla',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Celtic/gabl%C4%81',
-      betokened: '[artifact] @{0:fork} stings @1',
+      betokened: '[artifact] @{0:fork} stingeth @1',
     },
-    SPOON: {
+    spoon: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'SPEN',
+      betokener: 'spena',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sp%C4%93nuz',
-      betokened: '[artifact] @{0:spoon, scoop} scoops @1',
+      betokened: '[artifact] @{0:spoon, scoop} scoopeth @1',
     },
-    TONG: {
+    tong: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'TAG',
+      betokener: 'taga',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tang%C5%8D',
-      betokened: '[artifact] @{0:TONG, PLIER, CHOPSTICK} grabs @1',
+      betokened: '[artifact] @{0:tong, plier, chopstick} grabeth @1',
     },
-    MONEY: {
+    money: {
       date: '2024-08-25',
       klass: Klass.Verb,
-      betokener: 'FEX',
+      betokener: 'fexa',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fehu',
       betokened: '[artifact] @0 is (money, coin, bill)',
     },
-    SHIP: {
+    ship: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'BET',
+      betokener: 'beta',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/baitaz',
       betokened: '[artifact] @0 is a (ship, boat)',
     },
+    bridge: {
+      date: '2025-02-08',
+      klass: Klass.Verb,
+      betokener: 'bruca',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brugj%C7%AD',
+      betokened: '@0 {is a bridge between, connects} of @{1}',
+    },
 
-    // grammar
-    SENTENCE: {
+    // misc
+    knot: {
+      date: '2024-12-23',
+      klass: Klass.Verb,
+      betokener: 'knuta',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/knutt%C3%B4',
+      betokened: '@0 is a (knot, tangle, tie, bond) of @{1}',
+    },
+    age: {
+      date: '2024-12-07',
+      klass: Klass.Verb,
+      betokener: 'ala',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/alan%C4%85',
+      betokened: '@0 is at age of @{1:interval}',
+    },
+
+    sentence: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'FRAS',
+      betokener: 'frasa',
       origin:
         'https://en.wiktionary.org/wiki/%CF%86%CF%81%CE%AC%CF%83%CE%B9%CF%82#Ancient_Greek',
       betokened: '[grammar] @0 is a sentence',
     },
-    CLAUSE: {
+    clause: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'KLAVS',
+      betokener: 'klavsa',
       origin: 'https://en.wiktionary.org/wiki/clauso#Latin',
       betokened: '[grammar] @0 is a clause',
     },
-    WORD: {
+    word: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'VORD',
+      betokener: 'vorda',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wurd%C4%85',
       betokened: '[grammar] @0 is a word',
     },
-    VERB: {
+
+    case: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'VERB',
-      origin: 'https://en.wiktionary.org/wiki/verbo#Latin',
-      betokened: '[grammar] @0 is a verb',
-    },
-    CASE: {
-      date: '2024-10-05',
-      klass: Klass.Verb,
-      betokener: 'KAS',
+      betokener: 'kasa',
       origin: 'https://en.wiktionary.org/wiki/casu#Latin',
       betokened: '[grammar] @0 is an case of @1',
     },
-
-    AGE: {
-      date: '2024-12-07',
+    verb: {
+      date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'HAL',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/alan%C4%85',
-      betokened: '@0 is at age of @{1:interval}',
+      betokener: 'verba',
+      origin: 'https://en.wiktionary.org/wiki/verbo#Latin',
+      betokened: '[grammar] @0 is a verb',
+    },
+    nominative: {
+      date: '2024-12-23',
+      klass: Klass.Verb,
+      betokened: '[grammar] @0 is nominative',
+      complex: ['verb', 'head'],
+    },
+    oblique: {
+      date: '2024-12-23',
+      klass: Klass.Verb,
+      betokened: '[grammar] @0 is oblique',
+      complex: ['verb', 'arm'],
+    },
+    accusative: {
+      date: '2024-12-23',
+      klass: Klass.Verb,
+      betokened: '[grammar] @0 is accusative',
+      complex: ['verb', 'zero', '_ord', 'arm'],
+    },
+    dative: {
+      date: '2024-12-23',
+      klass: Klass.Verb,
+      betokened: '[grammar] @0 is dative',
+      complex: ['verb', 'one', '_ord', 'arm'],
     },
 
     // country
     ...Object.fromEntries(
       [
         [
-          'US',
+          'us',
           'the united states',
           '2024-08-25',
-          'HAMERIK',
+          'amerika',
           'https://en.wiktionary.org/wiki/America#Latin',
         ],
         [
-          'CN',
+          'cn',
           'china',
           '2024-08-25',
-          'ZJUGCOK',
+          'zjugcoka',
           'https://en.wiktionary.org/wiki/%E4%B8%AD%E5%9C%8B',
         ],
         [
-          'DE',
+          'de',
           'germany',
           '2024-08-25',
-          'DEVDIX',
+          'devdiska',
           'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEiudisk',
         ],
         [
-          'JP',
+          'jp',
           'japan',
           '2024-08-25',
-          'NITPON',
+          'nitfona',
           'https://en.wiktionary.org/wiki/%E6%97%A5%E6%9C%AC',
         ],
         [
-          'IN',
+          'in',
           'india',
           '2024-11-22',
-          'BARAT',
+          'varata',
           'https://en.wiktionary.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4#Sanskrit',
         ],
         [
-          'GB',
+          'gb',
           'the united kingdom',
           '2024-08-25',
-          'BRITAN',
+          'britanja',
           'https://en.wiktionary.org/wiki/Britannia#Latin',
         ],
         [
-          'FR',
+          'fr',
           'france',
           '2024-08-25',
-          'FRAGK',
+          'fragkja',
           'https://en.wiktionary.org/wiki/Francia#Latin',
         ],
         [
-          'IT',
+          'it',
           'italy',
           '2024-11-22',
-          'VITAL',
-          'https://en.wiktionary.org/wiki/%E1%BC%B8%CF%84%CE%B1%CE%BB%CE%AF%CE%B1#Ancient_Greek',
+          'hitalja',
+          'https://en.wiktionary.org/wiki/Italia#Latin',
         ],
         [
-          'CA',
+          'ca',
           'canada',
           '2024-11-22',
-          'KANAT',
+          'kanata',
           'https://en.wiktionary.org/wiki/kanata#Laurentian',
         ],
         [
-          'BR',
+          'br',
           'brazil',
           '2024-11-22',
-          'BRASIL',
+          'brasila',
           'https://en.wiktionary.org/wiki/Brasil#Portuguese',
         ],
+        [
+          'ru',
+          'russia',
+          '2025-02-08',
+          'rusi',
+          'https://en.wiktionary.org/wiki/%D0%A0%D1%83%D1%81%D1%8C#Old_East_Slavic',
+        ],
       ].map(([iso, name, date, betokener, origin]) => [
-        `NATION_${iso}`,
+        `nation_${iso.toLowerCase()}`,
         {
           date,
           klass: Klass.Verb,
           betokened: `[country] @0 is ${name} (${iso})`,
           betokener,
           origin,
-          idiom: ['NATION', 'CALLED', '$' + fromAcronym(iso)],
+          idiom: ['nation', 'called', '$' + fromAcronym(iso.toUpperCase())],
         },
       ])
     ),
@@ -3451,22 +3694,27 @@ const dicPre = new Map<string, ValuePre>(
     // language
     ...Object.fromEntries(
       [
-        ['ENG', '2024-08-31', 'english'],
-        ['CMN', '2024-08-31', 'mandarin'],
-        ['HIN', '2024-08-31', 'hindustani (hindi, urdu) '],
-        ['SPA', '2024-08-31', 'spanish'],
-        ['ARA', '2024-08-31', 'arabic'],
-        ['FRA', '2024-08-31', 'french'],
-        ['RUS', '2024-08-31', 'russian'],
-        ['DEU', '2024-08-31', 'german'],
-        ['JPN', '2024-08-31', 'japanese'],
+        ['eng', '2024-08-31', 'english'],
+        ['cmn', '2024-08-31', 'mandarin'],
+        ['hin', '2024-08-31', 'hindustani (hindi, urdu) '],
+        ['spa', '2024-08-31', 'spanish'],
+        ['ara', '2024-08-31', 'arabic'],
+        ['fra', '2024-08-31', 'french'],
+        ['rus', '2024-08-31', 'russian'],
+        ['deu', '2024-08-31', 'german'],
+        ['jpn', '2024-08-31', 'japanese'],
       ].map(([iso, date, adjective]) => [
-        `LANGUAGE_${iso}`,
+        `language_${iso}`,
         {
           date,
           klass: Klass.Verb,
-          idiom: ['DONE', 'SPEAK', 'CALLED', '$' + fromAcronym(iso)],
-          betokened: `[language] @0 is ${adjective} language (${iso.toUpperCase()})`,
+          idiom: [
+            'done',
+            'speak',
+            'called',
+            '$' + fromAcronym(iso.toUpperCase()),
+          ],
+          betokened: `[language] @0 is ${adjective} language (${iso})`,
         },
       ])
     ),
@@ -3482,10 +3730,10 @@ const dicPre = new Map<string, ValuePre>(
       ]);
     if (complex)
       r.push([
-        k + '_',
+        k + '*',
         {
           ...vRest,
-          ...(betokener ? { betokened: `=${betokener}` } : {}),
+          ...(betokener ? { betokened: `=${k}` } : {}),
           formation: Formation.Complex,
           origin: complex.join('+'),
           complex,
@@ -3493,7 +3741,7 @@ const dicPre = new Map<string, ValuePre>(
       ]);
     if (idiom)
       r.push([
-        k + '__',
+        k + '#',
         {
           ...vRest,
           ...(betokener ? { betokened: `=${betokener}` } : {}),
@@ -3508,25 +3756,30 @@ const dicPre = new Map<string, ValuePre>(
 );
 
 const toBetokeners = (ks: string[]) =>
-  ks.map((k) => {
-    if (k.startsWith('$')) return k.substring(1);
-
-    const v = dicPre.get(k);
-    if (v && 'betokener' in v) return v.betokener;
-
-    const v_ = dicPre.get(k.replace(/_?$/, '_'));
-    if (v_ && 'betokener' in v_) return v_.betokener;
-
-    return null;
-  });
+  ks.map((k) =>
+    k.startsWith('$')
+      ? k.substring(1)
+      : dicPre.get(k)?.betokener ??
+        dicPre.get(k + '*')?.betokener ??
+        dicPre.get(k + '#')?.betokener
+  );
 
 const toComplex = (betokeners: string[]): string =>
-  betokeners.reduce((joined, betokener) => {
-    const joinedNew = (joined + betokener).replace(/(.)\1/, '$1');
+  betokeners.reduce((acc, betokener) => {
+    const a = acc.replace(/(?<=[ieaouw].*)a$/, '');
+    const b = betokener.replace(/^h(?=[ieaouw].*[ieaouw])/, '');
 
-    return invalid(joinedNew) || !checkSonority(joinedNew)
-      ? joined + joined.match(/[IUEOA](?=[^IUEOA]*?$)/) + betokener
-      : joinedNew;
+    const connection = a.slice(-1) + b.slice(0, 1);
+
+    // VV
+    if (/[iueoaw]{2}/.test(connection)) return a + 'h' + b;
+    // CV | VC
+    else if (/[^iueoaw][iueoaw]|[iueoaw][^iueoaw]/.test(connection))
+      return a + b;
+    // CC
+    else if (/[^iueoaw]{2}/.test(connection)) {
+      return !invalid(a) && invalid(a + b) ? a + 'a' + betokener : a + b;
+    }
   });
 
 // generate
@@ -3587,25 +3840,26 @@ for (let i = 0; i < dic.size; i++)
       console.error(`homograph: [${k0}, ${k1}] = ${dic.get(k0)?.betokener}`);
   }
 
-for (const [k, { betokener, formation }] of dic.entries())
+for (const [k, { betokener, formation }] of dic.entries()) {
+  if (formation === Formation.Simplex)
+    if (7 <= betokener.length)
+      console.error(`invalid: long simplex: .${k} = ${betokener}`);
+
   if (formation !== Formation.Idiom) {
     const invalidity = invalid(betokener);
     if (invalidity)
       console.error(`invalid: ${invalidity}: .${k} = ${betokener}`);
-
-    if (!checkSonority(betokener))
-      console.error(`invalid sonority: .${k} = ${betokener}`);
   }
+}
 
 export const translate = (code: string) =>
-  code
-    .replace(/[A-Z_]+\{?|[\[\]\.\}]/g, (k) => dic.get(k)?.betokener ?? '?' + k)
-    .replace(/ +-/g, '-')
-    .replace(/[^ ]+/g, (it) =>
-      it
-        .replace('-', '(((HYPHEN)))') // first occurence
-        .replace(/-/g, '')
-        .replace('(((HYPHEN)))', '-')
-    );
+  code.replace(
+    /[a-z_]+\{?|[\[\]\}\*\#]/g,
+    (k) =>
+      dic.get(k)?.betokener ??
+      dic.get(k + '*')?.betokener ??
+      dic.get(k + '#')?.betokener ??
+      k
+  );
 
 export default dic;

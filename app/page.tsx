@@ -1,15 +1,19 @@
 import { CSSProperties } from 'react';
 import dic, { Formation, name, translate } from '../lib/lexicology';
-import { phoneticise, toIpa } from '../lib/phonology';
+import { toIpa } from '../lib/phonology';
 import { replaceEach } from '../lib/common';
 import { orthography } from '../lib/orthography';
 import { Letter } from '../lib/letter';
+import { toDayString } from '../lib/date';
 
-const Target = ({ children }: { children: string }) => (
-  <span className="target" title={children}>
-    {orthography(children)}
-  </span>
-);
+const Target = ({ children }: { children: string }) =>
+  true ? (
+    <span className="target" title={children}>
+      {orthography(children)}
+    </span>
+  ) : (
+    <TargetLetter>{children}</TargetLetter>
+  );
 
 const TargetLetter = (props: {
   children: string;
@@ -17,11 +21,11 @@ const TargetLetter = (props: {
   style?: CSSProperties;
 }) => (
   <Letter title={props.children} className="target" {...props}>
-    {replaceEach(phoneticise(props.children).toLowerCase(), [
-      [/x/g, 'S'],
+    {replaceEach(props.children.toLowerCase(), [
+      [/[ktcdgnlriueoa]/g, (it) => it.toLowerCase()],
       [/h/g, 'x'],
+      [/x/g, 'S'],
       [/j/g, 'Z'],
-      [/y/g, 'j'],
     ])}
   </Letter>
 );
@@ -29,6 +33,15 @@ const TargetLetter = (props: {
 const Ipa = ({ children }: { children: string }) => (
   <span className="ipa">{toIpa(children)}</span>
 );
+
+const TargetAndIpa = ({ children }: { children: string }) =>
+  children === toIpa(children) ? (
+    <Target>{children}</Target>
+  ) : (
+    <>
+      <Target>{children}</Target> <Ipa>{children}</Ipa>
+    </>
+  );
 
 const term = {
   style: {
@@ -40,7 +53,9 @@ const term = {
 
 export default () => (
   <>
-    <h1 style={{ textAlign: 'center' }}>{name}</h1>
+    <h1 style={{ textAlign: 'center' }}>
+      <Target>{name}</Target>
+    </h1>
 
     <div
       style={{
@@ -48,9 +63,7 @@ export default () => (
         marginInline: 'auto',
       }}
     >
-      <TargetLetter>
-        {translate('KXIM LANGUAGE__ DONE END MAKE [ CALLED SUMI ]')}
-      </TargetLetter>
+      <Target>{translate('language done end make der called sumi')}</Target>
     </div>
 
     <section>
@@ -58,6 +71,7 @@ export default () => (
       <table>
         <thead>
           <tr>
+            <th></th>
             <th></th>
             <th></th>
             <th>velar</th>
@@ -68,130 +82,128 @@ export default () => (
         </thead>
         <tbody>
           <tr>
-            <th rowSpan={2}>plosive</th>
-            <th>unvoiced</th>
+            <th rowSpan={7}>consonant</th>
+            <th>lateral</th>
+            <th></th>
+            <td></td>
+            <td></td>
             <td>
-              <Target>k</Target>
+              <TargetAndIpa>l</TargetAndIpa>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>nasal</th>
+            <th></th>
+            <td>
+              <TargetAndIpa>g</TargetAndIpa>
             </td>
             <td></td>
             <td>
-              <Target>t</Target>
+              <TargetAndIpa>n</TargetAndIpa>
             </td>
             <td>
-              <Target>p</Target>
+              <TargetAndIpa>m</TargetAndIpa>
             </td>
           </tr>
           <tr>
+            <th rowSpan={2}>plosive</th>
             <th>voiced</th>
             <td>
-              <Target>C</Target> <Ipa>C</Ipa>
+              <TargetAndIpa>c</TargetAndIpa>
             </td>
             <td></td>
             <td>
-              <Target>d</Target>
+              <TargetAndIpa>d</TargetAndIpa>
             </td>
             <td>
-              <Target>b</Target>
+              <TargetAndIpa>b</TargetAndIpa>
+            </td>
+          </tr>
+          <tr>
+            <th>unvoiced</th>
+            <td>
+              <TargetAndIpa>k</TargetAndIpa>
+            </td>
+            <td></td>
+            <td>
+              <TargetAndIpa>t</TargetAndIpa>
+            </td>
+            <td>
+              <TargetAndIpa>p</TargetAndIpa>
             </td>
           </tr>
           <tr>
             <th rowSpan={2}>fricative</th>
             <th>unvoiced</th>
             <td>
-              <Target>h</Target>
+              <TargetAndIpa>h</TargetAndIpa>
             </td>
             <td>
-              <Target>x</Target> <Ipa>X</Ipa>
+              <TargetAndIpa>x</TargetAndIpa>
             </td>
             <td>
-              <Target>s</Target>
+              <TargetAndIpa>s</TargetAndIpa>
             </td>
             <td>
-              <Target>f</Target>
+              <TargetAndIpa>f</TargetAndIpa>
             </td>
           </tr>
           <tr>
             <th>voiced</th>
             <td></td>
             <td>
-              <Target>j</Target> <Ipa>J</Ipa>
+              <TargetAndIpa>j</TargetAndIpa>
             </td>
             <td>
-              <Target>z</Target>
+              <TargetAndIpa>z</TargetAndIpa>
             </td>
             <td>
-              <Target>v</Target>
+              <TargetAndIpa>v</TargetAndIpa>
             </td>
           </tr>
           <tr>
-            <th>nasal</th>
-            <td></td>
-            <td>
-              <Target>g</Target> <Ipa>G</Ipa>
-            </td>
-            <td></td>
-            <td>
-              <Target>n</Target>
-            </td>
-            <td>
-              <Target>m</Target>
-            </td>
-          </tr>
-          <tr>
-            <th>lateral</th>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td>
-              <Target>l</Target>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <th>approximant</th>
+            <th>approcsimant</th>
             <th></th>
             <td></td>
             <td>
-              <Target>j</Target>
+              <Target>j</Target> <Ipa>ĭ</Ipa>
             </td>
             <td>
-              <Target>r</Target>
+              <TargetAndIpa>r</TargetAndIpa>
             </td>
             <td>
-              <Target>v</Target> <Ipa>W</Ipa>
+              <Target>v</Target> <Ipa>ŭ</Ipa>
             </td>
           </tr>
           <tr>
             <th rowSpan={3}>vowel</th>
-            <th>high</th>
-            <td></td>
+            <th>non-mid</th>
+            <th></th>
             <td>
-              <Target>i</Target>
+              <TargetAndIpa>a</TargetAndIpa>
+            </td>
+            <td>
+              <TargetAndIpa>i</TargetAndIpa>
             </td>
             <td></td>
             <td>
-              <Target>u</Target>
+              <TargetAndIpa>u</TargetAndIpa>
             </td>
           </tr>
           <tr>
             <th>mid</th>
-            <td></td>
+            <th></th>
             <td>
-              <Target>e</Target>
+              <TargetAndIpa>w</TargetAndIpa>
+            </td>
+            <td>
+              <TargetAndIpa>e</TargetAndIpa>
             </td>
             <td></td>
             <td>
-              <Target>o</Target>
+              <TargetAndIpa>o</TargetAndIpa>
             </td>
-          </tr>
-          <tr>
-            <th>low</th>
-            <td>
-              <Target>a</Target>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
           </tr>
         </tbody>
       </table>
@@ -208,62 +220,60 @@ export default () => (
       >
         {[
           [
-            ['(someone) gives (something) (to someone)', 'GIVE'],
-            ['(someone) gives water (to someone)', 'GIVE [ WATER'],
-            ['(someone) gives water to a cat', 'GIVE [ WATER DEM CAT'],
-            ['a person gives water to a cat', 'PERSON GIVE [ WATER DEM CAT'],
+            ['(someone) giveth (something) (to someone)', 'give'],
+            ['(someone) giveth water (to someone)', 'give den water'],
+            ['(someone) giveth water to a cat', 'give den water to cat'],
+            ['a person giveth water to a cat', 'person give den water to cat'],
             [
-              'a healthy person gives fresh water to a black cat',
-              'PERSON HEALTHY GIVE [ WATER FRESH DEM CAT BLACK',
+              'a tall person giveth fresh water to a black cat',
+              'person long give den water fresh to cat black',
             ],
             [
-              'a person giving fresh water to a black cat is healthy',
-              'PERSON GIVE [ WATER FRESH DEM CAT BLACK ] HEALTHY',
+              'a person giving fresh water to a black cat is tall',
+              'person give den water fresh to cat black then long',
             ],
-            ['water given is fresh', 'WATER DONE GIVE FRESH'],
+            ['water given is fresh', 'water done give fresh'],
             [
               'water given by a person is fresh',
-              'WATER DONE GIVE [ PERSON ] FRESH',
+              'water done give der person then fresh',
             ],
             [
               'water given to a cat by a person is fresh',
-              'WATER DONE GIVE [ PERSON DEM CAT ] FRESH',
+              'water done give der person to cat then fresh',
             ],
             [
               'a cat given water is black',
-              'CAT DONE DEM GIVE [ DEN WATER ] FRESH',
+              'cat done to give den water then black',
             ],
             [
               'a cat given water by a person is black',
-              'CAT DONE DEM GIVE [ PERSON DEN WATER ] FRESH',
+              'cat done to give der person den water then fresh',
             ],
           ].map(([en, code]) => (
             <table className="sample">
-              <colgroup>
-                <col
-                  style={{ borderInlineEnd: '1px solid', inlineSize: '1em' }}
-                />
-              </colgroup>
               <tbody>
                 <tr>
-                  <th>💭</th>
                   <td>{en}</td>
                 </tr>
                 <tr>
-                  <th>🏷️</th>
-                  {/*🧩*/}
-                  <td className="code">{code}</td>
-                </tr>
-                <tr>
-                  <th>🖊</th>
                   <td>
-                    <Target>{translate(code)}</Target>
-                  </td>
-                </tr>
-                <tr>
-                  <th>💬</th>
-                  <td className="ipa">
-                    <Ipa>{translate(code)}</Ipa>
+                    {code.split(/(?<=\s+)|(?=\s+)/g).map((chunk) =>
+                      dic.has(chunk) ? (
+                        <ruby>
+                          <ruby>
+                            <span className="target">
+                              {orthography(dic.get(chunk)?.betokener)}
+                            </span>
+                            <rt className="ipa">
+                              {toIpa(dic.get(chunk)?.betokener)}
+                            </rt>
+                          </ruby>
+                          <rt className="code">{chunk}</rt>
+                        </ruby>
+                      ) : (
+                        chunk
+                      )
+                    )}
                   </td>
                 </tr>
               </tbody>
@@ -288,45 +298,63 @@ export default () => (
         for (const date in dateToKeys) {
           dateToKeys[date] = dateToKeys[date].filter(
             (k, i, self) =>
-              !k.endsWith('_') || !self.includes(k.replace(/_$/, ''))
+              (!k.endsWith('*') || !self.includes(k.replace(/\*$/, ''))) &&
+              (!k.endsWith('#') || !self.includes(k.replace(/\#$/, '')))
           );
           sum += dateToKeys[date].length;
         }
 
+        const date0 = Object.keys(dateToKeys).reduce((acc, current) =>
+          current < acc ? current : acc
+        );
+
         let acc = 0;
         return (
           <table className="progress">
-            {Object.keys(dateToKeys)
-              .sort()
-              .map((date) => {
-                acc += dateToKeys[date].length;
-                const percent = (acc / sum) * 100;
-                return (
-                  <tr>
-                    <th style={{ textWrap: 'nowrap' }}>{date}</th>
-                    <td
-                      style={{
-                        background: `linear-gradient(to right, #0001 0%, #0001 ${percent}%, transparent ${percent}%, transparent 100%)`,
-                      }}
-                    >
-                      {dateToKeys[date].join(' ')}
-                    </td>
-                    <td style={{ textWrap: 'nowrap' }}>
-                      +{dateToKeys[date].length}
-                    </td>
-                    <td style={{ textWrap: 'nowrap' }}>{acc}</td>
-                  </tr>
-                );
-              })}
+            <tbody>
+              {Object.keys(dateToKeys)
+                .sort()
+                .map((date) => {
+                  acc += dateToKeys[date].length;
+                  const percent = (acc / sum) * 100;
+                  return (
+                    <tr>
+                      <th style={{ textWrap: 'nowrap' }}>
+                        {toDayString(new Date(date))}
+                      </th>
+                      <td>
+                        {(new Date(date).getTime() -
+                          new Date(date0).getTime()) /
+                          1000 /
+                          60 /
+                          60 /
+                          24}
+                      </td>
+                      <td
+                        style={{
+                          background: `linear-gradient(to right, #0001 0%, #0001 ${percent}%, transparent ${percent}%, transparent 100%)`,
+                        }}
+                        className="code"
+                      >
+                        {dateToKeys[date].join(' ')}
+                      </td>
+                      <td style={{ textWrap: 'nowrap' }}>
+                        +{dateToKeys[date].length}
+                      </td>
+                      <td style={{ textWrap: 'nowrap' }}>{acc}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
           </table>
         );
       })()}
 
-      <table className="dictionary" style={{ margin: 'auto' }}>
+      <table className="dictionary">
         <thead className="h">
           <tr>
-            <th>key</th>
-            <th colSpan={2}>betokener</th>
+            <th></th>
+            <th>betokener</th>
             <th>sound</th>
             <th>class</th>
             <th>betokened</th>
@@ -336,13 +364,10 @@ export default () => (
         <tbody>
           {[...dic.entries()].map(
             ([key, { betokener, betokened, klass, origin, formation }]) => (
-              <tr style={betokener ? {} : { backgroundColor: '#F002' }}>
+              <tr id={'entry-' + key}>
                 <td className="code">{key}</td>
                 <td>
                   <Target>{betokener}</Target>
-                </td>
-                <td>
-                  <TargetLetter>{betokener}</TargetLetter>
                 </td>
                 <td>
                   <Ipa>{betokener}</Ipa>
@@ -350,7 +375,10 @@ export default () => (
                 <td>{klass}</td>
                 {betokened.startsWith('=') ? (
                   <td>
-                    =<Target>{betokened.substring(1)}</Target>
+                    =
+                    <a href={'#entry-' + betokened.substring(1)}>
+                      <Target>{translate(betokened.substring(1))}</Target>
+                    </a>
                   </td>
                 ) : (
                   <td>
