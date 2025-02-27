@@ -34,15 +34,6 @@ const Ipa = ({ children }: { children: string }) => (
   <span className="ipa">{toIpa(children)}</span>
 );
 
-const TargetAndIpa = ({ children }: { children: string }) =>
-  children === toIpa(children) ? (
-    <Target>{children}</Target>
-  ) : (
-    <>
-      <Target>{children}</Target> <Ipa>{children}</Ipa>
-    </>
-  );
-
 const term = {
   style: {
     paddingInline: '.5rex',
@@ -87,123 +78,81 @@ export default () => (
             <th></th>
             <td></td>
             <td></td>
-            <td>
-              <TargetAndIpa>l</TargetAndIpa>
-            </td>
+            <td>l</td>
             <td></td>
           </tr>
           <tr>
             <th>nasal</th>
             <th></th>
             <td>
-              <TargetAndIpa>g</TargetAndIpa>
+              g <span className="ipa">ŋ</span>
             </td>
             <td></td>
-            <td>
-              <TargetAndIpa>n</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>m</TargetAndIpa>
-            </td>
+            <td>n</td>
+            <td>m</td>
           </tr>
           <tr>
             <th rowSpan={2}>plosive</th>
             <th>voiced</th>
             <td>
-              <TargetAndIpa>c</TargetAndIpa>
+              c <span className="ipa">g</span>
             </td>
             <td></td>
-            <td>
-              <TargetAndIpa>d</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>b</TargetAndIpa>
-            </td>
+            <td>d</td>
+            <td>b</td>
           </tr>
           <tr>
             <th>unvoiced</th>
-            <td>
-              <TargetAndIpa>k</TargetAndIpa>
-            </td>
+            <td>k</td>
             <td></td>
-            <td>
-              <TargetAndIpa>t</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>p</TargetAndIpa>
-            </td>
+            <td>t</td>
+            <td>p</td>
           </tr>
           <tr>
             <th rowSpan={2}>fricative</th>
             <th>unvoiced</th>
+            <td>h</td>
             <td>
-              <TargetAndIpa>h</TargetAndIpa>
+              x <span className="ipa">ɕ</span>
             </td>
-            <td>
-              <TargetAndIpa>x</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>s</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>f</TargetAndIpa>
-            </td>
+            <td>s</td>
+            <td>f</td>
           </tr>
           <tr>
             <th>voiced</th>
             <td></td>
             <td>
-              <TargetAndIpa>j</TargetAndIpa>
+              j <span className="ipa">ʑ</span>
             </td>
-            <td>
-              <TargetAndIpa>z</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>v</TargetAndIpa>
-            </td>
+            <td>z</td>
+            <td></td>
           </tr>
           <tr>
             <th>approcsimant</th>
             <th></th>
             <td></td>
+            <td>j</td>
+            <td>r</td>
             <td>
-              <Target>j</Target> <Ipa>ĭ</Ipa>
-            </td>
-            <td>
-              <TargetAndIpa>r</TargetAndIpa>
-            </td>
-            <td>
-              <Target>v</Target> <Ipa>ŭ</Ipa>
+              v <span className="ipa">ʋ</span>
             </td>
           </tr>
           <tr>
             <th rowSpan={3}>vowel</th>
             <th>non-mid</th>
             <th></th>
-            <td>
-              <TargetAndIpa>a</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>i</TargetAndIpa>
-            </td>
+            <td>a</td>
+            <td>i</td>
             <td></td>
-            <td>
-              <TargetAndIpa>u</TargetAndIpa>
-            </td>
+            <td>u</td>
           </tr>
           <tr>
             <th>mid</th>
             <th></th>
-            <td>
-              <TargetAndIpa>w</TargetAndIpa>
-            </td>
-            <td>
-              <TargetAndIpa>e</TargetAndIpa>
-            </td>
             <td></td>
-            <td>
-              <TargetAndIpa>o</TargetAndIpa>
-            </td>
+            <td>e</td>
+            <td></td>
+            <td>o</td>
           </tr>
         </tbody>
       </table>
@@ -249,15 +198,15 @@ export default () => (
               'a cat given water by a person is black',
               'cat done to give der person den water then fresh',
             ],
+
+            ['i am a cat', 'i cat'],
+            ['i am not a cat', 'not that{ i cat'],
           ].map(([en, code]) => (
             <table className="sample">
               <tbody>
                 <tr>
-                  <td>{en}</td>
-                </tr>
-                <tr>
                   <td>
-                    {code.split(/(?<=\s+)|(?=\s+)/g).map((chunk) =>
+                    {code.split(/(?<=\s+)|(?=\s+)/g).map((chunk, i, self) =>
                       dic.has(chunk) ? (
                         <ruby>
                           <ruby>
@@ -265,7 +214,9 @@ export default () => (
                               {orthography(dic.get(chunk)?.betokener)}
                             </span>
                             <rt className="ipa">
+                              {i === 0 ? '[' : ''}
                               {toIpa(dic.get(chunk)?.betokener)}
+                              {i === self.length - 1 ? ']' : ''}
                             </rt>
                           </ruby>
                           <rt className="code">{chunk}</rt>
@@ -275,6 +226,7 @@ export default () => (
                       )
                     )}
                   </td>
+                  <td>{en}</td>
                 </tr>
               </tbody>
             </table>

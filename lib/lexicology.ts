@@ -1,7 +1,7 @@
 import { replaceEach } from './common';
 import { invalid } from './phonology';
 
-export const name = 'kxala';
+export const name = 'kxal';
 
 const fromAcronym = (acronym: string) =>
   replaceEach(acronym, [
@@ -92,7 +92,7 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Other,
       betokened: 'separateth predicates',
       origin: 'a priori',
-      betokener: 'zu',
+      betokener: 'su',
     },
 
     der: {
@@ -133,7 +133,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: 'adverb',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-līkaz',
-      betokener: 'iska',
+      betokener: 'isk',
     },
 
     done: {
@@ -177,9 +177,8 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[tense] past',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ded%C7%AD',
-      betokener: 'do',
+      origin: 'https://en.wiktionary.org/wiki/%E5%92%97#Chinese',
+      betokener: 'zo',
     },
     do: {
       zh: '今',
@@ -225,7 +224,7 @@ const dicPre = new Map<string, ValuePre>(
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skulaną',
     },
 
-    SO: {
+    so: {
       date: '2024-02-13',
       klass: Klass.Preverb,
       betokened: '[restrictiveness] which is, so (non-restrictive)',
@@ -330,6 +329,28 @@ const dicPre = new Map<string, ValuePre>(
       betokener: 'no',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/namô',
+    },
+
+    _bound0: {
+      date: '2025-02-27',
+      klass: Klass.Other,
+      betokened: 'bound variable 0',
+      origin: 'a priori',
+      betokener: 'ri',
+    },
+    _bound1: {
+      date: '2025-02-27',
+      klass: Klass.Other,
+      betokened: 'bound variable 0',
+      origin: 'a priori',
+      betokener: 're',
+    },
+    _bound2: {
+      date: '2025-02-27',
+      klass: Klass.Other,
+      betokened: 'bound variable 0',
+      origin: 'a priori',
+      betokener: 'ra',
     },
 
     zero: {
@@ -663,7 +684,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened: '[extent.polarity] @0 is (positive, above objective norm)',
-      betokener: 'vela',
+      betokener: 'vel',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wela',
     },
@@ -671,7 +692,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-29',
       klass: Klass.Verb,
       betokened: '[extent.polarity] @0 is (negative, below objective norm)',
-      betokener: 'misa',
+      betokener: 'mis',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/missa-',
     },
@@ -680,7 +701,7 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Verb,
       betokened:
         '[extent.dynamic] @0 is (riseth, goeth up, ascends) along with @1',
-      betokener: 'risa',
+      betokener: 'ris',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABsan%C4%85',
     },
@@ -689,7 +710,7 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Verb,
       betokened:
         '[extent.dynamic] @0 is (falleth, goeth down, descends) along with @1',
-      betokener: 'fala',
+      betokener: 'fal',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fallan%C4%85',
     },
@@ -697,7 +718,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[extent.extreme] @0 is (maximal, possibly highest)',
-      betokener: 'mixa',
+      betokener: 'mix',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mikilaz',
     },
@@ -705,7 +726,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[extent.extreme] @0 is (minimal, possibly lowest)',
-      betokener: 'luta',
+      betokener: 'lut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABtilaz',
     },
@@ -766,7 +787,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 (existeth, is a thing, is an object)',
-      betokener: 'vesa',
+      betokener: 'ves',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wesan%C4%85',
     },
@@ -775,7 +796,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-23',
       klass: Klass.Verb,
       betokened: '@0 (happeneth, occureth, realiseth, is actual, is an event)',
-      betokener: 'skeka',
+      betokener: 'skek',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skehan%C4%85',
     },
@@ -794,7 +815,7 @@ const dicPre = new Map<string, ValuePre>(
         eng: 'shape',
         deu: 'schaffen',
       },
-      betokener: 'skapa',
+      betokener: 'skap',
     },
     break: {
       zh: '壞',
@@ -808,7 +829,7 @@ const dicPre = new Map<string, ValuePre>(
         eng: 'break',
         deu: 'brechen',
       },
-      betokener: 'breka',
+      betokener: 'brek',
       complex: ['back', 'make'],
     },
 
@@ -826,7 +847,7 @@ const dicPre = new Map<string, ValuePre>(
         eng: 'have',
         deu: 'haben',
       },
-      betokener: 'kaba',
+      betokener: 'kab',
     },
     give: {
       zh: '與',
@@ -842,7 +863,7 @@ const dicPre = new Map<string, ValuePre>(
         eng: 'give',
         deu: 'geben',
       },
-      betokener: 'ceba',
+      betokener: 'ceb',
     },
     take: {
       zh: '取',
@@ -858,7 +879,7 @@ const dicPre = new Map<string, ValuePre>(
         eng: 'nim',
         deu: 'nehmen',
       },
-      betokener: 'nema',
+      betokener: 'nem',
       complex: ['back', 'give'],
     },
 
@@ -875,14 +896,14 @@ const dicPre = new Map<string, ValuePre>(
         ice: 'frá',
         eng: 'from',
       },
-      betokener: 'fana',
+      betokener: 'fan',
     },
     go: {
       zh: '往',
       date: '2024-08-26',
       klass: Klass.Verb,
       betokened: '@0 (is, goeth) (to, until) @{1:sink, destination, goal}',
-      betokener: 'tila',
+      betokener: 'til',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/til%C4%85',
     },
@@ -891,7 +912,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-26',
       klass: Klass.Verb,
       betokened: '@0 (is, passeth) (through, via) @{1:process, route, medium}',
-      betokener: 'durka',
+      betokener: 'durk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEurhw',
     },
@@ -900,7 +921,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-26',
       klass: Klass.Verb,
       betokened: '@0 is at @{1:position, location, place}',
-      betokener: 'ata',
+      betokener: 'at',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/at',
     },
     in: {
@@ -908,7 +929,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '@0 is in @{1:range, area}',
-      betokener: 'ina',
+      betokener: 'in',
       origin: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/in',
     },
 
@@ -917,7 +938,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-06',
       klass: Klass.Verb,
       betokened: '@0 is in @{1:collection, set, group, list}',
-      betokener: 'cada',
+      betokener: 'cad',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/gad',
     },
@@ -926,7 +947,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-06',
       klass: Klass.Verb,
       betokened: '@0 is a (part, component) of @{1:whole}',
-      betokener: 'dela',
+      betokener: 'del',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz',
     },
@@ -957,7 +978,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-02',
       klass: Klass.Verb,
       betokened: '@0 is containeth @1',
-      betokener: 'kalta',
+      betokener: 'kalt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haldan%C4%85',
     },
@@ -966,7 +987,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-02',
       klass: Klass.Verb,
       betokened: '@0 is full of @1',
-      betokener: 'fola',
+      betokener: 'fol',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz',
       complex: ['most', 'contain'],
@@ -976,7 +997,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-02',
       klass: Klass.Verb,
       betokened: '@0 is empty of @1',
-      betokener: 'toma',
+      betokener: 'tom',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz',
       complex: ['least', 'contain'],
@@ -987,7 +1008,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-31',
       klass: Klass.Verb,
       betokened: '@0 (moveth, is dynamic)',
-      betokener: 'veja',
+      betokener: 'vej',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wegan%C4%85',
     },
@@ -996,7 +1017,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-31',
       klass: Klass.Verb,
       betokened: '@0 (stopeth, halteth, is static)',
-      betokener: 'stopa',
+      betokener: 'stop',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/stopp%C5%8Dn',
       complex: ['least', 'move'],
@@ -1007,7 +1028,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-10-01',
       klass: Klass.Verb,
       betokened: '@0 is a (point, position, dot)',
-      betokener: 'bruda',
+      betokener: 'brud',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bruzdaz',
     },
@@ -1016,7 +1037,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-10-01',
       klass: Klass.Verb,
       betokened: '@0 is (an interval, an area, a volume, a domain)',
-      betokener: 'kopa',
+      betokener: 'kop',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haupaz',
     },
@@ -1026,7 +1047,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is a (world, universe)',
-      betokener: 'xema',
+      betokener: 'xem',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haimaz',
     },
@@ -1037,7 +1058,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 is the 3-dimensional physical spacial continuum',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABm%C4%85',
-      betokener: 'ruma',
+      betokener: 'rum',
     },
     time: {
       zh: '時',
@@ -1046,7 +1067,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 is the 1-dimensional physical temporal continuum',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABm%C3%B4',
-      betokener: 'tima',
+      betokener: 'tim',
     },
     thing: {
       zh: '物',
@@ -1055,7 +1076,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 is a (thing, matter) located in a spacetime',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEing%C4%85',
-      betokener: 'diga',
+      betokener: 'dig',
     },
     mass: {
       date: '2024-08-31',
@@ -1063,14 +1084,14 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 is mass of @1',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/balk%C3%B4',
-      betokener: 'balxa',
+      betokener: 'balx',
     },
 
     energy: {
       date: '2024-08-31',
       klass: Klass.Verb,
       betokened: '@0 is energy of @1',
-      betokener: 'xuna',
+      betokener: 'xun',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kunnan%C4%85',
     },
@@ -1084,7 +1105,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-31',
       klass: Klass.Verb,
       betokened: '@0 hath electric charge in @1',
-      betokener: 'spaka',
+      betokener: 'spak',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sparkaz',
     },
@@ -1092,7 +1113,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-10-01',
       klass: Klass.Verb,
       betokened: '@0 is force',
-      betokener: 'valta',
+      betokener: 'valt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wald%C4%85',
     },
@@ -1101,7 +1122,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '@{0:medium} waveth @{1:form}',
-      betokener: 'bulja',
+      betokener: 'bulj',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bulgij%C5%8D',
     },
@@ -1109,7 +1130,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[wave] @0 is (a light, an electromagnetic wave)',
-      betokener: 'ljuta',
+      betokener: 'ljut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85',
     },
@@ -1117,7 +1138,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '[wave] @0 is a sound from @1',
-      betokener: 'kliga',
+      betokener: 'klig',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/klingan%C4%85',
     },
@@ -1125,7 +1146,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '@0 (turneth, rotateth, spineth) around @{1:pivot, center}',
-      betokener: 'drena',
+      betokener: 'dren',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEr%C4%93an%C4%85',
     },
@@ -1134,7 +1155,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-12-08',
       klass: Klass.Verb,
       betokened: '@0 burneth @1',
-      betokener: 'branta',
+      betokener: 'brant',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brandaz',
     },
@@ -1145,7 +1166,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is (big, great)',
-      betokener: 'crota',
+      betokener: 'crot',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/grautaz',
     },
@@ -1154,7 +1175,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is small',
-      betokener: 'smala',
+      betokener: 'smal',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smalaz',
       complex: ['low', 'big'],
@@ -1164,7 +1185,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is (long, big in 1 dimension and small in others)',
-      betokener: 'laga',
+      betokener: 'lag',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/langaz',
     },
@@ -1173,7 +1194,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is (short, small in 1 dimension and small in others)',
-      betokener: 'skurta',
+      betokener: 'skurt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz',
       complex: ['low', 'long'],
@@ -1184,7 +1205,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '@0 is thick',
-      betokener: 'dika',
+      betokener: 'dik',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEekuz',
     },
@@ -1193,7 +1214,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-07-28',
       klass: Klass.Verb,
       betokened: '@{0:angle} is sharp',
-      betokener: 'skarpa',
+      betokener: 'skarp',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skarpaz',
     },
@@ -1202,7 +1223,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-07-14',
       klass: Klass.Verb,
       betokened: '@0 is heavy',
-      betokener: 'svera',
+      betokener: 'sver',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%93raz',
     },
@@ -1211,7 +1232,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-07-15',
       klass: Klass.Verb,
       betokened: '@0 is (dense, heavy per volume)',
-      betokener: 'dinta',
+      betokener: 'dint',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEinhtaz',
     },
@@ -1221,7 +1242,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-06-18',
       klass: Klass.Verb,
       betokened: '@0 is (swift, quick)',
-      betokener: 'snela',
+      betokener: 'snel',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snellaz',
     },
@@ -1230,7 +1251,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-06',
       klass: Klass.Verb,
       betokened: '@0 is slow',
-      betokener: 'sleva',
+      betokener: 'slev',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slaiwaz',
       complex: ['low', 'swift'],
@@ -1239,7 +1260,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-24',
       klass: Klass.Verb,
       betokened: '@0 (is rough, is coarse, hath high friction) against @1',
-      betokener: 'ruka',
+      betokener: 'ruk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABhaz',
     },
@@ -1248,7 +1269,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 (is smooth, is sleek, hath low friction) against @1',
-      betokener: 'slika',
+      betokener: 'slik',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sl%C4%ABkan%C4%85',
       complex: ['low', 'rough'],
@@ -1258,7 +1279,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is soft against @1',
-      betokener: 'vika',
+      betokener: 'vik',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABkwan%C4%85',
     },
@@ -1267,7 +1288,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-26',
       klass: Klass.Verb,
       betokened: '@0 is (hard, firm) against @1',
-      betokener: 'fasta',
+      betokener: 'fast',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fastuz',
       complex: ['low', 'soft'],
@@ -1277,7 +1298,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-30',
       klass: Klass.Verb,
       betokened: '[temparature] @0 is (hot, warm)',
-      betokener: 'varma',
+      betokener: 'varm',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/warmaz',
     },
@@ -1286,7 +1307,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-30',
       klass: Klass.Verb,
       betokened: '[temparature] @0 (cold, cool)',
-      betokener: 'kala',
+      betokener: 'kal',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kalan%C4%85',
       complex: ['low', 'hot'],
@@ -1296,7 +1317,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-08',
       klass: Klass.Verb,
       betokened: '[proximity] @0 is (far, distant, remote) from @1',
-      betokener: 'fera',
+      betokener: 'fer',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ferrai',
     },
@@ -1305,7 +1326,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-08',
       klass: Klass.Verb,
       betokened: '[proximity] @0 is (near, close to) @1',
-      betokener: 'nexa',
+      betokener: 'nex',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz',
       complex: ['low', 'far'],
@@ -1324,7 +1345,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[position.global] @0 is before @{1:after}',
-      betokener: 'fora',
+      betokener: 'for',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furai',
     },
@@ -1335,7 +1356,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '[position] @0 is below @{1:above, far against gravity}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ni%C3%BEan%C4%93',
-      betokener: 'nida',
+      betokener: 'nid',
     },
     hind: {
       zh: '後',
@@ -1344,7 +1365,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '[position.local] @0 is behind @{1:front}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hinder',
-      betokener: 'xinta',
+      betokener: 'xint',
     },
     front: {
       zh: '前',
@@ -1360,7 +1381,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '[position] @0 is to the left of @{1:right}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Old_High_German/link',
-      betokener: 'ligka',
+      betokener: 'ligk',
     },
     right: {
       zh: '右',
@@ -1376,7 +1397,7 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Verb,
       betokened:
         '[position.global] @0 is to the west of @{1:to the east, far agaisnt rotation}',
-      betokener: 'vesta',
+      betokener: 'vest',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/westraz',
     },
@@ -1385,7 +1406,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-24',
       klass: Klass.Verb,
       betokened: '[position.global] @0 is to the north of @{1:to the south}',
-      betokener: 'nurda',
+      betokener: 'nurd',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nur%C3%BEraz',
     },
@@ -1395,7 +1416,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is solid',
-      betokener: 'stifa',
+      betokener: 'stif',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%ABfaz',
     },
@@ -1404,7 +1425,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is liquid',
-      betokener: 'fluta',
+      betokener: 'flut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flut%C4%85',
     },
@@ -1413,7 +1434,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is gas',
-      betokener: 'casa',
+      betokener: 'cas',
       origin: 'https://en.wiktionary.org/wiki/gas#Dutch',
     },
     plasm: {
@@ -1421,7 +1442,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-07-15',
       klass: Klass.Verb,
       betokened: '[state-of-matter] @0 is plasm',
-      betokener: 'flama',
+      betokener: 'flam',
       origin: 'https://en.wiktionary.org/wiki/flamma#Latin',
     },
 
@@ -1430,7 +1451,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[matter] @0 is water',
-      betokener: 'vata',
+      betokener: 'vat',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wat%C5%8Dr',
     },
@@ -1439,7 +1460,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[matter] @0 is salt',
-      betokener: 'salta',
+      betokener: 'salt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/salt%C4%85',
     },
@@ -1448,7 +1469,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-08-19',
       klass: Klass.Verb,
       betokened: '[matter] @0 is stone',
-      betokener: 'stena',
+      betokener: 'sten',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stainaz',
     },
@@ -1457,7 +1478,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '[matter] @0 is smoke',
-      betokener: 'dvema',
+      betokener: 'dvem',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dwemr%C4%85',
     },
@@ -1466,7 +1487,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '[matter] @0 is ash',
-      betokener: 'axa',
+      betokener: 'ax',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ask%C7%AD',
     },
@@ -1475,7 +1496,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-09-16',
       klass: Klass.Verb,
       betokened: '@0 is (wet, moist)',
-      betokener: 'veta',
+      betokener: 'vet',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%93taz',
       complex: ['contain', 'water'],
@@ -1483,10 +1504,10 @@ const dicPre = new Map<string, ValuePre>(
     dry: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'druxa',
+      betokened: '@0 is dry',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/druknaz',
-      betokened: '@0 is dry',
+      betokener: 'drux',
       complex: ['low', 'contain', 'water'],
     },
 
@@ -1495,15 +1516,15 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[color] @0 is the color of @1',
-      betokener: 'farva',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/farwaz',
+      betokener: 'farv',
     },
     hue: {
       date: '2024-11-20',
       klass: Klass.Verb,
       betokened: '[color] @0 is {a hue, a frequency of a light} of @1',
-      betokener: 'xiva',
+      betokener: 'xiv',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hiwj%C4%85',
     },
@@ -1512,7 +1533,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[color.hue] @0 is red',
-      betokener: 'roda',
+      betokener: 'rod',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raudaz',
     },
@@ -1521,7 +1542,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       betokened: '[color.hue] @0 is orange',
-      betokener: 'raga',
+      betokener: 'rag',
       origin:
         'https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B1%D9%86%DA%AF#Persian',
     },
@@ -1529,7 +1550,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '黃',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'cula',
+      betokener: 'cul',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gulaz',
       betokened: '[color.hue] @0 is yellow',
@@ -1538,7 +1559,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '綠',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'crona',
+      betokener: 'cron',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C5%8Dniz',
       betokened: '[color.hue] @0 is green',
@@ -1547,7 +1568,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '靑',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'bleva',
+      betokener: 'blev',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C4%93waz',
       betokened: '[color.hue] @0 is blue',
@@ -1556,7 +1577,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '紫',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'vjona',
+      betokener: 'vjon',
       origin:
         'https://en.wiktionary.org/wiki/%E1%BC%B4%CE%BF%CE%BD#Ancient_Greek',
       betokened: '[color.hue] @0 is purple',
@@ -1565,7 +1586,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '鮮',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'xina',
+      betokener: 'xin',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%ABnan%C4%85',
       betokened: '[color.saturation] @0 is vivid-colored',
@@ -1580,7 +1601,7 @@ const dicPre = new Map<string, ValuePre>(
     gray: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'creva',
+      betokener: 'crev',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C4%93waz',
       betokened: '[color.saturation] @0 is gray',
@@ -1590,7 +1611,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '白',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'xvita',
+      betokener: 'xvit',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%ABtaz',
       betokened: '[color.brightness] @0 is white',
@@ -1599,7 +1620,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '黑',
       date: '2024-04-26',
       klass: Klass.Verb,
-      betokener: 'svarta',
+      betokener: 'svart',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swartaz',
       betokened: '[color.brightness] @0 is black',
@@ -1611,7 +1632,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '明',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'berta',
+      betokener: 'bert',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/berhtaz',
       betokened: '@0 (is bright, reflecteth much light)',
@@ -1620,7 +1641,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '暗',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'dima',
+      betokener: 'dim',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dimmaz',
       betokened: '@0 is dark',
@@ -1632,7 +1653,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '日',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'suna',
+      betokener: 'sun',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sunn%C7%AD',
       betokened: '[celestial] @0 is sun',
@@ -1641,7 +1662,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '地',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'erda',
+      betokener: 'erd',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/er%C3%BE%C5%8D',
       betokened: '[celestial] @0 is earth',
@@ -1650,7 +1671,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '月',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'mena',
+      betokener: 'men',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/m%C4%93n%C3%B4',
       betokened: '[celestial] @0 is moon',
@@ -1660,7 +1681,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '年',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'jera',
+      betokener: 'jer',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/j%C4%93r%C4%85',
       betokened: '[celestial.interval] @0 is year of @{1:earth}',
@@ -1678,14 +1699,14 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 is (winter, coldest interval) of @{1:earth}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wintruz',
-      betokener: 'vinta',
+      betokener: 'vint',
       complex: ['low', 'season'],
     },
     spring: {
       zh: '春',
       date: '2024-11-21',
       klass: Klass.Verb,
-      betokener: 'vara',
+      betokener: 'var',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wazr%C4%85',
       betokened: '@0 is (spring, second hottest interval) of @{1:earth}',
@@ -1695,7 +1716,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '夏',
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'suma',
+      betokener: 'sum',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sumaraz',
       betokened: '@0 is (summer, hottest interval) of @{1:earth}',
@@ -1705,7 +1726,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '秋',
       date: '2024-11-21',
       klass: Klass.Verb,
-      betokener: 'aza',
+      betokener: 'az',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/azaniz',
       betokened: '@0 is (autumn, second coldest interval) of @{1:earth}',
@@ -1718,13 +1739,13 @@ const dicPre = new Map<string, ValuePre>(
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABnaz',
       betokened: '[celestial.interval] @0 is day of @{1:earth}',
-      betokener: 'tina',
+      betokener: 'tin',
     },
     morning: {
       zh: '晝',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'murca',
+      betokener: 'murc',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/murginaz',
       betokened: '[celestial.interval] @0 is (morning, daytime) of @{1:earth}',
@@ -1734,7 +1755,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '夜',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'nata',
+      betokener: 'nat',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nahts',
       betokened: '[celestial.interval] @0 is night of @{1:earth}',
@@ -1746,7 +1767,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '陸',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'lanta',
+      betokener: 'lant',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/land%C4%85',
       betokened: '[terrain] @0 is land',
@@ -1755,7 +1776,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '海',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'mara',
+      betokener: 'mar',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mari',
       betokened: '[terrain] @0 is sea',
@@ -1764,7 +1785,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '山',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'berja',
+      betokener: 'berj',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bergaz',
       betokened: '[terrain] @0 is mountain',
@@ -1773,7 +1794,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '川',
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'stoma',
+      betokener: 'stom',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/straumaz',
       betokened: '[terrain] @0 is river',
@@ -1782,7 +1803,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '空',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'skiva',
+      betokener: 'skiv',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiwj%C4%85',
       betokened: '[terrain] @0 is sky',
@@ -1793,7 +1814,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '雲',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'volka',
+      betokener: 'volk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulkn%C4%85',
       betokened: '[weather] @0 is cloud',
@@ -1802,7 +1823,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '霧',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'mista',
+      betokener: 'mist',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mihstaz',
       betokened: '[weather] @0 is (fog, mist)',
@@ -1811,7 +1832,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '雨',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'rena',
+      betokener: 'ren',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/regn%C4%85',
       betokened: '[weather] @0 is rain',
@@ -1820,7 +1841,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '雪',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'sneva',
+      betokener: 'snev',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sn%C4%ABwan%C4%85',
       betokened: '[weather] @0 is snow',
@@ -1829,7 +1850,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '霰',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'kela',
+      betokener: 'kel',
       origin: 'https://en.wiktionary.org/wiki/h%C3%A6gl#Old_English',
       betokened: '[weather] @0 is hail',
     },
@@ -1837,7 +1858,7 @@ const dicPre = new Map<string, ValuePre>(
       zh: '雷',
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'duna',
+      betokener: 'dun',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEunraz',
       betokened: '[weather] @0 is thunder',
@@ -1847,7 +1868,7 @@ const dicPre = new Map<string, ValuePre>(
     feel: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'senta',
+      betokener: 'sent',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/sent-',
       betokened: '@0 (feeleth, senseth) @{1:stimulus}',
@@ -1855,7 +1876,7 @@ const dicPre = new Map<string, ValuePre>(
     hear: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'xleva',
+      betokener: 'xlev',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hleum%C3%B4',
       betokened: '[sense] @0 hears @{1:sound}',
@@ -1863,7 +1884,7 @@ const dicPre = new Map<string, ValuePre>(
     see: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'seka',
+      betokener: 'sek',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wl%C4%ABtan%C4%85',
       betokened: '[sense] @0 sees @{1:sight}',
@@ -1871,7 +1892,7 @@ const dicPre = new Map<string, ValuePre>(
     smell: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'rjuka',
+      betokener: 'rjuk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reukan%C4%85',
       betokened: '[sense] @0 smells @1',
@@ -1879,7 +1900,7 @@ const dicPre = new Map<string, ValuePre>(
     taste: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'smaka',
+      betokener: 'smak',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/smak%C4%93n',
       betokened: '[sense] @0 tastes @1',
@@ -1887,7 +1908,7 @@ const dicPre = new Map<string, ValuePre>(
     touch: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'teka',
+      betokener: 'tek',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%93kan%C4%85',
       betokened: '[sense] @0 (palpeth, toucheth) @1',
@@ -1896,7 +1917,7 @@ const dicPre = new Map<string, ValuePre>(
     differ: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'skila',
+      betokener: 'skil',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiljan%C4%85',
       betokened: '[comparison] @0 (differeth, varieth) from @1',
@@ -1904,7 +1925,7 @@ const dicPre = new Map<string, ValuePre>(
     same: {
       date: '2024-08-27',
       klass: Klass.Verb,
-      betokener: 'sama',
+      betokener: 'sam',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/samaz',
       betokened: '[comparison] @0 is (the same as, identical to, equal to) @1',
@@ -1916,7 +1937,7 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Verb,
       betokened: '@{0} (simulate, mimic, imitate, mock, fake)s @{1}',
       origin: 'https://en.wiktionary.org/wiki/mock#English',
-      betokener: 'moka',
+      betokener: 'mok',
     },
     test: {
       date: '2024-07-26',
@@ -1924,7 +1945,7 @@ const dicPre = new Map<string, ValuePre>(
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/keusan%C4%85',
       betokened: '@0 (checketh, examineth, inspecteth) @1',
-      betokener: 'xusa',
+      betokener: 'xus',
     },
     compare: {
       date: '2024-07-26',
@@ -1937,7 +1958,7 @@ const dicPre = new Map<string, ValuePre>(
     live: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'liba',
+      betokener: 'lib',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libjan%C4%85',
       betokened: '@0 (liveth, is alive)',
@@ -1952,7 +1973,7 @@ const dicPre = new Map<string, ValuePre>(
     wake: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'vaxa',
+      betokener: 'vax',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wakan%C4%85',
       betokened: '@0 (waketh, is awake)',
@@ -1960,7 +1981,7 @@ const dicPre = new Map<string, ValuePre>(
     sleep: {
       date: '2024-04-26',
       klass: Klass.Verb,
-      betokener: 'svefa',
+      betokener: 'svef',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swefan%C4%85',
       betokened: '@0 (sleepeth, is asleep)',
@@ -1971,7 +1992,7 @@ const dicPre = new Map<string, ValuePre>(
     lie: {
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'lica',
+      betokener: 'lic',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ligjan%C4%85',
       betokened: '[behavior] @0 (lieth, horizontally stays) on @1',
@@ -1979,7 +2000,7 @@ const dicPre = new Map<string, ValuePre>(
     sit: {
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'seta',
+      betokener: 'set',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sitjan%C4%85',
       betokened: '[behavior] @0 sits on @1',
@@ -1987,7 +2008,7 @@ const dicPre = new Map<string, ValuePre>(
     stand: {
       date: '2024-08-30',
       klass: Klass.Verb,
-      betokener: 'stana',
+      betokener: 'stan',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%81n%C4%85',
       betokened: '@0 stands on @1',
@@ -1995,7 +2016,7 @@ const dicPre = new Map<string, ValuePre>(
     walk: {
       date: '2024-06-18',
       klass: Klass.Verb,
-      betokener: 'valka',
+      betokener: 'valk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/walkan%C4%85',
       betokened: '[behavior] @0 walk on @{1:ground}',
@@ -2003,7 +2024,7 @@ const dicPre = new Map<string, ValuePre>(
     run: {
       date: '2024-06-18',
       klass: Klass.Verb,
-      betokener: 'rina',
+      betokener: 'rin',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rinnan%C4%85',
       betokened: '[behavior] @0 run on @{1:ground}',
@@ -2011,7 +2032,7 @@ const dicPre = new Map<string, ValuePre>(
     leap: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'lopa',
+      betokener: 'lop',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlaupan%C4%85',
       betokened: '[behavior] @0 (jump, leap, skip, hop) over @1',
@@ -2019,7 +2040,7 @@ const dicPre = new Map<string, ValuePre>(
     swim: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'svima',
+      betokener: 'svim',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85',
       betokened: '[behavior] @0 (swimeth, flieth) in @{1:fluid}',
@@ -2027,7 +2048,7 @@ const dicPre = new Map<string, ValuePre>(
     fly: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'fljuca',
+      betokener: 'fljuc',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleugan%C4%85',
       betokened: '[behavior] @0 flieth in @{1:air}',
@@ -2035,7 +2056,7 @@ const dicPre = new Map<string, ValuePre>(
     dream: {
       date: '2024-10-16',
       klass: Klass.Verb,
-      betokener: 'droma',
+      betokener: 'drom',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/draumaz',
       betokened: '[behavior] @0 dreams @{1:dream}',
@@ -2045,7 +2066,7 @@ const dicPre = new Map<string, ValuePre>(
     eat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'eta',
+      betokener: 'et',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/etan',
       betokened: '[physiological] @0 eats @{1:food}',
@@ -2053,7 +2074,7 @@ const dicPre = new Map<string, ValuePre>(
     bite: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'bita',
+      betokener: 'bit',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C4%ABtan%C4%85',
       betokened: '[physiological.eat] @0 bites @{1:food}',
@@ -2061,7 +2082,7 @@ const dicPre = new Map<string, ValuePre>(
     chew: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'xeva',
+      betokener: 'xev',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kewwan%C4%85',
       betokened: '[physiological.eat] @0 chews @{1:food}',
@@ -2069,7 +2090,7 @@ const dicPre = new Map<string, ValuePre>(
     swallow: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'svela',
+      betokener: 'svel',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swelgan%C4%85',
       betokened: '[physiological.eat] @0 swallows @{1:food}',
@@ -2077,7 +2098,7 @@ const dicPre = new Map<string, ValuePre>(
     vomit: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'puka',
+      betokener: 'puk',
       origin: 'https://en.wiktionary.org/wiki/puke',
       betokened: '[physiological] @0 vomits @{1:excreta}',
       complex: ['back', 'eat'],
@@ -2085,7 +2106,7 @@ const dicPre = new Map<string, ValuePre>(
     shit: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'drita',
+      betokener: 'drit',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/drit%C4%85',
       betokened: '[physiological] @0 shits @{1:excreta}',
@@ -2095,7 +2116,7 @@ const dicPre = new Map<string, ValuePre>(
     digest: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'melta',
+      betokener: 'melt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meltan%C4%85',
       betokened: '[physiological] @0 digests @{1:food}',
@@ -2103,7 +2124,7 @@ const dicPre = new Map<string, ValuePre>(
     fuck: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'foka',
+      betokener: 'fok',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fukk%C5%8Dn%C4%85',
       betokened: '[physiological] @0 fucks A',
@@ -2111,7 +2132,7 @@ const dicPre = new Map<string, ValuePre>(
     sick: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'sjuka',
+      betokener: 'sjuk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/seukaz',
       betokened: '[physiological] @0 (is sick, malfunctions)',
@@ -2119,7 +2140,7 @@ const dicPre = new Map<string, ValuePre>(
     healthy: {
       date: '2024-08-24',
       klass: Klass.Verb,
-      betokener: 'sunta',
+      betokener: 'sunt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz',
       betokened: '[physiological] @0 is healthy',
@@ -2138,34 +2159,34 @@ const dicPre = new Map<string, ValuePre>(
     emotion: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'kuca',
+      betokener: 'kuc',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hugiz',
-      betokened: '@0 feels @{1:emotion, feeling}',
+      betokened: '@0 feeleth @{1:emotion, feeling}',
     },
     bad: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'leda',
+      betokener: 'led',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lai%C3%BEaz',
       betokened:
-        '[emotion] @0 (disliketh, feeleth (bad, negative) about) @{1:bad}',
+        '[emotion] @0 (disliketh, feeleth bad about, hath a negative impression of) @{1:bad} @{#:desired change of distance}',
     },
     good: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'coda',
+      betokener: 'cod',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/g%C5%8Ddaz',
       betokened:
-        '[emotion] @0 (liketh, feels (good, positive) about) @{1:good}',
-      complex: ['low', 'bad'],
+        '[emotion] @0 (liketh, feeleth good about, hath a positive impression of) @{1:good}',
+      complex: ['negative', 'bad'],
     },
     sad: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'surca',
+      betokener: 'surc',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/surg%C5%8D',
       betokened: '[emotion] @0 is (sad, depressed) about @1',
@@ -2173,40 +2194,40 @@ const dicPre = new Map<string, ValuePre>(
     glad: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'frava',
+      betokener: 'frav',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/frawaz',
       betokened: '[emotion] @0 is (happy, glad, merry) about @1',
-      complex: ['low', 'sad'],
+      complex: ['negative', 'sad'],
     },
 
     care: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'kara',
+      betokener: 'kar',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kar%C5%8D',
-      betokened: '[emotion] @0 (regardeth, cares about) @{1:important}',
-    },
-    respect: {
-      date: '2024-09-10',
-      klass: Klass.Verb,
-      betokener: 'verda',
-      origin:
-        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wer%C3%BEaz',
-      betokened:
-        '[emotion] @0 (respecteth, honoureth, positively cares about) @1',
-      complex: ['good', 'care'],
+      betokened: '[emotion] @0 (regardeth, careth about) @{1:important}',
     },
     fear: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'forta',
+      betokener: 'fort',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furhtaz',
       betokened:
-        '[emotion] @0 (feareth, is afraid of, negatively cares about) @1',
+        '[emotion.care] @0 (worries, feareth, is afraid of, negatively cares about) @1',
       complex: ['bad', 'care'],
+    },
+    respect: {
+      date: '2024-09-10',
+      klass: Klass.Verb,
+      betokener: 'verd',
+      origin:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wer%C3%BEaz',
+      betokened:
+        '[emotion.care] @0 (respecteth, honoureth, positively cares about) @1',
+      complex: ['good', 'care'],
     },
     neglect: {
       date: '2024-09-10',
@@ -2218,7 +2239,7 @@ const dicPre = new Map<string, ValuePre>(
     serene: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'rova',
+      betokener: 'rov',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%8D%C5%8D',
       betokened:
@@ -2235,7 +2256,7 @@ const dicPre = new Map<string, ValuePre>(
     hate: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'xata',
+      betokener: 'xat',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hataz',
       betokened: '[emotion] @0 is (hateth, detests) @1',
@@ -2243,7 +2264,7 @@ const dicPre = new Map<string, ValuePre>(
     angry: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'vreda',
+      betokener: 'vred',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wrai%C3%BEaz',
       betokened: '[emotion] @0 is (angry with, mad at) @1',
@@ -2251,7 +2272,7 @@ const dicPre = new Map<string, ValuePre>(
     amaze: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'vonta',
+      betokener: 'vont',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wundr%C4%85',
       betokened: '[emotion] @0 is (surprised, amazed) at @1',
@@ -2259,7 +2280,7 @@ const dicPre = new Map<string, ValuePre>(
     expect: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'bida',
+      betokener: 'bid',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C4%ABdan%C4%85',
       betokened: '[emotion] @0 (expecteth, is not surprised at) @1',
@@ -2268,7 +2289,7 @@ const dicPre = new Map<string, ValuePre>(
     bore: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'bura',
+      betokener: 'bur',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bur%C5%8Dn%C4%85',
       betokened: '[emotion] @0 (is bored with, is far from surprised with) @1',
@@ -2277,7 +2298,7 @@ const dicPre = new Map<string, ValuePre>(
     enjoy: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'njuta',
+      betokener: 'njut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neutan%C4%85',
       betokened: '[emotion] @0 enjoys @1',
@@ -2285,7 +2306,7 @@ const dicPre = new Map<string, ValuePre>(
     trust: {
       date: '2024-08-02',
       klass: Klass.Verb,
-      betokener: 'truva',
+      betokener: 'truv',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tr%C5%ABw%C4%81n%C4%85',
       betokened: '[emotion] @0 trusts @1',
@@ -2301,7 +2322,7 @@ const dicPre = new Map<string, ValuePre>(
     pride: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'sturta',
+      betokener: 'sturt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stultaz',
       betokened: '[emotion] @0 is proud of @1',
@@ -2313,12 +2334,12 @@ const dicPre = new Map<string, ValuePre>(
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skam%C5%8D',
       betokened: '[emotion] @0 is ashamed of @1',
-      complex: ['low', 'pride'],
+      complex: ['negative', 'pride'],
     },
     shun: {
       date: '2024-09-27',
       klass: Klass.Verb,
-      betokener: 'skjuka',
+      betokener: 'skjuk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skeuhaz',
       betokened: '[emotion] @0 is (shuneth, avoideth) @1',
@@ -2326,7 +2347,7 @@ const dicPre = new Map<string, ValuePre>(
     want: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'vila',
+      betokener: 'vil',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wiljan%C4%85',
       betokened: '[emotion] @0 wants @1',
@@ -2335,7 +2356,7 @@ const dicPre = new Map<string, ValuePre>(
     love: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'jerna',
+      betokener: 'jern',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gernaz',
       betokened: '[emotion] @0 (loveth, is romantically attracted to) @1',
@@ -2343,7 +2364,7 @@ const dicPre = new Map<string, ValuePre>(
     randy: {
       date: '2024-09-12',
       klass: Klass.Verb,
-      betokener: 'cela',
+      betokener: 'cel',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gailaz',
       betokened:
@@ -2352,14 +2373,14 @@ const dicPre = new Map<string, ValuePre>(
     envy: {
       date: '2024-09-12',
       klass: Klass.Verb,
-      betokener: 'zela',
+      betokener: 'zel',
       origin: 'https://en.wiktionary.org/wiki/zelo#Latin',
       betokened: '[emotion.hate] @0 envies @1',
     },
     pity: {
       date: '2024-09-10',
       klass: Klass.Verb,
-      betokener: 'nada',
+      betokener: 'nad',
       origin: 'https://en.wiktionary.org/wiki/ginatha#Old_Dutch',
       betokened: '[emotion] @0 (pitieth, feel sympathy) @1',
     },
@@ -2368,7 +2389,7 @@ const dicPre = new Map<string, ValuePre>(
     laugh: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'laka',
+      betokener: 'lak',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlahjan%C4%85',
       betokened: '[facial-expression] @0 laugheth',
@@ -2376,7 +2397,7 @@ const dicPre = new Map<string, ValuePre>(
     smile: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'smila',
+      betokener: 'smil',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sm%C4%ABlijan%C4%85',
       betokened: '[facial-expression] @0 smileth',
@@ -2384,7 +2405,7 @@ const dicPre = new Map<string, ValuePre>(
     frown: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'skela',
+      betokener: 'skel',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skelhaz',
       betokened: '[facial-expression] @0 frowneth',
@@ -2392,7 +2413,7 @@ const dicPre = new Map<string, ValuePre>(
     weep: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'vopa',
+      betokener: 'vop',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C5%8Dpijan%C4%85',
       betokened: '[facial-expression] @0 weepeth @{1:tear}',
@@ -2400,7 +2421,7 @@ const dicPre = new Map<string, ValuePre>(
     yell: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'stuna',
+      betokener: 'stun',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stun%C5%8Dn%C4%85',
       betokened: '@0 (yelleth, crieth, shouteth) @{1:voice}',
@@ -2413,7 +2434,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '[mental] @0 knoweth @1',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/witan%C4%85',
-      betokener: 'vita',
+      betokener: 'vit',
     },
     learn: {
       date: '2024-08-01',
@@ -2431,7 +2452,7 @@ const dicPre = new Map<string, ValuePre>(
     think: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'dagka',
+      betokener: 'dagk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEankijan%C4%85',
       betokened: '[mental] @0 thinketh @{1:idea}',
@@ -2439,7 +2460,7 @@ const dicPre = new Map<string, ValuePre>(
     reason: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokener: 'rada',
+      betokener: 'rad',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ra%C3%BEj%C7%AD',
       betokened: '[mental] @0 hath @{1:reason}',
@@ -2449,7 +2470,7 @@ const dicPre = new Map<string, ValuePre>(
     name: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'nama',
+      betokener: 'nam',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4',
       betokened: '[communicate] @0 (meaneth, signifieth, is a name of) @1',
@@ -2457,7 +2478,7 @@ const dicPre = new Map<string, ValuePre>(
     speak: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'tala',
+      betokener: 'tal',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tal%C5%8D',
       betokened: '[communicate] @0 speaketh in @{1:language, protocol}',
@@ -2471,7 +2492,7 @@ const dicPre = new Map<string, ValuePre>(
     say: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'saca',
+      betokener: 'sac',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sagjan%C4%85',
       betokened:
@@ -2480,7 +2501,7 @@ const dicPre = new Map<string, ValuePre>(
     understand: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'xlusta',
+      betokener: 'xlust',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlustiz',
       betokened:
@@ -2490,7 +2511,7 @@ const dicPre = new Map<string, ValuePre>(
     write: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'vrita',
+      betokener: 'vrit',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C4%ABtan%C4%85',
       betokened: '[communicate] @0 writeth @{1:idea} to @{2:expression}',
@@ -2498,7 +2519,7 @@ const dicPre = new Map<string, ValuePre>(
     read: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'reda',
+      betokener: 'red',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%93dan%C4%85',
       betokened: '[communicate] @0 readeth @{1:idea} from @{2:expression}',
@@ -2507,7 +2528,7 @@ const dicPre = new Map<string, ValuePre>(
     ask: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'freja',
+      betokener: 'frej',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fr%C4%93g%C5%8D',
       betokened: '[communicate] @0 asketh @{1:question} to @{2:questionee}',
@@ -2515,7 +2536,7 @@ const dicPre = new Map<string, ValuePre>(
     answer: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'svara',
+      betokener: 'svar',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swar%C5%8Dn%C4%85',
       betokened: '[communicate] @0 answereth @{1:answer} to @{2:questioner}',
@@ -2526,28 +2547,28 @@ const dicPre = new Map<string, ValuePre>(
     greet: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'saluta',
+      betokener: 'salut',
       origin: 'https://en.wiktionary.org/wiki/salus#Latin',
       betokened: '[performative] @0 greeteth @{1:person}',
     },
     forgive: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'dona',
+      betokener: 'don',
       origin: 'https://en.wiktionary.org/wiki/donare#Latin',
       betokened: '[performative] @0 forgiveth @{1:event}',
     },
     thank: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'crata',
+      betokener: 'crat',
       origin: 'https://en.wiktionary.org/wiki/gratus#Latin',
       betokened: '[performative] @0 thanketh @{1:event}',
     },
     promise: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'keta',
+      betokener: 'ket',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haitan%C4%85',
       betokened:
@@ -2556,7 +2577,7 @@ const dicPre = new Map<string, ValuePre>(
     command: {
       date: '2024-09-29',
       klass: Klass.Verb,
-      betokener: 'stjura',
+      betokener: 'stjur',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stiurijan%C4%85',
       betokened: '[performative] @0 (command, request, recommend) @{1:must}',
@@ -2566,7 +2587,7 @@ const dicPre = new Map<string, ValuePre>(
     sing: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'sega',
+      betokener: 'seg',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/singwan%C4%85',
       betokened: '[culture] @0 singeth @{1:music, song}, play',
@@ -2574,7 +2595,7 @@ const dicPre = new Map<string, ValuePre>(
     dance: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'dansa',
+      betokener: 'dans',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEans%C5%8Dn',
       betokened: '[culture] @0 danceth @{1:choreography}',
@@ -2584,7 +2605,7 @@ const dicPre = new Map<string, ValuePre>(
     rot: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'ruta',
+      betokener: 'rut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rut%C4%81n%C4%85',
       betokened: '@0 is rotten',
@@ -2592,7 +2613,7 @@ const dicPre = new Map<string, ValuePre>(
     fresh: {
       date: '2024-07-24',
       klass: Klass.Verb,
-      betokener: 'frixa',
+      betokener: 'frix',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/friskaz',
       betokened: '@0 is fresh',
@@ -2606,12 +2627,12 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 (beareth, reproducteth, is a parent of) @{1:child}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/burdiz',
-      betokener: 'burda',
+      betokener: 'burd',
     },
     man: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'juma',
+      betokener: 'jum',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gum%C3%B4',
       betokened: '@0 is (a man, male)',
@@ -2619,7 +2640,7 @@ const dicPre = new Map<string, ValuePre>(
     woman: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'viba',
+      betokener: 'vib',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABb%C4%85',
       betokened: '@0 is (a woman, female)',
@@ -2632,7 +2653,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '@0 (beareth, reproducteth) @{1:child}, parent',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sibjaz',
-      betokener: 'siba',
+      betokener: 'sib',
       complex: ['done', 'beget', 'same'],
     },
     family: {
@@ -2646,14 +2667,14 @@ const dicPre = new Map<string, ValuePre>(
     mammal: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'mamala',
+      betokener: 'mamal',
       origin: 'https://en.wiktionary.org/wiki/mammalis',
       betokened: '[life.animal] @0 is a mammal',
     },
     human: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'mana',
+      betokener: 'man',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mann-',
       betokened: '[life.animal.mammal] @0 is a human',
@@ -2661,7 +2682,7 @@ const dicPre = new Map<string, ValuePre>(
     rat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'rata',
+      betokener: 'rat',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rattaz',
       betokened: '[life.animal.mammal] @0 is a (rat, mouse)',
@@ -2669,7 +2690,7 @@ const dicPre = new Map<string, ValuePre>(
     hare: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'xasa',
+      betokener: 'xas',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/has%C3%B4',
       betokened: '[life.animal.mammal] @0 is a (hare, rabbit)',
@@ -2677,7 +2698,7 @@ const dicPre = new Map<string, ValuePre>(
     cat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'kata',
+      betokener: 'kat',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kattuz',
       betokened: '[life.animal.mammal] @0 is a cat',
@@ -2685,7 +2706,7 @@ const dicPre = new Map<string, ValuePre>(
     fox: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'foxa',
+      betokener: 'fox',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuhsaz',
       betokened: '[life.animal.mammal] @0 is a (fox, vixen)',
@@ -2693,7 +2714,7 @@ const dicPre = new Map<string, ValuePre>(
     dog: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'xunta',
+      betokener: 'xunt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hundaz',
       betokened: '[life.animal.mammal] @0 is a {dog, bitch}',
@@ -2701,7 +2722,7 @@ const dicPre = new Map<string, ValuePre>(
     wolf: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'volfa',
+      betokener: 'volf',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulfaz',
       betokened: '[life.animal.mammal] @0 is a wolf',
@@ -2709,7 +2730,7 @@ const dicPre = new Map<string, ValuePre>(
     bear: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'bera',
+      betokener: 'ber',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ber%C3%B4',
       betokened: '[life.animal.mammal] @0 is a bear',
@@ -2717,7 +2738,7 @@ const dicPre = new Map<string, ValuePre>(
     sheep: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'skepa',
+      betokener: 'skep',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%93p%C4%85',
       betokened: '[life.animal.mammal] @0 is a sheep',
@@ -2725,7 +2746,7 @@ const dicPre = new Map<string, ValuePre>(
     goat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'ceta',
+      betokener: 'cet',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gaits',
       betokened: '[life.animal.mammal] @0 is a goat',
@@ -2733,7 +2754,7 @@ const dicPre = new Map<string, ValuePre>(
     deer: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'reka',
+      betokener: 'rek',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raih%C3%B4',
       betokened: '[life.animal.mammal] @0 is a deer',
@@ -2741,7 +2762,7 @@ const dicPre = new Map<string, ValuePre>(
     horse: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'krusa',
+      betokener: 'krus',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hruss%C4%85',
       betokened: '[life.animal.mammal] @0 is a {horse, stallion, mare}',
@@ -2749,7 +2770,7 @@ const dicPre = new Map<string, ValuePre>(
     cow: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'kuva',
+      betokener: 'kuv',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/k%C5%ABz',
       betokened: '[life.animal.mammal] @0 is a cow',
@@ -2757,7 +2778,7 @@ const dicPre = new Map<string, ValuePre>(
     pig: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'svina',
+      betokener: 'svin',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%ABn%C4%85',
       betokened: '[life.animal.mammal] @0 is a pig',
@@ -2768,12 +2789,12 @@ const dicPre = new Map<string, ValuePre>(
       klass: Klass.Verb,
       betokened: '[life.animal] @0 is a reptile',
       origin: 'https://en.wiktionary.org/wiki/reptilis#Latin',
-      betokener: 'reftila',
+      betokener: 'reftil',
     },
     snake: {
       date: '2024-07-15',
       klass: Klass.Verb,
-      betokener: 'sneca',
+      betokener: 'snec',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snegan%C4%85',
       betokened: '[life.animal.reptile] @0 is a snake',
@@ -2782,7 +2803,7 @@ const dicPre = new Map<string, ValuePre>(
     bird: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'focla',
+      betokener: 'focl',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuglaz',
       betokened: '[life.animal] @0 is a bird',
@@ -2790,7 +2811,7 @@ const dicPre = new Map<string, ValuePre>(
     crow: {
       date: '2024-07-15',
       klass: Klass.Verb,
-      betokener: 'rabna',
+      betokener: 'rabn',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrabnaz',
       betokened: '[life.animal.bird] @0 is a (crow, raven)',
@@ -2799,7 +2820,7 @@ const dicPre = new Map<string, ValuePre>(
     fish: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'fiska',
+      betokener: 'fisk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fiskaz',
       betokened: '[life.animal] @0 is a fish',
@@ -2808,14 +2829,14 @@ const dicPre = new Map<string, ValuePre>(
     amphibia: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'anfiba',
+      betokener: 'anfib',
       origin: 'https://en.wiktionary.org/wiki/amphibius#Latin',
       betokened: '[life.animal] @0 is a amphibia',
     },
     frog: {
       date: '2024-07-15',
       klass: Klass.Verb,
-      betokener: 'fruska',
+      betokener: 'frusk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fruskaz',
       betokened: '[life.animal.amphibia] @0 is a frog',
@@ -2825,14 +2846,14 @@ const dicPre = new Map<string, ValuePre>(
     plant: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'planta',
+      betokener: 'plant',
       origin: 'https://en.wiktionary.org/wiki/planta#Latin',
       betokened: '[life] @0 is a plant',
     },
     tree: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'bacma',
+      betokener: 'bacm',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bagmaz',
       betokened: '[life.plant] @0 is a tree',
@@ -2842,7 +2863,7 @@ const dicPre = new Map<string, ValuePre>(
     body: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'krefa',
+      betokener: 'kref',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrefaz',
       betokened: '@0 is a body of @1',
@@ -2850,7 +2871,7 @@ const dicPre = new Map<string, ValuePre>(
     bone: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'bena',
+      betokener: 'ben',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bain%C4%85',
       betokened: '[body] @0 is a bone of @1',
@@ -2858,14 +2879,14 @@ const dicPre = new Map<string, ValuePre>(
     spine: {
       date: '2025-02-06',
       klass: Klass.Verb,
-      betokener: 'spina',
+      betokener: 'spin',
       origin: 'https://en.wiktionary.org/wiki/spina#Latin',
       betokened: '[body] @0 is a spine of @{1:vertebrata}',
     },
     flesh: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'flexa',
+      betokener: 'flex',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flaiski',
       betokened: '[body] @0 is a (flesh, meat, muscle) of @1',
@@ -2873,7 +2894,7 @@ const dicPre = new Map<string, ValuePre>(
     fat: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'feta',
+      betokener: 'fet',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/faitaz',
       betokened: '[body] @0 is a fat of @1',
@@ -2881,7 +2902,7 @@ const dicPre = new Map<string, ValuePre>(
     skin: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'skina',
+      betokener: 'skin',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skin%C3%BE%C4%85',
       betokened: '[body] @0 is a (skin, peel) of @1',
@@ -2889,7 +2910,7 @@ const dicPre = new Map<string, ValuePre>(
     head: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'kavda',
+      betokener: 'kavd',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haubud%C4%85',
       betokened: '[body] @0 is a head of @1',
@@ -2897,7 +2918,7 @@ const dicPre = new Map<string, ValuePre>(
     neck: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'naka',
+      betokener: 'nak',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnakk%C3%B4',
       betokened: '[body] @0 is a neck of @1',
@@ -2905,7 +2926,7 @@ const dicPre = new Map<string, ValuePre>(
     shoulder: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'skulta',
+      betokener: 'skult',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/skuldru',
       betokened: '[body] @0 is a (shoulder, buttock) of @1',
@@ -2915,7 +2936,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       zh: '肢',
-      betokener: 'lima',
+      betokener: 'lim',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/limuz',
       origins: {
@@ -2929,7 +2950,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-11-24',
       klass: Klass.Verb,
       zh: '腕',
-      betokener: 'arma',
+      betokener: 'arm',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/armaz',
       origins: {
@@ -2943,7 +2964,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-11-24',
       klass: Klass.Verb,
       zh: '脚',
-      betokener: 'laca',
+      betokener: 'lac',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lagjaz',
       origins: {
@@ -2957,7 +2978,7 @@ const dicPre = new Map<string, ValuePre>(
     foot: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'fota',
+      betokener: 'fot',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/f%C5%8Dts',
       origins: {
@@ -2973,7 +2994,7 @@ const dicPre = new Map<string, ValuePre>(
     hand: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'munta',
+      betokener: 'munt',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mund%C5%8D',
       betokened: '[body.extremity] @0 is a hand',
@@ -2981,7 +3002,7 @@ const dicPre = new Map<string, ValuePre>(
     trunk: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'stama',
+      betokener: 'stam',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stamniz',
       betokened: '[body] @0 is a (trunk, torso, stem) of @1',
@@ -2989,7 +3010,7 @@ const dicPre = new Map<string, ValuePre>(
     breast: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'brusta',
+      betokener: 'brust',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brusts',
       betokened: '[body] @0 is a (chest, breast) of @1',
@@ -2997,7 +3018,7 @@ const dicPre = new Map<string, ValuePre>(
     belly: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'kveda',
+      betokener: 'kved',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kwe%C3%BEuz',
       betokened: '[body] @0 is a (chest, breast) of @1',
@@ -3005,7 +3026,7 @@ const dicPre = new Map<string, ValuePre>(
     tail: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'sterta',
+      betokener: 'stert',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stertaz',
       betokened: '[body] @0 is a tail of @1',
@@ -3013,7 +3034,7 @@ const dicPre = new Map<string, ValuePre>(
     hair: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'kesa',
+      betokener: 'kes',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hazdaz',
       betokened: '[body] @0 is a (hair, fur) of @1',
@@ -3021,7 +3042,7 @@ const dicPre = new Map<string, ValuePre>(
     horn: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'xurna',
+      betokener: 'xurn',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hurn%C4%85',
       betokened: '[body] @0 is a horn of @1',
@@ -3029,7 +3050,7 @@ const dicPre = new Map<string, ValuePre>(
     tooth: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'tana',
+      betokener: 'tan',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tan%C3%BEs',
       betokened: '[body] @0 is a (tooth, fang) of @1',
@@ -3037,7 +3058,7 @@ const dicPre = new Map<string, ValuePre>(
     nail: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'nela',
+      betokener: 'nel',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/naglaz',
       betokened: '[body] @0 is a (nail, claw) of @1',
@@ -3045,7 +3066,7 @@ const dicPre = new Map<string, ValuePre>(
     eye: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'oca',
+      betokener: 'oc',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/aug%C3%B4',
       betokened: '[body.face] @0 is an eye of @1',
@@ -3053,7 +3074,7 @@ const dicPre = new Map<string, ValuePre>(
     ear: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'osa',
+      betokener: 'os',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/aus%C3%B4',
       betokened: '[body.face] @0 is an ear of @1',
@@ -3061,7 +3082,7 @@ const dicPre = new Map<string, ValuePre>(
     nose: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'nasa',
+      betokener: 'nas',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nas%C5%8D',
       betokened: '[body.face] @0 is a nose of @1',
@@ -3069,7 +3090,7 @@ const dicPre = new Map<string, ValuePre>(
     mouth: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'muna',
+      betokener: 'mun',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mun%C3%BEaz',
       betokened: '[body.face] @0 is a mouth of @1',
@@ -3077,7 +3098,7 @@ const dicPre = new Map<string, ValuePre>(
     lip: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'lipa',
+      betokener: 'lip',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lep%C3%B4',
       betokened: '[body.face] @0 is a lip of @1',
@@ -3085,7 +3106,7 @@ const dicPre = new Map<string, ValuePre>(
     tongue: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'tuga',
+      betokener: 'tug',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tung%C7%AD',
       betokened: '[body.face] @0 is a tongue of @1',
@@ -3094,7 +3115,7 @@ const dicPre = new Map<string, ValuePre>(
     viscera: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'darma',
+      betokener: 'darm',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEarmaz',
       betokened: '[body] @0 is a (viscera, inner organ) of @1',
@@ -3102,7 +3123,7 @@ const dicPre = new Map<string, ValuePre>(
     lung: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'luga',
+      betokener: 'lug',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lung%C3%B4',
       betokened: '[body.viscera] @0 is a lung of @1',
@@ -3110,7 +3131,7 @@ const dicPre = new Map<string, ValuePre>(
     heart: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'xerda',
+      betokener: 'xerd',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hert%C3%B4',
       betokened: '[body.viscera] @0 is a heart of @1',
@@ -3118,7 +3139,7 @@ const dicPre = new Map<string, ValuePre>(
     maw: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'maca',
+      betokener: 'mac',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mag%C3%B4',
       betokened: '[body.viscera] @0 is a (maw, stomach) of @1',
@@ -3126,7 +3147,7 @@ const dicPre = new Map<string, ValuePre>(
     liver: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'libra',
+      betokener: 'libr',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libr%C5%8D',
       betokened: '[body.viscera] @0 is a liver of @1',
@@ -3135,7 +3156,7 @@ const dicPre = new Map<string, ValuePre>(
     womb: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'vamba',
+      betokener: 'vamb',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wamb%C5%8D',
       betokened: '[body.genitalia] @0 is a (prostate, womb) of @1',
@@ -3143,7 +3164,7 @@ const dicPre = new Map<string, ValuePre>(
     vagina: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'foda',
+      betokener: 'fod',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fu%C3%BEiz',
       betokened: '[body.genitalia] @0 is a vagina of @1',
@@ -3151,7 +3172,7 @@ const dicPre = new Map<string, ValuePre>(
     penis: {
       date: '2024-09-22',
       klass: Klass.Verb,
-      betokener: 'pinta',
+      betokener: 'pint',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/pinti',
       betokened: '[body.genitalia] @0 is a (penis, clitoris) of @1',
@@ -3160,7 +3181,7 @@ const dicPre = new Map<string, ValuePre>(
     egg: {
       date: '2024-09-16',
       klass: Klass.Verb,
-      betokener: 'aja',
+      betokener: 'aj',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ajj%C4%85',
       betokened: '[body.egg] @0 is an egg of @1',
@@ -3169,7 +3190,7 @@ const dicPre = new Map<string, ValuePre>(
     blood: {
       date: '2024-07-29',
       klass: Klass.Verb,
-      betokener: 'bloda',
+      betokener: 'blod',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8D%C3%BE%C4%85',
       betokened: '[body.liquid] @0 is blood of @1',
@@ -3177,7 +3198,7 @@ const dicPre = new Map<string, ValuePre>(
     milk: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokener: 'melka',
+      betokener: 'melk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meluks',
       betokened: '[body.liquid] @0 is milk of @1',
@@ -3185,7 +3206,7 @@ const dicPre = new Map<string, ValuePre>(
     lymph: {
       date: '2024-08-31',
       klass: Klass.Verb,
-      betokener: 'nenfa',
+      betokener: 'nenf',
       origin:
         'https://en.wiktionary.org/wiki/%CE%BD%CF%8D%CE%BC%CF%86%CE%B7#Ancient_Greek',
       betokened: '[body.liquid] @0 is lymph of @1',
@@ -3194,7 +3215,7 @@ const dicPre = new Map<string, ValuePre>(
     flower: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'blova',
+      betokener: 'blov',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8Dan%C4%85',
       betokened: '[body.plant] @0 is a (flower, bloom, blossom) of @1',
@@ -3202,7 +3223,7 @@ const dicPre = new Map<string, ValuePre>(
     leaf: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'loba',
+      betokener: 'lob',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/laub%C4%85',
       betokened: '[body.plant] @0 is a leaf of @1',
@@ -3210,7 +3231,7 @@ const dicPre = new Map<string, ValuePre>(
     root: {
       date: '2024-09-02',
       klass: Klass.Verb,
-      betokener: 'rota',
+      betokener: 'rot',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C5%8Dts',
       betokened: '[body.plant] @0 is a root of @1',
@@ -3230,7 +3251,7 @@ const dicPre = new Map<string, ValuePre>(
         deu: 'Leute',
         ice: 'lýður',
       },
-      betokener: 'ljuda',
+      betokener: 'ljud',
     },
     nation: {
       date: '2024-08-24',
@@ -3245,12 +3266,12 @@ const dicPre = new Map<string, ValuePre>(
         deu: 'Mark',
         ice: 'mörk',
       },
-      betokener: 'marka',
+      betokener: 'mark',
     },
     rule: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'reja',
+      betokener: 'rej',
       origin: 'https://en.wiktionary.org/wiki/rego#Latin',
       betokened: '[civilisation] @0 (ruleth, ordereth, dictateth) @1',
     },
@@ -3258,7 +3279,7 @@ const dicPre = new Map<string, ValuePre>(
     noble: {
       date: '2024-10-01',
       klass: Klass.Verb,
-      betokener: 'rika',
+      betokener: 'rik',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABkijaz',
       betokened: '@0 is noble',
@@ -3266,7 +3287,7 @@ const dicPre = new Map<string, ValuePre>(
     humble: {
       date: '2024-10-01',
       klass: Klass.Verb,
-      betokener: 'mjuka',
+      betokener: 'mjuk',
       origin: 'https://en.wiktionary.org/wiki/mj%C3%BAkr#Old_Norse',
       betokened: '@0 is humble',
       complex: ['low', 'noble'],
@@ -3275,7 +3296,7 @@ const dicPre = new Map<string, ValuePre>(
     work: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      betokener: 'verxa',
+      betokener: 'verx',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/werk%C4%85',
       betokened: '@0 worketh @{1:operation}',
@@ -3283,7 +3304,7 @@ const dicPre = new Map<string, ValuePre>(
     dwell: {
       date: '2024-12-20',
       klass: Klass.Verb,
-      betokener: 'buva',
+      betokener: 'buv',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C5%ABan%C4%85',
       betokened: '@0 dwelleth in @{1:house}',
@@ -3291,7 +3312,7 @@ const dicPre = new Map<string, ValuePre>(
     use: {
       date: '2024-06-14',
       klass: Klass.Verb,
-      betokener: 'nuta',
+      betokener: 'nut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nut%C5%8D',
       betokened: '@0 useth @{1:tool} for @{2:purpose}',
@@ -3299,7 +3320,7 @@ const dicPre = new Map<string, ValuePre>(
     help: {
       date: '2024-06-18',
       klass: Klass.Verb,
-      betokener: 'xelpa',
+      betokener: 'xelp',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/helpan%C4%85',
       betokened: '@0 helpeth @{1:event}',
@@ -3307,7 +3328,7 @@ const dicPre = new Map<string, ValuePre>(
     harm: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'skada',
+      betokener: 'skad',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ska%C3%BE%C3%B4',
       betokened: '@0 (harmeth, hurteth, damageth) @1',
@@ -3316,7 +3337,7 @@ const dicPre = new Map<string, ValuePre>(
     wont: {
       date: '2024-09-01',
       klass: Klass.Verb,
-      betokener: 'vona',
+      betokener: 'von',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wun%C4%81n%C4%85',
       betokened: '@0 is used to @{1:custom, habit, routine, usual, regular}',
@@ -3324,7 +3345,7 @@ const dicPre = new Map<string, ValuePre>(
     lead: {
       date: '2024-09-01',
       klass: Klass.Verb,
-      betokener: 'draca',
+      betokener: 'drac',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dragan%C4%85',
       betokened: '@0 (leadeth, guideth) @{1:follower}',
@@ -3333,7 +3354,7 @@ const dicPre = new Map<string, ValuePre>(
     stab: {
       date: '2024-11-24',
       klass: Klass.Verb,
-      betokener: 'staba',
+      betokener: 'stab',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hittijan%C4%85',
       betokened: '@{0:sharp} stabs',
@@ -3341,7 +3362,7 @@ const dicPre = new Map<string, ValuePre>(
     cut: {
       date: '2024-11-21',
       klass: Klass.Verb,
-      betokener: 'sneda',
+      betokener: 'sned',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sn%C4%AB%C3%BEan%C4%85',
       betokened: '@{0:sharp} cuteth @1',
@@ -3351,7 +3372,7 @@ const dicPre = new Map<string, ValuePre>(
     pick: {
       date: '2024-09-09',
       klass: Klass.Verb,
-      betokener: 'jaka',
+      betokener: 'jak',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/jakk%C5%8Dn%C4%85',
       betokened:
@@ -3362,7 +3383,7 @@ const dicPre = new Map<string, ValuePre>(
     lick: {
       date: '2024-08-19',
       klass: Klass.Verb,
-      betokener: 'lixa',
+      betokener: 'lix',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/likk%C5%8Dn%C4%85',
       betokened: '[body-interaction] @0 licketh @1',
@@ -3372,7 +3393,7 @@ const dicPre = new Map<string, ValuePre>(
     kiss: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'kusa',
+      betokener: 'kus',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kussaz',
       betokened: '[body-interaction] @0 kisseth @1',
@@ -3381,7 +3402,7 @@ const dicPre = new Map<string, ValuePre>(
     caress: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'stjuka',
+      betokener: 'stjuk',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/streukan%C4%85',
       betokened: '[body-interaction] @0 carreseth @1',
@@ -3389,7 +3410,7 @@ const dicPre = new Map<string, ValuePre>(
     hug: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'fadama',
+      betokener: 'fadm',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fa%C3%BEmaz',
       betokened: '[body-interaction] @0 hugeth @1',
@@ -3397,7 +3418,7 @@ const dicPre = new Map<string, ValuePre>(
     hit: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'kita',
+      betokener: 'kit',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hittijan%C4%85',
       betokened: '[body-interaction] @0 (hiteth, kicketh, puncheth) @1',
@@ -3405,7 +3426,7 @@ const dicPre = new Map<string, ValuePre>(
     kick: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'spurna',
+      betokener: 'spurn',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/spurnan%C4%85',
       betokened: '[body-interaction] @0 kicketh @1',
@@ -3414,7 +3435,7 @@ const dicPre = new Map<string, ValuePre>(
     punch: {
       date: '2024-11-23',
       klass: Klass.Verb,
-      betokener: 'slaka',
+      betokener: 'slak',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slahan%C4%85',
       betokened: '[body-interaction] @0 puncheth @1',
@@ -3427,7 +3448,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '[artifact] @0 is a {rope, cord, string}',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/taug%C5%8D',
-      betokener: 'toca',
+      betokener: 'toc',
     },
     knife: {
       date: '2024-07-28',
@@ -3435,7 +3456,7 @@ const dicPre = new Map<string, ValuePre>(
       betokened: '[artifact] @{0:sword, knife, blade} cuteth @1',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sahs%C4%85',
-      betokener: 'saksa',
+      betokener: 'saks',
       complex: ['cut', 'done', 'use'],
     },
     scissor: {
@@ -3447,7 +3468,7 @@ const dicPre = new Map<string, ValuePre>(
     spear: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'spera',
+      betokener: 'sper',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/speru',
       betokened: '[artifact] @{0:spear, pin} stingeth @1',
@@ -3455,7 +3476,7 @@ const dicPre = new Map<string, ValuePre>(
     rod: {
       date: '2024-07-28',
       klass: Klass.Verb,
-      betokener: 'stika',
+      betokener: 'stik',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stikk%C3%B4',
       betokened: '[artifact] @{0:rod, stuff, wand, club} supporteth @1',
@@ -3463,7 +3484,7 @@ const dicPre = new Map<string, ValuePre>(
     dish: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'knapa',
+      betokener: 'knap',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnappaz',
       betokened: '[artifact] @{0:dish, bowl, cup, container} containeth @1',
@@ -3471,7 +3492,7 @@ const dicPre = new Map<string, ValuePre>(
     fork: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'cavla',
+      betokener: 'cavl',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Celtic/gabl%C4%81',
       betokened: '[artifact] @{0:fork} stingeth @1',
@@ -3479,7 +3500,7 @@ const dicPre = new Map<string, ValuePre>(
     spoon: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'spena',
+      betokener: 'spen',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sp%C4%93nuz',
       betokened: '[artifact] @{0:spoon, scoop} scoopeth @1',
@@ -3487,7 +3508,7 @@ const dicPre = new Map<string, ValuePre>(
     tong: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'taga',
+      betokener: 'tag',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tang%C5%8D',
       betokened: '[artifact] @{0:tong, plier, chopstick} grabeth @1',
@@ -3495,7 +3516,7 @@ const dicPre = new Map<string, ValuePre>(
     money: {
       date: '2024-08-25',
       klass: Klass.Verb,
-      betokener: 'fexa',
+      betokener: 'fex',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fehu',
       betokened: '[artifact] @0 is (money, coin, bill)',
@@ -3503,7 +3524,7 @@ const dicPre = new Map<string, ValuePre>(
     ship: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'beta',
+      betokener: 'bet',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/baitaz',
       betokened: '[artifact] @0 is a (ship, boat)',
@@ -3511,7 +3532,7 @@ const dicPre = new Map<string, ValuePre>(
     bridge: {
       date: '2025-02-08',
       klass: Klass.Verb,
-      betokener: 'bruca',
+      betokener: 'bruc',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brugj%C7%AD',
       betokened: '@0 {is a bridge between, connects} of @{1}',
@@ -3521,7 +3542,7 @@ const dicPre = new Map<string, ValuePre>(
     knot: {
       date: '2024-12-23',
       klass: Klass.Verb,
-      betokener: 'knuta',
+      betokener: 'knut',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/knutt%C3%B4',
       betokened: '@0 is a (knot, tangle, tie, bond) of @{1}',
@@ -3529,7 +3550,7 @@ const dicPre = new Map<string, ValuePre>(
     age: {
       date: '2024-12-07',
       klass: Klass.Verb,
-      betokener: 'ala',
+      betokener: 'al',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/alan%C4%85',
       betokened: '@0 is at age of @{1:interval}',
@@ -3538,7 +3559,7 @@ const dicPre = new Map<string, ValuePre>(
     sentence: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'frasa',
+      betokener: 'fras',
       origin:
         'https://en.wiktionary.org/wiki/%CF%86%CF%81%CE%AC%CF%83%CE%B9%CF%82#Ancient_Greek',
       betokened: '[grammar] @0 is a sentence',
@@ -3546,14 +3567,14 @@ const dicPre = new Map<string, ValuePre>(
     clause: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'klavsa',
+      betokener: 'klavs',
       origin: 'https://en.wiktionary.org/wiki/clauso#Latin',
       betokened: '[grammar] @0 is a clause',
     },
     word: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'vorda',
+      betokener: 'vord',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wurd%C4%85',
       betokened: '[grammar] @0 is a word',
@@ -3562,14 +3583,14 @@ const dicPre = new Map<string, ValuePre>(
     case: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'kasa',
+      betokener: 'kas',
       origin: 'https://en.wiktionary.org/wiki/casu#Latin',
       betokened: '[grammar] @0 is an case of @1',
     },
     verb: {
       date: '2024-10-05',
       klass: Klass.Verb,
-      betokener: 'verba',
+      betokener: 'verb',
       origin: 'https://en.wiktionary.org/wiki/verbo#Latin',
       betokened: '[grammar] @0 is a verb',
     },
@@ -3605,70 +3626,70 @@ const dicPre = new Map<string, ValuePre>(
           'us',
           'the united states',
           '2024-08-25',
-          'amerika',
+          'amerik',
           'https://en.wiktionary.org/wiki/America#Latin',
         ],
         [
           'cn',
           'china',
           '2024-08-25',
-          'zjugcoka',
+          'zjugcok',
           'https://en.wiktionary.org/wiki/%E4%B8%AD%E5%9C%8B',
         ],
         [
           'de',
           'germany',
           '2024-08-25',
-          'devdiska',
+          'devdisk',
           'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEiudisk',
         ],
         [
           'jp',
           'japan',
           '2024-08-25',
-          'nitfona',
+          'nitfon',
           'https://en.wiktionary.org/wiki/%E6%97%A5%E6%9C%AC',
         ],
         [
           'in',
           'india',
           '2024-11-22',
-          'varata',
+          'varat',
           'https://en.wiktionary.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4#Sanskrit',
         ],
         [
           'gb',
           'the united kingdom',
           '2024-08-25',
-          'britanja',
+          'britan',
           'https://en.wiktionary.org/wiki/Britannia#Latin',
         ],
         [
           'fr',
           'france',
           '2024-08-25',
-          'fragkja',
+          'fragk',
           'https://en.wiktionary.org/wiki/Francia#Latin',
         ],
         [
           'it',
           'italy',
           '2024-11-22',
-          'hitalja',
+          'ital',
           'https://en.wiktionary.org/wiki/Italia#Latin',
         ],
         [
           'ca',
           'canada',
           '2024-11-22',
-          'kanata',
+          'kanat',
           'https://en.wiktionary.org/wiki/kanata#Laurentian',
         ],
         [
           'br',
           'brazil',
           '2024-11-22',
-          'brasila',
+          'brasil',
           'https://en.wiktionary.org/wiki/Brasil#Portuguese',
         ],
         [
@@ -3766,6 +3787,8 @@ const toBetokeners = (ks: string[]) =>
 
 const toComplex = (betokeners: string[]): string =>
   betokeners.reduce((acc, betokener) => {
+    return acc + "'" + betokener;
+
     const a = acc.replace(/(?<=[ieaouw].*)a$/, '');
     const b = betokener.replace(/^h(?=[ieaouw].*[ieaouw])/, '');
 

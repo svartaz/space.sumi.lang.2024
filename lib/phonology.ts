@@ -16,29 +16,39 @@ enum Manner {
 
 export const phoneticise = (word: string) =>
   replaceEach(word, [
+    [/'/g, ''],
     [/(?<=[^iueoaw])j(?=[iueoaw])/, 'ĭ'],
     [/(?<=[iueoaw])j(?=[^iueoaw])/, 'ĭ'],
-    [/(?<=[^iueoaw])v(?=[iueoaw])/, 'ŭ'],
-    [/(?<=[iueoaw])v(?=[^iueoaw])/, 'ŭ'],
+    //[/(?<=[^iueoaw])v(?=[iueoaw])/, 'ŭ'],
+    //[/(?<=[iueoaw])v(?=[^iueoaw])/, 'ŭ'],
   ]);
 
 export const toIpa = (s: string): string =>
-  s.replace(/[a-zĭŭ]+/g, (it) =>
-    replaceEach(phoneticise(it).toUpperCase(), [
-      [/^(?=[IUEOAW](?!$))/g, 'H'],
-      [/(?<=[ĬŬIUEOAW])N(?=[XJSZFV])/g, '\u0303'],
+  s.replace(/'/g, '').replace(/[a-zĭŭ]+/g, (it) =>
+    replaceEach(it, [
+      [/.+/, phoneticise],
+      [/.+/, (it) => it.toUpperCase()],
 
+      // add
+      [/^(?=[IUEOA])/g, 'H'],
+
+      [/(?<=(.))(?=\1)/g, 'ə'],
+      [/(?<=G)(?![IUEOAĬVCK])/g, 'ə'],
+      [/(?<=N)(?![IUEOAĬVDT]|$)/g, 'ə'],
+      [/(?<=M)(?![IUEOAĬVBP])/g, 'ə'],
+      [/(?<=[CDB])(?![IUEOAĬVLR])/g, 'ə'],
+      [/(?<=J)(?![IUEOAĬV]|$)/g, 'ə'],
+      [/(?<=Z)(?![IUEOAĬV]|$)/g, 'ə'],
+      [/(?<=V)(?![IUEOAĬ]|$)/g, 'ə'],
+      [/(?<=R)(?![IUEOAĬV]|$)/g, 'ə'],
+
+      // nasalise
+      [/(?<=[ĬŬIUEOA])N(?=[XJSZFV])/g, '\u0303'],
+
+      // palatalise
       [/H(?=I)/g, 'ç'],
-      [/HĬ(?=[IEAOUW])/g, 'ç'],
-      [/(?<=[ĬI])H(?![ŬUEOAW])/g, 'ç'],
-
-      [/(?<=(?<!^)[KTP])$/g, 'ʰ'],
-      [/(?<!^)C$/g, 'K'],
-      [/(?<!^)D$/g, 'T'],
-      [/(?<!^)B$/g, 'P'],
-
-      [/(?<=^[^IUEOAW]*)A/, 'a'],
-      [/A/g, 'ə'],
+      [/HĬ(?=[IEAOU])/g, 'ç'],
+      [/(?<=[ĬI])H(?![ŬUEOA])/g, 'ç'],
 
       [/C/g, 'g'],
       [/X/g, 'ʃ'],
@@ -48,10 +58,12 @@ export const toIpa = (s: string): string =>
       [/G/g, 'ŋ'],
       [/Ĭ/g, 'j'],
       [/Ŭ/g, 'ʋ'],
-      [/W/g, 'ə'],
+
+      // accent
+      [/[IEAOU]/, (it) => (it + '\u0301').normalize('NFKC')],
+
+      [/.+/, (it) => it.toLowerCase()],
     ])
-      .toLowerCase()
-      .normalize('NFC')
   );
 
 const checkSonority = (word: string) =>
@@ -86,10 +98,7 @@ export const invalid = (word: string): string | null => {
     ['affricate', [/kh|tx|ts|pf/g]],
 
     [`initial nasal + consonant`, [/^[gnm](?![ĭŭiueoaw])/]],
-    ['final consonant', [/[hz]$/]],
-    [`nasal + /r/`, [/[gnm]r/]],
     [`sibilant + /r/`, [/[xjsz]r/]],
-    ['unmatched nasal + consonant', [/[nm][ck]/g, /[gm][dtr]/g, /[gn][bp]/g]],
     ['plosive + matched nasal', [/[ck]g/g, /[dt]n/g, /[bp]m/g]],
     ['matched glide', [/[xj]ĭ/g, /[pbfvm]ŭ/g]],
     ['unvoiced + voiced', [/[ktphxsf][cdbjzv]/g, /[cdbjzv][ktphxsf]/g]],
