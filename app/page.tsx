@@ -54,7 +54,7 @@ export default () => (
         marginInline: 'auto',
       }}
     >
-      <Target>{translate('language done end make der called sumi')}</Target>
+      <Target>{translate('language done make der called sumi')}</Target>
     </div>
 
     <section>
@@ -85,7 +85,7 @@ export default () => (
             <th>nasal</th>
             <th></th>
             <td>
-              g <span className="ipa">ŋ</span>
+              g <span className="ipa">{toIpa('g').substring(0, 1)}</span>
             </td>
             <td></td>
             <td>n</td>
@@ -95,7 +95,7 @@ export default () => (
             <th rowSpan={2}>plosive</th>
             <th>voiced</th>
             <td>
-              c <span className="ipa">g</span>
+              c <span className="ipa">{toIpa('c').substring(0, 1)}</span>
             </td>
             <td></td>
             <td>d</td>
@@ -113,7 +113,7 @@ export default () => (
             <th>unvoiced</th>
             <td>h</td>
             <td>
-              x <span className="ipa">ɕ</span>
+              x <span className="ipa">{toIpa('x').substring(0, 1)}</span>
             </td>
             <td>s</td>
             <td>f</td>
@@ -122,7 +122,7 @@ export default () => (
             <th>voiced</th>
             <td></td>
             <td>
-              j <span className="ipa">ʑ</span>
+              j <span className="ipa">{toIpa('j').substring(0, 1)}</span>
             </td>
             <td>z</td>
             <td></td>
@@ -132,9 +132,11 @@ export default () => (
             <th></th>
             <td></td>
             <td>j</td>
-            <td>r</td>
             <td>
-              v <span className="ipa">ʋ</span>
+              r <span className="ipa">{toIpa('r').substring(0, 1)}</span>
+            </td>
+            <td>
+              v <span className="ipa">{toIpa('v').substring(0, 1)}</span>
             </td>
           </tr>
           <tr>
@@ -149,13 +151,22 @@ export default () => (
           <tr>
             <th>mid</th>
             <th></th>
-            <td></td>
+            <td>
+              <span className="ipa">ə</span>
+            </td>
             <td>e</td>
             <td></td>
             <td>o</td>
           </tr>
         </tbody>
       </table>
+
+      <p>
+        we write no <span className="ipa">ə</span> explicitly.
+        <br />
+        we add it after a consonant which no vowel follows, which we can't
+        pronounce otherwise.
+      </p>
     </section>
 
     <section>
@@ -179,28 +190,37 @@ export default () => (
             ],
             [
               'a person giving fresh water to a black cat is tall',
-              'person give den water fresh to cat black then long',
+              'person give den water fresh to cat black , long',
             ],
-            ['water given is fresh', 'water done give fresh'],
+            ['water given is fresh', 'water give den who fresh'],
             [
               'water given by a person is fresh',
-              'water done give der person then fresh',
+              'water done give der person , fresh',
             ],
             [
               'water given to a cat by a person is fresh',
-              'water done give der person to cat then fresh',
+              'water done give der person to cat , fresh',
             ],
             [
               'a cat given water is black',
-              'cat done to give den water then black',
+              'cat done to give den water , black',
             ],
             [
               'a cat given water by a person is black',
-              'cat done to give der person den water then fresh',
+              'cat done to give der person den water , fresh',
             ],
 
             ['i am a cat', 'i cat'],
-            ['i am not a cat', 'not that{ i cat'],
+            ['i am not a cat', 'i not cat'],
+
+            [
+              'no person is loved by every person',
+              'zero person done love der each person',
+            ],
+            [
+              'for no person o, for any person s, s loves o',
+              'zero person _0 each person _1 , _1 love der _0',
+            ],
           ].map(([en, code]) => (
             <table className="sample">
               <tbody>
