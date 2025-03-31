@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 import dic, { Formation, name, translate } from '../lib/lexicology';
-import { toIpa } from '../lib/phonology';
+import { invalid, toIpa } from '../lib/phonology';
 import { replaceEach } from '../lib/common';
 import { orthography } from '../lib/orthography';
 import { Letter } from '../lib/letter';
@@ -63,8 +63,6 @@ export default () => (
         <thead>
           <tr>
             <th></th>
-            <th></th>
-            <th></th>
             <th>velar</th>
             <th>palatal</th>
             <th>dental</th>
@@ -73,100 +71,113 @@ export default () => (
         </thead>
         <tbody>
           <tr>
-            <th rowSpan={7}>consonant</th>
-            <th>lateral</th>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td>l</td>
-            <td></td>
-          </tr>
-          <tr>
             <th>nasal</th>
-            <th></th>
             <td>
-              g <span className="ipa">{toIpa('g').substring(0, 1)}</span>
+              <span className="target">g</span>
+              <> </>
+              <span className="ipa">{toIpa('g').substring(0, 1)}</span>
             </td>
             <td></td>
-            <td>n</td>
-            <td>m</td>
+            <td>
+              <span className="target">n</span>
+            </td>
+            <td>
+              <span className="target">m</span>
+            </td>
           </tr>
           <tr>
-            <th rowSpan={2}>plosive</th>
-            <th>voiced</th>
+            <th>plosive voiced</th>
             <td>
-              c <span className="ipa">{toIpa('c').substring(0, 1)}</span>
+              <span className="target">c</span>
+              <> </>
+              <span className="ipa">{toIpa('c').substring(0, 1)}</span>
             </td>
             <td></td>
-            <td>d</td>
-            <td>b</td>
-          </tr>
-          <tr>
-            <th>unvoiced</th>
-            <td>k</td>
-            <td></td>
-            <td>t</td>
-            <td>p</td>
-          </tr>
-          <tr>
-            <th rowSpan={2}>fricative</th>
-            <th>unvoiced</th>
-            <td>h</td>
             <td>
-              x <span className="ipa">{toIpa('x').substring(0, 1)}</span>
+              <span className="target">d</span>
             </td>
-            <td>s</td>
-            <td>f</td>
+            <td>
+              <span className="target">b</span>
+            </td>
           </tr>
           <tr>
-            <th>voiced</th>
+            <th>plosive unvoiced</th>
+            <td>
+              <span className="target">k</span>
+            </td>
             <td></td>
             <td>
-              j <span className="ipa">{toIpa('j').substring(0, 1)}</span>
+              <span className="target">t</span>
             </td>
-            <td>z</td>
+            <td>
+              <span className="target">p</span>
+            </td>
+          </tr>
+          <tr>
+            <th>fricative unvoiced</th>
             <td></td>
+            <td>
+              <span className="target">x</span>
+              <> </>
+              <span className="ipa">{toIpa('x').substring(0, 1)}</span>
+            </td>
+            <td>
+              <span className="target">s</span>
+            </td>
+            <td>
+              <span className="target">f</span>
+            </td>
+          </tr>
+          <tr>
+            <th>fricative voiced</th>
+            <td></td>
+            <td>
+              <span className="target">j</span>
+              <> </>
+              <span className="ipa">{toIpa('j').substring(0, 1)}</span>
+            </td>
+            <td>
+              <span className="target">z</span>
+            </td>
+            <td>
+              <span className="target">v</span>
+            </td>
           </tr>
           <tr>
             <th>approcsimant</th>
-            <th></th>
             <td></td>
-            <td>j</td>
+            <td></td>
             <td>
-              r <span className="ipa">{toIpa('r').substring(0, 1)}</span>
+              <span className="target">r</span>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>vowel non-mid</th>
+            <td>
+              <span className="target">a</span>
             </td>
             <td>
-              v <span className="ipa">{toIpa('v').substring(0, 1)}</span>
+              <span className="target">i</span>
+            </td>
+            <td></td>
+            <td>
+              <span className="target">u</span>
             </td>
           </tr>
           <tr>
-            <th rowSpan={3}>vowel</th>
-            <th>non-mid</th>
-            <th></th>
-            <td>a</td>
-            <td>i</td>
+            <th>vowel mid</th>
             <td></td>
-            <td>u</td>
-          </tr>
-          <tr>
-            <th>mid</th>
-            <th></th>
             <td>
-              <span className="ipa">ə</span>
+              <span className="target">e</span>
             </td>
-            <td>e</td>
             <td></td>
-            <td>o</td>
+            <td>
+              <span className="target">o</span>
+            </td>
           </tr>
         </tbody>
       </table>
-
-      <p>
-        we write no <span className="ipa">ə</span> explicitly.
-        <br />
-        we add it after a consonant which no vowel follows, which we can't
-        pronounce otherwise.
-      </p>
     </section>
 
     <section>
@@ -190,24 +201,28 @@ export default () => (
             ],
             [
               'a person giving fresh water to a black cat is tall',
-              'person give den water fresh to cat black , long',
+              'person give den water fresh to cat black then long',
             ],
-            ['water given is fresh', 'water give den who fresh'],
+            ['water given is fresh', 'water done give fresh'],
             [
               'water given by a person is fresh',
-              'water done give der person , fresh',
+              'water done give der person then fresh',
+            ],
+            [
+              '? water is given by a fresh person',
+              'water done give der person fresh',
             ],
             [
               'water given to a cat by a person is fresh',
-              'water done give der person to cat , fresh',
+              'water done give der person to cat then fresh',
             ],
             [
               'a cat given water is black',
-              'cat done to give den water , black',
+              'cat done to give den water then black',
             ],
             [
               'a cat given water by a person is black',
-              'cat done to give der person den water , fresh',
+              'cat done to give der person den water then fresh',
             ],
 
             ['i am a cat', 'i cat'],
@@ -218,7 +233,7 @@ export default () => (
               'zero person done love der each person',
             ],
             [
-              'for no person o, for any person s, s loves o',
+              'for no person 𝑜, for any person 𝑠, 𝑠 loves 𝑜',
               'zero person _0 each person _1 , _1 love der _0',
             ],
           ].map(([en, code]) => (
@@ -231,11 +246,11 @@ export default () => (
                         <ruby>
                           <ruby>
                             <span className="target">
-                              {orthography(dic.get(chunk)?.betokener)}
+                              {orthography(dic.get(chunk)?.token)}
                             </span>
                             <rt className="ipa">
                               {i === 0 ? '[' : ''}
-                              {toIpa(dic.get(chunk)?.betokener)}
+                              {toIpa(dic.get(chunk)?.token)}
                               {i === self.length - 1 ? ']' : ''}
                             </rt>
                           </ruby>
@@ -261,7 +276,7 @@ export default () => (
       {(() => {
         const dateToKeys = {};
         for (const k of dic.keys()) {
-          const { date } = dic.get(k);
+          const { d: date } = dic.get(k);
           if (date in dateToKeys) dateToKeys[date].push(k);
           else dateToKeys[date] = [k];
         }
@@ -276,8 +291,9 @@ export default () => (
           sum += dateToKeys[date].length;
         }
 
-        const date0 = Object.keys(dateToKeys).reduce((acc, current) =>
-          current < acc ? current : acc
+        const date0 = Object.keys(dateToKeys).reduce(
+          (acc, current) => (current < acc ? current : acc),
+          '9999-99-99'
         );
 
         let acc = 0;
@@ -326,35 +342,38 @@ export default () => (
         <thead className="h">
           <tr>
             <th></th>
-            <th>betokener</th>
+            <th>token</th>
             <th>sound</th>
             <th>class</th>
-            <th>betokened</th>
+            <th>tokened</th>
             <th>origin</th>
           </tr>
         </thead>
         <tbody>
           {[...dic.entries()].map(
-            ([key, { betokener, betokened, klass, origin, formation }]) => (
+            ([
+              key,
+              { token: token, tokened, c: klass, o: origin, formation },
+            ]) => (
               <tr id={'entry-' + key}>
                 <td className="code">{key}</td>
                 <td>
-                  <Target>{betokener}</Target>
+                  <Target>{token}</Target>
                 </td>
                 <td>
-                  <Ipa>{betokener}</Ipa>
+                  <Ipa>{token}</Ipa>
                 </td>
                 <td>{klass}</td>
-                {betokened.startsWith('=') ? (
+                {tokened.startsWith('=') ? (
                   <td>
                     =
-                    <a href={'#entry-' + betokened.substring(1)}>
-                      <Target>{translate(betokened.substring(1))}</Target>
+                    <a href={'#entry-' + key.substring(1)}>
+                      <Target>{translate(tokened.substring(1))}</Target>
                     </a>
                   </td>
                 ) : (
                   <td>
-                    {betokened
+                    {tokened
                       .split(/(?<=@\d+|@\{.+?\})|(?=@\d+|@\{.+?\})/g)
                       .map((s: string) =>
                         /@\d+|@\{.+?\}/.test(s) ? (
@@ -378,6 +397,9 @@ export default () => (
                   ) : (
                     origin
                   )}
+                </td>
+                <td style={{ fontSize: 'xx-small', color: 'red' }}>
+                  {invalid(token)}
                 </td>
               </tr>
             )
