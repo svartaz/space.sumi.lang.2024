@@ -1,4 +1,5 @@
-import { replaceEach } from './common';
+// @ts-ignore
+import { replaceEach } from 'https://sumi.space/js/string.js';
 
 export const orthography = (s: string) =>
   replaceEach(
@@ -14,8 +15,8 @@ export const orthography = (s: string) =>
         [/d/gi, 'δ'],
         [/b/gi, 'β'],
 
-        [/h/gi, 'χ'],
-        [/x/gi, 'σ'],
+        [/h/gi, 'η'],
+        [/x/gi, 'ϲ'],
         [/s/gi, 'ξ'],
         [/f/gi, 'φ'],
 
@@ -35,7 +36,6 @@ export const orthography = (s: string) =>
         [/e/gi, 'ε'],
         [/o/gi, 'ο'],
         [/a/gi, 'α'],
-        [/.+/, (it) => it.toUpperCase()],
       ],
       cyrl: [
         [/k/gi, 'к'],
@@ -68,37 +68,6 @@ export const orthography = (s: string) =>
         [/e/gi, 'є'],
         [/o/gi, 'о'],
         [/a/gi, 'а'],
-      ],
-      phag: [
-        [/k/gi, 'ꡀ'],
-        [/t/gi, 'ꡈ'],
-        [/p/gi, 'ꡌ'],
-
-        [/c/gi, 'ꡂ'],
-        [/d/gi, 'ꡊ'],
-        [/b/gi, 'ꡎ'],
-
-        [/h/gi, 'ꡁ'],
-        [/x/gi, 'ꡚ'],
-        [/s/gi, 'ꡛ'],
-        [/f/gi, 'ꡍ'],
-
-        [/j/gi, 'ꡗ'],
-        [/z/gi, 'ꡕ'],
-        [/v/gi, 'ꡓ'],
-
-        [/g/gi, 'ꡃ'],
-        [/n/gi, 'ꡋ'],
-        [/m/gi, 'ꡏ'],
-
-        [/l/gi, 'ꡙ'],
-        [/r/gi, 'ꡘ'],
-
-        [/i/gi, 'ꡞ'],
-        [/u/gi, 'ꡟ'],
-        [/e/gi, 'ꡠ'],
-        [/o/gi, 'ꡡ'],
-        [/a/gi, 'ꡝ'],
       ],
       goth: [
         [/k/gi, '𐌺'],
