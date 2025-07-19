@@ -1,0 +1,4729 @@
+{
+  "did": {
+    "d": "2024-02-13",
+    "c": "after-verb",
+    "en": "realis past",
+    "ja": "叙實法 過去",
+    "formation": 0,
+    "token": "-a",
+    "ipa": "a"
+  },
+  "if_did": {
+    "d": "2025-05-27",
+    "c": "after-verb",
+    "en": "irrealis past",
+    "ja": "叙想法 過去",
+    "formation": 0,
+    "token": "-an",
+    "ipa": "ã"
+  },
+  "do": {
+    "d": "2024-02-13",
+    "c": "after-verb",
+    "en": "realis present",
+    "ja": "叙實法 現在",
+    "formation": 0,
+    "token": "-i",
+    "ipa": "i"
+  },
+  "if_do": {
+    "d": "2025-05-27",
+    "c": "after-verb",
+    "en": "irrealis present",
+    "ja": "叙想法 現在",
+    "formation": 0,
+    "token": "-in",
+    "ipa": "ĩ"
+  },
+  "will": {
+    "d": "2024-02-13",
+    "c": "after-verb",
+    "en": "realis future",
+    "ja": "叙實法 未來",
+    "formation": 0,
+    "token": "-u",
+    "ipa": "u"
+  },
+  "if_will": {
+    "d": "2025-05-27",
+    "c": "after-verb",
+    "en": "irrealis future",
+    "ja": "叙想法 未來",
+    "formation": 0,
+    "token": "-un",
+    "ipa": "ũ"
+  },
+  "if_be": {
+    "d": "2025-07-19",
+    "c": "after-verb",
+    "en": "realis nominal",
+    "ja": "叙想法 不變",
+    "formation": 0,
+    "token": "-en",
+    "ipa": "ẽ"
+  },
+  "enjoy": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n enjoyeth @a",
+    "ja": "@nは@aを樂しむ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neutan%C4%85",
+    "token": "njut",
+    "ipa": "njut"
+  },
+  "name": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n meaneth (signifieth, is a name of) @a",
+    "ja": "@nは@aを意味する（の名である）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nam%C3%B4",
+    "token": "nam",
+    "ipa": "nam"
+  },
+  "neck": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a neck",
+    "ja": "@nは首",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnakk%C3%B4",
+    "token": "nak",
+    "ipa": "nak"
+  },
+  "night": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is night (evening) of @a (earth)",
+    "ja": "@nは@a（惑星）の夜",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nahts",
+    "token": "nat",
+    "ipa": "nat"
+  },
+  "nose": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a nose",
+    "ja": "@nは鼻",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nas%C5%8D",
+    "token": "nas",
+    "ipa": "nas"
+  },
+  "energy": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n is energy of @a",
+    "ja": "@nの能源は@a",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Italic/gn%C4%81wos",
+    "token": "nav",
+    "ipa": "naw"
+  },
+  "nine": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "9",
+    "ja": "9",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/newun",
+    "token": "nin",
+    "ipa": "nĩ"
+  },
+  "lymph": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n is lymph",
+    "ja": "@nはlymph",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%CE%BD%CF%8D%CE%BC%CF%86%CE%B7#Ancient_Greek",
+    "token": "ninf",
+    "ipa": "nĩf"
+  },
+  "below": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is below @a (closer to center of gravity)",
+    "ja": "@nは@aより下に有る（重心へ近い）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ni%C3%BEan%C4%93",
+    "token": "nit",
+    "ipa": "nit"
+  },
+  "use": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n useth @a (tool, instrument)",
+    "ja": "@nは@a（道具）を使ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nut%C5%8D",
+    "token": "nut",
+    "ipa": "nut"
+  },
+  "north": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n is to the north of @a",
+    "ja": "@nは@aより北（反時計回りする極點）へ近い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nur%C3%BEraz",
+    "token": "nurt",
+    "ipa": "nurt"
+  },
+  "called": {
+    "d": "2024-02-13",
+    "c": "other",
+    "en": "@n is called ...",
+    "ja": "呼稱を動詞化する。@nは…と呼ばれる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/namô",
+    "token": "ne",
+    "ipa": "ne"
+  },
+  "take": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n taketh (receiveth) @a from @g",
+    "ja": "@nは@aを@gから受く（得る）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neman%C4%85",
+    "token": "nem",
+    "ipa": "nem"
+  },
+  "deny": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n (contradicteth, negateth, denieth) @a",
+    "ja": "@nは@aを否定（に矛盾）する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/neque#Latin",
+    "token": "nek",
+    "ipa": "nek"
+  },
+  "pity": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n (pitieth, feel sympathy) @a",
+    "ja": "@nは@aを憐れむ（に同情する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/natha#Old_Dutch",
+    "token": "net",
+    "ipa": "net"
+  },
+  "near": {
+    "d": "2024-08-08",
+    "c": "verb",
+    "en": "@n is near (close to) @a",
+    "ja": "@nは@aへ近い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz",
+    "token": "nex",
+    "ipa": "neʃ"
+  },
+  "nail": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a nail (claw)",
+    "ja": "@nは爪",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/naglaz",
+    "token": "nel",
+    "ipa": "nel"
+  },
+  "human": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a human (homo)",
+    "ja": "@nは人屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mann-",
+    "token": "man",
+    "ipa": "mã"
+  },
+  "mammal": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a mammal",
+    "ja": "@nは哺乳類",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/mammalis",
+    "token": "mamal",
+    "ipa": "mamal"
+  },
+  "make": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n (maketh, buildeth, createth) @a from @g (material, component)",
+    "ja": "@nは@a（材料、部品）から@d（完成品）を作る、構成する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/mak%C5%8Dn",
+    "token": "mak",
+    "ipa": "mak"
+  },
+  "maw": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a maw (stomach)",
+    "ja": "@nは胃",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mag%C3%B4",
+    "token": "mav",
+    "ipa": "maw"
+  },
+  "sea": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a sea (lake)",
+    "ja": "@nは海 (湖)",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mari",
+    "token": "mar",
+    "ipa": "mar"
+  },
+  "nation": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n is a country (nation)",
+    "ja": "@nは國家",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mark%C5%8D",
+    "token": "mark",
+    "ipa": "mark"
+  },
+  "nation_jp*": {
+    "date": "2024-08-25",
+    "c": "verb",
+    "en": "[country] @0 is japan (jp)",
+    "formation": 1,
+    "o": "nation+$jepa",
+    "token": "markjepa",
+    "ipa": "marcepa"
+  },
+  "nation_gb*": {
+    "date": "2024-08-25",
+    "c": "verb",
+    "en": "[country] @0 is the united kingdom (gb)",
+    "formation": 1,
+    "o": "nation+$nuba",
+    "token": "markenuba",
+    "ipa": "markenuba"
+  },
+  "nation_cn*": {
+    "date": "2024-08-25",
+    "c": "verb",
+    "en": "[country] @0 is china (cn)",
+    "formation": 1,
+    "o": "nation+$cana",
+    "token": "markecana",
+    "ipa": "markegana"
+  },
+  "nation_ca*": {
+    "date": "2024-11-22",
+    "c": "verb",
+    "en": "[country] @0 is canada (ca)",
+    "formation": 1,
+    "o": "nation+$caha",
+    "token": "markecaha",
+    "ipa": "markegaha"
+  },
+  "nation_de*": {
+    "date": "2024-08-25",
+    "c": "verb",
+    "en": "[country] @0 is germany (de)",
+    "formation": 1,
+    "o": "nation+$dahe",
+    "token": "markedahe",
+    "ipa": "markedahe"
+  },
+  "nation_br*": {
+    "date": "2024-11-22",
+    "c": "verb",
+    "en": "[country] @0 is brazil (br)",
+    "formation": 1,
+    "o": "nation+$bara",
+    "token": "markebara",
+    "ipa": "markebara"
+  },
+  "nation_tw*": {
+    "date": "2025-02-28",
+    "c": "verb",
+    "en": "[country] @0 is taiwan (tw)",
+    "formation": 1,
+    "o": "nation+$tavi",
+    "token": "marketavi",
+    "ipa": "marketavi"
+  },
+  "nation_in*": {
+    "date": "2024-11-22",
+    "c": "verb",
+    "en": "[country] @0 is india (in)",
+    "formation": 1,
+    "o": "nation+$hina",
+    "token": "markehina",
+    "ipa": "markehina"
+  },
+  "nation_it*": {
+    "date": "2024-11-22",
+    "c": "verb",
+    "en": "[country] @0 is italy (it)",
+    "formation": 1,
+    "o": "nation+$hita",
+    "token": "markehita",
+    "ipa": "markehita"
+  },
+  "nation_us*": {
+    "date": "2024-08-25",
+    "c": "verb",
+    "en": "[country] @0 is the united states (us)",
+    "formation": 1,
+    "o": "nation+$husa",
+    "token": "markehusa",
+    "ipa": "markehusa"
+  },
+  "nation_fr*": {
+    "date": "2024-08-25",
+    "c": "verb",
+    "en": "[country] @0 is france (fr)",
+    "formation": 1,
+    "o": "nation+$fara",
+    "token": "markefara",
+    "ipa": "markefara"
+  },
+  "nation_ru*": {
+    "date": "2025-02-08",
+    "c": "verb",
+    "en": "[country] @0 is russia (ru)",
+    "formation": 1,
+    "o": "nation+$rahu",
+    "token": "markerahu",
+    "ipa": "markerahu"
+  },
+  "with": {
+    "d": "2024-12-24",
+    "c": "case",
+    "en": "comitative",
+    "ja": "共格。…が關はって",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/midi",
+    "token": "mi",
+    "ipa": "mi"
+  },
+  "fog": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is fog (mist)",
+    "ja": "@nは霧",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mihstaz",
+    "token": "mist",
+    "ipa": "mist"
+  },
+  "level": {
+    "d": "2024-09-29",
+    "c": "numeral",
+    "en": "normal, moderate, default, usual, ordinary",
+    "ja": "普通、標準",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/gamet",
+    "token": "mu",
+    "ipa": "mu"
+  },
+  "mouth": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a mouth",
+    "ja": "@nは口",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mun%C3%BEaz",
+    "token": "mun",
+    "ipa": "mũ"
+  },
+  "hand": {
+    "d": "2024-11-24",
+    "c": "verb",
+    "en": "@n is a hand",
+    "ja": "@nは手",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mund%C5%8D",
+    "token": "munt",
+    "ipa": "mũt"
+  },
+  "punch*": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "=slak",
+    "ja": "@nは@aを毆る",
+    "formation": 1,
+    "o": "hand+hit",
+    "token": "muntehit",
+    "ipa": "mũtehit"
+  },
+  "rat": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a rodents (rat, mouse)",
+    "ja": "@nは齧歯目（鼠）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/m%C5%ABs",
+    "token": "mus",
+    "ipa": "mus"
+  },
+  "morning": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is morning (daytime) of @a (earth)",
+    "ja": "@nは@a（惑星）の晝",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/murginaz",
+    "token": "murk",
+    "ipa": "murk"
+  },
+  "moon": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is satellite (moon)",
+    "ja": "@nは衞星（月）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/m%C4%93n%C3%B4",
+    "token": "men",
+    "ipa": "mẽ"
+  },
+  "metal": {
+    "d": "2025-07-17",
+    "c": "verb",
+    "en": "@n is metal",
+    "ja": "@nは金屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stainaz",
+    "token": "met",
+    "ipa": "met"
+  },
+  "milk": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n is milk",
+    "ja": "@nは乳",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meluks",
+    "token": "melk",
+    "ipa": "melk"
+  },
+  "digest": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n digesteth @a",
+    "ja": "@nは@aを消化する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/meltan%C4%85",
+    "token": "melt",
+    "ipa": "melt"
+  },
+  "simulate": {
+    "d": "2024-08-27",
+    "c": "verb",
+    "en": "@n simulateth (mimiceth, imitateth, mocketh, faketh) @a",
+    "ja": "@nは@aを模倣する（擬裝する）ｓ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/mock#English",
+    "token": "mok",
+    "ipa": "mok"
+  },
+  "_mod": {
+    "d": "2024-08-24",
+    "c": "numeral",
+    "en": "modulo",
+    "ja": "剩餘",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/modulus#Latin",
+    "token": "mot",
+    "ipa": "mot"
+  },
+  "thank": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n thanketh @a",
+    "ja": "@nは@aに感謝する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/gratus#Latin",
+    "token": "crat",
+    "ipa": "grat"
+  },
+  "gray": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is gray (of saturationless color)",
+    "ja": "@nは無彩色を呈する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C4%93waz",
+    "token": "crev",
+    "ipa": "grew"
+  },
+  "green": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is green",
+    "ja": "@nは綠色を呈する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C5%8Dniz",
+    "token": "cron",
+    "ipa": "grõ"
+  },
+  "big": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is big (great)",
+    "ja": "@nは大きい",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/grautaz",
+    "token": "crot",
+    "ipa": "grot"
+  },
+  "done": {
+    "d": "2024-02-13",
+    "c": "fore-verb",
+    "en": "passive. foregoeth a case marker (default: accusative)",
+    "ja": "受動態。動詞に先立ち同格を對格に一致させる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-",
+    "token": "ca",
+    "ipa": "ga"
+  },
+  "south#": {
+    "d": "2025-03-01",
+    "c": "verb",
+    "en": "@n is to the south of @a",
+    "ja": "@nは@aよりの南（時計回りする極點）へ近い",
+    "formation": 2,
+    "o": "done␣north",
+    "token": "ca nurt",
+    "ipa": "ga nurt"
+  },
+  "front#": {
+    "d": "2025-02-07",
+    "c": "verb",
+    "en": "@n is in front of @a",
+    "ja": "@nは@aの前（進行方向）に有る",
+    "formation": 2,
+    "o": "done␣hind",
+    "token": "ca xin",
+    "ipa": "ga ʃĩ"
+  },
+  "kill#": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n kills @a",
+    "ja": "@nは殺す",
+    "formation": 2,
+    "o": "done␣because␣die",
+    "token": "ca fi do lip",
+    "ipa": "ga fi do lip"
+  },
+  "east#": {
+    "d": "2025-03-01",
+    "c": "verb",
+    "en": "@n is to the east of @a",
+    "ja": "@nは@aの東（自轉方向）に有る",
+    "formation": 2,
+    "o": "done␣west",
+    "token": "ca vest",
+    "ipa": "ga vest"
+  },
+  "right#": {
+    "d": "2025-02-07",
+    "c": "verb",
+    "en": "@n is to the right of @a",
+    "ja": "@nは@aの右に有る",
+    "formation": 2,
+    "o": "done␣left",
+    "token": "ca link",
+    "ipa": "ga lĩk"
+  },
+  "go": {
+    "d": "2024-08-26",
+    "c": "verb",
+    "en": "@n (is, goeth) (to, until) @{a:sink, destination, goal}",
+    "ja": "@nは@a（終點、到達點）へ往く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/g%C4%81n%C4%85",
+    "token": "can",
+    "ipa": "gã"
+  },
+  "complex*": {
+    "d": "2024-08-25",
+    "c": "verb",
+    "en": "@n is complex (consisteth of many parts)",
+    "ja": "@nは複雜（部分が多い）",
+    "formation": 1,
+    "o": "done+part+much",
+    "token": "cadelho",
+    "ipa": "gadelho"
+  },
+  "simple*": {
+    "d": "2024-08-25",
+    "c": "verb",
+    "en": "@n (is simple, consisteth of few parts)",
+    "ja": "@nは單純（部分が少ない）",
+    "formation": 1,
+    "o": "done+part+little",
+    "token": "cadelfa",
+    "ipa": "gadelfa"
+  },
+  "atom*": {
+    "d": "2024-08-25",
+    "c": "verb",
+    "en": "@n is an atom",
+    "ja": "@nは原子（單位）",
+    "formation": 1,
+    "o": "done+part+least",
+    "token": "cadelfaj",
+    "ipa": "gadelfaj"
+  },
+  "fork": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is a fork",
+    "ja": "@nは叉",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Celtic/gabl%C4%81",
+    "token": "cabal",
+    "ipa": "gabal"
+  },
+  "sibling*": {
+    "d": "2025-02-08",
+    "c": "verb",
+    "en": "=sip",
+    "ja": "@nは@aの同胞（と親を共有する）",
+    "formation": 1,
+    "o": "done+beget+same",
+    "token": "caburtesam",
+    "ipa": "gaburtesam"
+  },
+  "element": {
+    "d": "2024-08-06",
+    "c": "verb",
+    "en": "@n is in @{a:collection, set, group, list}",
+    "ja": "@nは@a（群、集合、列擧）に屬する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/gad",
+    "token": "cat",
+    "ipa": "gat"
+  },
+  "language_cmn*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is mandarin language (cmn)",
+    "formation": 1,
+    "o": "done+speak+$camana",
+    "token": "catalcamana",
+    "ipa": "gatalgamana"
+  },
+  "language_deu*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is german language (deu)",
+    "formation": 1,
+    "o": "done+speak+$dahehu",
+    "token": "cataldahehu",
+    "ipa": "gataldahehu"
+  },
+  "language_ara*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is arabic language (ara)",
+    "formation": 1,
+    "o": "done+speak+$haraha",
+    "token": "catalharaha",
+    "ipa": "gatalharaha"
+  },
+  "language_eng*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is english language (eng)",
+    "formation": 1,
+    "o": "done+speak+$henanu",
+    "token": "catalhenanu",
+    "ipa": "gatalhenanu"
+  },
+  "language_hin*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is hindustani (hindi, urdu)  language (hin)",
+    "formation": 1,
+    "o": "done+speak+$xuhina",
+    "token": "catalxuhina",
+    "ipa": "gatalʃuhina"
+  },
+  "language_spa*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is spanish language (spa)",
+    "formation": 1,
+    "o": "done+speak+$sapaha",
+    "token": "catalsapaha",
+    "ipa": "gatalsapaha"
+  },
+  "language_fra*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is french language (fra)",
+    "formation": 1,
+    "o": "done+speak+$faraha",
+    "token": "catalfaraha",
+    "ipa": "gatalfaraha"
+  },
+  "language_jpn*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is japanese language (jpn)",
+    "formation": 1,
+    "o": "done+speak+$jepana",
+    "token": "cataljepana",
+    "ipa": "gataʎepana"
+  },
+  "language_rus*": {
+    "date": "2024-08-31",
+    "c": "verb",
+    "en": "[language] @0 is russian language (rus)",
+    "formation": 1,
+    "o": "done+speak+$rahusa",
+    "token": "catalrahusa",
+    "ipa": "gatalrahusa"
+  },
+  "gas": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is gas",
+    "ja": "@nは氣體",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/gas#Dutch",
+    "token": "cas",
+    "ipa": "gas"
+  },
+  "begin": {
+    "d": "2024-05-26",
+    "c": "verb",
+    "en": "begin",
+    "ja": "起動相",
+    "etymology": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnan%C4%85",
+    "formation": 0,
+    "token": "ci",
+    "ipa": "gi"
+  },
+  "leap": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n jumpeth (leapeth, skipeth, hopeth) over @a",
+    "ja": "@nは@aを跳躍する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gumb%C5%8Dn%C4%85",
+    "token": "cum",
+    "ipa": "gum"
+  },
+  "yellow": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is yellow",
+    "ja": "@nは黃色を呈する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gulaz",
+    "token": "cul",
+    "ipa": "gul"
+  },
+  "goat": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a capra (goat)",
+    "ja": "@nは山羊屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gaits",
+    "token": "cet",
+    "ipa": "get"
+  },
+  "give": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n giveth @a to @{d:receiver}",
+    "ja": "@nは@aを@dへ與ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/geban%C4%85",
+    "token": "cep",
+    "ipa": "gep"
+  },
+  "randy": {
+    "d": "2024-09-12",
+    "c": "verb",
+    "en": "@n is randy (aroused, lustful, horny, sexual) for @a",
+    "ja": "@nは@aに欲情する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gailaz",
+    "token": "cel",
+    "ipa": "gel"
+  },
+  "of": {
+    "d": "2024-08-02",
+    "c": "other",
+    "en": "@n are … individuals",
+    "ja": "數に先立つ。@nは…個",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%E5%80%8B",
+    "token": "co",
+    "ipa": "go"
+  },
+  "good": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n liketh (feeleth good about) @a",
+    "ja": "@nは@aを好む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/g%C5%8Ddaz",
+    "token": "cot",
+    "ipa": "got"
+  },
+  "ear": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is an ear",
+    "ja": "@nは耳",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%DA%AF%D9%88%D8%B4#Persian",
+    "token": "cox",
+    "ipa": "goʃ"
+  },
+  "smoke": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is smoke (solid or liquid particles in gas)",
+    "ja": "@nは煙（氣體中の固體または液體の粒子）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dwemr%C4%85",
+    "token": "dvem",
+    "ipa": "dwem"
+  },
+  "lead": {
+    "d": "2024-09-01",
+    "c": "verb",
+    "en": "@n leadeth @a",
+    "ja": "@nは@aを導く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dragan%C4%85",
+    "token": "drak",
+    "ipa": "drak"
+  },
+  "_mul": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "multiplication. ×",
+    "ja": "乘算, ×",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%D8%B6%D8%B1%D8%A8",
+    "token": "drap",
+    "ipa": "drap"
+  },
+  "shit": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n shiteth (urinateth) @a",
+    "ja": "@nは@a（糞尿）を排泄する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/drit%C4%85",
+    "token": "drit",
+    "ipa": "drit"
+  },
+  "dry": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is dry",
+    "ja": "@nは乾く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/druknaz",
+    "token": "drux",
+    "ipa": "druʃ"
+  },
+  "turn": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n (turneth, rotateth, spineth) around @a (pivot, center)",
+    "ja": "@nは@a（中心、軸）を回る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEr%C4%93an%C4%85",
+    "token": "dren",
+    "ipa": "drẽ"
+  },
+  "dream": {
+    "d": "2024-10-16",
+    "c": "verb",
+    "en": "@n dreameth @a",
+    "ja": "@nは@aを夢見る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/draumaz",
+    "token": "drom",
+    "ipa": "drom"
+  },
+  "think": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n thinketh @a",
+    "ja": "@nは@aを考ふ（思ふ）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEankijan%C4%85",
+    "token": "dank",
+    "ipa": "dãk"
+  },
+  "dance": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n danceth @a (choreography)",
+    "ja": "@nは@a（振り付け）を踊る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/%C3%BEans%C5%8Dn",
+    "token": "dans",
+    "ipa": "dãs"
+  },
+  "viscera": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a viscera (inner organ)",
+    "ja": "@nは内臓",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEarmaz",
+    "token": "darm",
+    "ipa": "darm"
+  },
+  "three": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "3",
+    "ja": "3",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEr%C4%ABz",
+    "token": "di",
+    "ipa": "di"
+  },
+  "thing": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a (thing, matter) located in a spacetime",
+    "ja": "@nは物理的存在物（物體）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEing%C4%85",
+    "token": "dink",
+    "ipa": "dĩk"
+  },
+  "dense": {
+    "d": "2024-07-15",
+    "c": "verb",
+    "ja": "@n is dense",
+    "en": "@nは濃い（密集する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEinhtaz",
+    "token": "dint",
+    "ipa": "dĩt"
+  },
+  "dark": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is dark (of low brightness)",
+    "ja": "@nは暗い（低明度を呈する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dimmaz",
+    "token": "dim",
+    "ipa": "dim"
+  },
+  "thin": {
+    "d": "2025-07-17",
+    "c": "verb",
+    "en": "@n is thin",
+    "ja": "@nは薄い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEunnuz",
+    "token": "dun",
+    "ipa": "dũ"
+  },
+  "thunder": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is thunder",
+    "ja": "@nは雷",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEunraz",
+    "token": "dun",
+    "ipa": "dũ"
+  },
+  "so": {
+    "d": "2024-02-13",
+    "c": "fore-verb",
+    "en": "which is, so, of course (non-restrictive)",
+    "ja": "非制限修飾。當然に…である",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/þus",
+    "token": "dus",
+    "ipa": "dus"
+  },
+  "pass": {
+    "d": "2024-08-26",
+    "c": "verb",
+    "en": "@n (is, passeth) (through, via) @{a:process, route, medium}",
+    "ja": "@nは@a（通過點、途中、媒體）を通る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEurhw",
+    "token": "dur",
+    "ipa": "dur"
+  },
+  "thou": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is thee",
+    "ja": "@nは汝",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEek",
+    "token": "de",
+    "ipa": "de"
+  },
+  "thick": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is thick",
+    "ja": "@nは厚い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEekuz",
+    "token": "dek",
+    "ipa": "dek"
+  },
+  "part": {
+    "d": "2024-08-06",
+    "c": "verb",
+    "en": "@n is a (part, component) of @{a:whole}",
+    "ja": "@nは@a（全體）の部分",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz",
+    "token": "del",
+    "ipa": "del"
+  },
+  "night*": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "=nat",
+    "ja": "@nは@a（惑星）の夜",
+    "formation": 1,
+    "o": "part+day+dark",
+    "token": "deltindim",
+    "ipa": "deltĩdim"
+  },
+  "morning*": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "=murk",
+    "ja": "@nは@a（惑星）の晝",
+    "formation": 1,
+    "o": "part+day+bright",
+    "token": "deltinbert",
+    "ipa": "deltĩbert"
+  },
+  "season*": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n is season of @a (earth)",
+    "ja": "@nは@a（惑星）の季節",
+    "formation": 1,
+    "o": "part+year",
+    "token": "deljer",
+    "ipa": "deʎer"
+  },
+  "autumn*": {
+    "d": "2024-11-21",
+    "c": "verb",
+    "en": "=karbis",
+    "ja": "@nは@a（惑星）の秋（冷える季節）",
+    "formation": 1,
+    "o": "season+down",
+    "token": "deljerdo",
+    "ipa": "deʎerdo"
+  },
+  "summer*": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "=sumar",
+    "ja": "@nは@a（惑星）の夏（最も暑い季節）",
+    "formation": 1,
+    "o": "season+much",
+    "token": "deljerho",
+    "ipa": "deʎerho"
+  },
+  "winter*": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "=vinter",
+    "ja": "@nは@a（惑星）の冬（最も寒い季節）",
+    "formation": 1,
+    "o": "season+little",
+    "token": "deljerfa",
+    "ipa": "deʎerfa"
+  },
+  "spring*": {
+    "d": "2024-11-21",
+    "c": "verb",
+    "en": "=vazar",
+    "ja": "@nは@a（惑星）の春（暖まる季節）",
+    "formation": 1,
+    "o": "season+up",
+    "token": "deljereri",
+    "ipa": "deʎereri"
+  },
+  "th": {
+    "d": "2024-08-02",
+    "c": "other",
+    "en": "@n is …-th",
+    "ja": "數に先立つ。@nは第…",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/-i%C3%BE%C5%8D",
+    "token": "do",
+    "ipa": "do"
+  },
+  "down": {
+    "d": "2024-09-29",
+    "c": "numeral",
+    "en": "down, decreasing",
+    "ja": "減少量",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fallan%C4%85",
+    "token": "do",
+    "ipa": "do"
+  },
+  "second#": {
+    "d": "2024-09-14",
+    "c": "verb",
+    "en": "@n is 1st(, second, other)",
+    "ja": "@nは第1",
+    "formation": 2,
+    "o": "th␣one",
+    "token": "do ka",
+    "ipa": "do ka"
+  },
+  "last#": {
+    "d": "2024-09-14",
+    "c": "verb",
+    "en": "@n is last(, final)",
+    "ja": "@nは最終",
+    "formation": 2,
+    "o": "th␣each",
+    "token": "do pa",
+    "ipa": "do pa"
+  },
+  "recover#": {
+    "d": "2024-12-24",
+    "c": "verb",
+    "en": "@n recovers",
+    "ja": "@nは恢復する",
+    "formation": 2,
+    "o": "down␣sick",
+    "token": "do suk",
+    "ipa": "do suk"
+  },
+  "first#": {
+    "d": "2024-09-14",
+    "c": "verb",
+    "en": "@n is 0th(, first, primary)",
+    "ja": "@nは最初、第0",
+    "formation": 2,
+    "o": "th␣zero",
+    "token": "do zi",
+    "ipa": "do zɨ"
+  },
+  "forget#": {
+    "d": "2024-08-01",
+    "c": "verb",
+    "en": "@n forgeteth @a",
+    "ja": "@nは@aを忘る",
+    "formation": 2,
+    "o": "down␣know",
+    "token": "do vit",
+    "ipa": "do vit"
+  },
+  "die#": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n (dieth, is dead)",
+    "ja": "@nは死ぬ",
+    "formation": 2,
+    "o": "down␣live",
+    "token": "do lip",
+    "ipa": "do lip"
+  },
+  "forgive": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n forgiveth @a",
+    "ja": "@nは@aを許す",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/donare#Latin",
+    "token": "don",
+    "ipa": "dõ"
+  },
+  "fire": {
+    "d": "2024-12-08",
+    "c": "verb",
+    "en": "@n (fuel) burneth with @a (oxidant)",
+    "ja": "@n（燃料）は@a（酸化劑）で燃焼する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brandaz",
+    "token": "bran",
+    "ipa": "brã"
+  },
+  "bridge": {
+    "d": "2025-02-08",
+    "c": "verb",
+    "en": "@n is a bridge",
+    "ja": "@nは橋梁",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brugj%C7%AD",
+    "token": "bruk",
+    "ipa": "bruk"
+  },
+  "point": {
+    "d": "2024-10-01",
+    "c": "verb",
+    "en": "@n is a (point, position, dot)",
+    "ja": "@nは點（位置）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bruzdaz",
+    "token": "brut",
+    "ipa": "brut"
+  },
+  "breast": {
+    "d": "2024-09-22",
+    "c": "verb",
+    "en": "@n is a chest (breast)",
+    "ja": "@nは胸",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brusts",
+    "token": "brus",
+    "ipa": "brus"
+  },
+  "break": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n (breaketh, destructeth) @a into @d (pieces, components)",
+    "ja": "@nは@aを@d（部品）へ壞す、分解する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brekan%C4%85",
+    "token": "brek",
+    "ipa": "brek"
+  },
+  "interval": {
+    "d": "2024-10-01",
+    "c": "verb",
+    "en": "@n is (an interval, an area, a volume, a domain)",
+    "ja": "@nは區間（容積、領域）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/braidaz",
+    "token": "bret",
+    "ipa": "bret"
+  },
+  "blue": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is blue",
+    "ja": "@nは青い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C4%93waz",
+    "token": "blev",
+    "ipa": "blew"
+  },
+  "flower": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a flower (bloom, blossom)",
+    "ja": "@nは花",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8Dan%C4%85",
+    "token": "blok",
+    "ipa": "blok"
+  },
+  "blood": {
+    "d": "2024-07-29",
+    "c": "verb",
+    "en": "@n is blood",
+    "ja": "@nは血",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bl%C5%8D%C3%BE%C4%85",
+    "token": "blot",
+    "ipa": "blot"
+  },
+  "tree": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is a tree",
+    "ja": "@nは木本植物",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bagmaz",
+    "token": "bam",
+    "ipa": "bam"
+  },
+  "back": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n is temporally (inverse, opposite) of @a",
+    "ja": "@nは@aの逆行",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bak%C4%85",
+    "token": "bak",
+    "ipa": "bak"
+  },
+  "break*": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "=brek",
+    "ja": "@nは@aを@d（部品）へ壞す、分解する",
+    "formation": 1,
+    "o": "back+make",
+    "token": "bakmak",
+    "ipa": "bakmak"
+  },
+  "take*": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "=nem",
+    "ja": "@nは@aを@gから受く（得る）",
+    "formation": 1,
+    "o": "back+give",
+    "token": "bakecep",
+    "ipa": "bakegep"
+  },
+  "vomit*": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "=puk",
+    "ja": "@nは@aを嘔吐する",
+    "formation": 1,
+    "o": "back+eat",
+    "token": "baket",
+    "ipa": "baket"
+  },
+  "mass": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n is mass of @a",
+    "ja": "@nの質量は@a",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/balk%C3%B4",
+    "token": "balx",
+    "ipa": "balʃ"
+  },
+  "by": {
+    "d": "2024-02-13",
+    "c": "case",
+    "en": "nominative",
+    "ja": "主格。…が",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/bi#Old_English",
+    "token": "bi",
+    "ipa": "bi"
+  },
+  "bite": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n biteth @a",
+    "ja": "@nは@aを嚙む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C4%ABtan%C4%85",
+    "token": "bit",
+    "ipa": "bit"
+  },
+  "imagine": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n imagineth @a",
+    "ja": "@nは@aを想像する（夢想する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/bili%C3%BE%C5%8Dn",
+    "token": "bilt",
+    "ipa": "bilt"
+  },
+  "bore": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n is bored with @a",
+    "ja": "@nは@aに飽きる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bur%C5%8Dn%C4%85",
+    "token": "bur",
+    "ipa": "bur"
+  },
+  "beget": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n beareth (begeteth, reproducteth, is a parent of) @a (child)",
+    "ja": "@nは生殖する（@aを生む、@aの親である）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/burdiz",
+    "token": "burt",
+    "ipa": "burt"
+  },
+  "wave": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n (medium) waveth @a (form)",
+    "ja": "@n（媒體）の波は@a（形狀）を成す",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bulgij%C5%8D",
+    "token": "bulx",
+    "ipa": "bulʃ"
+  },
+  "bone": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a bone",
+    "ja": "@nは骨",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bain%C4%85",
+    "token": "ben",
+    "ipa": "bẽ"
+  },
+  "ship": {
+    "d": "2024-10-05",
+    "c": "verb",
+    "en": "@n is a ship (boat)",
+    "ja": "@nは舟",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/baitaz",
+    "token": "bet",
+    "ipa": "bet"
+  },
+  "bear": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a bear",
+    "ja": "@nは熊科",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ber%C3%B4",
+    "token": "ber",
+    "ipa": "ber"
+  },
+  "bright": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is bright (of high brightness)",
+    "ja": "@nは明るい（高明度を呈する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/berhtaz",
+    "token": "bert",
+    "ipa": "bert"
+  },
+  "hill": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a mountain (hill)",
+    "ja": "@nは山（丘）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bergaz",
+    "token": "berx",
+    "ipa": "berʃ"
+  },
+  "book": {
+    "d": "2025-07-19",
+    "c": "verb",
+    "en": "@n is a book (volume, tome)",
+    "ja": "@nは本（卷、册）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C5%8Dks",
+    "token": "bok",
+    "ipa": "bok"
+  },
+  "dwell": {
+    "d": "2024-12-20",
+    "c": "verb",
+    "en": "@n dwelleth in @a (house)",
+    "ja": "@nは@a（家）に居住する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/b%C5%8D%C3%BE%C5%8D",
+    "token": "bot",
+    "ipa": "bot"
+  },
+  "dish": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is a dish (bowl, cup, container)",
+    "ja": "@nは器（皿、碗、盆、杯、壺、瓶、罐）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hnappaz",
+    "token": "knap",
+    "ipa": "knap"
+  },
+  "knot": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is a knot (tangle, tie, bond)",
+    "ja": "@nは結び目（絡まり）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/knutt%C3%B4",
+    "token": "knut",
+    "ipa": "knut"
+  },
+  "_self": {
+    "d": "2024-02-17",
+    "c": "verb",
+    "en": "@n is the language",
+    "ja": "@nは この言語",
+    "formation": 0,
+    "token": "kxal",
+    "ipa": "kʃal"
+  },
+  "_div": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "division. /",
+    "ja": "除算。/",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%D9%82%D8%B3%D9%85#Arabic",
+    "token": "ksam",
+    "ipa": "ksam"
+  },
+  "belly": {
+    "d": "2024-09-22",
+    "c": "verb",
+    "en": "@n is a belly",
+    "ja": "@nは腹",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kwe%C3%BEuz",
+    "token": "kvet",
+    "ipa": "kwet"
+  },
+  "sound": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is a sound",
+    "ja": "@nは音",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/klingan%C4%85",
+    "token": "klin",
+    "ipa": "klĩ"
+  },
+  "clause": {
+    "d": "2024-10-05",
+    "c": "verb",
+    "en": "@n is a clause",
+    "ja": "@nは節",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/clauso#Latin",
+    "token": "klos",
+    "ipa": "klos"
+  },
+  "one": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "1",
+    "ja": "1",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/Háykas",
+    "token": "ka",
+    "ipa": "ka"
+  },
+  "cat": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a felis (cat)",
+    "ja": "@nは貓屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kattuz",
+    "token": "kat",
+    "ipa": "kat"
+  },
+  "case": {
+    "d": "2024-10-05",
+    "c": "verb",
+    "en": "@n is a case",
+    "ja": "@nは格",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/casu#Latin",
+    "token": "kas",
+    "ipa": "kas"
+  },
+  "care": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n regardeth (careth about) @n",
+    "ja": "@nは@aを氣に掛ける",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kar%C5%8D",
+    "token": "kar",
+    "ipa": "kar"
+  },
+  "respect*": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "=vert",
+    "ja": "@nは@aを敬ふ",
+    "formation": 1,
+    "o": "care+good",
+    "token": "karcot",
+    "ipa": "kargot"
+  },
+  "autumn": {
+    "d": "2024-11-21",
+    "c": "verb",
+    "en": "@n is autumn (cooling interval) of @a (earth)",
+    "ja": "@nは@a（惑星）の秋（冷える季節）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/harbistaz",
+    "token": "karbis",
+    "ipa": "karbis"
+  },
+  "fear*": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "=fort",
+    "ja": "@nは@aを恐れる",
+    "formation": 1,
+    "o": "care+bad",
+    "token": "karup",
+    "ipa": "karup"
+  },
+  "cold": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n cold (cool)",
+    "ja": "@nは冷たい（寒い、涼しい）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kalan%C4%85",
+    "token": "kal",
+    "ipa": "kal"
+  },
+  "kilo": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "1000. 3-digit separator",
+    "ja": "1000。3桁ごとの區切り",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BE%C5%ABsund%C4%AB",
+    "token": "ki",
+    "ipa": "ki"
+  },
+  "relate": {
+    "d": "2024-09-14",
+    "c": "verb",
+    "en": "@n is (related to @a, @a-ish)",
+    "ja": "@nは@aに關はる（@a的）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kin%C3%BEiz",
+    "token": "kint",
+    "ipa": "kĩt"
+  },
+  "then": {
+    "d": "2025-06-11",
+    "c": "other",
+    "en": "when, at the same time",
+    "ja": "それから。さうして",
+    "formation": 0,
+    "token": "ku",
+    "ipa": "ku"
+  },
+  "kiss": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "@nは@aに接吻する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kussaz",
+    "token": "kus",
+    "ipa": "kus"
+  },
+  "that": {
+    "d": "2024-02-13",
+    "c": "clause",
+    "en": "statement clause. @n is the (event, statement) that ...",
+    "ja": "文に先立って動詞に變換する。@nは…であることである",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/quid#Latin",
+    "token": "ke",
+    "ipa": "ke"
+  },
+  "come": {
+    "d": "2024-08-26",
+    "c": "verb",
+    "en": "@n (is, cometh) (from, since) @{a:source, origin, start}",
+    "ja": "@nは@a（始點、起源、由來）から來る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kweman%C4%85",
+    "token": "kem",
+    "ipa": "kem"
+  },
+  "promise": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n promiseth (guaranteeth, voweth) @a",
+    "ja": "@nは@aを約束する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haitan%C4%85",
+    "token": "ket",
+    "ipa": "ket"
+  },
+  "cow": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a bovin (cow)",
+    "ja": "@nは牛族",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/k%C5%ABz",
+    "token": "kov",
+    "ipa": "kow"
+  },
+  "eye": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is an eye",
+    "ja": "@nは目",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%DA%86%D8%B4%D9%85#Persian",
+    "token": "txam",
+    "ipa": "tʃam"
+  },
+  "trust": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n trusteth @a",
+    "ja": "@nは@aを信ずる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tr%C5%ABw%C4%81n%C4%85",
+    "token": "trov",
+    "ipa": "trow"
+  },
+  "tooth": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a tooth (fang)",
+    "ja": "@nは齒牙",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tan%C3%BEs",
+    "token": "tan",
+    "ipa": "tã"
+  },
+  "tong": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is a tong (plier, chopstick)",
+    "ja": "@nは箸（鉗子）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tang%C5%8D",
+    "token": "tank",
+    "ipa": "tãk"
+  },
+  "_sub": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "subtraction. -",
+    "ja": "減算。-",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%D8%B7%D8%B1%D8%AD",
+    "token": "tar",
+    "ipa": "tar"
+  },
+  "speak": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n speaketh in @a (language, protocol)",
+    "ja": "@nは@a（言語、規約）で話す（交信する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tal%C5%8D",
+    "token": "tal",
+    "ipa": "tal"
+  },
+  "day": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is day of @a (earth)",
+    "ja": "@nは@a（惑星）の日（自轉周期）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABnaz",
+    "token": "tin",
+    "ipa": "tĩ"
+  },
+  "time": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is the 1-dimensional physical temporal continuum",
+    "ja": "@nは1次元物理的時間",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%ABm%C3%B4",
+    "token": "tim",
+    "ipa": "tim"
+  },
+  "two": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "2",
+    "ja": "2",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/twai",
+    "token": "tu",
+    "ipa": "tu"
+  },
+  "plural#": {
+    "d": "2024-09-17",
+    "c": "numeral",
+    "en": "plural, at least two",
+    "ja": "複數。2以上",
+    "formation": 2,
+    "o": "two␣at_most",
+    "token": "tu li",
+    "ipa": "tu li"
+  },
+  "tongue": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a tongue",
+    "ja": "@nは舌",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/tung%C7%AD",
+    "token": "tunk",
+    "ipa": "tũk"
+  },
+  "lick*": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "=lix",
+    "ja": "@nは@aを舐める",
+    "formation": 1,
+    "o": "tongue+touch",
+    "token": "tunketek",
+    "ipa": "tũketek"
+  },
+  "scissor*": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n is a pair of scissors",
+    "ja": "@nは鋏",
+    "formation": 1,
+    "o": "two+knife",
+    "token": "tusaks",
+    "ipa": "tusaks"
+  },
+  "touch": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n palpeth @a (pressure)",
+    "ja": "@nは@a（力）を觸覺する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C4%93kan%C4%85",
+    "token": "tek",
+    "ipa": "tek"
+  },
+  "to": {
+    "d": "2024-02-13",
+    "c": "case",
+    "en": "dative",
+    "ja": "與格。…へ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8D",
+    "token": "to",
+    "ipa": "to"
+  },
+  "empty": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n is empty of @a",
+    "ja": "@nは@aを缺く（空）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8Dmaz",
+    "token": "tom",
+    "ipa": "tom"
+  },
+  "rope": {
+    "d": "2025-02-08",
+    "c": "verb",
+    "en": "@n is a rope {cord, string}",
+    "ja": "@nは紐（繩、糸）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/taug%C5%8D",
+    "token": "tok",
+    "ipa": "tok"
+  },
+  "iff": {
+    "d": "2024-02-13",
+    "c": "joiner",
+    "en": "if and only iff, equivalence",
+    "ja": "同値。即ち",
+    "formation": 0,
+    "token": "psa",
+    "ipa": "psa"
+  },
+  "and": {
+    "d": "2024-02-13",
+    "c": "joiner",
+    "en": "and, all, conjunction",
+    "ja": "連言。かつ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bai",
+    "token": "pse",
+    "ipa": "pse"
+  },
+  "or": {
+    "d": "2024-02-13",
+    "c": "joiner",
+    "en": "or, at least one, disjunction",
+    "ja": "選言。または",
+    "formation": 0,
+    "token": "pso",
+    "ipa": "pso"
+  },
+  "plant": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is a plant",
+    "ja": "@nは植物",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/planta#Latin",
+    "token": "plant",
+    "ipa": "plãt"
+  },
+  "each": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "each, every, all",
+    "ja": "各。全",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%CF%80%E1%BE%B6%CF%82#Ancient_Greek",
+    "token": "pa",
+    "ipa": "pa"
+  },
+  "five": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "5",
+    "ja": "5",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/p%C3%A1n%C4%8Da",
+    "token": "pan",
+    "ipa": "pã"
+  },
+  "penis": {
+    "d": "2024-09-22",
+    "c": "verb",
+    "en": "@n is a penis (clitoris)",
+    "ja": "@nは陰莖（陰核）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/pinti",
+    "token": "pint",
+    "ipa": "pĩt"
+  },
+  "deci": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "decimal separator",
+    "ja": "小數點",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/pungo#Latin",
+    "token": "pu",
+    "ipa": "pu"
+  },
+  "vomit": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n vomiteth @a",
+    "ja": "@nは@aを嘔吐する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/puke",
+    "token": "puk",
+    "ipa": "puk"
+  },
+  "_exp": {
+    "d": "2024-08-24",
+    "c": "numeral",
+    "en": "exponentiation",
+    "ja": "冪乘",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/potere#Latin",
+    "token": "pot",
+    "ipa": "pot"
+  },
+  "have": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n (hath, owneth) @{a:property}",
+    "ja": "@nは@aを有する、保持する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/habjan%C4%85",
+    "token": "hap",
+    "ipa": "hap"
+  },
+  "hair": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a hair (fur)",
+    "ja": "@nは毛",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hazdaz",
+    "token": "has",
+    "ipa": "has"
+  },
+  "arm": {
+    "d": "2024-11-24",
+    "c": "verb",
+    "en": "@n is an arm",
+    "ja": "@nは腕",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/armaz",
+    "token": "harm",
+    "ipa": "harm"
+  },
+  "hit": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "@n hiteth (kicketh, puncheth) @a",
+    "ja": "@nは@aを打つ（毆る、蹴る）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hittijan%C4%85",
+    "token": "hit",
+    "ipa": "hit"
+  },
+  "dog": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a canis (dog)",
+    "ja": "@nは犬屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hundaz",
+    "token": "hunt",
+    "ipa": "hũt"
+  },
+  "emotion": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n feeleth @a (emotion)",
+    "ja": "@nは@a（感情）を持つ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hugiz",
+    "token": "huk",
+    "ipa": "huk"
+  },
+  "horn": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a horn",
+    "ja": "@nは角",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hurn%C4%85",
+    "token": "hurn",
+    "ipa": "hur̃"
+  },
+  "earth": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is planet (earth)",
+    "ja": "@nは惑星（地球）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/er%C3%BE%C5%8D",
+    "token": "hert",
+    "ipa": "hert"
+  },
+  "hail": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is hail",
+    "ja": "@nは雹",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/h%C3%A6gl#Old_English",
+    "token": "hel",
+    "ipa": "hel"
+  },
+  "help": {
+    "d": "2024-06-18",
+    "c": "verb",
+    "en": "@n helpeth (assisteth) @a",
+    "ja": "@nは@aを助ける（支援する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/helpan%C4%85",
+    "token": "help",
+    "ipa": "help"
+  },
+  "much": {
+    "d": "2024-09-29",
+    "c": "numeral",
+    "en": "much, great, high",
+    "ja": "多量",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/hoch#German",
+    "token": "ho",
+    "ipa": "ho"
+  },
+  "head": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a head",
+    "ja": "@nは頭",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haubud%C4%85",
+    "token": "hot",
+    "ipa": "hot"
+  },
+  "most": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "most, greatest, highest",
+    "ja": "最多量",
+    "formation": 0,
+    "token": "hoj",
+    "ipa": "hoj"
+  },
+  "white#": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "=xvit",
+    "ja": "@nは白い（最高明度を呈する）",
+    "formation": 2,
+    "o": "most␣bright",
+    "token": "hoj bert",
+    "ipa": "hoj bert"
+  },
+  "bore#": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "=bur",
+    "ja": "@nは@aに飽きる",
+    "formation": 2,
+    "o": "most␣expect",
+    "token": "hoj van",
+    "ipa": "hoj vã"
+  },
+  "full#": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "=fol",
+    "ja": "@nは@aに滿ちる",
+    "formation": 2,
+    "o": "most␣contain",
+    "token": "hoj luk",
+    "ipa": "hoj luk"
+  },
+  "white": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is white (of highest brightness)",
+    "ja": "@nは白い（最高明度を呈する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%ABtaz",
+    "token": "xvit",
+    "ipa": "ʃwit"
+  },
+  "understand": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n understandeth (decodeth) @a (expression)",
+    "ja": "@nはを@a（表現）を理解する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlustiz",
+    "token": "xlus",
+    "ipa": "ʃlus"
+  },
+  "hear": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n heareth @a (sound)",
+    "ja": "@nは@a（音）を聞く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hleum%C3%B4",
+    "token": "xlev",
+    "ipa": "ʃlew"
+  },
+  "hate": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n is hateth (detesteth) @a",
+    "ja": "@nは@aを憎惡する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hataz",
+    "token": "xat",
+    "ipa": "ʃat"
+  },
+  "hare": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a lagomorpha (hare, rabbit)",
+    "ja": "@nは兎形目（兎）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/has%C3%B4",
+    "token": "xas",
+    "ipa": "ʃas"
+  },
+  "sharp": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n is sharp",
+    "ja": "@nは鋭い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skarpaz",
+    "token": "xarp",
+    "ipa": "ʃarp"
+  },
+  "hind": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is behind @a",
+    "ja": "@nは@aの後（進行方向の逆）に有る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hinder",
+    "token": "xin",
+    "ipa": "ʃĩ"
+  },
+  "hue": {
+    "d": "2024-11-20",
+    "c": "verb",
+    "en": "@n emiteth (hue, frequency of light) @a",
+    "ja": "@nは@a（色相）を發する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hiwj%C4%85",
+    "token": "xiv",
+    "ipa": "ʃiw"
+  },
+  "family": {
+    "d": "2025-02-08",
+    "c": "verb",
+    "en": "@n is in blood relation with @a",
+    "ja": "@nは@aの血族",
+    "etymology": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kunj%C4%85",
+    "formation": 0,
+    "token": "xun",
+    "ipa": "ʃũ"
+  },
+  "test": {
+    "d": "2024-07-26",
+    "c": "verb",
+    "en": "@n checketh (examineth, inspecteth) @a",
+    "ja": "@nは@aを確認する（檢査する、精査する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/keusan%C4%85",
+    "token": "xus",
+    "ipa": "ʃus"
+  },
+  "short": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "@n is short",
+    "ja": "@nは短い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz",
+    "token": "xurt",
+    "ipa": "ʃurt"
+  },
+  "shoulder": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a shoulder (buttock)",
+    "ja": "@nは肩（尻）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/skuldru",
+    "token": "xult",
+    "ipa": "ʃult"
+  },
+  "he": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is (him, it, this, that, the definite entity)",
+    "ja": "@nは彼、あれ、それ、これ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hiz",
+    "token": "xe",
+    "ipa": "ʃe"
+  },
+  "this#": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is this",
+    "ja": "@nは これ",
+    "formation": 2,
+    "o": "he␣near",
+    "token": "xe nex",
+    "ipa": "ʃe neʃ"
+  },
+  "yon#": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is that",
+    "ja": "@nは あれ",
+    "formation": 2,
+    "o": "he␣far",
+    "token": "xe fer",
+    "ipa": "ʃe fer"
+  },
+  "world": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a (world, universe)",
+    "ja": "@nは世界（宇宙、時空間）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haimaz",
+    "token": "xem",
+    "ipa": "ʃem"
+  },
+  "six": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "6",
+    "ja": "6",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-Iranian/%C5%A1w%C3%A1%C4%87%C5%A1",
+    "token": "xek",
+    "ipa": "ʃek"
+  },
+  "happen": {
+    "d": "2024-08-23",
+    "c": "verb",
+    "en": "@n (existeth, happeneth, occureth, realiseth, is actual)",
+    "ja": "@nは存在する、起こる、實現する、實際である",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skehan%C4%85",
+    "token": "xeh",
+    "ipa": "ʃeh"
+  },
+  "chew": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n cheweth @a",
+    "ja": "@nは@aを咀嚼する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kewwan%C4%85",
+    "token": "xev",
+    "ipa": "ʃew"
+  },
+  "heart": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a heart",
+    "ja": "@nは心臟",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hert%C3%B4",
+    "token": "xert",
+    "ipa": "ʃert"
+  },
+  "ly": {
+    "d": "2024-02-13",
+    "c": "case",
+    "en": "recursive",
+    "ja": "己格。これが表す文自身を…として",
+    "formation": 0,
+    "o": "a priori",
+    "token": "xo",
+    "ipa": "ʃo"
+  },
+  "snake": {
+    "d": "2024-07-15",
+    "c": "verb",
+    "en": "@n is a serpentis (snake)",
+    "ja": "@nは蛇亞目",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snegan%C4%85",
+    "token": "snek",
+    "ipa": "snek"
+  },
+  "cut": {
+    "d": "2024-11-21",
+    "c": "verb",
+    "en": "@n cuteth @a",
+    "ja": "@nは@aを切る（斷つ）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sn%C4%AB%C3%BEan%C4%85",
+    "token": "snet",
+    "ipa": "snet"
+  },
+  "knife*": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "=saks",
+    "formation": 1,
+    "o": "cut+done+use",
+    "token": "snetecanut",
+    "ipa": "sneteganut"
+  },
+  "snow": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is snow",
+    "ja": "@nは雪",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sn%C4%ABwan%C4%85",
+    "token": "snev",
+    "ipa": "snew"
+  },
+  "swift": {
+    "d": "2024-06-18",
+    "c": "verb",
+    "en": "@n is (swift, quick)",
+    "ja": "@nは速い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/snellaz",
+    "token": "snel",
+    "ipa": "snel"
+  },
+  "taste": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n taste @a (chemical substance)",
+    "ja": "@nは@a（化學物質）を味はふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/smak%C4%93n",
+    "token": "smak",
+    "ipa": "smak"
+  },
+  "small": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "@n is small",
+    "ja": "@nは小さい",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smalaz",
+    "token": "smal",
+    "ipa": "smal"
+  },
+  "smile": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n smileth",
+    "ja": "@nは笑む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sm%C4%ABlijan%C4%85",
+    "token": "smil",
+    "ipa": "smil"
+  },
+  "shame": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@nは@aを恥づ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skam%C5%8D",
+    "token": "skam",
+    "ipa": "skam"
+  },
+  "harm": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n harmeth (hurteth, damageth) @a",
+    "ja": "@nは@aを害する（傷附ける）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ska%C3%BE%C3%B4",
+    "token": "skat",
+    "ipa": "skat"
+  },
+  "skin": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a skin (peel)",
+    "ja": "@nは皮膚（皮革）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skin%C3%BE%C4%85",
+    "token": "skin",
+    "ipa": "skĩ"
+  },
+  "vivid": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is vivid (of high-saturation color)",
+    "ja": "@nは鮮やか（高彩度を呈する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%ABm%C3%B4",
+    "token": "skim",
+    "ipa": "skim"
+  },
+  "sky": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is sky (atmosphere)",
+    "ja": "@nは空（大氣）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiwj%C4%85",
+    "token": "skiv",
+    "ipa": "skiw"
+  },
+  "differ": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n differeth (varieth) from @a",
+    "ja": "@nは@aと異なる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skiljan%C4%85",
+    "token": "skil",
+    "ipa": "skil"
+  },
+  "compare*": {
+    "d": "2024-07-26",
+    "c": "verb",
+    "en": "@n compares @a",
+    "formation": 1,
+    "o": "differ+test",
+    "token": "skilxus",
+    "ipa": "skilʃus"
+  },
+  "shun": {
+    "d": "2024-09-27",
+    "c": "verb",
+    "en": "@n is shuneth (avoideth) @a",
+    "ja": "@nは@aを避く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skeuhaz",
+    "token": "skuk",
+    "ipa": "skuk"
+  },
+  "sheep": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is an ovis (sheep)",
+    "ja": "@nは羊屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%93p%C4%85",
+    "token": "skep",
+    "ipa": "skep"
+  },
+  "frown": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n frowneth",
+    "ja": "@nは顰む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skelhaz",
+    "token": "skel",
+    "ipa": "skel"
+  },
+  "stand": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n standeth on @a",
+    "ja": "@nは@aに立つ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%81n%C4%85",
+    "token": "stan",
+    "ipa": "stã"
+  },
+  "trunk": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a trunk (torso, stem)",
+    "ja": "@nは胴（幹、莖）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stamniz",
+    "token": "stam",
+    "ipa": "stam"
+  },
+  "rod": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n is a rod (stuff, wand, club)",
+    "ja": "@nは棒（杖、棍）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stikk%C3%B4",
+    "token": "stik",
+    "ipa": "stik"
+  },
+  "solid": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is solid",
+    "ja": "@nは個體",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/st%C4%ABfaz",
+    "token": "stif",
+    "ipa": "stif"
+  },
+  "yell": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n yelleth (crieth, shouteth) @a (voice)",
+    "ja": "@nは@a（聲）を叫ぶ（鳴く）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stun%C5%8Dn%C4%85",
+    "token": "stun",
+    "ipa": "stũ"
+  },
+  "caress": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "@n carreseth @a",
+    "ja": "@nは@aを撫でる（愛撫する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/streukan%C4%85",
+    "token": "stuk",
+    "ipa": "stuk"
+  },
+  "pride": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n is proud of @a",
+    "ja": "@nは@aを誇る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stultaz",
+    "token": "stut",
+    "ipa": "stut"
+  },
+  "stab": {
+    "d": "2024-11-24",
+    "c": "verb",
+    "en": "@n stabeth @a",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stubbaz",
+    "token": "stup",
+    "ipa": "stup"
+  },
+  "command": {
+    "d": "2024-09-29",
+    "c": "verb",
+    "en": "@n commandeth (requesteth, recommendeth) @a",
+    "ja": "@nは@aを命令する（要求する、推奬する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stiurijan%C4%85",
+    "token": "stur",
+    "ipa": "stur"
+  },
+  "stone": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is stone (rock, mineral)",
+    "ja": "@nは石（巖、鑛物）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%CE%BC%CE%AD%CF%84%CE%B1%CE%BB%CE%BB%CE%BF%CE%BD#Ancient_Greek",
+    "token": "sten",
+    "ipa": "stẽ"
+  },
+  "tail": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a tail",
+    "ja": "@nは尾",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stertaz",
+    "token": "stet",
+    "ipa": "stet"
+  },
+  "river": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is river",
+    "ja": "@nは河川",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/straumaz",
+    "token": "stom",
+    "ipa": "stom"
+  },
+  "stop": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n (stopeth, halteth, is static)",
+    "ja": "@nは止まる（停止する、静的）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/stopp%C5%8Dn",
+    "token": "stop",
+    "ipa": "stop"
+  },
+  "electric": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n hath electric charge in @a",
+    "ja": "@nの電荷は@a",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sparkaz",
+    "token": "spak",
+    "ipa": "spak"
+  },
+  "spine": {
+    "d": "2025-02-06",
+    "c": "verb",
+    "en": "@n is a spine",
+    "ja": "@nは脊椎",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/spina#Latin",
+    "token": "spin",
+    "ipa": "spĩ"
+  },
+  "kick": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "@n kicketh @a",
+    "ja": "@nは@aを蹴る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/spurnan%C4%85",
+    "token": "spun",
+    "ipa": "spũ"
+  },
+  "spoon": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is a spoon (scoop)",
+    "ja": "@nは匙",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sp%C4%93nuz",
+    "token": "spen",
+    "ipa": "spẽ"
+  },
+  "spear": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n is a spear (pin, skewer)",
+    "ja": "@nは槍（鋲、串）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/speru",
+    "token": "sper",
+    "ipa": "sper"
+  },
+  "black": {
+    "d": "2024-04-26",
+    "c": "verb",
+    "en": "@n is black (of lowest brightness)",
+    "ja": "@nは黑い（最低明度を呈する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swartaz",
+    "token": "svat",
+    "ipa": "swat"
+  },
+  "answer": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n answereth @a to @d",
+    "ja": "@nはを@aを@dへ答ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swar%C5%8Dn%C4%85",
+    "token": "svar",
+    "ipa": "swar"
+  },
+  "pig": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a sus (pig, hog)",
+    "ja": "@nは猪屬（豚）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%ABn%C4%85",
+    "token": "svin",
+    "ipa": "swĩ"
+  },
+  "swim": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n (swimeth, flieth) in @a (fluid)",
+    "ja": "@nは@a（流體）を飛翔する（泳ぐ）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85",
+    "token": "svim",
+    "ipa": "swim"
+  },
+  "fly*": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "=fluk",
+    "ja": "@nは@aを飛翔する（泳ぐ）",
+    "formation": 1,
+    "o": "swim+gas",
+    "token": "svimcas",
+    "ipa": "swimgas"
+  },
+  "sleep": {
+    "d": "2024-04-26",
+    "c": "verb",
+    "en": "@n sleepeth (is asleep)",
+    "ja": "@nは眠る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swefan%C4%85",
+    "token": "svef",
+    "ipa": "swef"
+  },
+  "heavy": {
+    "d": "2024-07-14",
+    "c": "verb",
+    "en": "@n is heavy",
+    "ja": "@nは重い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%93raz",
+    "token": "sver",
+    "ipa": "swer"
+  },
+  "swallow": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n swalloweth @a",
+    "ja": "@nは@aを嚥下する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swelgan%C4%85",
+    "token": "svel",
+    "ipa": "swel"
+  },
+  "punch": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "@n puncheth @a",
+    "ja": "@nは@aを毆る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slahan%C4%85",
+    "token": "slak",
+    "ipa": "slak"
+  },
+  "smooth": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "@n (is smooth, is sleek, hath little friction) against @a",
+    "ja": "@nは@aに對して滑らか",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sl%C4%ABkan%C4%85",
+    "token": "slik",
+    "ipa": "slik"
+  },
+  "slow": {
+    "d": "2024-09-06",
+    "c": "verb",
+    "en": "@n is slow",
+    "ja": "@nは遅い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/slaiwaz",
+    "token": "slev",
+    "ipa": "slew"
+  },
+  "same": {
+    "d": "2024-08-27",
+    "c": "verb",
+    "en": "@n is (the same as, identical to, equal to) @a",
+    "ja": "@nは@aに等しい",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/samaz",
+    "token": "sam",
+    "ipa": "sam"
+  },
+  "say": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n sayeth (encodeth) @a (expression)",
+    "ja": "@nはを@a（表現）を言ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sagjan%C4%85",
+    "token": "sak",
+    "ipa": "sak"
+  },
+  "knife": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@nは刃（劍、刀）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sahs%C4%85",
+    "token": "saks",
+    "ipa": "saks"
+  },
+  "greet": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n greeteth to @a",
+    "ja": "@nは@aへ挨拶する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/salus#Latin",
+    "token": "sal",
+    "ipa": "sal"
+  },
+  "salt": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is salt (NaCl)",
+    "ja": "@nは鹽（NaCl）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/salt%C4%85",
+    "token": "salt",
+    "ipa": "salt"
+  },
+  "whether": {
+    "d": "2024-07-28",
+    "c": "clause",
+    "en": "truthfulness clause. @n is whether ...",
+    "ja": "文に先立って程度に變換する。@nは…かどうかである",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/si#Latin",
+    "token": "si",
+    "ipa": "sɨ"
+  },
+  "infinite": {
+    "d": "2024-09-06",
+    "c": "numeral",
+    "en": "(countable or uncountable) infinite",
+    "ja": "（加算または非可算の）無限",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sin-",
+    "token": "sin",
+    "ipa": "sɨ̃"
+  },
+  "sing": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n singeth (playeth) @a (music, song)",
+    "ja": "@nは@a（歌、曲）を歌ふ（演奏する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/singwan%C4%85",
+    "token": "sink",
+    "ipa": "sɨ̃k"
+  },
+  "sit": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n siteth on @a",
+    "ja": "@nは@aに座る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sitjan%C4%85",
+    "token": "sit",
+    "ipa": "sɨt"
+  },
+  "sibling": {
+    "d": "2025-02-08",
+    "c": "verb",
+    "en": "@n is a sibiling of (shareth a parent with) @a",
+    "ja": "@nは@aの同胞（と親を共有する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sibjaz",
+    "token": "sip",
+    "ipa": "sɨp"
+  },
+  "sun": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is fixed sun (star)",
+    "ja": "@nは恆星（太陽）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sunn%C7%AD",
+    "token": "sun",
+    "ipa": "sũ"
+  },
+  "healthy": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n is healthy",
+    "ja": "@nは健康",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sundaz",
+    "token": "sunt",
+    "ipa": "sũt"
+  },
+  "summer": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n is summer (hottest interval) of @a (earth)",
+    "ja": "@nは@a（惑星）の夏（最も暑い季節）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sumaraz",
+    "token": "sumar",
+    "ipa": "sumar"
+  },
+  "sick": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is sick (malfunctioneth)",
+    "ja": "@nは病む（故障する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/seukaz",
+    "token": "suk",
+    "ipa": "suk"
+  },
+  "sad": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n is (sad, depressed) about @a",
+    "ja": "@nは@aを悲しむ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/surg%C5%8D",
+    "token": "surk",
+    "ipa": "surk"
+  },
+  "feel": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n feeleth (senseth) @a (stimulus)",
+    "ja": "@nは@a（刺戟）を感ずる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/sent-",
+    "token": "sent",
+    "ipa": "sẽt"
+  },
+  "seven": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "7",
+    "ja": "7",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sebun",
+    "token": "sep",
+    "ipa": "sep"
+  },
+  "hurt": {
+    "d": "2025-03-01",
+    "c": "verb",
+    "en": "@n hurteth (feeleth pain) from @a",
+    "ja": "@nは@a（力）に痛む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sairaz",
+    "token": "ser",
+    "ipa": "ser"
+  },
+  "sentence": {
+    "d": "2024-10-05",
+    "c": "verb",
+    "en": "@n is a sentence",
+    "ja": "@nは文（命題）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%CF%86%CF%81%CE%AC%CF%83%CE%B9%CF%82#Ancient_Greek",
+    "token": "fras",
+    "ipa": "fras"
+  },
+  "glad": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n is (happy, glad, merry) about @a",
+    "ja": "@nは@aを喜ぶ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/frawaz",
+    "token": "frav",
+    "ipa": "fraw"
+  },
+  "fresh": {
+    "d": "2024-07-24",
+    "c": "verb",
+    "en": "@n is fresh",
+    "ja": "@nは新鮮",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/friskaz",
+    "token": "frix",
+    "ipa": "friʃ"
+  },
+  "frog": {
+    "d": "2024-07-15",
+    "c": "verb",
+    "en": "@n is an anura (frog)",
+    "ja": "@nは無尾目（蛙）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fruskaz",
+    "token": "fruk",
+    "ipa": "fruk"
+  },
+  "ask": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n asketh @a (question) to @d",
+    "ja": "@nはを@a（質問）を@dへ問ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fr%C4%93g%C5%8D",
+    "token": "frex",
+    "ipa": "freʃ"
+  },
+  "plasm": {
+    "d": "2024-07-15",
+    "c": "verb",
+    "en": "@n is plasm",
+    "ja": "@nは電漿",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/flamma#Latin",
+    "token": "flam",
+    "ipa": "flam"
+  },
+  "fly": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n flieth in @a",
+    "ja": "@nは@aを飛翔する（泳ぐ）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fleugan%C4%85",
+    "token": "fluk",
+    "ipa": "fluk"
+  },
+  "liquid": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is liquid",
+    "ja": "@nは液體",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flut%C4%85",
+    "token": "flut",
+    "ipa": "flut"
+  },
+  "flesh": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is flesh (meat, muscle)",
+    "ja": "@nは筋肉",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/flaiski",
+    "token": "fles",
+    "ipa": "fles"
+  },
+  "little": {
+    "d": "2024-09-29",
+    "c": "numeral",
+    "en": "little, small, low",
+    "ja": "少量",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fawaz",
+    "token": "fa",
+    "ipa": "fa"
+  },
+  "small#": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "=smal",
+    "ja": "@nは小さい",
+    "formation": 2,
+    "o": "little␣big",
+    "token": "fa crot",
+    "ipa": "fa grot"
+  },
+  "thin#": {
+    "d": "2025-07-17",
+    "c": "verb",
+    "en": "=dun",
+    "ja": "@nは薄い",
+    "formation": 2,
+    "o": "little␣thick",
+    "token": "fa dek",
+    "ipa": "fa dek"
+  },
+  "dark#": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "=dim",
+    "ja": "@nは暗い（低明度を呈する）",
+    "formation": 2,
+    "o": "little␣bright",
+    "token": "fa bert",
+    "ipa": "fa bert"
+  },
+  "neglect#": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n neglecteth (is indifferent to) @a",
+    "ja": "@nは@aを無視する（に無關心）",
+    "formation": 2,
+    "o": "little␣care",
+    "token": "fa kar",
+    "ipa": "fa kar"
+  },
+  "serene*": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "=rov",
+    "ja": "@nは@aに平穩（冷静）",
+    "formation": 1,
+    "o": "neglect+good",
+    "token": "fa karcot",
+    "ipa": "fa kargot"
+  },
+  "scorn*": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n scorneth (disdaineth, disrespecteth) @a",
+    "ja": "@nは@aを侮る（軽蔑する、見くびる）",
+    "formation": 1,
+    "o": "neglect+bad",
+    "token": "fa karup",
+    "ipa": "fa karup"
+  },
+  "doubt#": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n doubteth @a",
+    "ja": "@nは@aを疑ふ",
+    "formation": 2,
+    "o": "little␣trust",
+    "token": "fa trov",
+    "ipa": "fa trow"
+  },
+  "slow#": {
+    "d": "2024-09-06",
+    "c": "verb",
+    "en": "=slev",
+    "ja": "@nは遅い",
+    "formation": 2,
+    "o": "little␣swift",
+    "token": "fa snel",
+    "ipa": "fa snel"
+  },
+  "dull#": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is dull (of low-saturation color)",
+    "ja": "@nは鈍い（低彩度を呈する）",
+    "formation": 2,
+    "o": "little␣vivid",
+    "token": "fa skim",
+    "ipa": "fa skim"
+  },
+  "want#": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "=vil",
+    "ja": "@nは@aを求む",
+    "formation": 2,
+    "o": "little␣shun",
+    "token": "fa skuk",
+    "ipa": "fa skuk"
+  },
+  "shame#": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "=skam",
+    "formation": 2,
+    "o": "little␣pride",
+    "token": "fa stut",
+    "ipa": "fa stut"
+  },
+  "healthy#": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "=sunt",
+    "ja": "@nは健康",
+    "formation": 2,
+    "o": "little␣sick",
+    "token": "fa suk",
+    "ipa": "fa suk"
+  },
+  "glad#": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "=frav",
+    "ja": "@nは@aを喜ぶ",
+    "formation": 2,
+    "o": "little␣sad",
+    "token": "fa surk",
+    "ipa": "fa surk"
+  },
+  "near#": {
+    "d": "2024-08-08",
+    "c": "verb",
+    "en": "=nex",
+    "ja": "@nは@aへ近い",
+    "formation": 2,
+    "o": "little␣far",
+    "token": "fa fer",
+    "ipa": "fa fer"
+  },
+  "amaze#": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "=von",
+    "ja": "@nは@aに驚く",
+    "formation": 2,
+    "o": "little␣expect",
+    "token": "fa van",
+    "ipa": "fa vã"
+  },
+  "cold#": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "=kal",
+    "ja": "@nは冷たい（寒い、涼しい）",
+    "formation": 2,
+    "o": "little␣hot",
+    "token": "fa varm",
+    "ipa": "fa varm"
+  },
+  "hard#": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "=fast",
+    "ja": "@nは@aに對して軟らかい",
+    "formation": 2,
+    "o": "little␣soft",
+    "token": "fa vik",
+    "ipa": "fa vik"
+  },
+  "fresh#": {
+    "d": "2024-07-24",
+    "c": "verb",
+    "en": "=frix",
+    "ja": "@nは新鮮",
+    "formation": 2,
+    "o": "little␣rot",
+    "token": "fa rut",
+    "ipa": "fa rut"
+  },
+  "smooth#": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "=slik",
+    "ja": "@nは@aに對して滑らか",
+    "formation": 2,
+    "o": "little␣rough",
+    "token": "fa ruh",
+    "ipa": "fa ruh"
+  },
+  "short#": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "=xurt",
+    "ja": "@nは短い",
+    "formation": 2,
+    "o": "little␣long",
+    "token": "fa lank",
+    "ipa": "fa lãk"
+  },
+  "dry#": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "=drux",
+    "ja": "@nは乾く",
+    "formation": 2,
+    "o": "little␣wet",
+    "token": "fa lukvat",
+    "ipa": "fa lukwat"
+  },
+  "good#": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "=cot",
+    "ja": "@nは@aを好む",
+    "formation": 2,
+    "o": "little␣bad",
+    "token": "fa up",
+    "ipa": "fa ʔup"
+  },
+  "hug": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "@n hugeth @a",
+    "ja": "@nは@aを抱擁する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fa%C3%BEmaz",
+    "token": "fam",
+    "ipa": "fam"
+  },
+  "hard": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "@n is hard (firm) against @a",
+    "ja": "@nは@aに對して軟らかい",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fastuz",
+    "token": "fast",
+    "ipa": "fast"
+  },
+  "least": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "least, smallest, lowest",
+    "ja": "最少量",
+    "formation": 0,
+    "token": "faj",
+    "ipa": "faj"
+  },
+  "black#": {
+    "d": "2024-04-26",
+    "c": "verb",
+    "en": "=svat",
+    "ja": "@nは黑い（最低明度を呈する）",
+    "formation": 2,
+    "o": "least␣white",
+    "token": "faj xvit",
+    "ipa": "faj ʃwit"
+  },
+  "gray#": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "=crev",
+    "ja": "@nは無彩色を呈する",
+    "formation": 2,
+    "o": "least␣vivid",
+    "token": "faj skim",
+    "ipa": "faj skim"
+  },
+  "same#": {
+    "d": "2024-08-27",
+    "c": "verb",
+    "en": "=sam",
+    "ja": "@nは@aに等しい",
+    "formation": 2,
+    "o": "least␣differ",
+    "token": "faj skil",
+    "ipa": "faj skil"
+  },
+  "contact#": {
+    "d": "2024-08-08",
+    "c": "verb",
+    "en": "@n toucheth (is adjacent, is in contact with) @a",
+    "ja": "@nは@aに接する",
+    "formation": 2,
+    "o": "least␣far",
+    "token": "faj fer",
+    "ipa": "faj fer"
+  },
+  "sleep#": {
+    "d": "2024-04-26",
+    "c": "verb",
+    "en": "=svef",
+    "ja": "@nは眠る",
+    "formation": 2,
+    "o": "least␣wake",
+    "token": "faj vax",
+    "ipa": "faj vaʃ"
+  },
+  "stop#": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "=stop",
+    "ja": "@nは止まる（停止する、静的）",
+    "formation": 2,
+    "o": "least␣move",
+    "token": "faj vex",
+    "ipa": "faj veʃ"
+  },
+  "empty#": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "=tom",
+    "ja": "@nは@aを缺く（空）",
+    "formation": 2,
+    "o": "least␣contain",
+    "token": "faj luk",
+    "ipa": "faj luk"
+  },
+  "colour": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n emiteth @a (colour)",
+    "ja": "@nは@a（色）を發する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/farwaz",
+    "token": "farv",
+    "ipa": "farw"
+  },
+  "because": {
+    "d": "2025-07-15",
+    "c": "case",
+    "en": "causative",
+    "ja": "因格。…に因って",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fram",
+    "token": "fi",
+    "ipa": "fi"
+  },
+  "end": {
+    "d": "2024-05-26",
+    "c": "verb",
+    "en": "end",
+    "ja": "終了相",
+    "etymology": "https://en.wiktionary.org/wiki/finis#Latin",
+    "formation": 0,
+    "token": "fi",
+    "ipa": "fi"
+  },
+  "fish": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a fish",
+    "ja": "@nは魚類",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fiskaz",
+    "token": "fisk",
+    "ipa": "fisk"
+  },
+  "vagina": {
+    "d": "2024-09-22",
+    "c": "verb",
+    "en": "@n is a vagina",
+    "ja": "@nは膣",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fu%C3%BEiz",
+    "token": "fut",
+    "ipa": "fut"
+  },
+  "fox": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a vulpes (fox)",
+    "ja": "@nは狐屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuhsaz",
+    "token": "fus",
+    "ipa": "fus"
+  },
+  "four": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "4",
+    "ja": "4",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fedw%C5%8Dr",
+    "token": "fet",
+    "ipa": "fet"
+  },
+  "fat": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is body fat",
+    "ja": "@nは體脂肪",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/faitaz",
+    "token": "fet",
+    "ipa": "fet"
+  },
+  "money": {
+    "d": "2024-08-25",
+    "c": "verb",
+    "en": "@n is (money, coin, bill)",
+    "ja": "@nは金（貨幣、紙幣、硬貨）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fehu",
+    "token": "fex",
+    "ipa": "feʃ"
+  },
+  "far": {
+    "d": "2024-08-08",
+    "c": "verb",
+    "en": "@n is far (distant, remote) from @a",
+    "ja": "@nは@aから遠い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ferrai",
+    "token": "fer",
+    "ipa": "fer"
+  },
+  "fuck": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n fucketh @a",
+    "ja": "@nは@aと性交する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fukk%C5%8Dn%C4%85",
+    "token": "fok",
+    "ipa": "fok"
+  },
+  "foot": {
+    "d": "2024-11-24",
+    "c": "verb",
+    "en": "@n is a foot",
+    "ja": "@nは足",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/f%C5%8Dts",
+    "token": "fot",
+    "ipa": "fot"
+  },
+  "kick*": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "=spun",
+    "ja": "@nは@aを蹴る",
+    "formation": 1,
+    "o": "foot+hit",
+    "token": "fothit",
+    "ipa": "fothit"
+  },
+  "before": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is before @a in time",
+    "ja": "@nは@aの過去に有る（時間方向で小さい）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furai",
+    "token": "for",
+    "ipa": "for"
+  },
+  "fear": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n worries (feareth, is afraid of) @a",
+    "ja": "@nは@aを恐れる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/furhtaz",
+    "token": "fort",
+    "ipa": "fort"
+  },
+  "full": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n is full of @a",
+    "ja": "@nは@aに滿ちる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fullaz",
+    "token": "fol",
+    "ipa": "fol"
+  },
+  "bird": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is an avis (bird)",
+    "ja": "@nは鳥類",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuglaz",
+    "token": "folk",
+    "ipa": "folk"
+  },
+  "_add": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "addition. +",
+    "ja": "加算。+",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%D8%AC%D9%85%D8%B9",
+    "token": "jam",
+    "ipa": "ʒam"
+  },
+  "pick": {
+    "d": "2024-09-09",
+    "c": "verb",
+    "en": "@n picketh (hunteth, gathereth, collects) @a (harvest, prey)",
+    "ja": "@nは@aを拾ふ（狩る、収穫する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/jakk%C5%8Dn%C4%85",
+    "token": "jak",
+    "ipa": "ʒak"
+  },
+  "man": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is male (produceth sperms)",
+    "ja": "@nは@a（精巢、雄蕊）を持つ（男）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gum%C3%B4",
+    "token": "jum",
+    "ipa": "ʒum"
+  },
+  "i": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is me",
+    "ja": "@nは我",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mek",
+    "token": "je",
+    "ipa": "ʒe"
+  },
+  "year": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n is year of @a (earth)",
+    "ja": "@nは@a（惑星）の年（公轉周期）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/j%C4%93r%C4%85",
+    "token": "jer",
+    "ipa": "ʒer"
+  },
+  "love": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n loveth (is romantically attracted to) @a",
+    "ja": "@nは@aを愛する（を戀ふ）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gernaz",
+    "token": "jern",
+    "ipa": "ʒer̃"
+  },
+  "zero": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "0",
+    "ja": "0",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%D8%B5%D9%81%D8%B1#Arabic",
+    "token": "zi",
+    "ipa": "zɨ"
+  },
+  "xor#": {
+    "d": "2025-01-02",
+    "c": "joiner",
+    "en": "either",
+    "ja": "排他的選言。いづれか",
+    "formation": 2,
+    "o": "zero␣iff",
+    "token": "zi psa",
+    "ipa": "zɨ psa"
+  },
+  "self": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is oneself",
+    "ja": "@nは己",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sek",
+    "token": "ze",
+    "ipa": "ze"
+  },
+  "envy": {
+    "d": "2024-09-12",
+    "c": "verb",
+    "en": "@n envieth @a",
+    "ja": "@nは@aを羨む（妬む）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/zelo#Latin",
+    "token": "zel",
+    "ipa": "zel"
+  },
+  "_var": {
+    "d": "2025-02-27",
+    "c": "other",
+    "en": "bound variable",
+    "ja": "變項選言と本文を區切る",
+    "formation": 0,
+    "token": "zo",
+    "ipa": "zo"
+  },
+  "purple": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is purple",
+    "ja": "@nは紫色を呈する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%E1%BC%B4%CE%BF%CE%BD#Ancient_Greek",
+    "token": "vjon",
+    "ipa": "vjõ"
+  },
+  "write": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n writeth @a (expression)",
+    "ja": "@nはを@a（表現）を書く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C4%ABtan%C4%85",
+    "token": "vrit",
+    "ipa": "vrit"
+  },
+  "angry": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n is angry with (mad at) @a",
+    "ja": "@nは@aに怒る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wrai%C3%BEaz",
+    "token": "vret",
+    "ipa": "vret"
+  },
+  "root": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a root",
+    "ja": "@nは根",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wr%C5%8Dts",
+    "token": "vrot",
+    "ipa": "vrot"
+  },
+  "see": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n seeth @a (light)",
+    "ja": "@nは@a（光）を見る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wl%C4%ABtan%C4%85",
+    "token": "vlit",
+    "ipa": "vlit"
+  },
+  "expect": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n expecteth (used to) @a",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/w%C4%81nijan",
+    "token": "van",
+    "ipa": "vã"
+  },
+  "womb": {
+    "d": "2024-09-22",
+    "c": "verb",
+    "en": "@n is a prostate (womb)",
+    "ja": "@nは前立腺（子宮）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wamb%C5%8D",
+    "token": "vam",
+    "ipa": "vam"
+  },
+  "eight": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "8",
+    "ja": "8",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/aht%C5%8Du",
+    "token": "vak",
+    "ipa": "vak"
+  },
+  "water": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is water (H₂O)",
+    "ja": "@nは水（H₂O）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wat%C5%8Dr",
+    "token": "vat",
+    "ipa": "vat"
+  },
+  "wake": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n waketh (is awake)",
+    "ja": "@nは起きる（覺める）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wakan%C4%85",
+    "token": "vax",
+    "ipa": "vaʃ"
+  },
+  "spring": {
+    "d": "2024-11-21",
+    "c": "verb",
+    "en": "@n is spring (warming interval) of @a (earth)",
+    "ja": "@nは@a（惑星）の春（暖まる季節）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wazr%C4%85",
+    "token": "vazar",
+    "ipa": "vazar"
+  },
+  "hot": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n is hot (warm)",
+    "ja": "@nは熱い（暑い、温かい）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/warmaz",
+    "token": "varm",
+    "ipa": "varm"
+  },
+  "heat*": {
+    "d": "2024-09-06",
+    "c": "verb",
+    "en": "@n is heat in @a",
+    "ja": "@nの熱量は@a",
+    "formation": 1,
+    "o": "hot+energy",
+    "token": "varmenav",
+    "ipa": "varmenaw"
+  },
+  "walk": {
+    "d": "2024-06-18",
+    "c": "verb",
+    "en": "@n walketh on @a (ground)",
+    "ja": "@nは@aを步く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/walkan%C4%85",
+    "token": "valk",
+    "ipa": "valk"
+  },
+  "force": {
+    "d": "2024-10-01",
+    "c": "verb",
+    "en": "@n is force",
+    "ja": "@nは力",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wald%C4%85",
+    "token": "valt",
+    "ipa": "valt"
+  },
+  "which": {
+    "d": "2024-02-13",
+    "c": "clause",
+    "en": "relative clause",
+    "ja": "斜格に取られた動詞が更に斜格を取る為の構造を開く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%AB",
+    "token": "vi",
+    "ipa": "vi"
+  },
+  "winter": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n is winter (coldest interval) of @a (earth)",
+    "ja": "@nは@a（惑星）の冬（最も寒い季節）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wintruz",
+    "token": "vinter",
+    "ipa": "vĩter"
+  },
+  "soft": {
+    "d": "2024-09-26",
+    "c": "verb",
+    "en": "@n is soft against @a",
+    "ja": "@nは@aに對して軟らかい",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABkwan%C4%85",
+    "token": "vik",
+    "ipa": "vik"
+  },
+  "know": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n knoweth @a (fact, existence)",
+    "ja": "@nは@a（事象、存在）を知る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/witan%C4%85",
+    "token": "vit",
+    "ipa": "vit"
+  },
+  "woman": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is female (produceth ova)",
+    "ja": "@nは@a（卵巢、雌蕊）を持つ（女）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C4%ABb%C4%85",
+    "token": "vip",
+    "ipa": "vip"
+  },
+  "want": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n wanteth @a",
+    "ja": "@nは@aを求む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wiljan%C4%85",
+    "token": "vil",
+    "ipa": "vil"
+  },
+  "who": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is who",
+    "ja": "@nは誰、何",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hwaz",
+    "token": "ve",
+    "ipa": "ve"
+  },
+  "move": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n (moveth, is dynamic)",
+    "ja": "@nは動く（變動する、動的）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wegan%C4%85",
+    "token": "vex",
+    "ipa": "veʃ"
+  },
+  "west": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n is to the west of @a",
+    "ja": "@nは@aの西（自轉方向の逆）に有る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/westraz",
+    "token": "vest",
+    "ipa": "vest"
+  },
+  "work": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n worketh (laboureth)",
+    "ja": "@nは勞働する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/werk%C4%85",
+    "token": "verk",
+    "ipa": "verk"
+  },
+  "respect": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n respecteth (honoureth) @a",
+    "ja": "@nは@aを敬ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wer%C3%BEaz",
+    "token": "vert",
+    "ipa": "vert"
+  },
+  "verb": {
+    "d": "2024-10-05",
+    "c": "verb",
+    "en": "@n is a verb",
+    "ja": "@nは動詞",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/verbo#Latin",
+    "token": "verp",
+    "ipa": "verp"
+  },
+  "dative*": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is dative",
+    "ja": "@nは與格",
+    "formation": 1,
+    "o": "verb+one+th+arm",
+    "token": "verpekadoharm",
+    "ipa": "verpekadoharm"
+  },
+  "oblique*": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is oblique",
+    "ja": "@nは斜格",
+    "formation": 1,
+    "o": "verb+arm",
+    "token": "verpeharm",
+    "ipa": "verpeharm"
+  },
+  "nominative*": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is nominative",
+    "ja": "@nは主格",
+    "formation": 1,
+    "o": "verb+head",
+    "token": "verpehot",
+    "ipa": "verpehot"
+  },
+  "accusative*": {
+    "d": "2024-12-23",
+    "c": "verb",
+    "en": "@n is accusative",
+    "ja": "@nは對格",
+    "formation": 1,
+    "o": "verb+zero+th+arm",
+    "token": "verpezidoharm",
+    "ipa": "verpezɨdoharm"
+  },
+  "how_many": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "how many?",
+    "ja": "数量疑問。幾つ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C5%8D",
+    "token": "vo",
+    "ipa": "vo"
+  },
+  "amaze": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n is surprised (amazed) at @a",
+    "ja": "@nは@aに驚く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wundr%C4%85",
+    "token": "von",
+    "ipa": "võ"
+  },
+  "wont": {
+    "d": "2024-09-01",
+    "c": "verb",
+    "en": "@n is used to @a (custom, habit, routine)",
+    "ja": "@nは@a（習慣）に慣れる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wun%C4%81n%C4%85",
+    "token": "vont",
+    "ipa": "võt"
+  },
+  "weep": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n weepeth @a (tear)",
+    "ja": "@nは@a（涙）を泣く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/w%C5%8Dpijan%C4%85",
+    "token": "vop",
+    "ipa": "vop"
+  },
+  "word": {
+    "d": "2024-10-05",
+    "c": "verb",
+    "en": "@n is a word",
+    "ja": "@n is a 單詞",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wurd%C4%85",
+    "token": "vort",
+    "ipa": "vort"
+  },
+  "cloud": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is cloud",
+    "ja": "@nは雲",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulkn%C4%85",
+    "token": "volk",
+    "ipa": "volk"
+  },
+  "wolf": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a canis lupus (wolf)",
+    "ja": "@nは狼",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulfaz",
+    "token": "volf",
+    "ipa": "volf"
+  },
+  "smell": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n smelleth @a (chemical substance)",
+    "ja": "@nは@a（化學物質）を嗅ぐ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reukan%C4%85",
+    "token": "rjuk",
+    "ipa": "rjuk"
+  },
+  "less_than": {
+    "d": "2024-08-31",
+    "c": "numeral",
+    "en": "less than. <",
+    "ja": "…未満。<",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/l%C3%A6s#Etymology_2_2",
+    "token": "ra",
+    "ipa": "ra"
+  },
+  "orange": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is orange",
+    "ja": "@nは橙色を呈する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B1%D9%86%DA%AF#Persian",
+    "token": "rank",
+    "ipa": "rãk"
+  },
+  "reason": {
+    "d": "2024-08-31",
+    "c": "verb",
+    "en": "@n reasoneth @a",
+    "ja": "@nは@aを判ずる（推論する、理性に照らす）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ra%C3%BEj%C7%AD",
+    "token": "rat",
+    "ipa": "rat"
+  },
+  "crow": {
+    "d": "2024-07-15",
+    "c": "verb",
+    "en": "@n is a corvida (crow, raven)",
+    "ja": "@nは烏科",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrabnaz",
+    "token": "rap",
+    "ipa": "rap"
+  },
+  "up": {
+    "d": "2024-09-29",
+    "c": "numeral",
+    "en": "up, increasing",
+    "ja": "增加量",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABsan%C4%85",
+    "token": "ri",
+    "ipa": "ri"
+  },
+  "learn#": {
+    "d": "2024-08-01",
+    "c": "verb",
+    "en": "@n learneth @a",
+    "ja": "@nは@aを學ぶ",
+    "formation": 2,
+    "o": "up␣know",
+    "token": "ri vit",
+    "ipa": "ri vit"
+  },
+  "run": {
+    "d": "2024-06-18",
+    "c": "verb",
+    "en": "@n runeth on @a (ground)",
+    "ja": "@nは@aを走る（驅ける）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rinnan%C4%85",
+    "token": "rin",
+    "ipa": "rĩ"
+  },
+  "noble": {
+    "d": "2024-10-01",
+    "c": "verb",
+    "en": "@n is privileged",
+    "ja": "@nは特權を持つ（貴族）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%ABkijaz",
+    "token": "rik",
+    "ipa": "rik"
+  },
+  "_close": {
+    "d": "2024-02-13",
+    "c": "other",
+    "en": "closeth clause",
+    "ja": "構造を閉ぢる",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/啦#Chinese",
+    "token": "ru",
+    "ipa": "ru"
+  },
+  "space": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is the 3-dimensional physical spacial continuum",
+    "ja": "@nは3次元物理的空間",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABm%C4%85",
+    "token": "rum",
+    "ipa": "rum"
+  },
+  "rot": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n roteth",
+    "ja": "@nは腐敗する",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rut%C4%81n%C4%85",
+    "token": "rut",
+    "ipa": "rut"
+  },
+  "rough": {
+    "d": "2024-08-24",
+    "c": "verb",
+    "en": "@n (is rough, is coarse, hath much friction) against @a",
+    "ja": "@nは@aに對して粗い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%ABhaz",
+    "token": "ruh",
+    "ipa": "ruh"
+  },
+  "horse": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a equus (horse)",
+    "ja": "@nは馬屬",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hruss%C4%85",
+    "token": "rus",
+    "ipa": "rus"
+  },
+  "him": {
+    "d": "2024-02-13",
+    "c": "case",
+    "en": "accusative",
+    "ja": "對格。…を",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/den#German",
+    "token": "re",
+    "ipa": "re"
+  },
+  "rain": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n is rain",
+    "ja": "@nは雨",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/regn%C4%85",
+    "token": "ren",
+    "ipa": "rẽ"
+  },
+  "read": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n readeth @a (expression)",
+    "ja": "@nはを@a（表現）を讀む",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C4%93dan%C4%85",
+    "token": "ret",
+    "ipa": "ret"
+  },
+  "reptile": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a reptile",
+    "ja": "@nは爬虫類",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/reptilis#Latin",
+    "token": "reptil",
+    "ipa": "reptil"
+  },
+  "deer": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a deer",
+    "ja": "@nは鹿科",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raih%C3%B4",
+    "token": "reh",
+    "ipa": "reh"
+  },
+  "rule": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "@n ruleth (ordereth, dictateth) @a",
+    "ja": "@nは@aを統治する（支配する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/rego#Latin",
+    "token": "rex",
+    "ipa": "reʃ"
+  },
+  "body": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a body",
+    "ja": "@nは肉體",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrefaz",
+    "token": "ref",
+    "ipa": "ref"
+  },
+  "red": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is red",
+    "ja": "@nは赤い",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/raudaz",
+    "token": "rot",
+    "ipa": "rot"
+  },
+  "serene": {
+    "d": "2024-09-10",
+    "c": "verb",
+    "en": "@n is calm (serene) about @a",
+    "ja": "@nは@aに平穩（冷静）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/r%C5%8D%C5%8D",
+    "token": "rov",
+    "ipa": "row"
+  },
+  "person": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a person (an individual, a citizen)",
+    "ja": "@nは人間（個人、市民、）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/liudiz",
+    "token": "ljut",
+    "ipa": "ʎut"
+  },
+  "liver": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a liver",
+    "ja": "@nは肝臓",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libr%C5%8D",
+    "token": "ljur",
+    "ipa": "ʎur"
+  },
+  "long": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is long",
+    "ja": "@nは長い（一次元方向に大きく他次元方向に小さい）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/langaz",
+    "token": "lank",
+    "ipa": "lãk"
+  },
+  "land": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is land (island)",
+    "ja": "@nは陸地 (島)",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/land%C4%85",
+    "token": "lant",
+    "ipa": "lãt"
+  },
+  "leg": {
+    "d": "2024-11-24",
+    "c": "verb",
+    "en": "@n is a leg",
+    "ja": "@nは肢（腕、脚）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lagjaz",
+    "token": "lak",
+    "ipa": "lak"
+  },
+  "laugh": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n laugheth",
+    "ja": "@nは笑ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hlahjan%C4%85",
+    "token": "lah",
+    "ipa": "lah"
+  },
+  "at_most": {
+    "d": "2024-02-13",
+    "c": "numeral",
+    "en": "at most. ≤",
+    "ja": "最大…。≤",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABtilaz",
+    "token": "li",
+    "ipa": "li"
+  },
+  "left": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is to the left of @a",
+    "ja": "@nは@aの左に有る",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Old_High_German/link",
+    "token": "link",
+    "ipa": "lĩk"
+  },
+  "limb": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a limb (leg, arm, branch)",
+    "ja": "@nは肢（腕、脚、枝）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/limuz",
+    "token": "lim",
+    "ipa": "lim"
+  },
+  "lie": {
+    "d": "2024-08-30",
+    "c": "verb",
+    "en": "@n lieth (horizontally stays) on @a",
+    "ja": "@nは@aに寢る（臥す）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ligjan%C4%85",
+    "token": "lik",
+    "ipa": "lik"
+  },
+  "stay": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is (stayeth) at @a (position, location, place)",
+    "ja": "@nは@a（地點、時點）に有る（存在する）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/l%C4%ABban%C4%85",
+    "token": "lip",
+    "ipa": "lip"
+  },
+  "live": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n liveth (is alive)",
+    "ja": "@nは生く",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libjan%C4%85",
+    "token": "lip",
+    "ipa": "lip"
+  },
+  "light": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is (a light, an electromagnetic wave)",
+    "ja": "@nは光（電磁波）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85",
+    "token": "liht",
+    "ipa": "liht"
+  },
+  "lick": {
+    "d": "2024-08-19",
+    "c": "verb",
+    "en": "@n licketh @a",
+    "ja": "@nは@aを舐める",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/likk%C5%8Dn%C4%85",
+    "token": "lix",
+    "ipa": "liʃ"
+  },
+  "lung": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a lung",
+    "ja": "@nは肺",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lung%C3%B4",
+    "token": "lunk",
+    "ipa": "lũk"
+  },
+  "contain": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n is containeth @{1:within}",
+    "ja": "@nは@aを内側に持つ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/l%C5%ABkan",
+    "token": "luk",
+    "ipa": "luk"
+  },
+  "wet*": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is wet (moist)",
+    "ja": "@nは濕る（潤う）",
+    "formation": 1,
+    "o": "contain+water",
+    "token": "lukvat",
+    "ipa": "lukwat"
+  },
+  "lip": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a lip",
+    "ja": "@nは脣",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/lep%C3%B4",
+    "token": "lep",
+    "ipa": "lep"
+  },
+  "kiss*": {
+    "d": "2024-11-23",
+    "c": "verb",
+    "en": "=kus",
+    "formation": 1,
+    "o": "lip+touch",
+    "token": "leptek",
+    "ipa": "leptek"
+  },
+  "_log": {
+    "d": "2024-08-24",
+    "c": "numeral",
+    "en": "logarithm",
+    "ja": "對數",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/logarithmo#Latin",
+    "token": "lok",
+    "ipa": "lok"
+  },
+  "leaf": {
+    "d": "2024-09-02",
+    "c": "verb",
+    "en": "@n is a leaf",
+    "ja": "@nは葉",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/laub%C4%85",
+    "token": "lop",
+    "ipa": "lop"
+  },
+  "counter": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "@n (complementeth, is dual of) @a",
+    "ja": "@nは@aを補完する（の雙對）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/an%C3%BEeraz",
+    "token": "an",
+    "ipa": "ʔã"
+  },
+  "understand*": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "=xlus",
+    "ja": "@nはを@a（表現）を理解する",
+    "formation": 1,
+    "o": "counter+say",
+    "token": "ansak",
+    "ipa": "ʔãsak"
+  },
+  "amphibia": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n is a amphibia",
+    "ja": "@nは兩棲類",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/amphibius#Latin",
+    "token": "anfip",
+    "ipa": "ʔãfip"
+  },
+  "read*": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "=ret",
+    "ja": "@nはを@a（表現）を讀む",
+    "formation": 1,
+    "o": "counter+write",
+    "token": "anvrit",
+    "ipa": "ʔanwrit"
+  },
+  "shit*": {
+    "d": "2024-06-14",
+    "c": "verb",
+    "en": "=drit",
+    "ja": "@nは@a（糞尿）を排泄する",
+    "formation": 1,
+    "o": "counter+eat",
+    "token": "anet",
+    "ipa": "ʔanet"
+  },
+  "answer*": {
+    "d": "2024-07-28",
+    "c": "verb",
+    "en": "=svar",
+    "ja": "@nはを@aを@dへ答ふ",
+    "formation": 1,
+    "o": "counter+ask",
+    "token": "anefrex",
+    "ipa": "ʔanefreʃ"
+  },
+  "continent_north_america*": {
+    "d": "2025-02-28",
+    "c": "verb",
+    "en": "@n is the continent north america",
+    "ja": "@nは 北あめりか大陸",
+    "etymology": "https://en.wiktionary.org/wiki/australis#Latin",
+    "formation": 1,
+    "o": "$amrik+north",
+    "token": "amriknurt",
+    "ipa": "ʔamriknurt"
+  },
+  "continent_south_america*": {
+    "d": "2025-02-28",
+    "c": "verb",
+    "en": "@n is the continent south america",
+    "ja": "@nは 南あめりか大陸",
+    "etymology": "https://en.wiktionary.org/wiki/australis#Latin",
+    "formation": 1,
+    "o": "$amrik+done+north",
+    "token": "amrikecanurt",
+    "ipa": "ʔamrikeganurt"
+  },
+  "ash": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is ash",
+    "ja": "@nは灰",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ask%C7%AD",
+    "token": "ax",
+    "ipa": "ʔaʃ"
+  },
+  "continent_africa": {
+    "d": "2025-02-28",
+    "c": "verb",
+    "en": "@n is the continent africa",
+    "ja": "@nは あふりか大陸",
+    "etymology": "https://en.wiktionary.org/wiki/africus#Latin",
+    "formation": 0,
+    "token": "afrik",
+    "ipa": "ʔafrik"
+  },
+  "egg": {
+    "d": "2024-09-16",
+    "c": "verb",
+    "en": "@n is an egg (ovum)",
+    "ja": "@nは卵（卵子）",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ajj%C4%85",
+    "token": "aj",
+    "ipa": "ʔaj"
+  },
+  "continent_australia": {
+    "d": "2025-02-28",
+    "c": "verb",
+    "en": "@n is the continent australia",
+    "ja": "@nは おうすとらりあ大陸",
+    "etymology": "https://en.wiktionary.org/wiki/australis#Latin",
+    "formation": 0,
+    "token": "avster",
+    "ipa": "ʔawster"
+  },
+  "age": {
+    "d": "2024-12-07",
+    "c": "verb",
+    "en": "@n is at age of @a",
+    "ja": "@nは@a歳",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/alan%C4%85",
+    "token": "al",
+    "ipa": "ʔal"
+  },
+  "bad": {
+    "d": "2024-08-02",
+    "c": "verb",
+    "en": "@n disliketh (feeleth bad about) @a",
+    "ja": "@nは@aを厭ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ubilaz",
+    "token": "up",
+    "ipa": "ʔup"
+  },
+  "eat": {
+    "d": "2024-02-13",
+    "c": "verb",
+    "en": "@n eateth @a (food)",
+    "ja": "@nは@a（食料）を食ふ",
+    "formation": 0,
+    "o": "https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/etan",
+    "token": "et",
+    "ipa": "ʔet"
+  },
+  "continent_eurasia": {
+    "d": "2025-02-28",
+    "c": "verb",
+    "en": "@n is the continent eurasia",
+    "ja": "@nは ゆうらしあ大陸",
+    "formation": 0,
+    "token": "evras",
+    "ipa": "ʔewras"
+  }
+}

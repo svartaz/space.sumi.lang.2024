@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import dic, { Formation, name, translate } from '../lib/lexicology';
+import dic, { Formation, translate } from '../lib/lexicology';
 import { invalid, toIpa } from '../lib/phonology';
 import { orthography } from '../lib/orthography';
 import { Letter } from '../lib/letter';
@@ -47,7 +47,7 @@ const term = {
 export default () => (
   <>
     <h1 style={{ textAlign: 'center' }}>
-      <Target>{name}</Target>
+      <Target>{dic.get('_self').token}</Target>
     </h1>
 
     <div
@@ -73,18 +73,10 @@ export default () => (
       <tbody>
         <tr>
           <th>nasal</th>
-          <td>
-            <span className="target">g</span>
-            <> </>
-            <span className="ipa">ŋ</span>
-          </td>
           <td></td>
-          <td>
-            <span className="target">n</span>
-          </td>
-          <td>
-            <span className="target">m</span>
-          </td>
+          <td></td>
+          <td className="target">n</td>
+          <td className="target">m</td>
         </tr>
         <tr>
           <th>plosive voiced</th>
@@ -94,40 +86,26 @@ export default () => (
             <span className="ipa">g</span>
           </td>
           <td></td>
-          <td>
-            <span className="target">d</span>
-          </td>
-          <td>
-            <span className="target">b</span>
-          </td>
+          <td className="target">d</td>
+          <td className="target">b</td>
         </tr>
         <tr>
           <th>plosive unvoiced</th>
-          <td>
-            <span className="target">k</span>
-          </td>
+          <td className="target">k</td>
           <td></td>
-          <td>
-            <span className="target">t</span>
-          </td>
-          <td>
-            <span className="target">p</span>
-          </td>
+          <td className="target">t</td>
+          <td className="target">p</td>
         </tr>
         <tr>
           <th>fricative unvoiced</th>
-          <td></td>
+          <td className="target">h</td>
           <td>
             <span className="target">x</span>
             <> </>
-            <span className="ipa">ɕ</span>
+            <span className="ipa">ʃ</span>
           </td>
-          <td>
-            <span className="target">s</span>
-          </td>
-          <td>
-            <span className="target">f</span>
-          </td>
+          <td className="target">s</td>
+          <td className="target">f</td>
         </tr>
         <tr>
           <th>fricative voiced</th>
@@ -135,24 +113,16 @@ export default () => (
           <td>
             <span className="target">j</span>
             <> </>
-            <span className="ipa">ʑ</span>
+            <span className="ipa">ʒ</span>
           </td>
-          <td>
-            <span className="target">z</span>
-          </td>
-          <td>
-            <span className="target">v</span>
-          </td>
+          <td className="target">z</td>
+          <td className="target">v</td>
         </tr>
         <tr>
           <th>approcsimant</th>
           <td></td>
-          <td>
-            <span className="target">j</span>
-          </td>
-          <td>
-            <span className="target">r l</span>
-          </td>
+          <td className="target">j</td>
+          <td className="target">r l</td>
           <td>
             <span className="target">v</span>
             <> </>
@@ -160,28 +130,18 @@ export default () => (
           </td>
         </tr>
         <tr>
-          <th>vowel non-mid</th>
-          <td>
-            <span className="target">a</span>
-          </td>
-          <td>
-            <span className="target">i</span>
-          </td>
+          <th>vowel high</th>
           <td></td>
-          <td>
-            <span className="target">u</span>
-          </td>
+          <td className="target">i</td>
+          <td></td>
+          <td className="target">u</td>
         </tr>
         <tr>
-          <th>vowel mid</th>
+          <th>vowel non-high</th>
+          <td className="target">a </td>
+          <td className="target">e</td>
           <td></td>
-          <td>
-            <span className="target">e</span>
-          </td>
-          <td></td>
-          <td>
-            <span className="target">o</span>
-          </td>
+          <td className="target">o</td>
         </tr>
       </tbody>
     </table>
@@ -197,24 +157,24 @@ export default () => (
       {[
         [
           ['(someone) is giving (something) (to someone)', 'give do'],
-          ['(someone) is giving water (to someone)', 'give do den water'],
-          ['(someone) is giving water to a cat', 'give do den water to cat'],
+          ['(someone) is giving water (to someone)', 'give do him water'],
+          ['(someone) is giving water to a cat', 'give do him water to cat'],
           [
             'a person is giving water to a cat',
-            'person give do den water to cat',
+            'person give do him water to cat',
           ],
           [
             'a tall person is giving fresh water to a black cat',
-            'person long give do den water fresh to cat black',
+            'person long give do him water fresh to cat black',
           ],
           [
             'a person giving fresh water to a black cat is tall',
-            'person give do den water fresh to cat black that_is long',
+            'person give do him water fresh to cat black by long',
           ],
           ['water given is fresh', 'water done give do fresh'],
           [
             'water given by a person is fresh',
-            'water done give do by person that_is fresh',
+            'water done give do by person by fresh',
           ],
           [
             '? water is given by a fresh person',
@@ -222,28 +182,38 @@ export default () => (
           ],
           [
             'water given to a cat by a person is fresh',
-            'water done give do by person to cat that_is fresh',
+            'water done give do by person to cat by fresh',
           ],
           [
             'a cat given water is black',
-            'cat done to give do den water that_is black',
+            'cat done to give do him water by black',
           ],
           [
             'a cat given water by a person is black',
-            'cat done to give do by person den water that_is fresh',
+            'cat done to give do by person him water by fresh',
+          ],
+
+          [
+            'i caused a cat to drink water',
+            'i let did him cat which{ eat if_did him water',
           ],
 
           ['i am a cat', 'i cat'],
-          ['i am not a cat', 'i not cat'],
+          ['i am not a cat', 'i zero cat'],
 
           [
             'no person is loved by every person',
-            '_cardinal zero person done love do by _cardinal each person',
+            'zero of person done love do by each of person',
+          ],
+
+          [
+            'when he came to my house, i was sleeping',
+            'i sleep did then he end did come did him done dwell which{ by i',
           ],
         ].map(([en, code], i) => (
-          <table className="sample">
+          <table className="sample" key={i}>
             <tbody>
-              <tr key={i}>
+              <tr>
                 <td>
                   {code
                     .split(/(?<=[_a-z])(?![_a-z])|(?<![_a-z])(?=[_a-z])/g)
@@ -252,19 +222,29 @@ export default () => (
                       ([chunk], j, self) =>
                         !(/ +/.test(chunk) && self?.[j + 1][1]?.startsWith('-'))
                     )
-                    .map(([chunk, token], j, self) =>
-                      token ? (
-                        <ruby>
-                          <ruby>
-                            <span className="target">{token}</span>
-                            <rt className="ipa">{toIpa(token)}</rt>
+                    .map(([chunk, token], j) => {
+                      if (token) {
+                        const ipa = toIpa(token);
+                        return (
+                          <ruby key={`${i}-${j}`}>
+                            {token === ipa ? (
+                              <span className="target">{token}</span>
+                            ) : (
+                              <ruby>
+                                <span className="target">{token}</span>
+                                <rt className="ipa">{ipa}</rt>
+                              </ruby>
+                            )}
+                            <rt>{chunk}</rt>
                           </ruby>
-                          <rt>{chunk}</rt>
-                        </ruby>
-                      ) : (
-                        <span className="target">{chunk}</span>
-                      )
-                    )}
+                        );
+                      } else
+                        return (
+                          <span key={`${i}-${j}`} className="target">
+                            {chunk}
+                          </span>
+                        );
+                    })}
                 </td>
                 <td>{en}</td>
               </tr>
@@ -347,16 +327,13 @@ export default () => (
           <th>token</th>
           <th>sound</th>
           <th>class</th>
-          <th>tokened</th>
+          <th>en</th>
           <th>origin</th>
         </tr>
       </thead>
       <tbody>
         {[...dic.entries()].map(
-          ([
-            key,
-            { token: token, tokened, c: klass, o: origin, formation },
-          ]) => (
+          ([key, { token: token, en, c: klass, o: origin, formation }]) => (
             <tr id={'entry-' + key}>
               <td className="code">{key}</td>
               <td>
@@ -366,20 +343,20 @@ export default () => (
                 <Ipa>{token}</Ipa>
               </td>
               <td>{klass}</td>
-              {tokened.startsWith('=') ? (
+              {en.startsWith('=') ? (
                 <td>
                   =
                   <a href={'#entry-' + key.substring(1)}>
-                    <Target>{translate(tokened.substring(1))}</Target>
+                    <Target>{translate(en.substring(1))}</Target>
                   </a>
                 </td>
               ) : (
                 <td>
-                  {tokened
+                  {en
                     .split(/(?<=@\d+|@\{.+?\})|(?=@\d+|@\{.+?\})/g)
-                    .map((s: string) =>
+                    .map((s: string, i) =>
                       /@\d+|@\{.+?\}/.test(s) ? (
-                        <span {...term}>
+                        <span key={i} {...term}>
                           {replaceEach(s, [
                             [/^@\{?/, ''],
                             [/\}$/, ''],

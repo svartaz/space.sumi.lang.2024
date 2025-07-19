@@ -1,76 +1,96 @@
 // @ts-ignore
 import { replaceEach } from 'https://sumi.space/js/string.js';
 
-export const toGlide = (s: string) =>
-  s.replace(/[a-z]+/g, (it) =>
-    replaceEach(it.toUpperCase(), [
-      [/JJ/g, 'jʑ'],
-      [/VV/g, 'wv'],
+const consonants = 'nmcdbktphxsfzrl';
+const vowels = 'aiueo';
 
-      [/(?<=^|[AIUEO])J(?=[AIUEO])/g, 'ʑ'],
-      [/(?<=^|[AIUEO])V(?=[AIUEO])/g, 'v'],
-      [/V/g, 'w'],
-    ]).toLowerCase()
-  );
+export const distinguishGlide = (w: string) =>
+  replaceEach(w.toLowerCase(), [
+    [/j/g, 'J'],
+    [/v/g, 'V'],
+
+    [/^J/g, 'ž'],
+    [/^V/g, 'v'],
+
+    [/J(?![aiueo])/g, 'j'],
+    [/V(?![aiueo])/g, 'w'],
+
+    [/(?<=[aiueo])J(?=[aiueo])/g, 'ž'],
+    [/(?<=[aiueo])V(?=[aiueo])/g, 'v'],
+
+    [/(?<=[aiueo])J(?![aiueo])/g, 'j'],
+    [/(?<=[aiueo])V(?![aiueo])/g, 'w'],
+
+    [/(?<=[nmcdbktphxsfžzvrl])J(?=[aiueo])/g, 'j'],
+    [/(?<=[nmcdbktphxsfžzvrl])V(?=[aiueo])/g, 'w'],
+  ]);
 
 export const toIpa = (s: string): string =>
-  s.replace(/[-a-z]+/g, (it) =>
-    replaceEach(toGlide(it).toUpperCase(), [
-      [/^(?=[AIUEO])/, 'ʔ'],
-      [/^-/g, ''],
+  s.replace(/[-a-zž]+/g, (it) =>
+    replaceEach(distinguishGlide(it).toUpperCase(), [
+      [/^(?=[AIUEO])/g, 'ʔ'],
+      [/-/g, ''],
 
-      //[/(?<![AIUEO])$/, 'ə'],
-
-      [/(?<=[NSZ])I/, 'ɨ'],
-
-      // nasalise
-      //[/(?<=[AIUEO])N(?![AIUəEO])/g, '\u0303'],
-
-      [/G/g, 'ŋ'],
+      [/(?<=[JWAIUEO])N(?![JWAIUEO])/g, '\u0303'],
+      [/NJ(?![JWAIUEO])/g, 'ɲ'],
+      [/CJ/g, 'ɟ'],
+      [/KJ/g, 'c'],
+      [/LJ/g, 'ʎ'],
+      [/N(?![JWAIUEO])/g, '\u0303'],
       [/C/g, 'g'],
-      [/X/g, 'ɕ'],
-      [/R/g, 'ɾ'],
-
-      // accent
-      //[/(?<=[AIUEO])/, '\u0301'],
+      [/X/g, 'ʃ'],
+      [/Ž/g, 'ʒ'],
+      [/(?<=[SZ])I/g, 'ɨ'],
     ])
       .toLowerCase()
-      .normalize('NFKC')
+      .normalize('NFC')
   );
-
-const checkSonority = (word: string) =>
-  word.split(/[iueoaw]+/g).every((consonants, i, self) => {
-    if (i === 0)
-      return /^[xsfjzv]?[cdbktp]?[xsfjzv]?[gnm]?r?$/.test(consonants);
-    else if (i === self.length - 1)
-      return /^r?[gnm]?[jzv]?[xsf]?[cdb]?[ktp]?[xsf]?[jzv]?$/.test(consonants);
-    else
-      return /^r?[gnm]?[xsfjzv]?[cdbktp]?[jzvxsf]?[gnm]?r?$/.test(consonants);
-  });
 
 export const invalid = (word: string): string | null => {
   for (const [item, pattern] of [
     ['empty', /^$/],
     ['repeat', /(.)\1/],
-    ['non-alphabet', /[^gnmcdbktphxsfʑzvjrlwaiueo -]/],
-    //['initial vowel', /^[aiueo]/],
+    ['non-alphabet', /[^ nmcdbktphxsfžzvjrlwaiueo]/],
 
-    ['2 vowel', /[aiueo]{2,}/],
-    ['3 consonant', /[^aiueo]{3,}/],
+    ['3 consonants', /[nmcdbqktphxsfžzvrl]{3,}/],
+    ['2 vowels', new RegExp(`[${vowels}]{2,}`)],
 
-    // place
-    ['palatal', /[xʑ]j/],
+    ['palatalise', /[dtsz]j/],
+    ['palatal', /[xž]j/],
     ['labial', /[mbpfv]w/],
 
-    // manner
-    ['2 sibilant', /[xsʑz]{2,}/],
-    ['2 nasal', /[gnm]{2,}/],
-    //['unvoiced voiced', /[ktphxsf][cdbʑzv]/],
-    //['voiced unvoiced', /[cdbʑzv][ktphxsf]/],
+    ['sibilants', /[xsžz]{2,}/],
+    ['nasals', /[nm]{2,}/],
+    ['voiced', /[cdbktphxsfžzv][cdbžzv]/],
+    ['voiced', /[cdbžzv]([cdbktphxsfžzv]|$)/],
+    ['similar', /ji|wu|ij|uw/],
+    ['beginning nasal', /^[nm](?![jwaiueo])/],
   ] as [string, RegExp][])
-    if (pattern.test(toGlide(word))) return item;
-
-  //if (!checkSonority(phonetic)) return 'sonority';
+    if (pattern.test(distinguishGlide(word)))
+      return `${item}(${distinguishGlide(word).match(pattern)})`;
 
   return null;
 };
+
+export const monosyllables = (() => {
+  const value: string[] = [];
+  for (const c0 of [...consonants])
+    for (const g of ['', 'j', 'v'])
+      for (const v of vowels)
+        for (const c1 of [...consonants])
+          if (!invalid(c0 + g + v + c1)) value.push(c0 + g + v + c1);
+
+  return value;
+})();
+
+const alphabet = 'nmcdbktphxsfjzvrlaiueo';
+export const compare = (a: string, b: string): number =>
+  a === b
+    ? 0
+    : a === ''
+    ? -1
+    : b === ''
+    ? 1
+    : alphabet.indexOf(a[0]) === alphabet.indexOf(b[0])
+    ? compare(a.substring(1), b.substring(1))
+    : alphabet.indexOf(a[0]) - alphabet.indexOf(b[0]);
