@@ -1,260 +1,387 @@
-import { CSSProperties } from 'react';
-import dic, { Formation, translate } from '../lib/lexicology';
-import { invalid, toIpa } from '../lib/phonology';
-import { orthography } from '../lib/orthography';
-import { Letter } from '../lib/letter';
-// @ts-ignore
-import { replaceEach } from 'https://sumi.space/js/string.js';
+import dic, { acronymToWord, Formation, translate } from '../lib/words';
+import { invalid, letters, toIpa } from '../lib/write';
 // @ts-ignore
 import { dateToObject } from 'https://sumi.space/js/date.js';
 
-const Target = ({ children }: { children: string }) =>
-  true ? (
-    <span className="target" title={children}>
-      {orthography(children)}
-    </span>
-  ) : (
-    <TargetLetter>{children}</TargetLetter>
-  );
+const name = dic.get('_self').token;
 
-const TargetLetter = (props: {
-  children: string;
-  title?: string;
-  style?: CSSProperties;
-}) => (
-  <Letter title={props.children} className="target" {...props}>
-    {replaceEach(props.children.toLowerCase(), [
-      [/[ktcdgnlriueoa]/g, (it) => it.toLowerCase()],
-      [/h/g, 'x'],
-      [/x/g, 'S'],
-      [/j/g, 'Z'],
-    ])}
-  </Letter>
+const Ipa = ({ children }) => <span className="ipa">{toIpa(children)}</span>;
+
+const Translate = (props) => (
+  <span className="target">{translate(props.children)}</span>
 );
 
-const Ipa = ({ children }: { children: string }) => (
-  <span className="ipa">{toIpa(children)}</span>
-);
+const highlight = (meant: string) =>
+  meant
+    .split(/(?=@[nad])|(?<=@[nad])/g)
+    .map((it) =>
+      /^@[nad]$/.test(it) ? <span className="term">{it.substring(1)}</span> : it
+    );
 
-const term = {
-  style: {
-    paddingInline: '.5rex',
-    backgroundColor: '#0002',
-    borderRadius: '.5rex',
-  } as CSSProperties,
-};
+const samples = (entries: (string | [string, string])[]) => (
+  <table className="samples">
+    <tbody>
+      {entries.map((it, i) =>
+        typeof it === 'string' ? (
+          <tr key={i}>
+            <td>{dic.get(it).c}</td>
+            <td>
+              <Translate>{it}</Translate>
+            </td>
+            <td className="ipa">{toIpa(translate(it))}</td>
+            <td>{highlight(dic.get(it)?.ja ?? dic.get(it)?.en ?? '')}</td>
+          </tr>
+        ) : (
+          <tr key={i}>
+            <td>文</td>
+            <td>
+              <Translate>{it[0]}</Translate>
+            </td>
+            <td colSpan={2} style={{ whiteSpace: 'pre-wrap' }}>
+              {it[1]}
+            </td>
+          </tr>
+        )
+      )}
+    </tbody>
+  </table>
+);
 
 export default () => (
   <>
-    <h1 style={{ textAlign: 'center' }}>
-      <Target>{dic.get('_self').token}</Target>
-    </h1>
-
-    <div
-      style={{
-        inlineSize: 'fit-content',
-        marginInline: 'auto',
-      }}
-    >
-      <Target>{translate('language done make by called sumi')}</Target>
-    </div>
-
-    <h2>phonology</h2>
+    <h1>{name} (草案)</h1>
+    <p>本稿は文法要件よりは入門として機能する.</p>
+    <h2>概要</h2>
+    <p>
+      {name}は
+      <a href="https://sumi.space" rel="author">
+        sumi.space
+      </a>
+      が作成する人間言語.
+      <br /> 主動客-對格言語.
+      <br /> 構文にjbo語とcmn語, 表記にcat語, 形態にdeu語の影響を受けた.
+    </p>
+    <h2>字と音</h2>
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>velar</th>
-          <th>palatal</th>
-          <th>dental</th>
-          <th>labial</th>
+          <th>軟腭</th>
+          <th>硬腭</th>
+          <th>舌</th>
+          <th>脣</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th>nasal</th>
+          <th>鼻</th>
           <td></td>
           <td></td>
-          <td className="target">n</td>
-          <td className="target">m</td>
+          <td>n</td>
+          <td>m</td>
         </tr>
         <tr>
-          <th>plosive voiced</th>
+          <th>有聲破裂</th>
           <td>
-            <span className="target">c</span>
-            <> </>
-            <span className="ipa">g</span>
+            c <span className="ipa">g</span>
           </td>
           <td></td>
-          <td className="target">d</td>
-          <td className="target">b</td>
+          <td>d</td>
+          <td>b</td>
         </tr>
         <tr>
-          <th>plosive unvoiced</th>
-          <td className="target">k</td>
+          <th>無聲破裂</th>
+          <td>k</td>
           <td></td>
-          <td className="target">t</td>
-          <td className="target">p</td>
+          <td>t</td>
+          <td>p</td>
         </tr>
         <tr>
-          <th>fricative unvoiced</th>
-          <td className="target">h</td>
+          <th>無聲摩擦</th>
           <td>
-            <span className="target">x</span>
-            <> </>
-            <span className="ipa">ʃ</span>
+            h <span className="ipa">h, x</span>
           </td>
-          <td className="target">s</td>
-          <td className="target">f</td>
+          <td>
+            x <span className="ipa">ɕ, ʂ, ʃ</span>
+          </td>
+          <td>s</td>
+          <td>f [f,φ]</td>
         </tr>
         <tr>
-          <th>fricative voiced</th>
+          <th>有聲摩擦</th>
           <td></td>
           <td>
-            <span className="target">j</span>
-            <> </>
-            <span className="ipa">ʒ</span>
+            j <span className="ipa">ʑ, ʐ, ʒ</span>
           </td>
-          <td className="target">z</td>
-          <td className="target">v</td>
+          <td>z</td>
+          <td>v [v, β]</td>
         </tr>
         <tr>
-          <th>approcsimant</th>
+          <th>接近</th>
           <td></td>
-          <td className="target">j</td>
-          <td className="target">r l</td>
           <td>
-            <span className="target">v</span>
-            <> </>
-            <span className="ipa">w</span>
+            i <span className="ipa">j</span>
+          </td>
+          <td>
+            r <span className="ipa">ɾ</span>
+            <br />l
+          </td>
+          <td>
+            u <span className="ipa">w</span>
           </td>
         </tr>
         <tr>
-          <th>vowel high</th>
+          <th>非中母</th>
+          <td>a</td>
+          <td>i</td>
           <td></td>
-          <td className="target">i</td>
-          <td></td>
-          <td className="target">u</td>
+          <td>u</td>
         </tr>
         <tr>
-          <th>vowel non-high</th>
-          <td className="target">a </td>
-          <td className="target">e</td>
+          <th>中母</th>
           <td></td>
-          <td className="target">o</td>
+          <td>e</td>
+          <td></td>
+          <td>o</td>
         </tr>
       </tbody>
     </table>
+    <p>
+      分綴符から始まる單詞 (例へば<span className="target">-a</span>)
+      を書く時に, 見えを良くする為に揚抑符を用ゐても良い (例へば
+      <span className="target">â</span>).
+    </p>
 
-    <h2>sentences</h2>
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-      }}
-    >
-      {[
-        [
-          ['(someone) is giving (something) (to someone)', 'give do'],
-          ['(someone) is giving water (to someone)', 'give do him water'],
-          ['(someone) is giving water to a cat', 'give do him water to cat'],
-          [
-            'a person is giving water to a cat',
-            'person give do him water to cat',
-          ],
-          [
-            'a tall person is giving fresh water to a black cat',
-            'person long give do him water fresh to cat black',
-          ],
-          [
-            'a person giving fresh water to a black cat is tall',
-            'person give do him water fresh to cat black by long',
-          ],
-          ['water given is fresh', 'water done give do fresh'],
-          [
-            'water given by a person is fresh',
-            'water done give do by person by fresh',
-          ],
-          [
-            '? water is given by a fresh person',
-            'water done give do by person fresh',
-          ],
-          [
-            'water given to a cat by a person is fresh',
-            'water done give do by person to cat by fresh',
-          ],
-          [
-            'a cat given water is black',
-            'cat done to give do him water by black',
-          ],
-          [
-            'a cat given water by a person is black',
-            'cat done to give do by person him water by fresh',
-          ],
-
-          [
-            'i caused a cat to drink water',
-            'i let did him cat which{ eat if_did him water',
-          ],
-
-          ['i am a cat', 'i cat'],
-          ['i am not a cat', 'i zero cat'],
-
-          [
-            'no person is loved by every person',
-            'zero of person done love do by each of person',
-          ],
-
-          [
-            'when he came to my house, i was sleeping',
-            'i sleep did then he end did come did him done dwell which{ by i',
-          ],
-        ].map(([en, code], i) => (
-          <table className="sample" key={i}>
-            <tbody>
-              <tr>
-                <td>
-                  {code
-                    .split(/(?<=[_a-z])(?![_a-z])|(?<![_a-z])(?=[_a-z])/g)
-                    .map((chunk) => [chunk, dic.get(chunk)?.token])
-                    .filter(
-                      ([chunk], j, self) =>
-                        !(/ +/.test(chunk) && self?.[j + 1][1]?.startsWith('-'))
-                    )
-                    .map(([chunk, token], j) => {
-                      if (token) {
-                        const ipa = toIpa(token);
-                        return (
-                          <ruby key={`${i}-${j}`}>
-                            {token === ipa ? (
-                              <span className="target">{token}</span>
-                            ) : (
-                              <ruby>
-                                <span className="target">{token}</span>
-                                <rt className="ipa">{ipa}</rt>
-                              </ruby>
-                            )}
-                            <rt>{chunk}</rt>
-                          </ruby>
-                        );
-                      } else
-                        return (
-                          <span key={`${i}-${j}`} className="target">
-                            {chunk}
-                          </span>
-                        );
-                    })}
-                </td>
-                <td>{en}</td>
-              </tr>
-            </tbody>
-          </table>
-        )),
-      ]}
+    <h2>字名</h2>
+    <div className="letters">
+      {'aäbcdeǝfghijklmnoöpqrstuvwxyz'.split('').map((l) => (
+        <div>
+          {letters.includes(l) ? <td>{l}</td> : <td>({l})</td>}
+          <span className="target">{acronymToWord(l.toUpperCase())}</span>
+        </div>
+      ))}
     </div>
+    <p>使用されないが互換性の為に有る字を丸括弧へ入れた.</p>
 
-    <h2>words</h2>
+    <h2>二重母音</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            iu <span className="ipa">ju</span>
+          </td>
+          <td>
+            io <span className="ipa">jo</span>
+          </td>
+          <td>
+            ia <span className="ipa">ja</span>
+          </td>
+          <td>
+            ai <span className="ipa">aj</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ui <span className="ipa">wi</span>
+          </td>
+          <td>
+            ue <span className="ipa">we</span>
+          </td>
+          <td>
+            ua <span className="ipa">wa</span>
+          </td>
+          <td>
+            au <span className="ipa">aw</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <span className="ipa">j</span>は詞頭と硬腭音に後置しない.
+      <br />
+      <span className="ipa">w</span>は詞頭と脣音に後置しない.
+    </p>
+    <h2>動詞と格</h2>
+    <p>
+      主に<dfn>動詞 (verb)</dfn> が文を構成する. 動詞は物の關係を指す.
+    </p>
+    <p>
+      日本語文 ‹貓が星を見る› を例とすると, 主要な關係 ‹…が…を見る›
+      が貓と星を結ぶ.
+    </p>
+    <p>
+      ‹貓が星を見る› と ‹星が貓を見る› が指す物は違ふ.
+      <br /> 關係は一般に交換せず, 關係の中の空欄は固有の機能を持つ.
+      <br /> 空欄の, 他の空欄と區別される機能を<dfn>格 (case)</dfn> と言ふ.
+    </p>
+
+    {samples(['cat', 'see', 'give'])}
+
+    <h2>最も單純な文</h2>
+    <p>一個の動詞は文を構成する.</p>
+    {samples([
+      ['cat', '(何かが) 貓'],
+      ['see', '(何かが) (何かを) 見る'],
+    ])}
+    <p>空欄には適當な事物 (何か) が入るとして解釋する.</p>
+
+    <h2>法と時制</h2>
+    <p>
+      <dfn>後助動詞 (postverb)</dfn>が動詞の法と時制を指す.
+      <br />
+      時間に依らず成立する傾向を指す不變時制と, 時間に依る過去時制, 現在時制,
+      未來時制が有る.
+      <br />
+      不變時制と それ以外は自然言語の名詞と動詞に それぞれ似る.
+    </p>
+    <p>動詞は進行時相を陰に表す.</p>
+    {samples([
+      'did',
+      'do',
+      'will',
+      'if_be',
+      'if_did',
+      'if_do',
+      'if_will',
+      ['see', '見る物 (gazer) だ'],
+      ['see do', '見てゐる'],
+      ['see if_did', '見たなら…'],
+    ])}
+
+    <h2>同格</h2>
+    <p>主格 ‹何かが› を具體化するには どうするか.</p>
+    <p>
+      隣接する動詞は主格を共有して兩立する.
+      <br />
+      これを<dfn>同格 (apposition)</dfn> と言ふ.
+    </p>
+    {samples([['cat see do', '何かが貓であり, 見てゐる\n→貓が見てゐる']])}
+    <p>同格は形容する.</p>
+    {samples([
+      'black',
+      ['cat black see do', '何かが貓であり, 黑く, 見てゐる\n→黑貓が見てゐる'],
+    ])}
+
+    <h2>前置詞</h2>
+    <p>非主格 ‹何かを›, ‹何かへ›, … を具體化するにどうするか.</p>
+
+    <p>
+      格に對應する<dfn>前置詞 (preposition)</dfn>が有る.
+    </p>
+    {samples(['by', 'because', 'him', 'to', 'with', 'ly'])}
+
+    <p>
+      二個の動詞の主格 同士が等しい事を同格が指す樣に,
+      非主格と主格が等しい事を前置詞が指す.
+    </p>
+    {samples([
+      'i',
+      'water',
+      'give',
+      ['i give do him water', '我が水を與へてゐる'],
+      ['i give do him water to cat', '我が貓へ水を與へてゐる'],
+    ])}
+
+    <p>前置詞は同格を一個の動詞として扱ふ.</p>
+    {samples([
+      ['give did to cat', '貓へ與へてゐた'],
+      ['give did to cat black', '黑い貓へ與へてゐた'],
+    ])}
+
+    <h2>受動態</h2>
+    <p>
+      前置詞で格を指定して非主格を同格の對象に指定し得る.
+      <br />
+      これを<dfn>受動態 (passive)</dfn> と言ふ.
+    </p>
+    {samples([
+      'done',
+      'water',
+      ['i give did him water to cat', '私は水を貓へ與へてゐた'],
+      ['water done (him) give did by i to cat', ' (同) '],
+      ['cat done to give did by i him water', ' (同) '],
+    ])}
+
+    <h2>局所視野</h2>
+    <p>ここまでの文法では, 非主格を埋めた動詞で更に非主格を埋める方法が無い.</p>
+    {samples([
+      ['i see do him cat', '我が貓を見てゐる'],
+      ['cat eat do him water', '貓が水を飲んでゐる'],
+      ['i see do him cat eat do', '我が, 飲む貓を見てゐる'],
+      ['? i see do him cat eat do him water', '? 我が, 飲む貓を水を見てゐる'],
+      ['?', '我が, 水を飲む貓を見てゐる'],
+    ])}
+    <p>
+      この例で<Translate>water</Translate>は<Translate>eat</Translate>
+      の對格を埋めたいが, 代はりに<Translate>see</Translate>の對格を埋める.
+      <br />
+      <Translate>see</Translate>が補足しない樣に
+      <Translate>eat</Translate>の<dfn>局所視野 (local scope)</dfn>{' '}
+      を開いて回避する.
+    </p>
+    {samples([
+      'which',
+      '_close',
+      [
+        'i see do him cat eat do which him water (_close)',
+        '我が, 水を飲む貓を見てゐる',
+      ],
+    ])}
+
+    <h2>入れ子</h2>
+    <p>
+      己格の受動態を用ゐては文 ‹…である› から動詞 ‹
+      {highlight('@nは…する事である')}› を作り得る.
+    </p>
+    {samples([
+      'know',
+      ['cat see do him sun', '貓が星を見てゐる'],
+      ['see do by cat him sun', '(同)'],
+      [
+        'i know do him done ly see do which by cat him sun',
+        '貓が星を見てゐる事を我は知ってゐる',
+      ],
+    ])}
+
+    <h2>逐次的同格</h2>
+    <p>
+      同格は論理的連言 ‹かつ› を表すのみならず, 逐次的な ‹それから›
+      をも表し得る.
+      <br />
+      これは華語の連動文に似る.
+    </p>
+    {samples([
+      'then',
+      'eat',
+      'go',
+      ['go then eat', '往ってから食ふ\n→食ひに往く'],
+    ])}
+    <h2>時相</h2>
+    <p>
+      <dfn>前助動詞 (preverb)</dfn> が時相を指す.
+    </p>
+    {samples([
+      'begin',
+      'end',
+      'live',
+      ['i begin live do', '我が生き始めた\n→我が生まれた'],
+      ['i end live will', '我が生き終はらう\n→我が死なう'],
+    ])}
+    <p>現在時制と非進行相は兩立しない.</p>
+
+    <h2>詞彙 ({dic.size})</h2>
+    <div className="words">
+      {[...dic.entries()].map(
+        ([key, { token, ja, en, c: klass, o: origin, formation }]) => (
+          <div>
+            <span className="target">{token}</span>{' '}
+            <span className="ipa">{toIpa(token)}</span> ∈{klass}
+            <br />
+            {highlight(ja ?? en ?? '')}
+          </div>
+        )
+      )}
+    </div>
 
     {(() => {
       const dateToKeys = {};
@@ -304,9 +431,10 @@ export default () => (
                       style={{
                         background: `linear-gradient(to right, #0001 0%, #0001 ${percent}%, transparent ${percent}%, transparent 100%)`,
                       }}
-                      className="code"
                     >
-                      {dateToKeys[date].join(' ')}
+                      {dateToKeys[date]
+                        .map((key) => dic.get(key).token)
+                        .join(' ')}
                     </td>
                     <td style={{ textWrap: 'nowrap' }}>
                       +{dateToKeys[date].length}
@@ -319,98 +447,5 @@ export default () => (
         </table>
       );
     })()}
-
-    <table className="dictionary">
-      <thead className="h">
-        <tr>
-          <th></th>
-          <th>token</th>
-          <th>sound</th>
-          <th>class</th>
-          <th>en</th>
-          <th>origin</th>
-        </tr>
-      </thead>
-      <tbody>
-        {[...dic.entries()].map(
-          ([key, { token: token, en, c: klass, o: origin, formation }]) => (
-            <tr id={'entry-' + key}>
-              <td className="code">{key}</td>
-              <td>
-                <Target>{token}</Target>
-              </td>
-              <td>
-                <Ipa>{token}</Ipa>
-              </td>
-              <td>{klass}</td>
-              {en.startsWith('=') ? (
-                <td>
-                  =
-                  <a href={'#entry-' + key.substring(1)}>
-                    <Target>{translate(en.substring(1))}</Target>
-                  </a>
-                </td>
-              ) : (
-                <td>
-                  {en
-                    .split(/(?<=@\d+|@\{.+?\})|(?=@\d+|@\{.+?\})/g)
-                    .map((s: string, i) =>
-                      /@\d+|@\{.+?\}/.test(s) ? (
-                        <span key={i} {...term}>
-                          {replaceEach(s, [
-                            [/^@\{?/, ''],
-                            [/\}$/, ''],
-                          ])}
-                        </span>
-                      ) : (
-                        s
-                      )
-                    )}{' '}
-                </td>
-              )}
-              <td
-                {...(formation !== Formation.Simplex
-                  ? { className: 'code' }
-                  : {})}
-              >
-                {/^https?:\/\//.test(origin) ? (
-                  <a href={origin}>
-                    {decodeURI(origin).replace(/^https?:\/\//, '')}
-                  </a>
-                ) : (
-                  origin
-                )}
-              </td>
-              <td style={{ fontSize: 'xx-small', color: 'red' }}>
-                {invalid(token)}
-              </td>
-            </tr>
-          )
-        )}
-      </tbody>
-    </table>
-
-    <h2>letter</h2>
-
-    <div
-      style={{
-        inlineSize: 'fit-content',
-        marginInline: 'auto',
-      }}
-    >
-      <Letter>
-        {[
-          'K k T t P p',
-          'C c D d B b',
-          'X x S s F f',
-          'H h Z z V v',
-          'G g N n M m',
-          '      j r    w',
-          '      i I u U',
-          '      e E o O',
-          'A a',
-        ].join('\n')}
-      </Letter>
-    </div>
   </>
 );

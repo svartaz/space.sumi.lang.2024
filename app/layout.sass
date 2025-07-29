@@ -1,25 +1,27 @@
-*
-  broder: 1px solid red
-
 body
-  font-family: 'Helvetica Neue', Helvetica, sans-serif
-  margin-inline: 1em
-
-  display: flex
-  flex-direction: column
-  gap: 1em
-
-h1, h2, h3, h4, h5, h6
-  inline-size: fit-content
+  font-family: "Noto Sans", 'Noto Sans TC', serif
+  inline-size: min(100%, 64rem)
   margin-inline: auto
+  padding: 1rem
+  font-weight: 300
 
-p
-  margin-inline: auto
-  inline-size: fit-content
+h1,h2,h3,h4,h5,h6
+  font-weight: 400
+
+h2:before
+  content: '§ '
+
+h3:before
+  content: '§§ '
+
+h4:before
+  content: '§§§ '
 
 table
+  max-inline-size: 100%
   border-collapse: collapse
   margin-inline: auto
+  margin-block: 1rem
 
   th
     font-weight: 500
@@ -38,54 +40,52 @@ table
     th
       text-align: end
 
-.target
-  font-family: 'Times New Roman', serif
+.term
+  padding-inline: .125rem
+  border-radius: .25rem
+  border: 1px solid
+  color: darkgray
 
-.code
-  font-family: 'Courier New', 'Courier', monospace
+.target
+  padding-inline: .25rem
+  border-radius: .25rem
+  background-color: whitesmoke
 
 .ipa
-  font-family: 'Courier New', serif
+  &:before
+    content: '['
+  &:after
+    content: ']'
 
-.sample
-  inline-size: 36em
-  max-inline-size: 100%
+.letters
+  display: flex
+  gap: 1rem
+  flex-wrap: wrap
 
-  tr
-    border: none
+  div
+    display: flex
+    flex-direction: column
+    align-items: center
 
-    td
-      inline-size: 50%
+.samples
+  inline-size: 75%
 
-    td:first-of-type
-      paddin-inline: 0 1em
-    td:last-of-type
-      paddin-inline: 1em 0
-      font-size: small
-      border-inline-start: 1px solid
+  td:first-of-type
+    word-break: keep-all
 
-  ruby
-    ruby-align: start
-    ruby-position: over
-
-    rt
-      font-size: x-small
-
-    ruby
-      ruby-position: under
-
-table
-  //box-shadow: 0 0 1em #0002
-
-table.progress
+.progress
   font-size: xx-small
-  max-inline-size: 64rem
 
   th, td
     padding-block: 0
 
-table.dictionary
+.words
+  display: flex
+  flex-wrap: wrap
+  gap: .5em
   font-size: small
 
-  a[href^='http']
-    font-size: xx-small
+  div
+    border: 1px solid gray
+    border-radius: .25em
+    padding: .25em

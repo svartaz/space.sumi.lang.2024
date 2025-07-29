@@ -1,8 +1,8 @@
-import { invalid, toIpa } from './phonology';
+import { compare, invalid, toIpa } from './write';
 // @ts-ignore
 import { replaceEach } from 'https://sumi.space/js/string.js';
 
-const ofAcronym = (acronym: string) =>
+export const acronymToWord = (acronym: string) =>
   replaceEach(acronym.toUpperCase(), [
     [/[AIUEO]/g, (it) => 'h' + it.toLowerCase()],
     [/[NMCDBKTPXSFZRL]/g, (it) => it.toLowerCase() + 'a'],
@@ -11,19 +11,22 @@ const ofAcronym = (acronym: string) =>
     [/G/g, 'nu'],
     [/H/g, 'xu'],
     [/Q/g, 'ku'],
-    [/Y/g, 'ju'],
     [/W/g, 'vi'],
+
+    [/Ä|Æ/g, 'ja'],
+    [/Ǝ/g, 've'],
+    [/Ö|Œ|Ø/g, 'jo'],
+    [/Y|Ü/g, 'ju'],
   ]);
 
 enum Klass {
-  Case = 'case',
-  Preverb = 'fore-verb',
-  Postverb = 'after-verb',
-  Verb = 'verb',
-  Numeral = 'numeral',
-  Joiner = 'joiner',
-  Clause = 'clause',
-  Other = 'other',
+  Preposition = '前置詞',
+  Preverb = '前助動詞',
+  Postverb = '後助動詞',
+  Verb = '動詞',
+  Numeral = '數詞',
+  Joiner = '接續詞',
+  Other = '助詞',
 }
 
 export enum Formation {
@@ -36,16 +39,9 @@ interface ValuePre {
   d: string;
   c: Klass;
   en: string;
+  ja?: string;
   formation: Formation;
   o: string;
-  origins?: {
-    pie?: string;
-    gmc?: string;
-    eng?: string;
-    deu?: string;
-    ice?: string;
-    lat?: string;
-  };
   token?: string;
   complex?: string[];
   idiom?: string[];
@@ -72,7 +68,7 @@ const dicPre = new Map<string, ValuePre>(
   Object.entries({
     by: {
       d: '2024-02-13',
-      c: Klass.Case,
+      c: Klass.Preposition,
       en: 'nominative',
       ja: '主格。…が',
       o: 'https://en.wiktionary.org/wiki/bi#Old_English',
@@ -80,15 +76,15 @@ const dicPre = new Map<string, ValuePre>(
     },
     because: {
       d: '2025-07-15',
-      c: Klass.Case,
+      c: Klass.Preposition,
       en: 'causative',
       ja: '因格。…に因って',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fram',
-      token: 'fi',
+      token: 'fo',
     },
     him: {
       d: '2024-02-13',
-      c: Klass.Case,
+      c: Klass.Preposition,
       en: 'accusative',
       ja: '對格。…を',
       o: 'https://en.wiktionary.org/wiki/den#German',
@@ -96,7 +92,7 @@ const dicPre = new Map<string, ValuePre>(
     },
     to: {
       d: '2024-02-13',
-      c: Klass.Case,
+      c: Klass.Preposition,
       en: 'dative',
       ja: '與格。…へ',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/t%C5%8D',
@@ -104,7 +100,7 @@ const dicPre = new Map<string, ValuePre>(
     },
     with: {
       d: '2024-12-24',
-      c: Klass.Case,
+      c: Klass.Preposition,
       en: 'comitative',
       ja: '共格。…が關はって',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/midi',
@@ -112,9 +108,9 @@ const dicPre = new Map<string, ValuePre>(
     },
     ly: {
       d: '2024-02-13',
-      c: Klass.Case,
+      c: Klass.Preposition,
       en: 'recursive',
-      ja: '己格。これが表す文自身を…として',
+      ja: '己格。この文自身が指す事象を…として',
       o: 'a priori',
       token: 'xo',
     },
@@ -122,8 +118,8 @@ const dicPre = new Map<string, ValuePre>(
     done: {
       d: '2024-02-13',
       c: Klass.Preverb,
-      en: 'passive. foregoeth a case marker (default: accusative)',
-      ja: '受動態。動詞に先立ち同格を對格に一致させる',
+      en: 'passive. foregoeth a preposition and a verb and make an apposition ',
+      ja: '受動態。前置詞と動詞に前置し動詞の同格を前置詞に對應する格に一致させる。對格前置詞は省略しても良い',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ga-',
       token: 'ca',
     },
@@ -140,49 +136,49 @@ const dicPre = new Map<string, ValuePre>(
       d: '2024-02-13',
       c: Klass.Postverb,
       en: 'realis past',
-      ja: '叙實法 過去',
+      ja: '叙實 過去',
       token: '-a',
     },
     do: {
       d: '2024-02-13',
       c: Klass.Postverb,
       en: 'realis present',
-      ja: '叙實法 現在',
+      ja: '叙實 現在',
       token: '-i',
     },
     will: {
       d: '2024-02-13',
       c: Klass.Postverb,
       en: 'realis future',
-      ja: '叙實法 未來',
+      ja: '叙實 未來',
       token: '-u',
     },
     if_be: {
       d: '2025-07-19',
       c: Klass.Postverb,
       en: 'realis nominal',
-      ja: '叙想法 不變',
+      ja: '叙想 不變',
       token: '-en',
     },
     if_did: {
       d: '2025-05-27',
       c: Klass.Postverb,
       en: 'irrealis past',
-      ja: '叙想法 過去',
+      ja: '叙想 過去',
       token: '-an',
     },
     if_do: {
       d: '2025-05-27',
       c: Klass.Postverb,
       en: 'irrealis present',
-      ja: '叙想法 現在',
+      ja: '叙想 現在',
       token: '-in',
     },
     if_will: {
       d: '2025-05-27',
       c: Klass.Postverb,
       en: 'irrealis future',
-      ja: '叙想法 未來',
+      ja: '叙想 未來',
       token: '-un',
     },
 
@@ -190,7 +186,7 @@ const dicPre = new Map<string, ValuePre>(
       d: '2024-05-26',
       c: Klass.Verb,
       en: 'begin',
-      ja: '起動相',
+      ja: '起動相。…し始める',
       etymology:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnan%C4%85',
       token: 'ci',
@@ -199,30 +195,22 @@ const dicPre = new Map<string, ValuePre>(
       d: '2024-05-26',
       c: Klass.Verb,
       en: 'end',
-      ja: '終了相',
+      ja: '終了相。…し終へる',
       etymology: 'https://en.wiktionary.org/wiki/finis#Latin',
       token: 'fi',
     },
 
     which: {
       d: '2024-02-13',
-      c: Klass.Clause,
-      en: 'relative clause',
-      ja: '斜格に取られた動詞が更に斜格を取る為の構造を開く',
+      c: Klass.Other,
+      en: 'followeth a verb and opens a local scope',
+      ja: '動詞に後置して局所視野を開く',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%AB',
       token: 'vi',
     },
-    that: {
-      d: '2024-02-13',
-      c: Klass.Clause,
-      en: 'statement clause. @n is the (event, statement) that ...',
-      ja: '文に先立って動詞に變換する。@nは…であることである',
-      token: 'ke',
-      o: 'https://en.wiktionary.org/wiki/quid#Latin',
-    },
     whether: {
       d: '2024-07-28',
-      c: Klass.Clause,
+      c: Klass.Other,
       en: 'truthfulness clause. @n is whether ...',
       ja: '文に先立って程度に變換する。@nは…かどうかである',
       o: 'https://en.wiktionary.org/wiki/si#Latin',
@@ -232,7 +220,7 @@ const dicPre = new Map<string, ValuePre>(
       d: '2024-02-13',
       c: Klass.Other,
       en: 'closeth clause',
-      ja: '構造を閉ぢる',
+      ja: '構造を閉ぢる。非曖昧な時に省略する',
       o: 'https://en.wiktionary.org/wiki/啦#Chinese',
       token: 'ru',
     },
@@ -241,7 +229,7 @@ const dicPre = new Map<string, ValuePre>(
       d: '2025-06-11',
       c: Klass.Other,
       en: 'when, at the same time',
-      ja: 'それから。さうして',
+      ja: '以降。それから。さうして',
       token: 'ku',
     },
 
@@ -330,7 +318,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '4',
       ja: '4',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fedw%C5%8Dr',
-      token: 'fet',
+      token: 'fir',
     },
     five: {
       d: '2024-02-13',
@@ -373,13 +361,13 @@ const dicPre = new Map<string, ValuePre>(
       token: 'nin',
     },
 
-    infinite: {
-      d: '2024-09-06',
+    decimal: {
+      d: '2024-02-13',
       c: Klass.Numeral,
-      en: '(countable or uncountable) infinite',
-      ja: '（加算または非可算の）無限',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sin-',
-      token: 'sin',
+      en: 'decimal separator',
+      ja: '小數點',
+      o: 'https://en.wiktionary.org/wiki/pungo#Latin',
+      token: 'pu',
     },
     kilo: {
       d: '2024-02-13',
@@ -389,13 +377,14 @@ const dicPre = new Map<string, ValuePre>(
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BE%C5%ABsund%C4%AB',
       token: 'ki',
     },
-    deci: {
-      d: '2024-02-13',
+
+    infinite: {
+      d: '2024-09-06',
       c: Klass.Numeral,
-      en: 'decimal separator',
-      ja: '小數點',
-      o: 'https://en.wiktionary.org/wiki/pungo#Latin',
-      token: 'pu',
+      en: '(countable or uncountable) infinite',
+      ja: '（加算または非可算の）無限',
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sin-',
+      token: 'sin',
     },
 
     how_many: {
@@ -661,7 +650,7 @@ const dicPre = new Map<string, ValuePre>(
     deny: {
       d: '2024-08-30',
       c: Klass.Verb,
-      en: '@n (contradicteth, negateth, denieth) @a',
+      en: '@n contradicteth (negateth, denieth) @a',
       ja: '@nは@aを否定（に矛盾）する',
       o: 'https://en.wiktionary.org/wiki/neque#Latin',
       token: 'nek',
@@ -669,7 +658,7 @@ const dicPre = new Map<string, ValuePre>(
     back: {
       d: '2024-06-14',
       c: Klass.Verb,
-      en: '@n is temporally (inverse, opposite) of @a',
+      en: '@n is temporally inverse (opposite, reversed) of @a',
       ja: '@nは@aの逆行',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bak%C4%85',
       token: 'bak',
@@ -677,7 +666,7 @@ const dicPre = new Map<string, ValuePre>(
     counter: {
       d: '2024-06-14',
       c: Klass.Verb,
-      en: '@n (complementeth, is dual of) @a',
+      en: '@n complementeth (is dual of) @a',
       ja: '@nは@aを補完する（の雙對）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/an%C3%BEeraz',
       token: 'an',
@@ -685,7 +674,7 @@ const dicPre = new Map<string, ValuePre>(
     relate: {
       d: '2024-09-14',
       c: Klass.Verb,
-      en: '@n is (related to @a, @a-ish)',
+      en: '@n is related to @a (@a-ish)',
       ja: '@nは@aに關はる（@a的）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kin%C3%BEiz',
       token: 'kint',
@@ -693,24 +682,24 @@ const dicPre = new Map<string, ValuePre>(
     happen: {
       d: '2024-08-23',
       c: Klass.Verb,
-      en: '@n (existeth, happeneth, occureth, realiseth, is actual)',
-      ja: '@nは存在する、起こる、實現する、實際である',
+      en: '@n existeth (happeneth, occureth, realiseth, is actual)',
+      ja: '@nは存在する（起こる、實現する、實際である）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skehan%C4%85',
       token: 'xeh',
     },
     make: {
       d: '2024-08-02',
       c: Klass.Verb,
-      en: '@n (maketh, buildeth, createth) @a from @g (material, component)',
-      ja: '@nは@a（材料、部品）から@d（完成品）を作る、構成する',
+      en: '@n maketh (buildeth, createth) @a from @g (material, component)',
+      ja: '@nは@a（材料、部品）から@d（完成品）を作る（構成する）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/mak%C5%8Dn',
       token: 'mak',
     },
     break: {
       d: '2024-06-14',
       c: Klass.Verb,
-      en: '@n (breaketh, destructeth) @a into @d (pieces, components)',
-      ja: '@nは@aを@d（部品）へ壞す、分解する',
+      en: '@n breaketh (destructeth) @a into @d (pieces, components)',
+      ja: '@nは@aを@d（部品）へ壞す（分解する）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/brekan%C4%85',
       token: 'brek',
       complex: ['back', 'make'],
@@ -719,15 +708,15 @@ const dicPre = new Map<string, ValuePre>(
     have: {
       d: '2024-08-19',
       c: Klass.Verb,
-      en: '@n (hath, owneth) @{a:property}',
-      ja: '@nは@aを有する、保持する',
+      en: '@n hath (owneth) @a (property)',
+      ja: '@nは@aを有する（保持する）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/habjan%C4%85',
       token: 'hap',
     },
     give: {
       d: '2024-02-13',
       c: Klass.Verb,
-      en: '@n giveth @a to @{d:receiver}',
+      en: '@n giveth @a to @d',
       ja: '@nは@aを@dへ與ふ',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/geban%C4%85',
       token: 'cep',
@@ -745,7 +734,7 @@ const dicPre = new Map<string, ValuePre>(
     come: {
       d: '2024-08-26',
       c: Klass.Verb,
-      en: '@n (is, cometh) (from, since) @{a:source, origin, start}',
+      en: '@n is (cometh) from (since) @a (source, origin, start)',
       ja: '@nは@a（始點、起源、由來）から來る',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kweman%C4%85',
       token: 'kem',
@@ -753,7 +742,7 @@ const dicPre = new Map<string, ValuePre>(
     go: {
       d: '2024-08-26',
       c: Klass.Verb,
-      en: '@n (is, goeth) (to, until) @{a:sink, destination, goal}',
+      en: '@n is (goeth) to (until) @a (sink, destination, goal)',
       ja: '@nは@a（終點、到達點）へ往く',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/g%C4%81n%C4%85',
       token: 'can',
@@ -761,7 +750,7 @@ const dicPre = new Map<string, ValuePre>(
     pass: {
       d: '2024-08-26',
       c: Klass.Verb,
-      en: '@n (is, passeth) (through, via) @{a:process, route, medium}',
+      en: '@n is (passeth) through (via) @a (process, route, medium)',
       ja: '@nは@a（通過點、途中、媒體）を通る',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/%C3%BEurhw',
       token: 'dur',
@@ -786,7 +775,7 @@ const dicPre = new Map<string, ValuePre>(
     part: {
       d: '2024-08-06',
       c: Klass.Verb,
-      en: '@n is a (part, component) of @{a:whole}',
+      en: '@n is (part, component) of @{a:whole}',
       ja: '@nは@a（全體）の部分',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dailiz',
       token: 'del',
@@ -843,7 +832,7 @@ const dicPre = new Map<string, ValuePre>(
     move: {
       d: '2024-08-31',
       c: Klass.Verb,
-      en: '@n (moveth, is dynamic)',
+      en: '@n moveth (is dynamic)',
       ja: '@nは動く（變動する、動的）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wegan%C4%85',
       token: 'vex',
@@ -853,8 +842,8 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n (stopeth, halteth, is static)',
       ja: '@nは止まる（停止する、静的）',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/stopp%C5%8Dn',
       idiom: ['least', 'move'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-West_Germanic/stopp%C5%8Dn',
       token: 'stop',
     },
 
@@ -945,7 +934,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is force',
       ja: '@nは力',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wald%C4%85',
-      token: 'valt',
+      token: 'vaut',
     },
 
     wave: {
@@ -954,7 +943,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n (medium) waveth @a (form)',
       ja: '@n（媒體）の波は@a（形狀）を成す',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/bulgij%C5%8D',
-      token: 'bulx',
+      token: 'bux',
     },
     light: {
       d: '2024-02-13',
@@ -962,7 +951,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is (a light, an electromagnetic wave)',
       ja: '@nは光（電磁波）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/leuht%C4%85',
-      token: 'liht',
+      token: 'lit',
     },
     sound: {
       d: '2024-08-19',
@@ -981,7 +970,7 @@ const dicPre = new Map<string, ValuePre>(
       token: 'dren',
     },
 
-    fire: {
+    burn: {
       d: '2024-12-08',
       c: Klass.Verb,
       en: '@n (fuel) burneth with @a (oxidant)',
@@ -1003,9 +992,9 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is small',
       ja: '@nは小さい',
+      idiom: ['little', 'big'],
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/smalaz',
       token: 'smal',
-      idiom: ['little', 'big'],
     },
     long: {
       d: '2024-02-13',
@@ -1020,8 +1009,8 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is short',
       ja: '@nは短い',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz',
       idiom: ['little', 'long'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skurtaz',
       token: 'xurt',
     },
     thick: {
@@ -1055,7 +1044,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is heavy',
       ja: '@nは重い',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%93raz',
-      token: 'sver',
+      token: 'suar',
     },
     dense: {
       d: '2024-07-15',
@@ -1112,9 +1101,9 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is hard (firm) against @a',
       ja: '@nは@aに對して軟らかい',
+      idiom: ['little', 'soft'],
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fastuz',
       token: 'fast',
-      idiom: ['little', 'soft'],
     },
     hot: {
       d: '2024-08-30',
@@ -1129,9 +1118,9 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n cold (cool)',
       ja: '@nは冷たい（寒い、涼しい）',
+      idiom: ['little', 'hot'],
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kalan%C4%85',
       token: 'kal',
-      idiom: ['little', 'hot'],
     },
     far: {
       d: '2024-08-08',
@@ -1146,8 +1135,8 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is near (close to) @a',
       ja: '@nは@aへ近い',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz',
       idiom: ['little', 'far'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/n%C4%93hwaz',
       token: 'nex',
     },
     contact: {
@@ -1306,7 +1295,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is smoke (solid or liquid particles in gas)',
       ja: '@nは煙（氣體中の固體または液體の粒子）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dwemr%C4%85',
-      token: 'dvem',
+      token: 'duim',
     },
     ash: {
       d: '2024-09-16',
@@ -1365,7 +1354,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is orange',
       ja: '@nは橙色を呈する',
       o: 'https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B1%D9%86%DA%AF#Persian',
-      token: 'rank',
+      token: 'nar',
     },
     yellow: {
       d: '2024-02-13',
@@ -1397,28 +1386,28 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is purple',
       ja: '@nは紫色を呈する',
       o: 'https://en.wiktionary.org/wiki/%E1%BC%B4%CE%BF%CE%BD#Ancient_Greek',
-      token: 'vjon',
+      token: 'viun',
     },
     vivid: {
       d: '2024-08-19',
       c: Klass.Verb,
-      en: '@n is vivid (of high-saturation color)',
-      ja: '@nは鮮やか（高彩度を呈する）',
+      en: '@n is vivid (saturation=high)',
+      ja: '@nは鮮やか（彩度=高）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sk%C4%ABm%C3%B4',
       token: 'skim',
     },
     dull: {
       d: '2024-08-19',
       c: Klass.Verb,
-      en: '@n is dull (of low-saturation color)',
+      en: '@n is dull (saturation=low)',
       ja: '@nは鈍い（低彩度を呈する）',
       idiom: ['little', 'vivid'],
     },
     gray: {
       d: '2024-08-19',
       c: Klass.Verb,
-      en: '@n is gray (of saturationless color)',
-      ja: '@nは無彩色を呈する',
+      en: '@n is gray (saturation=lowest)',
+      ja: '@nは無彩色を呈する（彩度=最低）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gr%C4%93waz',
       token: 'crev',
       idiom: ['least', 'vivid'],
@@ -1426,16 +1415,16 @@ const dicPre = new Map<string, ValuePre>(
     bright: {
       d: '2024-08-19',
       c: Klass.Verb,
-      en: '@n is bright (of high brightness)',
-      ja: '@nは明るい（高明度を呈する）',
+      en: '@n is bright (brightness=high)',
+      ja: '@nは明るい（明度=高）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/berhtaz',
       token: 'bert',
     },
     dark: {
       d: '2024-08-19',
       c: Klass.Verb,
-      en: '@n is dark (of low brightness)',
-      ja: '@nは暗い（低明度を呈する）',
+      en: '@n is dark (brightness=low)',
+      ja: '@nは暗い（明度=低）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/dimmaz',
       idiom: ['little', 'bright'],
       token: 'dim',
@@ -1443,20 +1432,20 @@ const dicPre = new Map<string, ValuePre>(
     white: {
       d: '2024-02-13',
       c: Klass.Verb,
-      en: '@n is white (of highest brightness)',
+      en: '@n is white (brightness=highest)',
       ja: '@nは白い（最高明度を呈する）',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%ABtaz',
       idiom: ['most', 'bright'],
-      token: 'xvit',
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hw%C4%ABtaz',
+      token: 'xuit',
     },
     black: {
       d: '2024-04-26',
       c: Klass.Verb,
-      en: '@n is black (of lowest brightness)',
-      ja: '@nは黑い（最低明度を呈する）',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swartaz',
+      en: '@n is black (brightness=lowest)',
+      ja: '@nは黑い（明度=最低）',
       idiom: ['least', 'white'],
-      token: 'svat',
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swartaz',
+      token: 'suat',
     },
 
     // celestial
@@ -1505,26 +1494,26 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is winter (coldest interval) of @a (earth)',
       ja: '@nは@a（惑星）の冬（最も寒い季節）',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wintruz',
-      token: 'vinter',
       complex: ['season', 'little'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wintruz',
+      token: 'vint',
     },
     spring: {
       d: '2024-11-21',
       c: Klass.Verb,
       en: '@n is spring (warming interval) of @a (earth)',
       ja: '@nは@a（惑星）の春（暖まる季節）',
+      complex: ['season', 'up'],
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wazr%C4%85',
       token: 'vazar',
-      complex: ['season', 'up'],
     },
     summer: {
       d: '2024-08-30',
       c: Klass.Verb,
       en: '@n is summer (hottest interval) of @a (earth)',
       ja: '@nは@a（惑星）の夏（最も暑い季節）',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sumaraz',
       complex: ['season', 'much'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sumaraz',
       token: 'sumar',
     },
     autumn: {
@@ -1532,8 +1521,8 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is autumn (cooling interval) of @a (earth)',
       ja: '@nは@a（惑星）の秋（冷える季節）',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/harbistaz',
       complex: ['season', 'down'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/harbistaz',
       token: 'karbis',
     },
 
@@ -1559,8 +1548,8 @@ const dicPre = new Map<string, ValuePre>(
       c: Klass.Verb,
       en: '@n is night (evening) of @a (earth)',
       ja: '@nは@a（惑星）の夜',
-      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nahts',
       complex: ['part', 'day', 'dark'],
+      o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/nahts',
       token: 'nat',
     },
 
@@ -1684,7 +1673,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n smelleth @a (chemical substance)',
       ja: '@nは@a（化學物質）を嗅ぐ',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/reukan%C4%85',
-      token: 'rjuk',
+      token: 'riuk',
     },
     taste: {
       d: '2024-02-13',
@@ -1788,7 +1777,7 @@ const dicPre = new Map<string, ValuePre>(
       ja: '@nは眠る',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swefan%C4%85',
       idiom: ['least', 'wake'],
-      token: 'svef',
+      token: 'suif',
     },
 
     lie: {
@@ -1845,7 +1834,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n (swimeth, flieth) in @a (fluid)',
       ja: '@nは@a（流體）を飛翔する（泳ぐ）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swimman%C4%85',
-      token: 'svim',
+      token: 'suim',
     },
     fly: {
       d: '2024-07-28',
@@ -1887,7 +1876,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n swalloweth @a',
       ja: '@nは@aを嚥下する',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swelgan%C4%85',
-      token: 'svel',
+      token: 'suil',
     },
     digest: {
       d: '2024-02-13',
@@ -2088,7 +2077,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n enjoyeth @a',
       ja: '@nは@aを樂しむ',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/neutan%C4%85',
-      token: 'njut',
+      token: 'niut',
     },
     trust: {
       d: '2024-08-02',
@@ -2333,7 +2322,7 @@ const dicPre = new Map<string, ValuePre>(
       ja: '@nはを@aを@dへ答ふ',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swar%C5%8Dn%C4%85',
       complex: ['counter', 'ask'],
-      token: 'svar',
+      token: 'suir',
     },
 
     greet: {
@@ -2484,7 +2473,7 @@ const dicPre = new Map<string, ValuePre>(
       d: '2024-02-13',
       c: Klass.Verb,
       en: '@n is a lagomorpha (hare, rabbit)',
-      ja: '@nは兎形目（兎）',
+      ja: '@nは兔形目（兔）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/has%C3%B4',
       token: 'xas',
     },
@@ -2574,7 +2563,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is a sus (pig, hog)',
       ja: '@nは猪屬（豚）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/sw%C4%ABn%C4%85',
-      token: 'svin',
+      token: 'suin',
     },
 
     reptile: {
@@ -2789,7 +2778,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is a belly',
       ja: '@nは腹',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kwe%C3%BEuz',
-      token: 'kvet',
+      token: 'kuit',
     },
     tail: {
       d: '2024-02-13',
@@ -2918,7 +2907,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is a liver',
       ja: '@nは肝臓',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/libr%C5%8D',
-      token: 'ljur',
+      token: 'liur',
     },
     womb: {
       d: '2024-09-22',
@@ -3010,7 +2999,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is a person (an individual, a citizen)',
       ja: '@nは人間（個人、市民、）',
       o: 'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/liudiz',
-      token: 'ljut',
+      token: 'liut',
     },
     nation: {
       d: '2024-08-24',
@@ -3352,7 +3341,7 @@ const dicPre = new Map<string, ValuePre>(
       d: '2024-12-23',
       c: Klass.Verb,
       en: '@n is oblique',
-      ja: '@nは斜格',
+      ja: '@nは非主格',
       complex: ['verb', 'arm'],
     },
     accusative: {
@@ -3399,7 +3388,7 @@ const dicPre = new Map<string, ValuePre>(
       en: '@n is the continent australia',
       ja: '@nは おうすとらりあ大陸',
       etymology: 'https://en.wiktionary.org/wiki/australis#Latin',
-      token: 'avster',
+      token: 'auster',
     },
     continent_south_america: {
       d: '2025-02-28',
@@ -3497,8 +3486,8 @@ const dicPre = new Map<string, ValuePre>(
           c: Klass.Verb,
           en: `[country] @0 is ${name} (${iso})`,
           o: 'ISO 3166-1 alpha-2',
-          //idiom: ['nation', 'called', '$' + ofAcronym(iso)],
-          complex: ['nation', '$' + ofAcronym(iso)],
+          //idiom: ['nation', 'called', '$' + acronymToWord(iso)],
+          complex: ['nation', '$' + acronymToWord(iso)],
         },
       ])
     ),
@@ -3519,7 +3508,7 @@ const dicPre = new Map<string, ValuePre>(
         {
           date,
           c: Klass.Verb,
-          complex: ['done', 'speak', '$' + ofAcronym(iso)],
+          complex: ['done', 'speak', '$' + acronymToWord(iso)],
           en: `[language] @0 is ${adjective} language (${iso})`,
         },
       ])
@@ -3603,6 +3592,7 @@ interface Value {
   d: string;
   c: string;
   en: string;
+  ja?: string;
   formation: Formation;
   o: string;
   token: string;
@@ -3617,7 +3607,7 @@ for (const k of dic.keys())
     dic.set(k, { ...dic.get(k), ipa: toIpa(dic.get(k).token) });
   else {
     dic.delete(k);
-    console.warn(`.${k} deleted`);
+    console.warn(`deleted .${k}`);
   }
 
 // check homograph
@@ -3642,14 +3632,18 @@ for (const [k, { token, formation }] of dic.entries()) {
   }
 }
 
-export const translate = (code: string) =>
-  code.replace(
-    /[a-z_]+\{?|[\[\]\}\*\#]|\,/g,
-    (k) =>
-      dic.get(k)?.token ??
-      dic.get(k + '*')?.token ??
-      dic.get(k + '#')?.token ??
-      k
-  );
+export default new Map(
+  [...dic.entries()].sort(([, a], [, b]) => compare(a.token, b.token))
+);
 
-export default dic;
+export const translate = (code: string) =>
+  code
+    .replace(
+      /[a-z_]+/g,
+      (k) =>
+        dic.get(k)?.token ??
+        dic.get(k + '*')?.token ??
+        dic.get(k + '#')?.token ??
+        k
+    )
+    .replace(/ -/g, '-');
