@@ -9,20 +9,18 @@ export const toIpa = (s: string): string =>
   s.replace(new RegExp(`[-${letters}]+`, 'g'), (it) =>
     replaceEach(it, [
       [/^(?=[aiueo])/g, 'ʔ'],
+      [/(?<=[cdbjzv])$/, 'ə'],
       [/-/g, ''],
 
       [/c/g, 'g'],
       [/x/g, 'ʃ'],
       [/j/g, 'ʒ'],
 
-      [/ai/, 'aj'],
-      [/au/, 'aw'],
       [/i(?=[aou])/, 'j'],
       [/u(?=[iea])/, 'w'],
 
       [/nj/g, 'ɲ'],
-      [/gj/g, 'ɟ'],
-      [/kj/g, 'c'],
+      [/hj/g, 'ç'],
       [/lj/g, 'ʎ'],
     ]).normalize('NFC')
   );
@@ -31,18 +29,19 @@ export const invalid = (word: string): string | null => {
   for (const [item, pattern] of [
     ['empty', /^$/],
     ['repeat', /(.)\1/],
-    ['non-alphabet', new RegExp(`[^ ${letters}]`)],
+    ['alphabet', new RegExp(`[^ ${letters}]`)],
 
     ['3 consonants', new RegExp(`[${consonants}]{3,}`)],
+    //['2 consonants', new RegExp(`[${consonants}]{2}(?![${vowels}])`)],
     ['3 vowels', new RegExp(`[${vowels}]{3,}`)],
-    ['2 diphthong', /[iau][eo]|eo[aiueo]/],
+    ['2 vowels', /[aeo][aiueo]|[iu][eo]/],
 
-    ['coda l', /([xj]i|[mbpfv]u)[ieaou]/],
+    ['coda l', /l(?![aiueo])/],
     ['similar glide', /([xj]i|[mbpfv]u)[ieaou]/],
 
     //['end', /[cdbjzv]$/],
   ] as [string, RegExp][])
-    if (pattern.test(word)) return `${item}(${word.match(pattern)})`;
+    if (pattern.test(word)) return `${item} (${word.match(pattern)})`;
 
   return null;
 };

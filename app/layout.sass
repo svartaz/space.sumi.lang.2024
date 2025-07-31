@@ -1,12 +1,18 @@
 body
-  font-family: "Noto Sans", 'Noto Sans TC', serif
+  font-family: 'Zen Kaku Gothic New', "Noto Sans", 'Noto Sans TC', serif, sans-serif
   inline-size: min(100%, 64rem)
   margin-inline: auto
   padding: 1rem
   font-weight: 300
 
-h1,h2,h3,h4,h5,h6
-  font-weight: 400
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th
+  font-weight: inherit
 
 h2:before
   content: '§ '
@@ -16,6 +22,17 @@ h3:before
 
 h4:before
   content: '§§§ '
+
+pre
+  inline-size: fit-content
+  margin-inline: auto
+  background-color: gainsboro
+  padding: 1rem
+  font-size: large
+  font-family: 'Courier New', monospace
+
+rt
+  color: dimgray
 
 table
   max-inline-size: 100%
@@ -47,11 +64,12 @@ table
   color: darkgray
 
 .target
-  padding-inline: .25rem
-  border-radius: .25rem
-  background-color: lavender
+  //padding-inline: .25rem
+  //border-radius: .25rem
+  //background-color: lavender
 
 .ipa
+  color: gray
   &:before
     content: '['
   &:after
@@ -68,10 +86,10 @@ table
     align-items: center
 
 .samples
-  inline-size: 75%
+  inline-size: min(100%, 48rem)
 
   td:first-of-type
-    word-break: keep-all
+    inline-size: 4em
 
 .progress
   font-size: xx-small
@@ -82,12 +100,17 @@ table
 .words
   display: flex
   flex-wrap: wrap
-  gap: .5em
+  gap: 1px
   font-size: small
 
   div
     block-size: fit-content
-    max-inline-size: 24rem
     border: 1px solid gainsboro
     border-radius: .25em
     padding: .25em
+    text-wrap: balance
+
+    span:first-of-type
+      background-color: gainsboro
+      border-radius: .25em
+      padding-inline: .25em
