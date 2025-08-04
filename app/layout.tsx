@@ -1,4 +1,3 @@
-import dic from '../lib/words';
 import './layout.sass';
 
 export default ({ children }: { children: React.ReactNode }) => (

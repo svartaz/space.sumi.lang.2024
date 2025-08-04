@@ -7,21 +7,23 @@ export const letters = consonants + vowels;
 
 export const toIpa = (s: string): string =>
   s.replace(new RegExp(`[-${letters}]+`, 'g'), (it) =>
-    replaceEach(it, [
-      [/^(?=[aiueo])/g, 'ʔ'],
-      [/(?<=[cdbjzv])$/, 'ə'],
+    replaceEach(it.toUpperCase(), [
+      [/^(?=[AIUEO])/g, 'ʔ'],
+      [/(?<=[CDBJVZL])$/, 'ə'],
       [/-/g, ''],
 
-      [/c/g, 'g'],
-      [/x/g, 'ʃ'],
-      [/j/g, 'ʒ'],
+      [/N(?![AIUEO])/g, '\u0303'],
+      [/C/g, 'G'],
+      [/X/g, 'ʃ'],
 
-      [/i(?=[aou])/, 'j'],
-      [/u(?=[iea])/, 'w'],
+      [/(?<!^|[AIUEO])J(?=[AU])/, 'j'],
+      [/(?<!^|[AIUEO])V(?=[AI])/, 'w'],
+      [/J/g, 'ʒ'],
+      [/.+/, (it) => it.toLowerCase()],
 
-      [/nj/g, 'ɲ'],
-      [/hj/g, 'ç'],
-      [/lj/g, 'ʎ'],
+      [/n(j|(?=i))/g, 'ɲ'],
+      [/h(j|(?=i))/g, 'ç'],
+      [/l(j|(?=i))/g, 'ʎ'],
     ]).normalize('NFC')
   );
 
@@ -31,15 +33,15 @@ export const invalid = (word: string): string | null => {
     ['repeat', /(.)\1/],
     ['alphabet', new RegExp(`[^ ${letters}]`)],
 
-    ['3 consonants', new RegExp(`[${consonants}]{3,}`)],
-    //['2 consonants', new RegExp(`[${consonants}]{2}(?![${vowels}])`)],
-    ['3 vowels', new RegExp(`[${vowels}]{3,}`)],
-    ['2 vowels', /[aeo][aiueo]|[iu][eo]/],
+    ['consonants', new RegExp(`[${consonants}]{3,}`)],
+    ['vowels', new RegExp(`[${vowels}]{2,}`)],
 
-    ['coda l', /l(?![aiueo])/],
-    ['similar glide', /([xj]i|[mbpfv]u)[ieaou]/],
+    //['l', /l(?![aiueo])/],
+    ['glide', /([xj]i|[mbpfv]u)[ieaou]/],
 
-    //['end', /[cdbjzv]$/],
+    ['voiced after', /(?<!^|[nmrlaiueo])[cdbz]/],
+    ['voiced before', /[cdbz](?![nmrljvaiueo]|$)/],
+    ['glide', /(?<!^|[aiueo])[jv](?![aiueo]|$)/],
   ] as [string, RegExp][])
     if (pattern.test(word)) return `${item} (${word.match(pattern)})`;
 

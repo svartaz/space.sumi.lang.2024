@@ -184,12 +184,12 @@ export default () => (
             <th>有聲摩擦</th>
             <td></td>
             <td></td>
-            <td>
-              j <span className="ipa">ʑ,ʐ,ʒ</span>
+            <td rowSpan={2}>
+              j <span className="ipa">ʑ,ʐ,ʒ,j</span>
             </td>
             <td>z</td>
-            <td>
-              v <span className="ipa">v,β</span>
+            <td rowSpan={2}>
+              v <span className="ipa">v,β,w,ʋ</span>
             </td>
           </tr>
           <tr>
@@ -197,14 +197,8 @@ export default () => (
             <td></td>
             <td></td>
             <td>
-              i <span className="ipa">j</span>
-            </td>
-            <td>
               r <span className="ipa">ɾ</span>
               <br />l
-            </td>
-            <td>
-              u <span className="ipa">w,ʋ</span>
             </td>
           </tr>
           <tr>
@@ -227,6 +221,8 @@ export default () => (
           </tr>
         </tbody>
       </table>
+
+      <p>‹j›, ‹v› は詞頭と母音感で摩擦音, それ以外で接近音を指す.</p>
 
       <p>
         <span className="ipa">ʔ</span>を指す字は無い.
@@ -262,36 +258,11 @@ export default () => (
     </section>
 
     <section>
-      <h2>二重母音</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              ia <span className="ipa">ja</span>
-            </td>
-            <td>
-              iu <span className="ipa">ju</span>
-            </td>
-            <td>
-              ui <span className="ipa">wi</span>
-            </td>
-            <td>
-              ua <span className="ipa">wa</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        <span className="ipa">j</span>は詞頭と硬腭音に後置しない.
-        <br />
-        <span className="ipa">w</span>は詞頭と脣音に後置しない.
-      </p>
-    </section>
-
-    <section>
       <h2>動詞と格</h2>
       <p>
-        主に<dfn>動詞 (verb)</dfn> が文を構成する. 動詞は事物の關係を指す.
+        主に<dfn>動詞 (verb)</dfn> が文を構成する.
+        <br />
+        動詞は事物の關係を指す.
       </p>
       <p>
         日本語文 ‹猫が星を見る› を例とすると, 主要な關係 ‹…が…を見る› が事物
@@ -326,13 +297,13 @@ give─┬─n──something
     </section>
 
     <section>
-      <h2>法と時制</h2>
+      <h2>法と時制と時相</h2>
       <p>
-        <dfn>後助動詞 (postverb)</dfn>が動詞の法と時制を指す.
+        <dfn>助動詞 (preverb)</dfn>が動詞の法と時制を指す.
       </p>
       <p>
-        事實を指す<dfn>叙實法 (realis)</dfn> と, 假定, 命令, 想像を指す
-        <dfn>叙想法 (irrealis)</dfn> が有る.
+        事實を指す<dfn>叙實法 (realis)</dfn> と, 假定, 命令, 想像,
+        婉曲などを指す<dfn>叙想法 (irrealis)</dfn> が有る.
       </p>
       <p>
         時間に依らず成立する傾向を指す<dfn>不變時制 (invariable)</dfn> と,
@@ -340,35 +311,31 @@ give─┬─n──something
         <br />
         不變時制と それ以外は自然言語の名詞と動詞に それぞれ似る.
       </p>
-      <p>動詞は陰に叙實法 不變時制を指す.</p>
+      <p>起動相, 進行相, 中斷相, 完了相が有る.</p>
+
+      <p>動詞は陰に叙實法 不變時制 進行相を指す.</p>
 
       {samples([
         'did',
         'do',
         'will',
+
         'if_be',
         'if_did',
         'if_do',
         'if_will',
-        ['see', '見る物 (gazer) だ'],
-        ['see do', '見てゐる'],
-        ['see if_did', '見たなら…'],
-      ])}
-    </section>
 
-    <section>
-      <h2>時相</h2>
-      <p>動詞は進行時相を陰に指す.</p>
-      <p>
-        <dfn>前助動詞 (preverb)</dfn> が非進行時相を指す.
-      </p>
-      <p>現在時制と非進行相は兩立しない.</p>
-      {samples([
+        ['see', '見る物 (gazer) だ'],
+        ['do see', '見てゐる'],
+        ['if_did see', '見たなら…'],
+
         'begin',
+        'cease',
         'end',
         'live',
-        ['begin live do', '生き始めた\n→生まれた'],
-        ['end live will', '生き終はらむ\n→死なむ'],
+
+        ['did begin live', '生き始めた\n→生まれた'],
+        ['will end live', '生き終はらう\n→死なう'],
       ])}
     </section>
 
@@ -381,19 +348,23 @@ give─┬─n──something
       </p>
 
       <p>同格は主格 ‹何かが› を具體化する.</p>
-      {samples([['cat&see do', '何かが猫であり, 見てゐる\n→猫が見てゐる']])}
+      {samples([['cat&(do see)', '何かが猫であり, 見てゐる\n→猫が見てゐる']])}
 
       <p>同格は形容する.</p>
       {samples([
         'black',
-        ['cat&black&see do', '何かが猫であり, 黑く, 見てゐる\n→黑猫が見てゐる'],
+        [
+          'cat&black&(do see)',
+          '何かが猫であり, 黑く, 見てゐる\n→黑猫が見てゐる',
+        ],
       ])}
 
       <pre>
         {`
   cat──n┐
 black──n┤
-  see──n┘`.substring(1)}
+  see─┬n┘
+      └a──`.substring(1)}
       </pre>
     </section>
 
@@ -414,14 +385,14 @@ black──n┤
         'i',
         'water',
         'give',
-        ['i&(give do him=water)', '我が水を與へてゐる'],
-        ['i&(give do him=water to=cat)', '我が猫へ水を與へてゐる'],
+        ['i&(do give him=water)', '我が水を與へてゐる'],
+        ['i&(do give him=water to=cat)', '我が猫へ水を與へてゐる'],
       ])}
 
       <p>前置詞は同格を一個の動詞として扱ふ.</p>
       {samples([
-        ['give did to=cat', '猫へ與へてゐた'],
-        ['give did to=(cat&black)', '黑い猫へ與へてゐた'],
+        ['did give to=cat', '猫へ與へてゐた'],
+        ['did give to=(cat&black)', '黑い猫へ與へてゐた'],
       ])}
 
       <pre>
@@ -436,30 +407,27 @@ give─┬n─n──i
     <section>
       <h2>受動態</h2>
       <p>
-        前置詞で格を指定して非主格を同格の對象に指定し得る.
-        <br />
-        これを<dfn>受動態 (passive)</dfn> と言ふ.
+        <dfn>受動態 (passive)</dfn>{' '}
+        は前置詞を用ゐて非主格を同格の對象に指定する.
       </p>
       {samples([
         'done',
         'water',
-        ['i&(give did him=water to=cat)', '我は水を猫へ與へてゐた'],
-        ['water&(done give did by=i to=cat)', '水を我は猫へ與へてゐた'],
-        ['cat&(done to give did by=i him=water)', '猫へ我は水を與へてゐた'],
+        ['i&(did give him=water to=cat)', '我は水を猫へ與へてゐた'],
+        ['water&(done did give by=i to=cat)', '水を我は猫へ與へてゐた'],
+        ['cat&(done to did give by=i him=water)', '猫へ我は水を與へてゐた'],
       ])}
     </section>
 
     <section>
       <h2>作用域</h2>
-      <p>
-        ここまでの文法では, 空欄を埋めた動詞で別の動詞の空欄を埋める方法が無い.
-      </p>
+      <p>ここまでの文法では, 空欄を埋めた動詞で別の動詞の空欄を埋め得ない.</p>
       {samples([
-        ['i&(see do him=cat)', '我が猫を見てゐる'],
-        ['cat&(eat do him=water)', '猫が水を飲んでゐる'],
-        ['i&(see do him=(cat&eat do))', '我が, 飲む猫を見てゐる'],
+        ['i&(do see him=cat)', '我が猫を見てゐる'],
+        ['cat&(do eat him=water)', '猫が水を飲んでゐる'],
+        ['i&(do see him=(cat&(do eat)))', '我が, 飲む猫を見てゐる'],
         [
-          '? i&(see do him=(cat&eat do) him=water)',
+          '? i&(do see him=(cat&(do eat)) him=water)',
           '? 我が, 飲む猫を水を見てゐる',
         ],
         ['?', '我が, 水を飲む猫を見てゐる'],
@@ -469,13 +437,13 @@ give─┬n─n──i
         の對格を埋めたいが, 文の全體が<Translate>see</Translate>の
         <dfn>作用域 (scope)</dfn> なる故に叶はない.
         <br />
-        <Translate>eat</Translate>の作用域を開き これを回避する.
+        <Translate>eat</Translate>の作用域を開き回避する.
       </p>
       {samples([
         'which',
         '_close',
         [
-          'i&(see do him=(cat&(eat do which him=water)))',
+          'i&(do see him=(cat&(do eat which him=water)))',
           '我が, 水を飲む猫を見てゐる',
         ],
       ])}
@@ -502,46 +470,56 @@ see─┬n─n──i
       </p>
       {samples([
         'know',
-        ['cat&(see do him=sun)', '猫が星を見てゐる'],
-        ['see do by=cat him=sun', '(同)'],
+        ['cat&(do see him=sun)', '猫が星を見てゐる'],
+        ['do see by=cat him=sun', '(同)'],
         [
-          'i&(know do him=(done ly see do which by=cat him=sun))',
+          'i&(do know him=(done ly do see which by=cat him=sun))',
           '猫が星を見てゐる事を我は知ってゐる',
         ],
       ])}
     </section>
 
     <section>
-      <h2>逐次的同格</h2>
+      <h2>逐次と同期</h2>
       <p>
-        同格は論理的連言 ‹かつ› を指すのみならず, 逐次的な ‹それから›
-        をも現し得る.
-        <br />
-        これは華語の連動文に似る.
+        有る動詞が指す事象の始點の後に別の動詞が指す事象の始點が有る事を
+        <dfn>逐次 (consecution)</dfn> が指す
       </p>
       {samples([
         'then',
         'eat',
         'go',
-        ['go&then eat', '往ってから食ふ\n→食ひに往く'],
+        ['did go&(then eat)', '往ってから食った\n→食ひに往った'],
+      ])}
+
+      <p>
+        有る動詞が指す事象と別の動詞が指す事象が時間に共有點を持つ事を
+        <dfn>同期 (synchronisation)</dfn> が指す.
+      </p>
+      {samples([
+        'sync',
+        '_comma',
+        [
+          'he&(sync did end go) _comma i&(sync did least wake)',
+          '彼が來た時, 我は寢てゐた',
+        ],
       ])}
     </section>
 
     <section>
-      <h2>極性</h2>
+      <h2>程度</h2>
       <p>
-        動詞に前置する數詞は動詞が指す關係の<dfn>極性 (polarity)</dfn> を指す.
+        動詞に前置する數詞は動詞が指す關係の<dfn>程度 (degree)</dfn> を指す.
       </p>
+      <p>動詞は程度を陰に豫め持ち, 數詞は それを上書く.</p>
 
       {samples([
         'least',
         'little',
         'much',
-        'red',
-        ['least cat', '非-猫'],
-        ['least red', '赤くない'],
-        ['little red', '少し赤い'],
-        ['much red', 'かなり赤い'],
+        ['live', '生きてゐる度が初期値\n→生きてゐる'],
+        ['least live', '生きてゐる度が最低\n→生きてゐない (死んでゐる)'],
+        ['little live', '生きてゐる度が低い\n→死にかけてゐる'],
       ])}
     </section>
 
@@ -558,7 +536,7 @@ see─┬n─n──i
         ['(zero of)&cat', '零個の猫'],
         ['(one of)&cat', '一個の猫'],
         ['(much of)&cat', '多い猫'],
-        ['see did him=(much of)&cat', '多い猫を見た'],
+        ['did see him=(much of)&cat', '多い猫を見た'],
       ])}
     </section>
 
@@ -568,7 +546,7 @@ see─┬n─n──i
 
       {samples([
         '_loan',
-        ['done _loan $sumi make do him _self', `sumiは${name}を作ってゐる`],
+        ['done _loan $sumi do make him _self', `sumiは${name}を作ってゐる`],
       ])}
     </section>
 
@@ -595,9 +573,9 @@ see─┬n─n──i
             <div key={key}>
               <span className="target">{token}</span>{' '}
               <span className="ipa">{toIpa(token)}</span> ∈
-              {formation === Formation.Complex ? '複合' : ''}
-              {klass}
-              {formation === Formation.Idiom ? '句' : ''}
+              {klass
+                .replace(/^/, formation === Formation.Complex ? '複合' : '')
+                .replace(/詞$/, formation === Formation.Idiom ? '句' : '詞')}
               <br />
               {highlight(ja ?? en ?? '')}
             </div>
