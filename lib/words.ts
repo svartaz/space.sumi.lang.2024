@@ -211,30 +211,86 @@ const dicPre = new Map<string, ValuePre>(
       token: 'xa',
     },
 
+    yet: {
+      date: '2025-08-05',
+      klass: Klass.Preverb,
+      en: 'inchoative aspect. yet',
+      ja: '將前相. …せむとする',
+      etymology:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/juta',
+      token: 'ji',
+    },
     begin: {
       date: '2024-05-26',
       klass: Klass.Preverb,
-      en: 'inchoative aspect. begin to …',
-      ja: '起動相. …し始める',
+      en: 'initiative aspect. begin',
+      ja: '開始相. …し始める',
       etymology:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/ginnaną',
       token: 'ci',
     },
-    cease: {
+    keep: {
       date: '2024-05-26',
       klass: Klass.Preverb,
-      en: 'cessative aspect. cease doing …',
-      ja: '中斷相. …し已む',
-      etymology: 'https://en.wiktionary.org/wiki/stop#English',
-      token: 'ti',
+      en: 'progressive aspect. is doing',
+      ja: '進行相. …してゐる',
+      etymology:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/haldan%C4%85',
+      token: 'hi',
     },
     end: {
       date: '2024-05-26',
       klass: Klass.Preverb,
-      en: 'perfective. aspect. end doing …',
+      en: 'completive aspect. end',
       ja: '終了相. …し終へる',
       etymology: 'https://en.wiktionary.org/wiki/finis#Latin',
       token: 'fi',
+    },
+    already: {
+      date: '2025-08-05',
+      klass: Klass.Preverb,
+      en: 'perfective aspect. already done',
+      ja: '完了相. …し終へる',
+      etymology: 'https://en.wiktionary.org/wiki/post#Latin',
+      token: 'pi',
+    },
+    rest: {
+      date: '2025-08-05',
+      klass: Klass.Preverb,
+      en: 'negative progressive aspect. rest',
+      ja: '停止相. …し已んでゐる',
+      etymology:
+        'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rast%C5%8D',
+      token: 'ri',
+    },
+
+    beginning: {
+      date: '2025-08-07',
+      klass: Klass.Preverb,
+      en: 'aspect. is beginning',
+      ja: '…し始めてゐる',
+      idiom: ['keep', 'begin'],
+    },
+    ending: {
+      date: '2025-08-07',
+      klass: Klass.Preverb,
+      en: 'aspect. is ending',
+      ja: '…し終へてゐる',
+      idiom: ['keep', 'end'],
+    },
+    pause: {
+      date: '2025-08-05',
+      klass: Klass.Preverb,
+      en: 'aspect. pause',
+      ja: '中斷する',
+      idiom: ['begin', 'rest'],
+    },
+    resume: {
+      date: '2025-08-05',
+      klass: Klass.Preverb,
+      en: 'aspect. resume',
+      ja: '再開する',
+      idiom: ['end', 'rest'],
     },
 
     which: {
@@ -263,14 +319,14 @@ const dicPre = new Map<string, ValuePre>(
       token: 'ru',
     },
 
-    then: {
+    sequentially: {
       date: '2025-06-11',
       klass: Klass.Preverb,
       en: 'time consecution. and then. after that',
       ja: '時點前後. 以降. それから. さうして',
       token: 'ku',
     },
-    sync: {
+    concurrently: {
       date: '2025-08-04',
       klass: Klass.Preverb,
       en: 'time synchronisation. at the same time',
@@ -696,7 +752,7 @@ const dicPre = new Map<string, ValuePre>(
       ja: '減少量',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fallaną',
-      token: 'fu',
+      token: 'fal',
     },
     up: {
       date: '2024-09-29',
@@ -705,7 +761,7 @@ const dicPre = new Map<string, ValuePre>(
       ja: '增加量',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/rīsaną',
-      token: 'ri',
+      token: 'ris',
     },
 
     _self: {
@@ -3417,6 +3473,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-11-24',
       klass: Klass.Verb,
       en: '@n stabeth @a',
+      ja: '@nは@aを刺す',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/stubbaz',
       token: 'stub',
@@ -3662,7 +3719,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-10-05',
       klass: Klass.Verb,
       en: '@n is a word',
-      ja: '@n is a 單詞',
+      ja: '@nは單詞',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wurdą',
       token: 'vord',
@@ -3855,7 +3912,7 @@ for (let i = 0; i < dicPre.size + 1; i++)
         });
       }
     } else if ('idiom' in v) {
-      if (v.idiom.some((it) => !dicPre.has(k))) dicPre.delete(k);
+      if (v.idiom.some((it) => !dicPre.has(it))) dicPre.delete(k);
 
       const tokens = toTokens(v.idiom);
 

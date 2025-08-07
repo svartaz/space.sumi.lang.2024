@@ -10,16 +10,22 @@ const name = dic.get('_self').token;
 const Translate = (props) => (
   <span className="target">
     {props.children
-      .split(/(?<![$_a-z]+)(?=[$_a-z]+)|(?<=[$_a-z]+)(?![$_a-z]+)/g)
+      .split(
+        /(?<![$_a-z]+(\*#)?)(?=[$_a-z]+(\*#)?)|(?<=[$_a-z]+(\*#)?)(?![$_a-z]+(\*#)?)/g
+      )
       .filter((it, i, self) =>
         dic.get(self?.[i + 1])?.token.startsWith('-') ? it.trimEnd() : it
       )
-      .map((it, i) =>
-        dic.has(it) ? (
-          <ruby>
-            {dic.get(it).token}
-            <rt>{it}</rt>
-          </ruby>
+      .map((it, i) => {
+        const value = dic.get(it);
+        return dic.has(it) ? (
+          <span key={i}>
+            <ruby>
+              {value.token}
+              <rt>{it}</rt>
+            </ruby>
+            {entry(it)}
+          </span>
         ) : it.startsWith('$') ? (
           it.substring(1)
         ) : i === 0 && it.startsWith('?') ? (
@@ -28,8 +34,8 @@ const Translate = (props) => (
           <span key={i} style={{ color: 'lightgray' }}>
             {it}
           </span>
-        )
-      )}
+        );
+      })}
   </span>
 );
 
@@ -47,29 +53,58 @@ const highlight = (meant: string) =>
 const samples = (entries: (string | [string, string])[]) => (
   <table className="samples">
     <tbody>
-      {entries.map((it, i) =>
-        typeof it === 'string' ? (
-          <tr key={i}>
-            <td>{dic.get(it).klass}</td>
-            <td>
-              <Translate>{it}</Translate>
-            </td>
-            <td className="ipa">{toIpa(translate(it))}</td>
-            <td>{highlight(dic.get(it)?.ja ?? dic.get(it)?.en ?? '')}</td>
-          </tr>
-        ) : (
-          <tr key={i}>
-            <td>文</td>
-            <td colSpan={2}>
-              <Translate>{it[0]}</Translate>
-            </td>
-            <td style={{ whiteSpace: 'pre-wrap' }}>{it[1]}</td>
-          </tr>
-        )
-      )}
+      {entries.map((it, i) => {
+        if (typeof it === 'string') {
+          const { token, klass, formation, ja, en } = dic.get(it);
+          return (
+            <tr>
+              <td>
+                {klass
+                  .replace(/^/, formation === Formation.Complex ? '複合' : '')
+                  .replace(/詞$/, formation === Formation.Idiom ? '句' : '詞')}
+              </td>
+              <td className="target">{token}</td>
+              <td className="ipa">{toIpa(token)}</td>
+              <td>{highlight(ja ?? en)}</td>
+            </tr>
+          );
+        } else
+          return (
+            <tr>
+              <td>文</td>
+              <td colSpan={2}>
+                <Translate>{it[0]}</Translate>
+              </td>
+              <td>{it[1]}</td>
+            </tr>
+          );
+      })}
     </tbody>
   </table>
 );
+
+const entry = (key) => {
+  const { token, klass, formation, ja, en } = dic.get(key);
+  return (
+    <span className="entry">
+      <span className="target">{token}</span>
+      {toIpa(token) === token ? (
+        ''
+      ) : (
+        <>
+          {' '}
+          <span className="ipa">{toIpa(token)}</span>
+        </>
+      )}
+      :{' '}
+      {klass
+        .replace(/^/, formation === Formation.Complex ? '複合' : '')
+        .replace(/詞$/, formation === Formation.Idiom ? '句' : '詞')}
+      <br />
+      {highlight(ja ?? en ?? '')}
+    </span>
+  );
+};
 
 export default () => (
   <>
@@ -119,9 +154,26 @@ export default () => (
         が作成する人間言語.
         <br />
         主動客-對格言語.
-        <br />
-        構文にjbo語とcmn語, 表記にcat語, 形態にdeu語の影響を受けた.
       </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>が影響した</th>
+            <th>に影響した</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>jbo</td>
+            <td>統語</td>
+          </tr>
+          <tr>
+            <td>gem</td>
+            <td>詞素と音の對應</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section>
@@ -131,8 +183,8 @@ export default () => (
           <tr>
             <th></th>
             <th>聲門</th>
-            <th>軟腭</th>
-            <th>硬腭</th>
+            <th>軟齶</th>
+            <th>硬齶</th>
             <th>舌</th>
             <th>脣</th>
           </tr>
@@ -203,18 +255,18 @@ export default () => (
           </tr>
           <tr>
             <th>非中母</th>
-            <td>a</td>
             <td></td>
+            <td>a</td>
             <td>i</td>
             <td></td>
             <td>u</td>
           </tr>
           <tr>
             <th>中母</th>
+            <td></td>
             <td>
               <span className="ipa">ǝ</span>
             </td>
-            <td></td>
             <td>e</td>
             <td></td>
             <td>o</td>
@@ -222,18 +274,18 @@ export default () => (
         </tbody>
       </table>
 
-      <p>‹j›, ‹v› は詞頭と母音感で摩擦音, それ以外で接近音を指す.</p>
+      {/*<p>‹j›, ‹v› は詞頭と母音間で摩擦音, それ以外で接近音を指す.</p>*/}
 
       <p>
         <span className="ipa">ʔ</span>を指す字は無い.
         <br />
-        母音に始まる單詞の前に現れ得る.
+        詞頭の母音の前に現れ得る.
       </p>
 
       <p>
         <span className="ipa">ǝ</span>を指す字は無い.
         <br />
-        子音に終はる單詞の後に現れ得る.
+        詞尾の子音の後に現れ得る.
       </p>
     </section>
 
@@ -249,7 +301,8 @@ export default () => (
                   .replace(/g/, 'g ŋ')
                   .replace(/ö/, 'ö œ ø')
                   .replace(/y/, 'y ü')
-                  .replace(/[^ ]/g, (it) => `‹${it}›`)}
+                  .replace(/[^ ]/g, (it) => `‹${it}›`)
+                  .replace(/.+/, (it) => '(' + it + ')')}
             <span className="target">{acronymToWord(l.toUpperCase())}</span>
           </div>
         ))}
@@ -265,13 +318,13 @@ export default () => (
         動詞は事物の關係を指す.
       </p>
       <p>
-        日本語文 ‹猫が星を見る› を例とすると, 主要な關係 ‹…が…を見る› が事物
+        jpn語 例文 ‹猫が星を見る› では主要な關係 ‹…が…を見る› が事物
         猫と星を結ぶ.
       </p>
       <p>
         ‹猫が星を見る› と ‹星が猫を見る› が指す物は違ふ.
         <br />
-        關係は一般に交換せず, 關係の中の空欄は固有の機能を持つ.
+        關係の中の空欄は固有の機能を持ち, 一般には交換しない.
         <br />
         空欄の, 他の空欄と區別される機能を<dfn>格 (case)</dfn> と言ふ.
       </p>
@@ -290,28 +343,26 @@ export default () => (
 
       <pre>
         {`
-give─┬─n──something
-     ├─a──something
-     └─d──something`.trim()}
+see─┬n──
+    └a──`.trim()}
       </pre>
     </section>
 
     <section>
       <h2>法と時制と時相</h2>
       <p>
-        <dfn>助動詞 (preverb)</dfn>が動詞の法と時制を指す.
+        <dfn>助動詞 (preverb)</dfn> が法と時制と時相を指す.
       </p>
       <p>
-        事實を指す<dfn>叙實法 (realis)</dfn> と, 假定, 命令, 想像,
-        婉曲などを指す<dfn>叙想法 (irrealis)</dfn> が有る.
+        現實を指す<dfn>叙實法 (realis)</dfn> と非現實 (假定, 命令, 想像,
+        婉曲など) を指す<dfn>叙想法 (irrealis)</dfn> が有る.
       </p>
       <p>
-        時間に依らず成立する傾向を指す<dfn>不變時制 (invariable)</dfn> と,
-        時間に依る過去時制, 現在時制, 未來時制が有る.
+        時間に依らず成立する傾向を指す不變時制と, 時間に依る過去時制, 現在時制,
+        未來時制が有る.
         <br />
         不變時制と それ以外は自然言語の名詞と動詞に それぞれ似る.
       </p>
-      <p>起動相, 進行相, 中斷相, 完了相が有る.</p>
 
       <p>動詞は陰に叙實法 不變時制 進行相を指す.</p>
 
@@ -330,10 +381,14 @@ give─┬─n──something
         ['if_did see', '見たなら…'],
 
         'begin',
-        'cease',
+        'keep',
         'end',
+        'rest',
+        'pause#',
+        'resume#',
         'live',
 
+        ['live', '生物'],
         ['did begin live', '生き始めた\n→生まれた'],
         ['will end live', '生き終はらう\n→死なう'],
       ])}
@@ -412,10 +467,9 @@ give─┬n─n──i
       </p>
       {samples([
         'done',
-        'water',
         ['i&(did give him=water to=cat)', '我は水を猫へ與へてゐた'],
-        ['water&(done did give by=i to=cat)', '水を我は猫へ與へてゐた'],
-        ['cat&(done to did give by=i him=water)', '猫へ我は水を與へてゐた'],
+        ['water&(did done give by=i to=cat)', '水を我は猫へ與へてゐた'],
+        ['cat&(did done to give by=i him=water)', '猫へ我は水を與へてゐた'],
       ])}
     </section>
 
@@ -423,6 +477,7 @@ give─┬n─n──i
       <h2>作用域</h2>
       <p>ここまでの文法では, 空欄を埋めた動詞で別の動詞の空欄を埋め得ない.</p>
       {samples([
+        'eat',
         ['i&(do see him=cat)', '我が猫を見てゐる'],
         ['cat&(do eat him=water)', '猫が水を飲んでゐる'],
         ['i&(do see him=(cat&(do eat)))', '我が, 飲む猫を見てゐる'],
@@ -450,15 +505,17 @@ give─┬n─n──i
 
       <pre>
         {`
-see─┬n─n──i
-    ├a┬n──cat
-    │ └n──eat
-   !└a─n──water
+    i──n┐
+  see─┬n┘
+      ├a┬n──cat
+      │ └n──eat
+     !└a─n──water
 
-see─┬n─n──i
-    └a┬n──cat
-      └n┬n──eat
-        └a─n──water`.substring(1)}
+    i──n┐
+  see─┬n┘
+      └a┬n──cat
+        └n┬─eat
+water──n-a┘`.substring(1)}
       </pre>
     </section>
 
@@ -486,10 +543,9 @@ see─┬n─n──i
         <dfn>逐次 (consecution)</dfn> が指す
       </p>
       {samples([
-        'then',
-        'eat',
+        'sequentially',
         'go',
-        ['did go&(then eat)', '往ってから食った\n→食ひに往った'],
+        ['(did go)&(sequentially eat)', '往ってから食った\n→食ひに往った'],
       ])}
 
       <p>
@@ -497,10 +553,10 @@ see─┬n─n──i
         <dfn>同期 (synchronisation)</dfn> が指す.
       </p>
       {samples([
-        'sync',
+        'concurrently',
         '_comma',
         [
-          'he&(sync did end go) _comma i&(sync did least wake)',
+          'he&(concurrently did end go) _comma i&(concurrently least wake)',
           '彼が來た時, 我は寢てゐた',
         ],
       ])}
@@ -567,21 +623,7 @@ see─┬n─n──i
 
     <section>
       <h2>詞彙 ({dic.size})</h2>
-      <div className="words">
-        {[...dic.entries()].map(
-          ([key, { token, ja, en, klass, formation }]) => (
-            <div key={key}>
-              <span className="target">{token}</span>{' '}
-              <span className="ipa">{toIpa(token)}</span> ∈
-              {klass
-                .replace(/^/, formation === Formation.Complex ? '複合' : '')
-                .replace(/詞$/, formation === Formation.Idiom ? '句' : '詞')}
-              <br />
-              {highlight(ja ?? en ?? '')}
-            </div>
-          )
-        )}
-      </div>
+      <div className="words">{[...dic.keys()].map((key) => entry(key))}</div>
     </section>
 
     <section>
