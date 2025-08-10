@@ -1,7 +1,5 @@
 import { compare, invalid, toIpa } from './write';
-// @ts-ignore
-import { replaceEach } from 'https://sumi.space/js/string.js';
-
+import { replaceEach } from '../submodules/shared/string';
 export const acronymToWord = (acronym: string) =>
   replaceEach(acronym.toUpperCase(), [
     [/[AIUEO]/g, (it) => 'h' + it.toLowerCase()],
@@ -2771,7 +2769,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       en: '@n is a human (homo)',
-      ja: '@nは人',
+      ja: '@nは人屬に屬する',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/mann-',
       token: 'man',
@@ -2824,7 +2822,7 @@ const dicPre = new Map<string, ValuePre>(
     wolf: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is a canis lupus (wolf)',
+      en: '@n is a wolf',
       ja: '@nは狼',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/wulfaz',
@@ -2842,7 +2840,7 @@ const dicPre = new Map<string, ValuePre>(
     sheep: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is an ovis (sheep)',
+      en: '@n is a sheep',
       ja: '@nは羊屬に屬する',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/skēpą',
@@ -2851,7 +2849,7 @@ const dicPre = new Map<string, ValuePre>(
     goat: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is a capra (goat)',
+      en: '@n is a goat',
       ja: '@nは山羊屬に屬する',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/gaits',
@@ -2869,7 +2867,7 @@ const dicPre = new Map<string, ValuePre>(
     horse: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is a equus (horse)',
+      en: '@n is a horse (zebra)',
       ja: '@nは馬屬に屬する',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/hrussą',
@@ -2878,7 +2876,7 @@ const dicPre = new Map<string, ValuePre>(
     cow: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is a bovin (cow)',
+      en: '@n is a cow (buffalo)',
       ja: '@nは牛族に屬する',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/kūz',
@@ -2887,7 +2885,7 @@ const dicPre = new Map<string, ValuePre>(
     pig: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is a sus (pig, hog)',
+      en: '@n is a pig (hog, boar)',
       ja: '@nは猪屬に屬する (豚)',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swīną',
@@ -2898,7 +2896,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       en: '@n is a reptile',
-      ja: '@nは爬虫類に屬する',
+      ja: '@nは爬虫綱に屬する',
       origin: 'https://en.wiktionary.org/wiki/reptilis#Latin',
       token: 'reptil',
     },
@@ -2915,7 +2913,7 @@ const dicPre = new Map<string, ValuePre>(
     bird: {
       date: '2024-02-13',
       klass: Klass.Verb,
-      en: '@n is an avis (bird)',
+      en: '@n is a bird',
       ja: '@nは鳥類に屬する',
       origin:
         'https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/fuglaz',
@@ -2945,7 +2943,7 @@ const dicPre = new Map<string, ValuePre>(
       date: '2024-02-13',
       klass: Klass.Verb,
       en: '@n is a amphibia',
-      ja: '@nは兩棲類に屬する',
+      ja: '@nは兩棲綱に屬する',
       origin: 'https://en.wiktionary.org/wiki/amphibius#Latin',
       token: 'anfib',
     },

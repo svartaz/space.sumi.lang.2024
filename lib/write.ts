@@ -1,5 +1,4 @@
-// @ts-ignore
-import { replaceEach } from 'https://sumi.space/js/string.js';
+import { replaceEach } from '../submodules/shared/string';
 
 const consonants = 'nmcdbktphxsfjzvrl';
 const vowels = 'aiueo';

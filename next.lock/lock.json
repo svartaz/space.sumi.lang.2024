@@ -1,6 +1,0 @@
-{
-  "https://sumi.space/js/date.js": { "integrity": "sha512-b7dE9wytsOC6KJ7n5yZkMP1lQe9U1ZdjHQ7vaTsVBNjQGfljOuJnv4rJ2Szu7C90TCHKJF9AUEAlHFynuXGGgA==", "contentType": "application/javascript" },
-  "https://sumi.space/js/math.js": { "integrity": "sha512-QTMshWJb2QLcS+QgT9r95o17GM5oCY5CDfBb2oW2ayL6K76rLYpXWo4AcQRNWpRzzvnkUOaOyVfpHR/Qeq4HNQ==", "contentType": "application/javascript" },
-  "https://sumi.space/js/string.js": { "integrity": "sha512-HPWhFNJRVr/YckTArXMBgKDQj0+05C8JUTGkY48fhndlbEF/aQnfVBhiKod4lIjjdWiUBa0+qEuD0bHSL3AAUw==", "contentType": "application/javascript" },
-  "version": 1
-}

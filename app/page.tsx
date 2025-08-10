@@ -1,8 +1,7 @@
 import Script from 'next/script';
-import dic, { acronymToWord, Formation, translate } from '../lib/words';
+import dic, { acronymToWord, Formation } from '../lib/words';
 import { letters, toIpa } from '../lib/write';
-// @ts-ignore
-import { dateToObject } from 'https://sumi.space/js/date.js';
+import { dateToObject } from '../submodules/shared/date';
 import Head from 'next/head';
 
 const name = dic.get('_self').token;
@@ -664,7 +663,7 @@ water──n-a┘`.substring(1)}
                   return (
                     <tr key={date}>
                       <th style={{ textWrap: 'nowrap' }}>
-                        {dateToObject(new Date(date)).string}
+                        {dateToObject(new Date(date)).text}
                       </th>
                       <td>
                         {(new Date(date).getTime() -
